@@ -21,13 +21,13 @@
 ## OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 ## SOFTWARE.
 
-import sigrokdecode as srd
+import opentracedecode as otd
 from common.srdhelper import bitpack
 
 # Millimeters per inch.
 mm_per_inch = 25.4
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'caliper'
     name = 'Caliper'
@@ -59,7 +59,7 @@ class Decoder(srd.Decoder):
     )
 
     def metadata(self, key, value):
-       if key == srd.SRD_CONF_SAMPLERATE:
+       if key == otd.SRD_CONF_SAMPLERATE:
             self.samplerate = value
 
     def __init__(self):
@@ -71,7 +71,7 @@ class Decoder(srd.Decoder):
         self.flags_bits = []
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def putg(self, ss, es, cls, data):
         self.put(ss, es, self.out_ann, [cls, data])

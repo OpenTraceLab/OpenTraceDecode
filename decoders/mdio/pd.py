@@ -26,9 +26,9 @@
 ## POSSIBILITY OF SUCH DAMAGE.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'mdio'
     name = 'MDIO'
@@ -71,8 +71,8 @@ class Decoder(srd.Decoder):
         self.reset_decoder_state()
 
     def start(self):
-        self.out_python = self.register(srd.OUTPUT_PYTHON)
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_python = self.register(otd.OUTPUT_PYTHON)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def putbit(self, mdio, ss, es):
         self.put(ss, es, self.out_ann, [0, ['%d' % mdio]])

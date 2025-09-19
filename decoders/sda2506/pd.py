@@ -18,14 +18,14 @@
 ##
 
 import re
-import sigrokdecode as srd
+import opentracedecode as otd
 from common.srdhelper import SrdIntEnum
 
 Pin = SrdIntEnum.from_str('Pin', 'CLK DATA CE')
 
 ann_cmdbit, ann_databit, ann_cmd, ann_data, ann_warning = range(5)
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'sda2506'
     name = 'SDA2506'
@@ -63,11 +63,11 @@ class Decoder(srd.Decoder):
         self.databits = []
 
     def metadata(self, key, value):
-        if key == srd.SRD_CONF_SAMPLERATE:
+        if key == otd.SRD_CONF_SAMPLERATE:
             self.samplerate = value
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def putbit(self, ss, es, typ, value):
         self.put(ss, es, self.out_ann, [typ, ['%s' % (value)]])

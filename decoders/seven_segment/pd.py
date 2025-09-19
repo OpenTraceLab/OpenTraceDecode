@@ -17,7 +17,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 
 class ChannelError(Exception):
     pass
@@ -99,7 +99,7 @@ digits = {
     (0, 0, 0, 1, 0, 0, 0): '_',
 }
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'seven_segment'
     name = '7-segment'
@@ -141,7 +141,7 @@ class Decoder(srd.Decoder):
         pass
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def putb(self, ss_block, es_block, data):
         self.put(ss_block, es_block, self.out_ann, data)

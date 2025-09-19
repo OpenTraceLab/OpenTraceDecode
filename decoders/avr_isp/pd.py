@@ -17,7 +17,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 from .parts import *
 
 class Ann:
@@ -26,7 +26,7 @@ class Ann:
 
 VENDOR_CODE_ATMEL = 0x1e
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'avr_isp'
     name = 'AVR ISP'
@@ -72,7 +72,7 @@ class Decoder(srd.Decoder):
         self.ss_device = None
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def putx(self, data):
         self.put(self.ss_cmd, self.es_cmd, self.out_ann, data)

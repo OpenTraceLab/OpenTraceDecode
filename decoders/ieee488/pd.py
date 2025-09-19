@@ -38,7 +38,7 @@
 #   the address spec and either EOI or ATN). So a stacked SCPI decoder may
 #   only become necessary when the text lines' content shall get inspected.
 
-import sigrokdecode as srd
+import opentracedecode as otd
 from common.srdhelper import bitpack
 
 '''
@@ -254,7 +254,7 @@ PIN_DATA = PIN_DIO1
     # TODO Want to provide one binary annotation class per talker address (0-30)?
 ) = range(2)
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'ieee488'
     name = 'IEEE-488'
@@ -347,9 +347,9 @@ class Decoder(srd.Decoder):
         self.last_iec_sec = None
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
-        self.out_bin = self.register(srd.OUTPUT_BINARY)
-        self.out_python = self.register(srd.OUTPUT_PYTHON)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
+        self.out_bin = self.register(otd.OUTPUT_BINARY)
+        self.out_python = self.register(otd.OUTPUT_PYTHON)
 
     def putg(self, ss, es, data):
         self.put(ss, es, self.out_ann, data)

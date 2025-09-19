@@ -17,12 +17,12 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 from common.plugtrx import (MODULE_ID, ALARM_THRESHOLDS, AD_READOUTS, GCS_BITS,
         CONNECTOR, TRANSCEIVER, SERIAL_ENCODING, XMIT_TECH, CDR, DEVICE_TECH,
         ENHANCED_OPTS, AUX_TYPES)
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'xfp'
     name = 'XFP'
@@ -111,7 +111,7 @@ class Decoder(srd.Decoder):
         }
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def decode(self, ss, es, data):
         cmd, data = data

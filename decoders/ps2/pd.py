@@ -17,7 +17,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 from collections import namedtuple
 
 class Ann:
@@ -25,7 +25,7 @@ class Ann:
 
 Bit = namedtuple('Bit', 'val ss es')
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'ps2'
     name = 'PS/2'
@@ -61,7 +61,7 @@ class Decoder(srd.Decoder):
         self.bitcount = 0
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def putb(self, bit, ann_idx):
         b = self.bits[bit]

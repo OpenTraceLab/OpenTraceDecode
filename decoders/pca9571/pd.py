@@ -17,7 +17,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 
 NUM_OUTPUT_CHANNELS = 8
 
@@ -29,7 +29,7 @@ def logic_channels(num_channels):
         l.append(tuple(['p%d' % i, 'P%d' % i]))
     return tuple(l)
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'pca9571'
     name = 'PCA9571'
@@ -59,8 +59,8 @@ class Decoder(srd.Decoder):
         self.last_write_es = 0
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
-        self.out_logic = self.register(srd.OUTPUT_LOGIC)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
+        self.out_logic = self.register(otd.OUTPUT_LOGIC)
 
     def flush(self):
         self.put_logic_states()

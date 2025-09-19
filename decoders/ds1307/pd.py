@@ -19,7 +19,7 @@
 ##
 
 import re
-import sigrokdecode as srd
+import opentracedecode as otd
 from common.srdhelper import bcd2int, SrdIntEnum
 
 days_of_week = (
@@ -56,7 +56,7 @@ a = ['REG_' + r.upper() for r in regs] + \
     ['READ_DATE_TIME', 'WRITE_DATE_TIME', 'READ_REG', 'WRITE_REG', 'WARNING']
 Ann = SrdIntEnum.from_list('Ann', a)
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'ds1307'
     name = 'DS1307'
@@ -95,7 +95,7 @@ class Decoder(srd.Decoder):
         self.bits = []
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def putx(self, data):
         self.put(self.ss, self.es, self.out_ann, data)

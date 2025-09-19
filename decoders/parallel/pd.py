@@ -17,7 +17,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 from common.srdhelper import bitpack
 
 '''
@@ -70,7 +70,7 @@ class Ann:
 class ChannelError(Exception):
     pass
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'parallel'
     name = 'Parallel'
@@ -120,9 +120,9 @@ class Decoder(srd.Decoder):
         self.word_items = []
 
     def start(self):
-        self.out_python = self.register(srd.OUTPUT_PYTHON)
-        self.out_binary = self.register(srd.OUTPUT_BINARY)
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_python = self.register(otd.OUTPUT_PYTHON)
+        self.out_binary = self.register(otd.OUTPUT_BINARY)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def putg(self, ss, es, ann, txts):
         self.put(ss, es, self.out_ann, [ann, txts])

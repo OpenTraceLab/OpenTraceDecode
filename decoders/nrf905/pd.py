@@ -21,7 +21,7 @@
 ## OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 ## SOFTWARE.
 
-import sigrokdecode as srd
+import opentracedecode as otd
 from common.srdhelper import SrdIntEnum
 
 CFG_REGS = {
@@ -77,7 +77,7 @@ STAT_REG = [
 
 Ann = SrdIntEnum.from_str('Ann', 'CMD REG_WR REG_RD TX RX RESP WARN')
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'nrf905'
     name = 'nRF905'
@@ -115,7 +115,7 @@ class Decoder(srd.Decoder):
         self.cmd_samples = {'ss': 0, 'es': 0}
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def extract_bits(self, byte, start_bit, num_bits):
         begin = 7 - start_bit

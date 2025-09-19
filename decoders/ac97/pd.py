@@ -23,7 +23,7 @@
 #   frequency (either on user provided parameters, or from inspection of
 #   decoded register access).
 
-import sigrokdecode as srd
+import opentracedecode as otd
 from common.srdhelper import SrdIntEnum
 
 class ChannelError(Exception):
@@ -38,7 +38,7 @@ Ann = SrdIntEnum.from_list('Ann', a)
 
 Bin = SrdIntEnum.from_str('Bin', 'FRAME_OUT FRAME_IN SLOT_RAW_OUT SLOT_RAW_IN')
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'ac97'
     name = "AC '97"
@@ -145,11 +145,11 @@ class Decoder(srd.Decoder):
         }
 
     def start(self):
-        self.out_binary = self.register(srd.OUTPUT_BINARY)
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_binary = self.register(otd.OUTPUT_BINARY)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def metadata(self, key, value):
-        if key == srd.SRD_CONF_SAMPLERATE:
+        if key == otd.SRD_CONF_SAMPLERATE:
             self.samplerate = value
 
     def bits_to_int(self, bits):

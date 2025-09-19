@@ -17,7 +17,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 from common.srdhelper import bin2int, SrdIntEnum
 
 class Instruction(object):
@@ -188,7 +188,7 @@ regs_items = {
     'rows_range': tuple(range(1, 1 + 9)),
 }
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'jtag_ejtag'
     name = 'JTAG / EJTAG'
@@ -227,7 +227,7 @@ class Decoder(srd.Decoder):
         self.put(ss, es, self.out_ann, data)
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def select_reg(self, ir_value: int):
         self.state = ejtag_state_map.get(ir_value, State.RESET)

@@ -53,7 +53,7 @@
 #   maximum of information possible, and pass it on as transparently
 #   as possible.
 
-import sigrokdecode as srd
+import opentracedecode as otd
 from common.srdhelper import bitpack
 from math import ceil, floor
 
@@ -111,7 +111,7 @@ ANN_FRAME_INIT, ANN_FRAME_BYTES, ANN_FRAME_WAIT, \
 class SamplerateError(Exception):
     pass
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'pjdl'
     name = 'PJDL'
@@ -183,11 +183,11 @@ class Decoder(srd.Decoder):
         self.short_bits = None
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
-        self.out_python = self.register(srd.OUTPUT_PYTHON)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
+        self.out_python = self.register(otd.OUTPUT_PYTHON)
 
     def metadata(self, key, value):
-        if key == srd.SRD_CONF_SAMPLERATE:
+        if key == otd.SRD_CONF_SAMPLERATE:
             self.samplerate = value
             self.span_prepare()
 

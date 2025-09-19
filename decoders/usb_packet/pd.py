@@ -18,7 +18,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 
 '''
 OUTPUT_PYTHON format:
@@ -172,7 +172,7 @@ def calc_crc16(bitstr):
     crc16 ^= 0xffff
     return reverse_number(crc16, 16)
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'usb_packet'
     name = 'USB packet'
@@ -246,8 +246,8 @@ class Decoder(srd.Decoder):
         self.put(self.ss_packet, self.es_packet, self.out_ann, data)
 
     def start(self):
-        self.out_python = self.register(srd.OUTPUT_PYTHON)
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_python = self.register(otd.OUTPUT_PYTHON)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def handle_packet(self):
         packet = ''

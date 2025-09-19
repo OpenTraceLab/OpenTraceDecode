@@ -18,13 +18,13 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 from .lists import *
 
 RX = 0
 TX = 1
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'midi'
     name = 'MIDI'
@@ -58,7 +58,7 @@ class Decoder(srd.Decoder):
         self.es_block = None
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def putx(self, data):
         self.put(self.ss_block, self.es_block, self.out_ann, data)

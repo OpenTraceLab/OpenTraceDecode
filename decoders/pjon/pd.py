@@ -32,7 +32,7 @@
 #   data from an example setup. Strictly speaking this decoder violates
 #   the spec, and errs towards the usability side.
 
-import sigrokdecode as srd
+import opentracedecode as otd
 import struct
 
 ANN_RX_INFO, ANN_HDR_CFG, ANN_PKT_LEN, ANN_META_CRC, ANN_TX_INFO, \
@@ -65,7 +65,7 @@ def calc_crc32(data):
     crc ^= 0xffffffff
     return crc
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'pjon'
     name = 'PJON'
@@ -118,7 +118,7 @@ class Decoder(srd.Decoder):
         self.ann_es = None
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def putg(self, ss, es, ann, data):
         self.put(ss, es, self.out_ann, [ann, data])

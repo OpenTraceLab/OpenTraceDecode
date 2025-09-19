@@ -18,7 +18,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 
 # Dictionary of FUNCTION commands and their names.
 commands_2432 = {
@@ -60,7 +60,7 @@ def crc16(byte_array):
     crc ^= 0xffff # Invert CRC.
     return crc
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'ds243x'
     name = 'DS243x'
@@ -88,8 +88,8 @@ class Decoder(srd.Decoder):
         self.commands = commands_2432 # Use max command set until we know better.
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
-        self.out_binary = self.register(srd.OUTPUT_BINARY)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
+        self.out_binary = self.register(otd.OUTPUT_BINARY)
 
     def putx(self, data):
         self.put(self.ss, self.es, self.out_ann, data)

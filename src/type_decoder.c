@@ -314,7 +314,7 @@ static inline struct otd_decoder_inst *otd_sess_inst_find_by_obj(
 /**
  * Find a decoder instance by its Python object.
  *
- * I.e. find that instance's instantiation of the sigrokdecode.Decoder class.
+ * I.e. find that instance's instantiation of the opentracedecode.Decoder class.
  * This will recurse to find the instance anywhere in the stack tree of all
  * sessions.
  *
@@ -1221,7 +1221,7 @@ static PyMethodDef Decoder_methods[] = {
 };
 
 /**
- * Create the sigrokdecode.Decoder type.
+ * Create the opentracedecode.Decoder type.
  *
  * @return The new type object.
  *
@@ -1241,7 +1241,7 @@ OTD_PRIV PyObject *otd_Decoder_type_new(void)
 
 	gstate = PyGILState_Ensure();
 
-	spec.name = "sigrokdecode.Decoder";
+	spec.name = "opentracedecode.Decoder";
 	spec.basicsize = sizeof(otd_Decoder);
 	spec.itemsize = 0;
 	spec.flags = Py_TPFLAGS_DEFAULT | Py_TPFLAGS_BASETYPE;

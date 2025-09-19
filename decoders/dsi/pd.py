@@ -17,12 +17,12 @@
 ## along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 
 class SamplerateError(Exception):
     pass
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'dsi'
     name = 'DSI'
@@ -60,11 +60,11 @@ class Decoder(srd.Decoder):
         self.state = 'IDLE'
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
         self.old_dsi = 1 if self.options['polarity'] == 'active-low' else 0
 
     def metadata(self, key, value):
-        if key == srd.SRD_CONF_SAMPLERATE:
+        if key == otd.SRD_CONF_SAMPLERATE:
             self.samplerate = value
             # One bit: 1666.7us (one half low, one half high).
             # This is how many samples are in 1TE.

@@ -27,14 +27,14 @@
  * When initialized, a reference to this module inside the Python interpreter
  * lives here.
  */
-OTD_PRIV PyObject *mod_sigrokdecode = NULL;
+OTD_PRIV PyObject *mod_opentracedecode = NULL;
 
 /** @endcond */
 
-static struct PyModuleDef sigrokdecode_module = {
+static struct PyModuleDef opentracedecode_module = {
 	PyModuleDef_HEAD_INIT,
-	.m_name = "sigrokdecode",
-	.m_doc = "sigrokdecode module",
+	.m_name = "opentracedecode",
+	.m_doc = "opentracedecode module",
 	.m_size = -1,
 };
 
@@ -46,7 +46,7 @@ PyMODINIT_FUNC PyInit_opentracedecode(void)
 
 	gstate = PyGILState_Ensure();
 
-	mod = PyModule_Create(&sigrokdecode_module);
+	mod = PyModule_Create(&opentracedecode_module);
 	if (!mod)
 		goto err_out;
 
@@ -56,7 +56,7 @@ PyMODINIT_FUNC PyInit_opentracedecode(void)
 	if (PyModule_AddObject(mod, "Decoder", Decoder_type) < 0)
 		goto err_out;
 
-	/* Expose output types as symbols in the sigrokdecode module */
+	/* Expose output types as symbols in the opentracedecode module */
 	if (PyModule_AddIntConstant(mod, "OUTPUT_ANN", OTD_OUTPUT_ANN) < 0)
 		goto err_out;
 	if (PyModule_AddIntConstant(mod, "OUTPUT_PYTHON", OTD_OUTPUT_PYTHON) < 0)
@@ -71,7 +71,7 @@ PyMODINIT_FUNC PyInit_opentracedecode(void)
 	if (PyModule_AddIntConstant(mod, "OTD_CONF_SAMPLERATE", OTD_CONF_SAMPLERATE) < 0)
 		goto err_out;
 
-	mod_sigrokdecode = mod;
+	mod_opentracedecode = mod;
 
 	PyGILState_Release(gstate);
 

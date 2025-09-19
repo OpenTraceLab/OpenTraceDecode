@@ -49,8 +49,8 @@ extern OTD_PRIV GSList *searchpaths;
 extern OTD_PRIV GSList *sessions;
 extern OTD_PRIV int max_session_id;
 
-/* module_sigrokdecode.c */
-extern OTD_PRIV PyObject *mod_sigrokdecode;
+/* module_opentracedecode.c */
+extern OTD_PRIV PyObject *mod_opentracedecode;
 
 /** @endcond */
 
@@ -856,9 +856,9 @@ OTD_API int otd_decoder_load(const char *module_name)
 		goto except_out;
 	}
 
-	if (!mod_sigrokdecode) {
-		otd_err("sigrokdecode module not loaded.");
-		fail_txt = "sigrokdecode(3) not loaded";
+	if (!mod_opentracedecode) {
+		otd_err("opentracedecode module not loaded.");
+		fail_txt = "opentracedecode(3) not loaded";
 		goto err_out;
 	}
 
@@ -869,9 +869,9 @@ OTD_API int otd_decoder_load(const char *module_name)
 		goto except_out;
 	}
 
-	py_basedec = PyObject_GetAttrString(mod_sigrokdecode, "Decoder");
+	py_basedec = PyObject_GetAttrString(mod_opentracedecode, "Decoder");
 	if (!py_basedec) {
-		fail_txt = "no 'Decoder' attribute in sigrokdecode(3)";
+		fail_txt = "no 'Decoder' attribute in opentracedecode(3)";
 		goto except_out;
 	}
 
@@ -880,8 +880,8 @@ OTD_API int otd_decoder_load(const char *module_name)
 
 	if (!is_subclass) {
 		otd_err("Decoder class in protocol decoder module %s is not "
-			"a subclass of sigrokdecode.Decoder.", module_name);
-		fail_txt = "not a subclass of sigrokdecode.Decoder";
+			"a subclass of opentracedecode.Decoder.", module_name);
+		fail_txt = "not a subclass of opentracedecode.Decoder";
 		goto err_out;
 	}
 

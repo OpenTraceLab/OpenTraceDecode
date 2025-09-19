@@ -233,7 +233,7 @@ OTD_API int otd_init(const char *path)
 	otd_dbg("Initializing libopentracedecode.");
 
 	/* Add our own module to the list of built-in modules. */
-	PyImport_AppendInittab("sigrokdecode", PyInit_opentracedecode);
+	PyImport_AppendInittab("opentracedecode", PyInit_opentracedecode);
 
 	/* Initialize the Python interpreter. */
 	Py_InitializeEx(0);

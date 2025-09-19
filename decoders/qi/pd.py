@@ -17,7 +17,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 import operator
 import collections
 from functools import reduce
@@ -44,7 +44,7 @@ def bits_to_uint(bits):
     # LSB first
     return reduce(lambda i, v: (i >> 1) | (v << (len(bits) - 1)), bits, 0)
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'qi'
     name = 'Qi'
@@ -93,12 +93,12 @@ class Decoder(srd.Decoder):
         self.packet = []
 
     def metadata(self, key, value):
-        if key == srd.SRD_CONF_SAMPLERATE:
+        if key == otd.SRD_CONF_SAMPLERATE:
             self.samplerate = value
             self.bit_width = float(self.samplerate) / 2e3
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
         self.reset_variables()
 
     def packet_len(self, byte):

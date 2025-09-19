@@ -17,7 +17,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 from common.srdhelper import bitpack_lsb
 
 def disabled_enabled(v):
@@ -115,7 +115,7 @@ regs = {
 
 ( ANN_REG, ANN_WARN, ) = range(2)
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'adf435x'
     name = 'ADF435x'
@@ -142,7 +142,7 @@ class Decoder(srd.Decoder):
         self.bits = []
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def putg(self, ss, es, cls, data):
         self.put(ss, es, self.out_ann, [ cls, data, ])

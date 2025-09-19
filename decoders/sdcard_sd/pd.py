@@ -17,7 +17,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 from common.srdhelper import SrdIntEnum, SrdStrEnum
 from common.sdcard import (cmd_names, acmd_names, accepted_voltages, sd_status)
 
@@ -59,7 +59,7 @@ class Bit:
     def __init__(self, s, e, b):
         self.ss, self.es, self.bit = s, e ,b
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'sdcard_sd'
     name = 'SD card (SD mode)'
@@ -112,7 +112,7 @@ class Decoder(srd.Decoder):
         self.arg = None
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def putt(self, data):
         self.put(self.token[0].ss, self.token[47].es, self.out_ann, data)

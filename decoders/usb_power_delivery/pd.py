@@ -19,7 +19,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 import struct
 import zlib   # for crc32
 
@@ -194,7 +194,7 @@ VDM_ACK = ['REQ', 'ACK', 'NAK', 'BSY']
 class SamplerateError(Exception):
     pass
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'usb_power_delivery'
     name = 'USB PD'
@@ -522,7 +522,7 @@ class Decoder(srd.Decoder):
         self.cap_mark = [0, 0, 0, 0, 0, 0, 0, 0]
 
     def metadata(self, key, value):
-        if key == srd.SRD_CONF_SAMPLERATE:
+        if key == otd.SRD_CONF_SAMPLERATE:
             self.samplerate = value
             # 0 is 2 UI, space larger than 1.5x 0 is definitely wrong.
             self.maxbit = self.us2samples(3 * UI_US)
@@ -530,10 +530,10 @@ class Decoder(srd.Decoder):
             self.threshold = self.us2samples(THRESHOLD_US)
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
-        self.out_binary = self.register(srd.OUTPUT_BINARY)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
+        self.out_binary = self.register(otd.OUTPUT_BINARY)
         self.out_bitrate = self.register(
-            srd.OUTPUT_META,
+            otd.OUTPUT_META,
             meta=(int, 'Bitrate', 'Bitrate during the packet')
         )
 

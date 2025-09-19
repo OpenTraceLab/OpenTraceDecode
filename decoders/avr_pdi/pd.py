@@ -70,7 +70,7 @@
 #   to component names, or even register names and bit fields(?). It's
 #   quite deep a rabbithole though...
 
-import sigrokdecode as srd
+import opentracedecode as otd
 from collections import namedtuple
 
 class Ann:
@@ -111,7 +111,7 @@ class PDI:
         2: 'ctrl',
     }
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'avr_pdi'
     name = 'AVR PDI'
@@ -191,12 +191,12 @@ class Decoder(srd.Decoder):
         self.cmd_insn_parts_terse = []
 
     def metadata(self, key, value):
-        if key == srd.SRD_CONF_SAMPLERATE:
+        if key == otd.SRD_CONF_SAMPLERATE:
             self.samplerate = value
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
-        self.out_binary = self.register(srd.OUTPUT_BINARY)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
+        self.out_binary = self.register(otd.OUTPUT_BINARY)
 
     def put_ann_bit(self, bit_nr, ann_idx):
         b = self.bits[bit_nr]

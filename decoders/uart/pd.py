@@ -17,7 +17,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 from common.srdhelper import bitpack
 from math import floor, ceil
 
@@ -91,7 +91,7 @@ class Ann:
 class Bin:
     RX, TX, RXTX = range(3)
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'uart'
     name = 'UART'
@@ -222,13 +222,13 @@ class Decoder(srd.Decoder):
         self.idle_start = [None, None]
 
     def start(self):
-        self.out_python = self.register(srd.OUTPUT_PYTHON)
-        self.out_binary = self.register(srd.OUTPUT_BINARY)
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_python = self.register(otd.OUTPUT_PYTHON)
+        self.out_binary = self.register(otd.OUTPUT_BINARY)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
         self.bw = (self.options['data_bits'] + 7) // 8
 
     def metadata(self, key, value):
-        if key == srd.SRD_CONF_SAMPLERATE:
+        if key == otd.SRD_CONF_SAMPLERATE:
             self.samplerate = value
             # The width of one UART bit in number of samples.
             self.bit_width = float(self.samplerate) / float(self.options['baudrate'])

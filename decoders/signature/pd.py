@@ -17,7 +17,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 
 symbol_map = {
     0b0000: '0',
@@ -40,7 +40,7 @@ symbol_map = {
 
 START, STOP, CLOCK, DATA = range(4)
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'signature'
     name = 'Signature'
@@ -85,7 +85,7 @@ class Decoder(srd.Decoder):
         pass
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def putsig(self, ss, es, signature):
         s = ''.join([symbol_map[(signature >>  0) & 0x0f],

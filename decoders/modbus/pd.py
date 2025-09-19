@@ -17,7 +17,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 from math import ceil
 
 RX = 0
@@ -811,7 +811,7 @@ class Modbus_ADU_CS(Modbus_ADU):
 
         self.check_crc(bytecount + 12)
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'modbus'
     name = 'Modbus'
@@ -866,7 +866,7 @@ class Decoder(srd.Decoder):
         self.bitlength = None # We will later test how long a bit is.
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def puta(self, start, end, ann_str, message):
         '''Put an annotation from start to end, with ann as a

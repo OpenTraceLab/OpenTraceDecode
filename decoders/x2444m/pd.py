@@ -18,7 +18,7 @@
 ##
 
 import re
-import sigrokdecode as srd
+import opentracedecode as otd
 
 registers = {
     0x80: ['WRDS',  0, lambda _: ''],
@@ -32,7 +32,7 @@ registers = {
     # 0x86/0x87 are both valid READ commands (bit 0 is "don't care").
 }
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'x2444m'
     name = 'X2444M/P'
@@ -61,7 +61,7 @@ class Decoder(srd.Decoder):
         self.cmd_digit = 0
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def putreadwrite(self, ss, es, reg, idx, addr, value):
         self.put(ss, es, self.out_ann,

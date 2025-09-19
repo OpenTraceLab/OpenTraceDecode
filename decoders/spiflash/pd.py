@@ -17,7 +17,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 import re
 from common.srdhelper import SrdIntEnum
 from .lists import *
@@ -68,7 +68,7 @@ def decode_status_reg(data):
 
     return ret
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'spiflash'
     name = 'SPI flash/EEPROM'
@@ -123,7 +123,7 @@ class Decoder(srd.Decoder):
         self.data = []
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
         self.chip = chips[self.options['chip']]
         self.vendor = self.options['chip'].split('_')[0]
 

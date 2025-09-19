@@ -17,7 +17,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 import string
 import subprocess
 import re
@@ -36,7 +36,7 @@ ARM_EXCEPTIONS = {
     15: 'SysTick',
 }
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'arm_itm'
     name = 'ARM ITM'
@@ -94,7 +94,7 @@ class Decoder(srd.Decoder):
         self.func_lookup = {}
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
         self.load_objdump()
 
     def load_objdump(self):

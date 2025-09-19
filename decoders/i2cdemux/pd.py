@@ -17,9 +17,9 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'i2cdemux'
     name = 'I²C demux'
@@ -62,7 +62,7 @@ class Decoder(srd.Decoder):
 
             # We're never seen this slave, add a new stream.
             self.slaves.append(databyte)
-            self.out_python.append(self.register(srd.OUTPUT_PYTHON,
+            self.out_python.append(self.register(otd.OUTPUT_PYTHON,
                                    proto_id='i2c-%s' % hex(databyte)))
             self.stream = self.streamcount
             self.streamcount += 1

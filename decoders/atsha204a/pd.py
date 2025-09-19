@@ -17,7 +17,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 
 WORD_ADDR_RESET         = 0x00
 WORD_ADDR_SLEEP         = 0x01
@@ -92,7 +92,7 @@ STATUS = {
     0xff: 'CRC / communications error',
 }
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'atsha204a'
     name = 'ATSHA204A'
@@ -129,7 +129,7 @@ class Decoder(srd.Decoder):
         self.bytes = []
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def output_tx_bytes(self):
         b = self.bytes

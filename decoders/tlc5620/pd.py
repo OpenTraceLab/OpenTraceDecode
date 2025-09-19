@@ -17,7 +17,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 from common.srdhelper import SrdIntEnum
 
 Pin = SrdIntEnum.from_str('Pin', 'CLK DATA LOAD LDAC')
@@ -29,7 +29,7 @@ dacs = {
     3: 'DACD',
 }
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'tlc5620'
     name = 'TI TLC5620'
@@ -88,7 +88,7 @@ class Decoder(srd.Decoder):
         self.gains = {'A': '?', 'B': '?', 'C': '?', 'D': '?'}
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def handle_11bits(self):
         # Only look at the last 11 bits, the rest is ignored by the TLC5620.

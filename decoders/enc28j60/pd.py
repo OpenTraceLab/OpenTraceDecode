@@ -21,7 +21,7 @@
 ## OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 ## SOFTWARE.
 
-import sigrokdecode as srd
+import opentracedecode as otd
 from .lists import *
 
 OPCODE_MASK = 0b11100000
@@ -44,7 +44,7 @@ REG_ADDR_ECON1 = 0x1F
 BIT_ECON1_BSEL0 = 0b00000001
 BIT_ECON1_BSEL1 = 0b00000010
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'enc28j60'
     name = 'ENC28J60'
@@ -89,7 +89,7 @@ class Decoder(srd.Decoder):
         self.bsel1 = None
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def putc(self, data):
         self.put(self.cmd_ss, self.cmd_es, self.out_ann, data)

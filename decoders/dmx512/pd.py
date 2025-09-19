@@ -60,13 +60,13 @@ TODO
   but that's just cosmetics, available data gets interpreted correctly.
 '''
 
-import sigrokdecode as srd
+import opentracedecode as otd
 
 class Ann:
     BREAK, MAB, INTERFRAME, INTERPACKET, STARTCODE, DATABYTE, CHANNEL_DATA, \
     SLOT_DATA, RESET, WARN, ERROR = range(11)
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'dmx512'
     name = 'DMX512'
@@ -132,11 +132,11 @@ class Decoder(srd.Decoder):
         self.start_code = None
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
-        self.out_python = self.register(srd.OUTPUT_PYTHON)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
+        self.out_python = self.register(otd.OUTPUT_PYTHON)
 
     def metadata(self, key, value):
-        if key == srd.SRD_CONF_SAMPLERATE:
+        if key == otd.SRD_CONF_SAMPLERATE:
             self.samplerate = value
             self.samples_per_usec = value / 1000000
 

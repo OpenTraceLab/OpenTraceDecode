@@ -22,7 +22,7 @@
 # TODO: Implement support for detecting various bus errors.
 
 from common.srdhelper import bitpack_msb
-import sigrokdecode as srd
+import opentracedecode as otd
 
 '''
 OUTPUT_PYTHON format:
@@ -66,7 +66,7 @@ proto = {
     'WARN':          [10, '{text}'],
 }
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'i2c'
     name = 'I²C'
@@ -125,14 +125,14 @@ class Decoder(srd.Decoder):
         self.bitwidth = 0
 
     def metadata(self, key, value):
-        if key == srd.SRD_CONF_SAMPLERATE:
+        if key == otd.SRD_CONF_SAMPLERATE:
             self.samplerate = value
 
     def start(self):
-        self.out_python = self.register(srd.OUTPUT_PYTHON)
-        self.out_ann = self.register(srd.OUTPUT_ANN)
-        self.out_binary = self.register(srd.OUTPUT_BINARY)
-        self.out_bitrate = self.register(srd.OUTPUT_META,
+        self.out_python = self.register(otd.OUTPUT_PYTHON)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
+        self.out_binary = self.register(otd.OUTPUT_BINARY)
+        self.out_bitrate = self.register(otd.OUTPUT_META,
                 meta=(int, 'Bitrate', 'Bitrate from Start bit to Stop bit'))
 
     def putg(self, ss, es, cls, text):

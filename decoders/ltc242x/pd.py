@@ -17,11 +17,11 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 
 input_voltage_format = ['%.6fV', '%.2fV']
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'ltc242x'
     name = 'LTC242x'
@@ -51,7 +51,7 @@ class Decoder(srd.Decoder):
         self.ss, self.es = 0, 0
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def handle_input_voltage(self, data):
         input_voltage = data & 0x3FFFFF

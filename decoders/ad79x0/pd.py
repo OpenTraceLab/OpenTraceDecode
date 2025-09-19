@@ -17,7 +17,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 
 modes = {
     0: ['Normal Mode', 'Normal', 'Norm', 'N'],
@@ -33,7 +33,7 @@ validation = {
     'complete': ['Complete conversion', 'Complete', 'C'],
 }
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'ad79x0'
     name = 'AD79x0'
@@ -69,11 +69,11 @@ class Decoder(srd.Decoder):
         self.data = 0
 
     def metadata(self, key, value):
-        if key == srd.SRD_CONF_SAMPLERATE:
+        if key == otd.SRD_CONF_SAMPLERATE:
             self.samplerate = value
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def put_validation(self, pos, msg):
         self.put(pos[0], pos[1], self.out_ann, [2, validation[msg]])

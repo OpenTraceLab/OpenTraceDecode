@@ -17,7 +17,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 
 # Helper dictionary for edge detection.
 edge_detector = {
@@ -29,7 +29,7 @@ edge_detector = {
 class SamplerateError(Exception):
     pass
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'jitter'
     name = 'Jitter'
@@ -78,15 +78,15 @@ class Decoder(srd.Decoder):
     def start(self):
         self.clk_edge = edge_detector[self.options['clk_polarity']]
         self.sig_edge = edge_detector[self.options['sig_polarity']]
-        self.out_ann = self.register(srd.OUTPUT_ANN)
-        self.out_binary = self.register(srd.OUTPUT_BINARY)
-        self.out_clk_missed = self.register(srd.OUTPUT_META,
+        self.out_ann = self.register(otd.OUTPUT_ANN)
+        self.out_binary = self.register(otd.OUTPUT_BINARY)
+        self.out_clk_missed = self.register(otd.OUTPUT_META,
             meta=(int, 'Clock missed', 'Clock transition missed'))
-        self.out_sig_missed = self.register(srd.OUTPUT_META,
+        self.out_sig_missed = self.register(otd.OUTPUT_META,
             meta=(int, 'Signal missed', 'Resulting signal transition missed'))
 
     def metadata(self, key, value):
-        if key == srd.SRD_CONF_SAMPLERATE:
+        if key == otd.SRD_CONF_SAMPLERATE:
             self.samplerate = value
 
     # Helper function for jitter time annotations.

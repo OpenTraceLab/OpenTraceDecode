@@ -18,10 +18,10 @@
 ##
 
 import copy
-import sigrokdecode as srd
+import opentracedecode as otd
 from .lists import *
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'eeprom24xx'
     name = '24xx EEPROM'
@@ -81,8 +81,8 @@ class Decoder(srd.Decoder):
         self.reset_variables()
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
-        self.out_binary = self.register(srd.OUTPUT_BINARY)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
+        self.out_binary = self.register(otd.OUTPUT_BINARY)
         self.chip = chips[self.options['chip']]
         self.addr_counter = self.options['addr_counter']
 

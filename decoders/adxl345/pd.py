@@ -17,7 +17,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 from common.srdhelper import SrdIntEnum
 from .lists import *
 
@@ -62,7 +62,7 @@ Ann = SrdIntEnum.from_str('Ann', 'READ WRITE MB REG_ADDRESS REG_DATA WARNING')
 
 St = SrdIntEnum.from_str('St', 'IDLE ADDRESS_BYTE DATA')
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'adxl345'
     name = 'ADXL345'
@@ -99,7 +99,7 @@ class Decoder(srd.Decoder):
         self.samples_per_bit = 0
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def putx(self, data):
         self.put(self.ss, self.es, self.out_ann, data)

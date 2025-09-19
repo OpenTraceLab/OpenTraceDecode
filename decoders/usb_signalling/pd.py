@@ -18,7 +18,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 from common.srdhelper import SrdIntEnum
 
 '''
@@ -102,7 +102,7 @@ St = SrdIntEnum.from_str('St', 'IDLE GET_BIT GET_EOP WAIT_IDLE')
 class SamplerateError(Exception):
     pass
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'usb_signalling'
     name = 'USB signalling'
@@ -157,11 +157,11 @@ class Decoder(srd.Decoder):
         self.state = St.IDLE
 
     def start(self):
-        self.out_python = self.register(srd.OUTPUT_PYTHON)
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_python = self.register(otd.OUTPUT_PYTHON)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def metadata(self, key, value):
-        if key == srd.SRD_CONF_SAMPLERATE:
+        if key == otd.SRD_CONF_SAMPLERATE:
             self.samplerate = value
             self.signalling = self.options['signalling']
             if self.signalling != 'automatic':

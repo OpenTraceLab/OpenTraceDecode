@@ -17,7 +17,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 from common.srdhelper import bcd2int
 
 def reg_list():
@@ -27,7 +27,7 @@ def reg_list():
 
     return tuple(l)
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'rtc8564'
     name = 'RTC-8564'
@@ -67,7 +67,7 @@ class Decoder(srd.Decoder):
         self.bits = []
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def putx(self, data):
         self.put(self.ss, self.es, self.out_ann, data)

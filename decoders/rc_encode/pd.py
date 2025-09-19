@@ -17,7 +17,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 
 bitvals = ('0', '1', 'f', 'U')
 
@@ -112,7 +112,7 @@ def decode_model(model, bits):
         return [address, bits[0][1], bits[19][2], \
                 output, bits[20][1], bits[23][2]]
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'rc_encode'
     name = 'RC encode'
@@ -159,7 +159,7 @@ class Decoder(srd.Decoder):
         self.state = 'IDLE'
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
         self.model = self.options['remote']
         if self.options['linecoding'] == 'xx1527':
             self.pulses_per_bit = 2

@@ -17,7 +17,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 from common.srdhelper import bitpack
 import decimal
 
@@ -95,7 +95,7 @@ ann_bit, ann_sync, ann_header_pl_size, ann_header_ch_type, ann_header_cts, \
     ann_payload, ann_control_data, ann_sleepbit, ann_warning = range(9)
 state_sync, state_header, state_payload, state_sleepbit = range(4)
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'lfast'
     name = 'LFAST'
@@ -148,8 +148,8 @@ class Decoder(srd.Decoder):
         pass
 
     def start(self):
-        self.out_python = self.register(srd.OUTPUT_PYTHON)
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_python = self.register(otd.OUTPUT_PYTHON)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def put_ann(self, ss, es, ann_class, value):
         self.put(ss, es, self.out_ann, [ann_class, value])

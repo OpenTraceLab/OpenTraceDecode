@@ -17,7 +17,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 
 # Dictionary of FUNCTION commands and their names.
 command = {
@@ -34,7 +34,7 @@ command = {
     0x99: 'Chain',
 }
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'ds28ea00'
     name = 'DS28EA00'
@@ -58,7 +58,7 @@ class Decoder(srd.Decoder):
         self.rom = 0x0000000000000000
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def putx(self, data):
         self.put(self.ss, self.es, self.out_ann, data)

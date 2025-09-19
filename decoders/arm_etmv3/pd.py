@@ -17,7 +17,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 import subprocess
 import re
 
@@ -126,7 +126,7 @@ def parse_branch_addr(bytes_, ref_addr, cpu_state, branch_enc):
 
     return addr, addrlen, cpu_state, exc_info
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'arm_etmv3'
     name = 'ARM ETMv3'
@@ -189,7 +189,7 @@ class Decoder(srd.Decoder):
         self.source_lookup = {}
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
         self.load_objdump()
 
     def load_objdump(self):

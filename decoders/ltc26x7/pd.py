@@ -17,7 +17,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 
 slave_address = {
     0x00: ['GND', 'GND', 'GND', 'G'],
@@ -41,7 +41,7 @@ addresses = {
 
 input_voltage_format = ['%.6fV', '%.2fV']
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'ltc26x7'
     name = 'LTC26x7'
@@ -79,7 +79,7 @@ class Decoder(srd.Decoder):
         self.dac_val = 0
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def convert_ternary_str(self, n):
         if n == 0:

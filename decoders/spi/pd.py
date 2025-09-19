@@ -18,7 +18,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 from collections import namedtuple
 
 Data = namedtuple('Data', ['ss', 'es', 'val'])
@@ -73,7 +73,7 @@ spi_mode = {
 class ChannelError(Exception):
     pass
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'spi'
     name = 'SPI'
@@ -142,15 +142,15 @@ class Decoder(srd.Decoder):
         self.have_cs = self.have_miso = self.have_mosi = None
 
     def start(self):
-        self.out_python = self.register(srd.OUTPUT_PYTHON)
-        self.out_ann = self.register(srd.OUTPUT_ANN)
-        self.out_binary = self.register(srd.OUTPUT_BINARY)
-        self.out_bitrate = self.register(srd.OUTPUT_META,
+        self.out_python = self.register(otd.OUTPUT_PYTHON)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
+        self.out_binary = self.register(otd.OUTPUT_BINARY)
+        self.out_bitrate = self.register(otd.OUTPUT_META,
                 meta=(int, 'Bitrate', 'Bitrate during transfers'))
         self.bw = (self.options['wordsize'] + 7) // 8
 
     def metadata(self, key, value):
-       if key == srd.SRD_CONF_SAMPLERATE:
+       if key == otd.SRD_CONF_SAMPLERATE:
             self.samplerate = value
 
     def putw(self, data):

@@ -17,7 +17,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 from collections import namedtuple
 from common.srdhelper import SrdIntEnum
 from .lists import *
@@ -28,7 +28,7 @@ Ann = SrdIntEnum.from_str('Ann', 'STROBE SINGLE_READ SINGLE_WRITE BURST_READ \
 Pos = namedtuple('Pos', ['ss', 'es'])
 Data = namedtuple('Data', ['mosi', 'miso'])
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'cc1101'
     name = 'CC1101'
@@ -64,7 +64,7 @@ class Decoder(srd.Decoder):
         self.cs_was_released = False
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def warn(self, pos, msg):
         '''Put a warning message 'msg' at 'pos'.'''

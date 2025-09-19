@@ -18,7 +18,7 @@
 ##
 
 from common.srdhelper import bitpack_lsb
-import sigrokdecode as srd
+import opentracedecode as otd
 
 class Pin:
     RST, CLK, IO, = range(3)
@@ -32,7 +32,7 @@ class Ann:
 class Bin:
     BYTES, = range(1)
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'sle44xx'
     name = 'SLE 44xx'
@@ -90,12 +90,12 @@ class Decoder(srd.Decoder):
         self.state = None
 
     def metadata(self, key, value):
-        if key == srd.SRD_CONF_SAMPLERATE:
+        if key == otd.SRD_CONF_SAMPLERATE:
             self.samplerate = value
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
-        self.out_binary = self.register(srd.OUTPUT_BINARY)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
+        self.out_binary = self.register(otd.OUTPUT_BINARY)
 
     def putx(self, ss, es, cls, data):
         self.put(ss, es, self.out_ann, [cls, data,])

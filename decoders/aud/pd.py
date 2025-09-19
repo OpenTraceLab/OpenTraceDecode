@@ -22,9 +22,9 @@
 #  - Annotate every nibble? Would give insight on interrupted shifts.
 #  - Annotate invalid "command" nibbles while SYNC==1?
 
-import sigrokdecode as srd
+import opentracedecode as otd
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'aud'
     name = 'AUD'
@@ -57,7 +57,7 @@ class Decoder(srd.Decoder):
         self.ss = 0
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def putx(self, data):
         self.put(self.ss, self.samplenum, self.out_ann, data)

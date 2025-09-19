@@ -19,7 +19,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 from common.srdhelper import SrdStrEnum
 
 '''
@@ -58,7 +58,7 @@ CSt = SrdStrEnum.from_list('CSt', s)
 
 cjtag_states = [s.value for s in CSt]
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'cjtag'
     name = 'cJTAG'
@@ -117,8 +117,8 @@ class Decoder(srd.Decoder):
         self.first_bit = True
 
     def start(self):
-        self.out_python = self.register(srd.OUTPUT_PYTHON)
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_python = self.register(otd.OUTPUT_PYTHON)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def putx(self, data):
         self.put(self.ss_item, self.es_item, self.out_ann, data)

@@ -18,12 +18,12 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 
 class SamplerateError(Exception):
     pass
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'pwm'
     name = 'PWM'
@@ -62,14 +62,14 @@ class Decoder(srd.Decoder):
         self.ss_block = self.es_block = None
 
     def metadata(self, key, value):
-        if key == srd.SRD_CONF_SAMPLERATE:
+        if key == otd.SRD_CONF_SAMPLERATE:
             self.samplerate = value
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
-        self.out_binary = self.register(srd.OUTPUT_BINARY)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
+        self.out_binary = self.register(otd.OUTPUT_BINARY)
         self.out_average = \
-            self.register(srd.OUTPUT_META,
+            self.register(otd.OUTPUT_META,
                           meta=(float, 'Average', 'PWM base (cycle) frequency'))
 
     def putx(self, data):

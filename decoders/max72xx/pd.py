@@ -18,7 +18,7 @@
 ##
 
 import re
-import sigrokdecode as srd
+import opentracedecode as otd
 
 def _decode_intensity(val):
     intensity = val & 0x0f
@@ -40,7 +40,7 @@ registers = {
 
 ann_chip, ann_reg, ann_digit, ann_warning = range(4)
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'max72xx'
     name = 'MAX72xx'
@@ -72,7 +72,7 @@ class Decoder(srd.Decoder):
         pass
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
         self.pos = 0
         self.cs_start = 0
         self.num_of_drivers = self.options['numofdrivers']

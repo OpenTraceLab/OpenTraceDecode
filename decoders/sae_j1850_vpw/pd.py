@@ -18,7 +18,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 from common.srdhelper import bitpack_msb
 
 # VPW Timings. From the SAE J1850 1995 rev section 23.406 documentation.
@@ -44,7 +44,7 @@ class SamplerateError(Exception):
     ANN_WARN,
 ) = range(12)
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'sae_j1850_vpw'
     name = 'SAE J1850 VPW'
@@ -90,10 +90,10 @@ class Decoder(srd.Decoder):
         self.fields = {}
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def metadata(self, key, value):
-        if key == srd.SRD_CONF_SAMPLERATE:
+        if key == otd.SRD_CONF_SAMPLERATE:
             self.samplerate = value
 
     def putg(self, ss, es, cls, texts):

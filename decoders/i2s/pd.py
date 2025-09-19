@@ -17,7 +17,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 import struct
 
 '''
@@ -33,7 +33,7 @@ Packet:
 <value>: integer
 '''
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'i2s'
     name = 'I²S'
@@ -72,12 +72,12 @@ class Decoder(srd.Decoder):
         self.wrote_wav_header = False
 
     def start(self):
-        self.out_python = self.register(srd.OUTPUT_PYTHON)
-        self.out_binary = self.register(srd.OUTPUT_BINARY)
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_python = self.register(otd.OUTPUT_PYTHON)
+        self.out_binary = self.register(otd.OUTPUT_BINARY)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def metadata(self, key, value):
-        if key == srd.SRD_CONF_SAMPLERATE:
+        if key == otd.SRD_CONF_SAMPLERATE:
             self.samplerate = value
 
     def putpb(self, data):

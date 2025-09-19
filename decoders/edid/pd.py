@@ -25,7 +25,7 @@
 #    - Additional standard timing descriptors
 #    - Extensions
 
-import sigrokdecode as srd
+import opentracedecode as otd
 from common.srdhelper import SrdIntEnum
 import os
 
@@ -75,7 +75,7 @@ xy_ratio = [
 ANN_FIELDS = 0
 ANN_SECTIONS = 1
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'edid'
     name = 'EDID'
@@ -113,7 +113,7 @@ class Decoder(srd.Decoder):
         self.ext_cache = [[]]
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def decode(self, ss, es, data):
         cmd, data = data

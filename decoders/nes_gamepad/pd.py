@@ -17,9 +17,9 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'nes_gamepad'
     name = 'NES gamepad'
@@ -53,7 +53,7 @@ class Decoder(srd.Decoder):
         self.variant = None
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
         self.variant = self.options['variant']
 
     def putg(self, ss, es, cls, text):

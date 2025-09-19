@@ -17,10 +17,10 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 from common.srdhelper import bcd2int
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'ook_vis'
     name = 'OOK visualisation'
@@ -71,8 +71,8 @@ class Decoder(srd.Decoder):
         self.trace_num = 0
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
-        self.out_python = self.register(srd.OUTPUT_PYTHON)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
+        self.out_python = self.register(otd.OUTPUT_PYTHON)
         self.displayas = self.options['displayas']
         self.sync_length = self.options['synclen']
         self.sync_offset = self.options['syncoffset']

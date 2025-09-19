@@ -17,7 +17,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 from collections import namedtuple
 
 '''
@@ -41,7 +41,7 @@ and end sample number of each bit (pair of SI/SO bit) are provided.
 PyPacket = namedtuple('PyPacket', 'ss es si so')
 Packet = namedtuple('Packet', 'samplenum matched cs sk si so')
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'microwire'
     name = 'Microwire'
@@ -79,8 +79,8 @@ class Decoder(srd.Decoder):
         pass
 
     def start(self):
-        self.out_python = self.register(srd.OUTPUT_PYTHON)
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_python = self.register(otd.OUTPUT_PYTHON)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def decode(self):
         while True:

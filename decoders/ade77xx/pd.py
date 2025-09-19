@@ -22,10 +22,10 @@
 ## SOFTWARE.
 
 import math
-import sigrokdecode as srd
+import opentracedecode as otd
 from .lists import *
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'ade77xx'
     name = 'ADE77xx'
@@ -58,7 +58,7 @@ class Decoder(srd.Decoder):
         self.reset_data()
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def putx(self, data):
         self.put(self.ss_cmd, self.es_cmd, self.out_ann, data)

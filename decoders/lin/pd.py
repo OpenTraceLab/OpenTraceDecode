@@ -17,7 +17,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 
 class LinFsm:
     class State:
@@ -57,7 +57,7 @@ class LinFsm:
         self.uart_idle_count = 0
         self.reset()
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'lin'
     name = 'LIN'
@@ -93,7 +93,7 @@ class Decoder(srd.Decoder):
         self.es_block = None
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
         self.lin_version = self.options['version']
 
     def putx(self, data):

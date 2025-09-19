@@ -17,12 +17,12 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 
 PIN_DATA, PIN_RESET = range(2)
 ROW_EDGE, ROW_WORD, ROW_RESET = range(3)
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'counter'
     name = 'Counter'
@@ -68,11 +68,11 @@ class Decoder(srd.Decoder):
         pass
 
     def metadata(self, key, value):
-        if key == srd.SRD_CONF_SAMPLERATE:
+        if key == otd.SRD_CONF_SAMPLERATE:
             self.samplerate = value
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def putc(self, cls, ss, annlist):
         self.put(ss, self.samplenum, self.out_ann, [cls, annlist])

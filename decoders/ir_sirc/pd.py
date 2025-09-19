@@ -19,7 +19,7 @@
 
 from common.srdhelper import bitpack_lsb
 from .lists import ADDRESSES
-import sigrokdecode as srd
+import opentracedecode as otd
 
 class SamplerateError(Exception):
     pass
@@ -38,7 +38,7 @@ ONE_USEC = 1200
 ZERO_USEC = 600
 PAUSE_USEC = 600
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'ir_sirc'
     name = 'IR SIRC'
@@ -80,11 +80,11 @@ class Decoder(srd.Decoder):
         pass
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
         self.active = self.options['polarity'] == 'active-high'
 
     def metadata(self, key, value):
-        if key == srd.SRD_CONF_SAMPLERATE:
+        if key == otd.SRD_CONF_SAMPLERATE:
             self.samplerate = value
             self.snum_per_us = self.samplerate / 1e6
 

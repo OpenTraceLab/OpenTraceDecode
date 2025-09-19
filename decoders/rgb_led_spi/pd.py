@@ -17,11 +17,11 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 
 ( ANN_RGB, ) = range(1)
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'rgb_led_spi'
     name = 'RGB LED (SPI)'
@@ -43,7 +43,7 @@ class Decoder(srd.Decoder):
         self.mosi_bytes = []
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def putg(self, ss, es, cls, text):
         self.put(ss, es, self.out_ann, [cls, text])

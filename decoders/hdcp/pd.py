@@ -17,7 +17,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 
 msg_ids = {
     2: 'AKE_Init',
@@ -60,7 +60,7 @@ write_items = {
     0x80: 'Read_Message',
 }
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'hdcp'
     name = 'HDCP'
@@ -94,7 +94,7 @@ class Decoder(srd.Decoder):
         self.type = ''
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def putb(self, data):
         self.put(self.ss_block, self.es_block, self.out_ann, data)

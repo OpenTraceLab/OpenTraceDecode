@@ -17,7 +17,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 
 # JTAG debug port data registers (in IR[3:0]) and their sizes (in bits)
 # Note: The ARM DAP-DP is not IEEE 1149.1 (JTAG) compliant (as per ARM docs),
@@ -138,7 +138,7 @@ def data_out(bits):
     return 'Previous transaction result: DATA: %s, ACK: %s' \
            % (data_hex, ack_meaning)
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'jtag_stm32'
     name = 'JTAG / STM32'
@@ -169,7 +169,7 @@ class Decoder(srd.Decoder):
         self.samplenums = None
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def putx(self, data):
         self.put(self.ss, self.es, self.out_ann, data)

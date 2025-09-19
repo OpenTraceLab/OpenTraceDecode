@@ -17,7 +17,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 from common.srdhelper import SrdIntEnum
 
 Ann = SrdIntEnum.from_str('Ann', 'ROMDATA')
@@ -26,7 +26,7 @@ Bin = SrdIntEnum.from_str('Bin', 'ROMDATA')
 class ChannelError(Exception):
     pass
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'mcs48'
     name = 'MCS-48'
@@ -80,8 +80,8 @@ class Decoder(srd.Decoder):
         self.started = 0
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
-        self.out_bin = self.register(srd.OUTPUT_BINARY)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
+        self.out_bin = self.register(otd.OUTPUT_BINARY)
 
     def newaddr(self, addr, data):
         # Falling edge on ALE: reconstruct address.

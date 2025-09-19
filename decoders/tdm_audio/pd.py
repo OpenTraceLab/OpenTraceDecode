@@ -17,11 +17,11 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 
 MAX_CHANNELS = 8
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'tdm_audio'
     name = 'TDM audio'
@@ -60,11 +60,11 @@ class Decoder(srd.Decoder):
         self.ss_block = None
 
     def metdatadata(self, key, value):
-        if key == srd.SRD_CONF_SAMPLERATE:
+        if key == otd.SRD_CONF_SAMPLERATE:
             self.samplerate = value
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
         self.bitdepth = self.options['bps']
         self.edge = self.options['edge']
 

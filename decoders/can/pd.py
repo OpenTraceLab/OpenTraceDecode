@@ -19,7 +19,7 @@
 ##
 
 from common.srdhelper import bitpack_msb
-import sigrokdecode as srd
+import opentracedecode as otd
 
 class SamplerateError(Exception):
     pass
@@ -27,7 +27,7 @@ class SamplerateError(Exception):
 def dlc2len(dlc):
     return [0, 1, 2, 3, 4, 5, 6, 7, 8, 12, 16, 20, 24, 32, 48, 64][dlc]
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'can'
     name = 'CAN'
@@ -79,8 +79,8 @@ class Decoder(srd.Decoder):
         self.reset_variables()
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
-        self.out_python = self.register(srd.OUTPUT_PYTHON)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
+        self.out_python = self.register(otd.OUTPUT_PYTHON)
 
     def set_bit_rate(self, bitrate):
         self.bit_width = float(self.samplerate) / float(bitrate)
@@ -93,7 +93,7 @@ class Decoder(srd.Decoder):
         self.set_bit_rate(self.options['fast_bitrate'])
 
     def metadata(self, key, value):
-        if key == srd.SRD_CONF_SAMPLERATE:
+        if key == otd.SRD_CONF_SAMPLERATE:
             self.samplerate = value
             self.bit_width = float(self.samplerate) / float(self.options['nominal_bitrate'])
             self.sample_point = (self.bit_width / 100.0) * self.options['sample_point']

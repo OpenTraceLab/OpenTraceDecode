@@ -17,12 +17,12 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 
 class SamplerateError(Exception):
     pass
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'wiegand'
     name = 'Wiegand'
@@ -71,13 +71,13 @@ class Decoder(srd.Decoder):
 
     def start(self):
         'Register output types and verify user supplied decoder values.'
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
         self._active = 1 if self.options['active'] == 'high' else 0
         self._inactive = 1 - self._active
 
     def metadata(self, key, value):
         'Receive decoder metadata about the data stream.'
-        if key == srd.SRD_CONF_SAMPLERATE:
+        if key == otd.SRD_CONF_SAMPLERATE:
             self.samplerate = value
             if self.samplerate:
                 ms_per_sample = 1000 * (1.0 / self.samplerate)

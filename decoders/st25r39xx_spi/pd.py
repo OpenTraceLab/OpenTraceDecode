@@ -27,7 +27,7 @@
 ### because of FIFO Read/FIFO Write commands, was not returning the
 ### annotations short name FIFOR/FIFOW
 
-import sigrokdecode as srd
+import opentracedecode as otd
 from collections import namedtuple
 from common.srdhelper import SrdIntEnum
 from .lists import *
@@ -39,7 +39,7 @@ Ann = SrdIntEnum.from_str('Ann', 'BURST_READ BURST_WRITE \
 Pos = namedtuple('Pos', ['ss', 'es'])
 Data = namedtuple('Data', ['mosi', 'miso'])
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'st25r39xx_spi'
     name = 'ST25R39xx (SPI mode)'
@@ -79,7 +79,7 @@ class Decoder(srd.Decoder):
         self.cs_was_released = False
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def warn(self, pos, msg):
         '''Put a warning message 'msg' at 'pos'.'''

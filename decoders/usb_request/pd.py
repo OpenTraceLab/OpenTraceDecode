@@ -17,7 +17,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 import struct
 
 class SamplerateError(Exception):
@@ -111,7 +111,7 @@ class pcap_usb_pkt():
     def __len__(self):
         return 64 + len(self.data)
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'usb_request'
     name = 'USB request'
@@ -176,14 +176,14 @@ class Decoder(srd.Decoder):
         return h
 
     def metadata(self, key, value):
-        if key == srd.SRD_CONF_SAMPLERATE:
+        if key == otd.SRD_CONF_SAMPLERATE:
             self.samplerate = value
             if self.samplerate:
                 self.secs_per_sample = float(1) / float(self.samplerate)
 
     def start(self):
-        self.out_binary = self.register(srd.OUTPUT_BINARY)
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_binary = self.register(otd.OUTPUT_BINARY)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
         self.in_request_start = self.options['in_request_start']
 
     def handle_transfer(self):

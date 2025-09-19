@@ -45,7 +45,7 @@
 #   to become an option? matrices and/or fast refresh environments
 #   may want to experiment with back to back pixel streams
 
-import sigrokdecode as srd
+import opentracedecode as otd
 from common.srdhelper import bitpack_msb
 
 class SamplerateError(Exception):
@@ -59,7 +59,7 @@ class DecoderError(Exception):
     ANN_COMP_R, ANN_COMP_G, ANN_COMP_B, ANN_COMP_W,
 ) = range(7)
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'rgb_led_ws281x'
     name = 'RGB LED (WS281x)'
@@ -102,10 +102,10 @@ class Decoder(srd.Decoder):
         self.bits = []
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def metadata(self, key, value):
-        if key == srd.SRD_CONF_SAMPLERATE:
+        if key == otd.SRD_CONF_SAMPLERATE:
             self.samplerate = value
 
     def putg(self, ss, es, cls, text):

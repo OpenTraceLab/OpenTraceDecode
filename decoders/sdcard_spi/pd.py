@@ -17,7 +17,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 from common.srdhelper import SrdIntEnum
 from common.sdcard import (cmd_names, acmd_names)
 
@@ -27,7 +27,7 @@ a = ['CMD%d' % i for i in range(64)] + ['ACMD%d' % i for i in range(64)] + \
     ['R' + r.upper() for r in responses] + ['BIT', 'BIT_WARNING']
 Ann = SrdIntEnum.from_list('Ann', a)
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'sdcard_spi'
     name = 'SD card (SPI mode)'
@@ -71,7 +71,7 @@ class Decoder(srd.Decoder):
         self.busy_first_byte = False
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def putx(self, data):
         self.put(self.ss_cmd, self.es_cmd, self.out_ann, data)

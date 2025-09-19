@@ -18,12 +18,12 @@
 ##
 
 import math
-import sigrokdecode as srd
+import opentracedecode as otd
 
 class SamplerateError(Exception):
     pass
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'swim'
     name = 'SWIM'
@@ -95,7 +95,7 @@ class Decoder(srd.Decoder):
         self.proto_state = 'CMD'
 
     def metadata(self, key, value):
-        if key == srd.SRD_CONF_SAMPLERATE:
+        if key == otd.SRD_CONF_SAMPLERATE:
             self.samplerate = value
 
     def adjust_timings(self):
@@ -110,8 +110,8 @@ class Decoder(srd.Decoder):
         self.bit_reflen = math.ceil(self.samplerate * 22 / self.swim_clock)
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
-        self.out_binary = self.register(srd.OUTPUT_BINARY)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
+        self.out_binary = self.register(otd.OUTPUT_BINARY)
 
         if not self.samplerate:
             raise SamplerateError('Cannot decode without samplerate.')

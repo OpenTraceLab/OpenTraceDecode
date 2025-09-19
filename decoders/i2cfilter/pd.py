@@ -24,9 +24,9 @@
 # - Support 10bit slave addresses?
 
 import copy
-import sigrokdecode as srd
+import opentracedecode as otd
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'i2cfilter'
     name = 'I²C filter'
@@ -51,7 +51,7 @@ class Decoder(srd.Decoder):
         self.do_forward = None
 
     def start(self):
-        self.out_python = self.register(srd.OUTPUT_PYTHON, proto_id='i2c')
+        self.out_python = self.register(otd.OUTPUT_PYTHON, proto_id='i2c')
         if self.options['address'] not in range(0, 127 + 1):
             raise Exception('Invalid slave (must be 0..127).')
         self.want_addrs = []

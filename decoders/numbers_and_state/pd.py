@@ -37,7 +37,7 @@
 
 from common.srdhelper import bitpack
 import json
-import sigrokdecode as srd
+import opentracedecode as otd
 import struct
 
 '''
@@ -104,7 +104,7 @@ def _enum_rows_decl(count):
         for i in range(count)
     ] + [('enumsovr', 'Enumeration overflows', (Ann.ENUM_OVR,))])
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'numbers_and_state'
     name = 'Numbers and State'
@@ -149,8 +149,8 @@ class Decoder(srd.Decoder):
         pass
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
-        self.out_python = self.register(srd.OUTPUT_PYTHON)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
+        self.out_python = self.register(otd.OUTPUT_PYTHON)
 
     def putg(self, ss, es, cls, data):
         self.put(ss, es, self.out_ann, [cls, data])

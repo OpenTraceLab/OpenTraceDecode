@@ -17,7 +17,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 
 class SamplerateError(Exception):
     pass
@@ -88,7 +88,7 @@ timing = {
     },
 }
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'onewire_link'
     name = '1-Wire link layer'
@@ -133,8 +133,8 @@ class Decoder(srd.Decoder):
         self.rise = 0
 
     def start(self):
-        self.out_python = self.register(srd.OUTPUT_PYTHON)
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_python = self.register(otd.OUTPUT_PYTHON)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
         self.overdrive = (self.options['overdrive'] == 'yes')
         self.fall = 0
         self.rise = 0
@@ -176,7 +176,7 @@ class Decoder(srd.Decoder):
                                '1MHz for proper normal mode decoding.']])
 
     def metadata(self, key, value):
-        if key != srd.SRD_CONF_SAMPLERATE:
+        if key != otd.SRD_CONF_SAMPLERATE:
             return
         self.samplerate = value
 

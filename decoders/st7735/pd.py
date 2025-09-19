@@ -16,7 +16,7 @@
 ## You should have received a copy of the GNU General Public License
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 
-import sigrokdecode as srd
+import opentracedecode as otd
 
 MAX_DATA_LEN = 128
 
@@ -64,7 +64,7 @@ META = {
 class Ann:
     BITS, CMD, DATA, DESC = range(4)
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'st7735'
     name = 'ST7735'
@@ -103,7 +103,7 @@ class Decoder(srd.Decoder):
         self.current_bit = -1
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def put_desc(self, ss, es, cmd, data):
         if cmd == -1:

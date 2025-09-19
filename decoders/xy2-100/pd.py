@@ -18,12 +18,12 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 
 ann_bit, ann_stat_bit, ann_type, ann_command, ann_parameter, ann_parity, ann_pos, ann_status, ann_warning = range(9)
 frame_type_none, frame_type_command, frame_type_16bit_pos, frame_type_18bit_pos = range(4)
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'xy2-100'
     name = 'XY2-100'
@@ -74,11 +74,11 @@ class Decoder(srd.Decoder):
         self.stat_skip_bit = True
 
     def metadata(self, key, value):
-        if key == srd.SRD_CONF_SAMPLERATE:
+        if key == otd.SRD_CONF_SAMPLERATE:
             self.samplerate = value
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def put_ann(self, ss, es, ann_class, value):
         self.put(ss, es, self.out_ann, [ann_class, value])

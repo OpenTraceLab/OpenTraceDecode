@@ -33,7 +33,7 @@ This is the list of <ptype> codes and their respective <pdata> values:
  - 'FOOTER': The data is the footer byte's value.
 """
 
-import sigrokdecode as srd
+import opentracedecode as otd
 from common.srdhelper import bitpack_lsb
 
 class Ann:
@@ -41,7 +41,7 @@ class Ann:
     WARN = range(7)
     FLAG_LSB = FRAME_LOST
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'sbus_futaba'
     name = 'SBUS (Futaba)'
@@ -85,8 +85,8 @@ class Decoder(srd.Decoder):
         self.failed = None
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
-        self.out_py = self.register(srd.OUTPUT_PYTHON)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
+        self.out_py = self.register(otd.OUTPUT_PYTHON)
 
     def putg(self, ss, es, data):
         # Put a graphical annotation.

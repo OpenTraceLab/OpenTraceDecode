@@ -127,7 +127,7 @@ OTD_PRIV const char *output_type_name(unsigned int idx);
 /* type_logic.c */
 OTD_PRIV PyObject *otd_logic_type_new(void);
 
-/* module_sigrokdecode.c */
+/* module_opentracedecode.c */
 PyMODINIT_FUNC PyInit_opentracedecode(void);
 PyMODINIT_FUNC PyInit_opentracedecode(void);
 

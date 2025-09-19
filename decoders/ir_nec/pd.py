@@ -19,7 +19,7 @@
 
 from common.srdhelper import bitpack
 from .lists import *
-import sigrokdecode as srd
+import opentracedecode as otd
 
 # Concentrate all timing constraints of the IR protocol here in a single
 # location at the top of the source, to raise awareness and to simplify
@@ -45,7 +45,7 @@ class Ann:
     LEADER_CODE, ADDR, ADDR_INV, CMD, CMD_INV, REPEAT_CODE, \
     REMOTE, WARN = range(13)
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'ir_nec'
     name = 'IR NEC'
@@ -142,10 +142,10 @@ class Decoder(srd.Decoder):
         self.addr = self.cmd = None
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def metadata(self, key, value):
-        if key == srd.SRD_CONF_SAMPLERATE:
+        if key == otd.SRD_CONF_SAMPLERATE:
             self.samplerate = value
 
     def calc_rate(self):

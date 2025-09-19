@@ -26,7 +26,7 @@
 ## POSSIBILITY OF SUCH DAMAGE.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 
 MODULE_ID = {
     0x00: 'Unknown or unspecified',
@@ -49,7 +49,7 @@ MODULE_ID = {
     0x12: 'CFP4',
 }
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'cfp'
     name = 'CFP'
@@ -75,7 +75,7 @@ class Decoder(srd.Decoder):
         pass
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def putx(self, data):
         self.put(self.ss, self.es, self.out_ann, data)

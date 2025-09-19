@@ -17,7 +17,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 
 STATE_IDLE, STATE_ADDR, STATE_DATA, STATE_READ_ADDR, STATE_READ_DATA, STATE_STOP = range(6)
 UNKNOWN, READ, WRITE = range(3)
@@ -29,7 +29,7 @@ registers_mcp23017_bank1 = {(i + 5 if i > 11 else i): (registers[i % 11] + "AB"[
 
 registers_mcp23008 = {i: registers[i] for i in range(11)}
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'mcp230xx'
     name = 'MCP230XX'
@@ -64,7 +64,7 @@ class Decoder(srd.Decoder):
         self.iocon_set = False
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def get_registers(self):
         if self.options["type"] == "MCP23008":

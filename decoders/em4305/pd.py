@@ -17,12 +17,12 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 
 class SamplerateError(Exception):
     pass
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'em4305'
     name = 'EM4305'
@@ -81,7 +81,7 @@ class Decoder(srd.Decoder):
         self.cmds = ['Invalid', 'Login', 'Write word', 'Invalid', 'Read word', 'Disable', 'Protect', 'Invalid']
 
     def metadata(self, key, value):
-        if key == srd.SRD_CONF_SAMPLERATE:
+        if key == otd.SRD_CONF_SAMPLERATE:
             self.samplerate = value
         self.field_clock = self.samplerate / self.options['coilfreq']
         self.wzmax = self.options['w_zero_off_max'] * self.field_clock
@@ -92,7 +92,7 @@ class Decoder(srd.Decoder):
         self.nogap = 300 * self.field_clock
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def decode_config(self, idx):
         bitrate = self.get_3_bits(idx+2)

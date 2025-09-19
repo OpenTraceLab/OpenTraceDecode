@@ -17,7 +17,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 from math import ceil
 from common.srdhelper import SrdIntEnum
 from .lists import *
@@ -32,7 +32,7 @@ Ann = SrdIntEnum.from_list('Ann',
 def cmd_annotation_classes():
     return tuple([tuple([cmd[0].lower(), cmd[1]]) for cmd in cmds.values()])
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'amulet_ascii'
     name = 'Amulet ASCII'
@@ -76,7 +76,7 @@ class Decoder(srd.Decoder):
         self.cmd_handlers = dict((cmd, get_handler(cmd)) for cmd in cmds.keys())
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def putx(self, data):
         # Simplification, most annotations span exactly one SPI byte/packet.

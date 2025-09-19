@@ -17,7 +17,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 
 # Dictionary of ROM commands and their names, next state.
 command = {
@@ -33,7 +33,7 @@ command = {
     0x96: ['DS2408: Disable Test Mode' , 'GET ROM'   ],
 }
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'onewire_network'
     name = '1-Wire network layer'
@@ -62,8 +62,8 @@ class Decoder(srd.Decoder):
         self.rom = 0x0000000000000000
 
     def start(self):
-        self.out_python = self.register(srd.OUTPUT_PYTHON)
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_python = self.register(otd.OUTPUT_PYTHON)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def putx(self, data):
         # Helper function for most annotations.

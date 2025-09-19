@@ -17,7 +17,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 from functools import reduce
 from .tables import instr_table_by_prefix
 import string
@@ -63,7 +63,7 @@ def reduce_bus(bus):
 def signed_byte(byte):
     return byte if byte < 128 else byte - 256
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id       = 'z80'
     name     = 'Z80'
@@ -119,7 +119,7 @@ class Decoder(srd.Decoder):
         self.op_state   = self.state_IDLE
 
     def start(self):
-        self.out_ann    = self.register(srd.OUTPUT_ANN)
+        self.out_ann    = self.register(otd.OUTPUT_ANN)
         self.bus_data   = None
         self.samplenum  = None
         self.addr_start = None

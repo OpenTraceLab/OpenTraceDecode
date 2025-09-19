@@ -19,7 +19,7 @@
 
 # TODO: Better support for various LM75 compatible devices.
 
-import sigrokdecode as srd
+import opentracedecode as otd
 
 # LM75 only supports 9 bit resolution, compatible devices usually 9-12 bits.
 resolution = {
@@ -38,7 +38,7 @@ ft = {
     0x03: 6,
 }
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'lm75'
     name = 'LM75'
@@ -71,7 +71,7 @@ class Decoder(srd.Decoder):
         self.databytes = []
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def putx(self, data):
         # Helper for annotations which span exactly one I²C packet.

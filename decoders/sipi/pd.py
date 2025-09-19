@@ -17,7 +17,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 from binascii import crc_hqx
 
 # See tc27xD_um_v2.2.pdf, Table 20-2
@@ -54,7 +54,7 @@ command_codes = {
 ann_header_tag, ann_header_cmd, ann_header_ch, ann_address, ann_data, \
     ann_crc, ann_warning = range(7)
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'sipi'
     name = 'SIPI (Zipwire)'
@@ -87,8 +87,8 @@ class Decoder(srd.Decoder):
         self.frame_len = 0
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
-        self.out_binary = self.register(srd.OUTPUT_BINARY)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
+        self.out_binary = self.register(otd.OUTPUT_BINARY)
 
     def put_ann(self, ss, es, ann_class, value):
         self.put(int(ss), int(es), self.out_ann, [ann_class, value])

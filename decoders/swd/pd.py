@@ -17,7 +17,7 @@
 ## along with this program; if not, see <http://www.gnu.org/licenses/>.
 ##
 
-import sigrokdecode as srd
+import opentracedecode as otd
 import re
 
 '''
@@ -63,7 +63,7 @@ BIT_CTRLSTAT_ORUNDETECT = 1
 
 ANNOTATIONS = ['reset', 'enable', 'read', 'write', 'ack', 'data', 'parity']
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'swd'
     name = 'SWD'
@@ -114,8 +114,8 @@ class Decoder(srd.Decoder):
         self.orundetect = 0 # 'orundetect' is bit 0 in the CTRLSTAT register.
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
-        self.out_python = self.register(srd.OUTPUT_PYTHON)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
+        self.out_python = self.register(otd.OUTPUT_PYTHON)
         if self.options['strict_start'] == 'no':
             self.state = 'REQ' # No need to wait for a LINE RESET.
 

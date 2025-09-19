@@ -18,7 +18,7 @@
 ##
 
 from common.srdhelper import bitpack
-import sigrokdecode as srd
+import opentracedecode as otd
 
 class SamplerateError(Exception):
     pass
@@ -29,7 +29,7 @@ class Pin:
 class Ann:
     BIT, BYTE, BREAK, = range(3)
 
-class Decoder(srd.Decoder):
+class Decoder(otd.Decoder):
     api_version = 3
     id = 'sdq'
     name = 'SDQ'
@@ -75,10 +75,10 @@ class Decoder(srd.Decoder):
         self.bytepos = 0
 
     def start(self):
-        self.out_ann = self.register(srd.OUTPUT_ANN)
+        self.out_ann = self.register(otd.OUTPUT_ANN)
 
     def metadata(self, key, value):
-        if key == srd.SRD_CONF_SAMPLERATE:
+        if key == otd.SRD_CONF_SAMPLERATE:
             self.samplerate = value
 
     def handle_bit(self, bit):
