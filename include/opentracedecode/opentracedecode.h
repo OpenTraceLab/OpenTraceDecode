@@ -1,0 +1,19 @@
+#ifndef OPENTRACEDECODE_OPENTRACEDECODE_H
+#define OPENTRACEDECODE_OPENTRACEDECODE_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#include <glib.h>
+
+/* Minimal public surface to bootstrap */
+int otd_init(const char *path);
+int otd_exit(void);
+
+/* add: load decoder, configure channels/annotations, run frames, etc. */
+
+#ifdef __cplusplus
+}
+#endif
+#endif

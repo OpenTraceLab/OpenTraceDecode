@@ -1,0 +1,13 @@
+option('python', type: 'feature', value: 'enabled',
+  description: 'Enable Python embedding (required for decoders)')
+option('python_minver', type: 'string', value: '3.8',
+  description: 'Minimum Python version to embed')
+
+option('build_shared', type: 'boolean', value: true, description: 'Build shared library')
+option('build_static', type: 'boolean', value: false, description: 'Build static library')
+
+# Developer options
+option('decoders_path', type: 'string', value: '',
+  description: 'Custom path to protocol decoders for testing')
+option('python_shims', type: 'boolean', value: false,
+  description: 'Build Python extension modules for testing')

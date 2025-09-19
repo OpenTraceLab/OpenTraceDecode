@@ -1,5 +1,5 @@
 /*
- * This file is part of the libsigrokdecode project.
+ * This file is part of the libopentracedecode project.
  *
  * Copyright (C) 2013 Uwe Hermann <uwe@hermann-uwe.de>
  *
@@ -18,69 +18,69 @@
  */
 
 #include <config.h>
-#include "libsigrokdecode.h"
+#include <opentracedecode/libopentracedecode.h>
 
 /**
  * @file
  *
- * Error handling in libsigrokdecode.
+ * Error handling in libopentracedecode.
  */
 
 /**
  * @defgroup grp_error Error handling
  *
- * Error handling in libsigrokdecode.
+ * Error handling in libopentracedecode.
  *
- * libsigrokdecode functions usually return @ref SRD_OK upon success, or a
+ * libopentracedecode functions usually return @ref OTD_OK upon success, or a
  * negative error code on failure.
  *
  * @{
  */
 
 /**
- * Return a human-readable error string for the given libsigrokdecode error
+ * Return a human-readable error string for the given libopentracedecode error
  * code.
  *
- * @param error_code A libsigrokdecode error code number, such as
- *                   SRD_ERR_MALLOC.
+ * @param error_code A libopentracedecode error code number, such as
+ *                   OTD_ERR_MALLOC.
  *
  * @return A const string containing a short, human-readable (English)
  *         description of the error, such as "memory allocation error".
  *         The string must NOT be free'd by the caller!
  *
- * @see srd_strerror_name
+ * @see otd_strerror_name
  *
  * @since 0.2.0
  */
-SRD_API const char *srd_strerror(int error_code)
+OTD_API const char *otd_strerror(int error_code)
 {
 	const char *str;
 
 	/*
-	 * Note: All defined SRD_* error macros from libsigrokdecode.h must
-	 * have an entry in this function, as well as in srd_strerror_name().
+	 * Note: All defined OTD_* error macros from libopentracedecode.h must
+	 * have an entry in this function, as well as in otd_strerror_name().
 	 */
 
 	switch (error_code) {
-	case SRD_OK:
+	case OTD_OK:
 		str = "no error";
 		break;
-	case SRD_ERR:
+	case OTD_ERR:
 		str = "generic/unspecified error";
 		break;
-	case SRD_ERR_MALLOC:
+	case OTD_ERR_MALLOC:
 		str = "memory allocation error";
 		break;
-	case SRD_ERR_ARG:
+	case OTD_ERR_ARG:
 		str = "invalid argument";
 		break;
-	case SRD_ERR_BUG:
+	case OTD_ERR_BUG:
 		str = "internal error";
 		break;
-	case SRD_ERR_PYTHON:
+	case OTD_ERR_PYTHON:
 		str = "Python API error";
 		break;
-	case SRD_ERR_DECODERS_DIR:
+	case OTD_ERR_DECODERS_DIR:
 		str = "decoders directory access error";
 		break;
 	default:
@@ -92,54 +92,54 @@ SRD_API const char *srd_strerror(int error_code)
 }
 
 /**
- * Return the "name" string of the given libsigrokdecode error code.
+ * Return the "name" string of the given libopentracedecode error code.
  *
- * For example, the "name" of the SRD_ERR_MALLOC error code is
- * "SRD_ERR_MALLOC", the name of the SRD_OK code is "SRD_OK", and so on.
+ * For example, the "name" of the OTD_ERR_MALLOC error code is
+ * "OTD_ERR_MALLOC", the name of the OTD_OK code is "OTD_OK", and so on.
  *
  * This function can be used for various purposes where the "name" string of
- * a libsigrokdecode error code is useful.
+ * a libopentracedecode error code is useful.
  *
- * @param error_code A libsigrokdecode error code number, such as
- *                   SRD_ERR_MALLOC.
+ * @param error_code A libopentracedecode error code number, such as
+ *                   OTD_ERR_MALLOC.
  *
  * @return A const string containing the "name" of the error code as string.
  *         The string must NOT be free'd by the caller!
  *
- * @see srd_strerror
+ * @see otd_strerror
  *
  * @since 0.2.0
  */
-SRD_API const char *srd_strerror_name(int error_code)
+OTD_API const char *otd_strerror_name(int error_code)
 {
 	const char *str;
 
 	/*
-	 * Note: All defined SRD_* error macros from libsigrokdecode.h must
-	 * have an entry in this function, as well as in srd_strerror().
+	 * Note: All defined OTD_* error macros from libopentracedecode.h must
+	 * have an entry in this function, as well as in otd_strerror().
 	 */
 
 	switch (error_code) {
-	case SRD_OK:
-		str = "SRD_OK";
+	case OTD_OK:
+		str = "OTD_OK";
 		break;
-	case SRD_ERR:
-		str = "SRD_ERR";
+	case OTD_ERR:
+		str = "OTD_ERR";
 		break;
-	case SRD_ERR_MALLOC:
-		str = "SRD_ERR_MALLOC";
+	case OTD_ERR_MALLOC:
+		str = "OTD_ERR_MALLOC";
 		break;
-	case SRD_ERR_ARG:
-		str = "SRD_ERR_ARG";
+	case OTD_ERR_ARG:
+		str = "OTD_ERR_ARG";
 		break;
-	case SRD_ERR_BUG:
-		str = "SRD_ERR_BUG";
+	case OTD_ERR_BUG:
+		str = "OTD_ERR_BUG";
 		break;
-	case SRD_ERR_PYTHON:
-		str = "SRD_ERR_PYTHON";
+	case OTD_ERR_PYTHON:
+		str = "OTD_ERR_PYTHON";
 		break;
-	case SRD_ERR_DECODERS_DIR:
-		str = "SRD_ERR_DECODERS_DIR";
+	case OTD_ERR_DECODERS_DIR:
+		str = "OTD_ERR_DECODERS_DIR";
 		break;
 	default:
 		str = "unknown error code";

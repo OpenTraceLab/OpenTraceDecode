@@ -1,5 +1,5 @@
 ##
-## This file is part of the libsigrokdecode project.
+## This file is part of the libopentracedecode project.
 ##
 ## Copyright (C) 2012 Uwe Hermann <uwe@hermann-uwe.de>
 ## Copyright (C) 2013 Matt Ranostay <mranostay@gmail.com>

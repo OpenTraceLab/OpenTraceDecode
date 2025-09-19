@@ -1,0 +1,48 @@
+# Contributing to OpenTraceDecode
+
+Thank you for your interest in contributing to OpenTraceDecode!
+
+## Building
+
+OpenTraceDecode uses Meson as its build system:
+
+```bash
+meson setup builddir
+meson compile -C builddir
+meson test -C builddir  # Run tests
+```
+
+## Development Guidelines
+
+- Follow existing code style and conventions
+- Write tests for new functionality
+- Update documentation as needed
+- Protocol decoders should be written in Python
+- C API changes require careful consideration for backward compatibility
+
+## Submitting Changes
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes with appropriate tests
+4. Submit a pull request with a clear description
+
+## Reporting Issues
+
+Please use GitHub issues to report bugs or request features. Include:
+- Clear description of the issue
+- Steps to reproduce
+- Expected vs actual behavior
+- System information (OS, Python version, etc.)
+
+## Protocol Decoder Development
+
+When adding new protocol decoders:
+- Follow the existing decoder structure
+- Include comprehensive test cases
+- Document the protocol and decoder usage
+- Ensure compatibility with the current API
+
+## Code of Conduct
+
+Please follow our Code of Conduct in all interactions.

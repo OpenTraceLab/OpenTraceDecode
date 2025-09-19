@@ -1,5 +1,5 @@
 /*
- * This file is part of the libsigrokdecode project.
+ * This file is part of the libopentracedecode project.
  *
  * Copyright (C) 2010 Uwe Hermann <uwe@hermann-uwe.de>
  * Copyright (C) 2012 Bert Vermeulen <bert@biot.com>
@@ -19,8 +19,8 @@
  */
 
 #include <config.h>
-#include "libsigrokdecode-internal.h" /* First, so we avoid a _POSIX_C_SOURCE warning. */
-#include "libsigrokdecode.h"
+#include "libopentracedecode-internal.h" /* First, so we avoid a _POSIX_C_SOURCE warning. */
+#include <opentracedecode/libopentracedecode.h>
 #include <glib.h>
 
 /**
@@ -43,21 +43,21 @@
 static GSList *pd_list = NULL;
 
 /* srd.c */
-extern SRD_PRIV GSList *searchpaths;
+extern OTD_PRIV GSList *searchpaths;
 
 /* session.c */
-extern SRD_PRIV GSList *sessions;
-extern SRD_PRIV int max_session_id;
+extern OTD_PRIV GSList *sessions;
+extern OTD_PRIV int max_session_id;
 
 /* module_sigrokdecode.c */
-extern SRD_PRIV PyObject *mod_sigrokdecode;
+extern OTD_PRIV PyObject *mod_sigrokdecode;
 
 /** @endcond */
 
-static gboolean srd_check_init(void)
+static gboolean otd_check_init(void)
 {
 	if (max_session_id < 0) {
-		srd_err("Library is not initialized.");
+		otd_err("Library is not initialized.");
 		return FALSE;
 	} else
 		return TRUE;
@@ -66,13 +66,13 @@ static gboolean srd_check_init(void)
 /**
  * Returns the list of loaded protocol decoders.
  *
- * This is a GSList of pointers to struct srd_decoder items.
+ * This is a GSList of pointers to struct otd_decoder items.
  *
  * @return List of decoders, NULL if none are supported or loaded.
  *
  * @since 0.2.0
  */
-SRD_API const GSList *srd_decoder_list(void)
+OTD_API const GSList *otd_decoder_list(void)
 {
 	return pd_list;
 }
@@ -86,10 +86,10 @@ SRD_API const GSList *srd_decoder_list(void)
  *
  * @since 0.1.0
  */
-SRD_API struct srd_decoder *srd_decoder_get_by_id(const char *id)
+OTD_API struct otd_decoder *otd_decoder_get_by_id(const char *id)
 {
 	GSList *l;
-	struct srd_decoder *dec;
+	struct otd_decoder *dec;
 
 	for (l = pd_list; l; l = l->next) {
 		dec = l->data;
@@ -102,7 +102,7 @@ SRD_API struct srd_decoder *srd_decoder_get_by_id(const char *id)
 
 static void channel_free(void *data)
 {
-	struct srd_channel *ch = data;
+	struct otd_channel *ch = data;
 
 	if (!ch)
 		return;
@@ -125,7 +125,7 @@ static void variant_free(void *data)
 
 static void annotation_row_free(void *data)
 {
-	struct srd_decoder_annotation_row *row = data;
+	struct otd_decoder_annotation_row *row = data;
 
 	if (!row)
 		return;
@@ -138,7 +138,7 @@ static void annotation_row_free(void *data)
 
 static void logic_output_channel_free(void *data)
 {
-	struct srd_decoder_logic_output_channel *logic_out_ch = data;
+	struct otd_decoder_logic_output_channel *logic_out_ch = data;
 
 	if (!logic_out_ch)
 		return;
@@ -150,7 +150,7 @@ static void logic_output_channel_free(void *data)
 
 static void decoder_option_free(void *data)
 {
-	struct srd_decoder_option *opt = data;
+	struct otd_decoder_option *opt = data;
 
 	if (!opt)
 		return;
@@ -162,7 +162,7 @@ static void decoder_option_free(void *data)
 	g_free(opt);
 }
 
-static void decoder_free(struct srd_decoder *dec)
+static void decoder_free(struct otd_decoder *dec)
 {
 	PyGILState_STATE gstate;
 
@@ -193,11 +193,11 @@ static void decoder_free(struct srd_decoder *dec)
 	g_free(dec);
 }
 
-static int get_channels(const struct srd_decoder *d, const char *attr,
+static int get_channels(const struct otd_decoder *d, const char *attr,
 		GSList **out_pdchl, int offset)
 {
 	PyObject *py_channellist, *py_entry;
-	struct srd_channel *pdch;
+	struct otd_channel *pdch;
 	GSList *pdchl;
 	ssize_t ch_idx;
 	PyGILState_STATE gstate;
@@ -207,7 +207,7 @@ static int get_channels(const struct srd_decoder *d, const char *attr,
 	if (!PyObject_HasAttrString(d->py_dec, attr)) {
 		/* No channels of this type specified. */
 		PyGILState_Release(gstate);
-		return SRD_OK;
+		return OTD_OK;
 	}
 
 	pdchl = NULL;
@@ -217,7 +217,7 @@ static int get_channels(const struct srd_decoder *d, const char *attr,
 		goto except_out;
 
 	if (!PyTuple_Check(py_channellist)) {
-		srd_err("Protocol decoder %s %s attribute is not a tuple.",
+		otd_err("Protocol decoder %s %s attribute is not a tuple.",
 			d->name, attr);
 		goto err_out;
 	}
@@ -229,19 +229,19 @@ static int get_channels(const struct srd_decoder *d, const char *attr,
 			goto except_out;
 
 		if (!PyDict_Check(py_entry)) {
-			srd_err("Protocol decoder %s %s attribute is not "
+			otd_err("Protocol decoder %s %s attribute is not "
 				"a list of dict elements.", d->name, attr);
 			goto err_out;
 		}
-		pdch = g_malloc(sizeof(struct srd_channel));
+		pdch = g_malloc(sizeof(struct otd_channel));
 		/* Add to list right away so it doesn't get lost. */
 		pdchl = g_slist_prepend(pdchl, pdch);
 
-		if (py_dictitem_as_str(py_entry, "id", &pdch->id) != SRD_OK)
+		if (py_dictitem_as_str(py_entry, "id", &pdch->id) != OTD_OK)
 			goto err_out;
-		if (py_dictitem_as_str(py_entry, "name", &pdch->name) != SRD_OK)
+		if (py_dictitem_as_str(py_entry, "name", &pdch->name) != OTD_OK)
 			goto err_out;
-		if (py_dictitem_as_str(py_entry, "desc", &pdch->desc) != SRD_OK)
+		if (py_dictitem_as_str(py_entry, "desc", &pdch->desc) != OTD_OK)
 			goto err_out;
 
 		pdch->order = offset + ch_idx;
@@ -252,10 +252,10 @@ static int get_channels(const struct srd_decoder *d, const char *attr,
 
 	PyGILState_Release(gstate);
 
-	return SRD_OK;
+	return OTD_OK;
 
 except_out:
-	srd_exception_catch("Failed to get %s list of %s decoder",
+	otd_exception_catch("Failed to get %s list of %s decoder",
 			attr, d->name);
 
 err_out:
@@ -263,14 +263,14 @@ err_out:
 	Py_XDECREF(py_channellist);
 	PyGILState_Release(gstate);
 
-	return SRD_ERR_PYTHON;
+	return OTD_ERR_PYTHON;
 }
 
-static int get_options(struct srd_decoder *d)
+static int get_options(struct otd_decoder *d)
 {
 	PyObject *py_opts, *py_opt, *py_str, *py_values, *py_default, *py_item;
 	GSList *options;
-	struct srd_decoder_option *o;
+	struct otd_decoder_option *o;
 	GVariant *gvar;
 	ssize_t opt, val_idx;
 	PyGILState_STATE gstate;
@@ -280,7 +280,7 @@ static int get_options(struct srd_decoder *d)
 	if (!PyObject_HasAttrString(d->py_dec, "options")) {
 		/* No options, that's fine. */
 		PyGILState_Release(gstate);
-		return SRD_OK;
+		return OTD_OK;
 	}
 
 	options = NULL;
@@ -291,7 +291,7 @@ static int get_options(struct srd_decoder *d)
 		goto except_out;
 
 	if (!PyTuple_Check(py_opts)) {
-		srd_err("Protocol decoder %s: options attribute is not "
+		otd_err("Protocol decoder %s: options attribute is not "
 				"a tuple.", d->id);
 		goto err_out;
 	}
@@ -302,27 +302,27 @@ static int get_options(struct srd_decoder *d)
 			goto except_out;
 
 		if (!PyDict_Check(py_opt)) {
-			srd_err("Protocol decoder %s options: each option "
+			otd_err("Protocol decoder %s options: each option "
 					"must consist of a dictionary.", d->name);
 			goto err_out;
 		}
 
-		o = g_malloc0(sizeof(struct srd_decoder_option));
+		o = g_malloc0(sizeof(struct otd_decoder_option));
 		/* Add to list right away so it doesn't get lost. */
 		options = g_slist_prepend(options, o);
 
 		py_str = PyDict_GetItemString(py_opt, "id");
 		if (!py_str) {
-			srd_err("Protocol decoder %s option %zd has no ID.",
+			otd_err("Protocol decoder %s option %zd has no ID.",
 				d->name, opt);
 			goto err_out;
 		}
-		if (py_str_as_str(py_str, &o->id) != SRD_OK)
+		if (py_str_as_str(py_str, &o->id) != OTD_OK)
 			goto err_out;
 
 		py_str = PyDict_GetItemString(py_opt, "desc");
 		if (py_str) {
-			if (py_str_as_str(py_str, &o->desc) != SRD_OK)
+			if (py_str_as_str(py_str, &o->desc) != OTD_OK)
 				goto err_out;
 		}
 
@@ -330,7 +330,7 @@ static int get_options(struct srd_decoder *d)
 		if (py_default) {
 			gvar = py_obj_to_variant(py_default);
 			if (!gvar) {
-				srd_err("Protocol decoder %s option 'default' has "
+				otd_err("Protocol decoder %s option 'default' has "
 					"invalid default value.", d->name);
 				goto err_out;
 			}
@@ -344,11 +344,11 @@ static int get_options(struct srd_decoder *d)
 			 * given, since it's used to verify their type.
 			 */
 			if (!o->def) {
-				srd_err("No default for option '%s'.", o->id);
+				otd_err("No default for option '%s'.", o->id);
 				goto err_out;
 			}
 			if (!PyTuple_Check(py_values)) {
-				srd_err("Option '%s' values should be a tuple.", o->id);
+				otd_err("Option '%s' values should be a tuple.", o->id);
 				goto err_out;
 			}
 
@@ -359,14 +359,14 @@ static int get_options(struct srd_decoder *d)
 					goto except_out;
 
 				if (py_default && (Py_TYPE(py_default) != Py_TYPE(py_item))) {
-					srd_err("All values for option '%s' must be "
+					otd_err("All values for option '%s' must be "
 						"of the same type as the default.",
 						o->id);
 					goto err_out;
 				}
 				gvar = py_obj_to_variant(py_item);
 				if (!gvar) {
-					srd_err("Protocol decoder %s option 'values' "
+					otd_err("Protocol decoder %s option 'values' "
 						"contains invalid value.", d->name);
 					goto err_out;
 				}
@@ -379,21 +379,21 @@ static int get_options(struct srd_decoder *d)
 	Py_DECREF(py_opts);
 	PyGILState_Release(gstate);
 
-	return SRD_OK;
+	return OTD_OK;
 
 except_out:
-	srd_exception_catch("Failed to get %s decoder options", d->name);
+	otd_exception_catch("Failed to get %s decoder options", d->name);
 
 err_out:
 	g_slist_free_full(options, &decoder_option_free);
 	Py_XDECREF(py_opts);
 	PyGILState_Release(gstate);
 
-	return SRD_ERR_PYTHON;
+	return OTD_ERR_PYTHON;
 }
 
 /* Convert annotation class attribute to GSList of char **. */
-static int get_annotations(struct srd_decoder *dec, size_t *ret_count)
+static int get_annotations(struct otd_decoder *dec, size_t *ret_count)
 {
 	PyObject *py_annlist, *py_ann;
 	GSList *annotations;
@@ -408,7 +408,7 @@ static int get_annotations(struct srd_decoder *dec, size_t *ret_count)
 
 	if (!PyObject_HasAttrString(dec->py_dec, "annotations")) {
 		PyGILState_Release(gstate);
-		return SRD_OK;
+		return OTD_OK;
 	}
 
 	annotations = NULL;
@@ -418,7 +418,7 @@ static int get_annotations(struct srd_decoder *dec, size_t *ret_count)
 		goto except_out;
 
 	if (!PyTuple_Check(py_annlist)) {
-		srd_err("Protocol decoder %s annotations should be a tuple.",
+		otd_err("Protocol decoder %s annotations should be a tuple.",
 			dec->name);
 		goto err_out;
 	}
@@ -432,11 +432,11 @@ static int get_annotations(struct srd_decoder *dec, size_t *ret_count)
 			goto except_out;
 
 		if (!PyTuple_Check(py_ann) || PyTuple_Size(py_ann) != 2) {
-			srd_err("Protocol decoder %s annotation %zd should be a tuple with two elements.",
+			otd_err("Protocol decoder %s annotation %zd should be a tuple with two elements.",
 				dec->name, ann_idx + 1);
 			goto err_out;
 		}
-		if (py_strseq_to_char(py_ann, &annpair) != SRD_OK)
+		if (py_strseq_to_char(py_ann, &annpair) != OTD_OK)
 			goto err_out;
 
 		annotations = g_slist_prepend(annotations, annpair);
@@ -445,27 +445,27 @@ static int get_annotations(struct srd_decoder *dec, size_t *ret_count)
 	Py_DECREF(py_annlist);
 	PyGILState_Release(gstate);
 
-	return SRD_OK;
+	return OTD_OK;
 
 except_out:
-	srd_exception_catch("Failed to get %s decoder annotations", dec->name);
+	otd_exception_catch("Failed to get %s decoder annotations", dec->name);
 
 err_out:
 	g_slist_free_full(annotations, (GDestroyNotify)&g_strfreev);
 	Py_XDECREF(py_annlist);
 	PyGILState_Release(gstate);
 
-	return SRD_ERR_PYTHON;
+	return OTD_ERR_PYTHON;
 }
 
-/* Convert annotation_rows to GSList of 'struct srd_decoder_annotation_row'. */
-static int get_annotation_rows(struct srd_decoder *dec, size_t cls_count)
+/* Convert annotation_rows to GSList of 'struct otd_decoder_annotation_row'. */
+static int get_annotation_rows(struct otd_decoder *dec, size_t cls_count)
 {
 	const char *py_member_name = "annotation_rows";
 
 	PyObject *py_ann_rows, *py_ann_row, *py_ann_classes, *py_item;
 	GSList *annotation_rows;
-	struct srd_decoder_annotation_row *ann_row;
+	struct otd_decoder_annotation_row *ann_row;
 	ssize_t row_idx, item_idx;
 	size_t class_idx;
 	PyGILState_STATE gstate;
@@ -474,7 +474,7 @@ static int get_annotation_rows(struct srd_decoder *dec, size_t cls_count)
 
 	if (!PyObject_HasAttrString(dec->py_dec, py_member_name)) {
 		PyGILState_Release(gstate);
-		return SRD_OK;
+		return OTD_OK;
 	}
 
 	annotation_rows = NULL;
@@ -484,7 +484,7 @@ static int get_annotation_rows(struct srd_decoder *dec, size_t cls_count)
 		goto except_out;
 
 	if (!PyTuple_Check(py_ann_rows)) {
-		srd_err("Protocol decoder %s %s must be a tuple.",
+		otd_err("Protocol decoder %s %s must be a tuple.",
 			dec->name, py_member_name);
 		goto err_out;
 	}
@@ -496,24 +496,24 @@ static int get_annotation_rows(struct srd_decoder *dec, size_t cls_count)
 			goto except_out;
 
 		if (!PyTuple_Check(py_ann_row) || PyTuple_Size(py_ann_row) != 3) {
-			srd_err("Protocol decoder %s %s must contain only tuples of 3 elements.",
+			otd_err("Protocol decoder %s %s must contain only tuples of 3 elements.",
 				dec->name, py_member_name);
 			goto err_out;
 		}
-		ann_row = g_malloc0(sizeof(struct srd_decoder_annotation_row));
+		ann_row = g_malloc0(sizeof(struct otd_decoder_annotation_row));
 		/* Add to list right away so it doesn't get lost. */
 		annotation_rows = g_slist_prepend(annotation_rows, ann_row);
 
 		py_item = PyTuple_GetItem(py_ann_row, 0);
 		if (!py_item)
 			goto except_out;
-		if (py_str_as_str(py_item, &ann_row->id) != SRD_OK)
+		if (py_str_as_str(py_item, &ann_row->id) != OTD_OK)
 			goto err_out;
 
 		py_item = PyTuple_GetItem(py_ann_row, 1);
 		if (!py_item)
 			goto except_out;
-		if (py_str_as_str(py_item, &ann_row->desc) != SRD_OK)
+		if (py_str_as_str(py_item, &ann_row->desc) != OTD_OK)
 			goto err_out;
 
 		py_ann_classes = PyTuple_GetItem(py_ann_row, 2);
@@ -521,7 +521,7 @@ static int get_annotation_rows(struct srd_decoder *dec, size_t cls_count)
 			goto except_out;
 
 		if (!PyTuple_Check(py_ann_classes)) {
-			srd_err("Protocol decoder %s %s tuples must have a tuple of numbers as 3rd element.",
+			otd_err("Protocol decoder %s %s tuples must have a tuple of numbers as 3rd element.",
 				dec->name, py_member_name);
 			goto err_out;
 		}
@@ -533,7 +533,7 @@ static int get_annotation_rows(struct srd_decoder *dec, size_t cls_count)
 				goto except_out;
 
 			if (!PyLong_Check(py_item)) {
-				srd_err("Protocol decoder %s annotation row class tuple must only contain numbers.",
+				otd_err("Protocol decoder %s annotation row class tuple must only contain numbers.",
 					dec->name);
 				goto err_out;
 			}
@@ -541,7 +541,7 @@ static int get_annotation_rows(struct srd_decoder *dec, size_t cls_count)
 			if (PyErr_Occurred())
 				goto except_out;
 			if (class_idx >= cls_count) {
-				srd_err("Protocol decoder %s annotation row %zd references invalid class %zu.",
+				otd_err("Protocol decoder %s annotation row %zd references invalid class %zu.",
 					dec->name, row_idx, class_idx);
 				goto err_out;
 			}
@@ -554,10 +554,10 @@ static int get_annotation_rows(struct srd_decoder *dec, size_t cls_count)
 	Py_DECREF(py_ann_rows);
 	PyGILState_Release(gstate);
 
-	return SRD_OK;
+	return OTD_OK;
 
 except_out:
-	srd_exception_catch("Failed to get %s decoder annotation rows",
+	otd_exception_catch("Failed to get %s decoder annotation rows",
 			dec->name);
 
 err_out:
@@ -565,11 +565,11 @@ err_out:
 	Py_XDECREF(py_ann_rows);
 	PyGILState_Release(gstate);
 
-	return SRD_ERR_PYTHON;
+	return OTD_ERR_PYTHON;
 }
 
 /* Convert binary classes to GSList of char **. */
-static int get_binary_classes(struct srd_decoder *dec)
+static int get_binary_classes(struct otd_decoder *dec)
 {
 	PyObject *py_bin_classes, *py_bin_class;
 	GSList *bin_classes;
@@ -581,7 +581,7 @@ static int get_binary_classes(struct srd_decoder *dec)
 
 	if (!PyObject_HasAttrString(dec->py_dec, "binary")) {
 		PyGILState_Release(gstate);
-		return SRD_OK;
+		return OTD_OK;
 	}
 
 	bin_classes = NULL;
@@ -591,7 +591,7 @@ static int get_binary_classes(struct srd_decoder *dec)
 		goto except_out;
 
 	if (!PyTuple_Check(py_bin_classes)) {
-		srd_err("Protocol decoder %s binary classes should "
+		otd_err("Protocol decoder %s binary classes should "
 			"be a tuple.", dec->name);
 		goto err_out;
 	}
@@ -604,12 +604,12 @@ static int get_binary_classes(struct srd_decoder *dec)
 
 		if (!PyTuple_Check(py_bin_class)
 				|| PyTuple_Size(py_bin_class) != 2) {
-			srd_err("Protocol decoder %s binary classes should "
+			otd_err("Protocol decoder %s binary classes should "
 				"consist only of tuples of 2 elements.",
 				dec->name);
 			goto err_out;
 		}
-		if (py_strseq_to_char(py_bin_class, &bin) != SRD_OK)
+		if (py_strseq_to_char(py_bin_class, &bin) != OTD_OK)
 			goto err_out;
 
 		bin_classes = g_slist_prepend(bin_classes, bin);
@@ -618,10 +618,10 @@ static int get_binary_classes(struct srd_decoder *dec)
 	Py_DECREF(py_bin_classes);
 	PyGILState_Release(gstate);
 
-	return SRD_OK;
+	return OTD_OK;
 
 except_out:
-	srd_exception_catch("Failed to get %s decoder binary classes",
+	otd_exception_catch("Failed to get %s decoder binary classes",
 			dec->name);
 
 err_out:
@@ -629,15 +629,15 @@ err_out:
 	Py_XDECREF(py_bin_classes);
 	PyGILState_Release(gstate);
 
-	return SRD_ERR_PYTHON;
+	return OTD_ERR_PYTHON;
 }
 
-/* Convert logic_output_channels to GSList of 'struct srd_decoder_logic_output_channel'. */
-static int get_logic_output_channels(struct srd_decoder *dec)
+/* Convert logic_output_channels to GSList of 'struct otd_decoder_logic_output_channel'. */
+static int get_logic_output_channels(struct otd_decoder *dec)
 {
 	PyObject *py_logic_out_chs, *py_logic_out_ch, *py_item;
 	GSList *logic_out_chs;
-	struct srd_decoder_logic_output_channel *logic_out_ch;
+	struct otd_decoder_logic_output_channel *logic_out_ch;
 	ssize_t i;
 	PyGILState_STATE gstate;
 
@@ -645,7 +645,7 @@ static int get_logic_output_channels(struct srd_decoder *dec)
 
 	if (!PyObject_HasAttrString(dec->py_dec, "logic_output_channels")) {
 		PyGILState_Release(gstate);
-		return SRD_OK;
+		return OTD_OK;
 	}
 
 	logic_out_chs = NULL;
@@ -655,7 +655,7 @@ static int get_logic_output_channels(struct srd_decoder *dec)
 		goto except_out;
 
 	if (!PyTuple_Check(py_logic_out_chs)) {
-		srd_err("Protocol decoder %s logic_output_channels "
+		otd_err("Protocol decoder %s logic_output_channels "
 			"must be a tuple.", dec->name);
 		goto err_out;
 	}
@@ -666,7 +666,7 @@ static int get_logic_output_channels(struct srd_decoder *dec)
 			goto except_out;
 
 		if (!PyTuple_Check(py_logic_out_ch) || PyTuple_Size(py_logic_out_ch) != 2) {
-			srd_err("Protocol decoder %s logic_output_channels "
+			otd_err("Protocol decoder %s logic_output_channels "
 				"must contain only tuples of 2 elements.",
 				dec->name);
 			goto err_out;
@@ -678,23 +678,23 @@ static int get_logic_output_channels(struct srd_decoder *dec)
 		py_item = PyTuple_GetItem(py_logic_out_ch, 0);
 		if (!py_item)
 			goto except_out;
-		if (py_str_as_str(py_item, &logic_out_ch->id) != SRD_OK)
+		if (py_str_as_str(py_item, &logic_out_ch->id) != OTD_OK)
 			goto err_out;
 
 		py_item = PyTuple_GetItem(py_logic_out_ch, 1);
 		if (!py_item)
 			goto except_out;
-		if (py_str_as_str(py_item, &logic_out_ch->desc) != SRD_OK)
+		if (py_str_as_str(py_item, &logic_out_ch->desc) != OTD_OK)
 			goto err_out;
 	}
 	dec->logic_output_channels = logic_out_chs;
 	Py_DECREF(py_logic_out_chs);
 	PyGILState_Release(gstate);
 
-	return SRD_OK;
+	return OTD_OK;
 
 except_out:
-	srd_exception_catch("Failed to get %s decoder logic output channels",
+	otd_exception_catch("Failed to get %s decoder logic output channels",
 			dec->name);
 
 err_out:
@@ -702,7 +702,7 @@ err_out:
 	Py_XDECREF(py_logic_out_chs);
 	PyGILState_Release(gstate);
 
-	return SRD_ERR_PYTHON;
+	return OTD_ERR_PYTHON;
 }
 
 /* Check whether the Decoder class defines the named method. */
@@ -717,10 +717,10 @@ static int check_method(PyObject *py_dec, const char *mod_name,
 
 	py_method = PyObject_GetAttrString(py_dec, method_name);
 	if (!py_method) {
-		srd_exception_catch("Protocol decoder %s Decoder class "
+		otd_exception_catch("Protocol decoder %s Decoder class "
 				"has no %s() method", mod_name, method_name);
 		PyGILState_Release(gstate);
-		return SRD_ERR_PYTHON;
+		return OTD_ERR_PYTHON;
 	}
 
 	is_callable = PyCallable_Check(py_method);
@@ -729,12 +729,12 @@ static int check_method(PyObject *py_dec, const char *mod_name,
 	PyGILState_Release(gstate);
 
 	if (!is_callable) {
-		srd_err("Protocol decoder %s Decoder class attribute '%s' "
+		otd_err("Protocol decoder %s Decoder class attribute '%s' "
 			"is not a method.", mod_name, method_name);
-		return SRD_ERR_PYTHON;
+		return OTD_ERR_PYTHON;
 	}
 
-	return SRD_OK;
+	return OTD_OK;
 }
 
 /**
@@ -746,7 +746,7 @@ static int check_method(PyObject *py_dec, const char *mod_name,
  *
  * @private
  */
-SRD_PRIV long srd_decoder_apiver(const struct srd_decoder *d)
+OTD_PRIV long otd_decoder_apiver(const struct otd_decoder *d)
 {
 	PyObject *py_apiver;
 	long apiver;
@@ -801,9 +801,9 @@ static gboolean contains_duplicate_row_ids(GSList *list1, GSList *list2)
 {
 	for (GSList *l1 = list1; l1; l1 = l1->next) {
 		unsigned int cnt = 0;
-		const struct srd_decoder_annotation_row *r1 = l1->data;
+		const struct otd_decoder_annotation_row *r1 = l1->data;
 		for (GSList *l2 = list2; l2; l2 = l2->next) {
-			const struct srd_decoder_annotation_row *r2 = l2->data;
+			const struct otd_decoder_annotation_row *r2 = l2->data;
 			if (!strcmp(r1->id, r2->id))
 				cnt++;
 			if (cnt > 1)
@@ -819,35 +819,35 @@ static gboolean contains_duplicate_row_ids(GSList *list1, GSList *list2)
  *
  * @param module_name The module name to be loaded.
  *
- * @return SRD_OK upon success, a (negative) error code otherwise.
+ * @return OTD_OK upon success, a (negative) error code otherwise.
  *
  * @since 0.1.0
  */
-SRD_API int srd_decoder_load(const char *module_name)
+OTD_API int otd_decoder_load(const char *module_name)
 {
 	PyObject *py_basedec;
-	struct srd_decoder *d;
+	struct otd_decoder *d;
 	long apiver;
 	int is_subclass;
 	const char *fail_txt;
 	PyGILState_STATE gstate;
 	size_t ann_cls_count;
 
-	if (!srd_check_init())
-		return SRD_ERR;
+	if (!otd_check_init())
+		return OTD_ERR;
 
 	if (!module_name)
-		return SRD_ERR_ARG;
+		return OTD_ERR_ARG;
 
 	gstate = PyGILState_Ensure();
 
 	if (PyDict_GetItemString(PyImport_GetModuleDict(), module_name)) {
 		/* Module was already imported. */
 		PyGILState_Release(gstate);
-		return SRD_OK;
+		return OTD_OK;
 	}
 
-	d = g_malloc0(sizeof(struct srd_decoder));
+	d = g_malloc0(sizeof(struct otd_decoder));
 	fail_txt = NULL;
 
 	d->py_mod = py_import_by_name(module_name);
@@ -857,7 +857,7 @@ SRD_API int srd_decoder_load(const char *module_name)
 	}
 
 	if (!mod_sigrokdecode) {
-		srd_err("sigrokdecode module not loaded.");
+		otd_err("sigrokdecode module not loaded.");
 		fail_txt = "sigrokdecode(3) not loaded";
 		goto err_out;
 	}
@@ -879,7 +879,7 @@ SRD_API int srd_decoder_load(const char *module_name)
 	Py_DECREF(py_basedec);
 
 	if (!is_subclass) {
-		srd_err("Decoder class in protocol decoder module %s is not "
+		otd_err("Decoder class in protocol decoder module %s is not "
 			"a subclass of sigrokdecode.Decoder.", module_name);
 		fail_txt = "not a subclass of sigrokdecode.Decoder";
 		goto err_out;
@@ -889,9 +889,9 @@ SRD_API int srd_decoder_load(const char *module_name)
 	 * Check that this decoder has the correct PD API version.
 	 * PDs of different API versions are incompatible and cannot work.
 	 */
-	apiver = srd_decoder_apiver(d);
+	apiver = otd_decoder_apiver(d);
 	if (apiver != 3) {
-		srd_exception_catch("Only PD API version 3 is supported, "
+		otd_exception_catch("Only PD API version 3 is supported, "
 			"decoder %s has version %ld", module_name, apiver);
 		fail_txt = "API version mismatch";
 		goto err_out;
@@ -899,92 +899,92 @@ SRD_API int srd_decoder_load(const char *module_name)
 
 	/* Check Decoder class for required methods. */
 
-	if (check_method(d->py_dec, module_name, "reset") != SRD_OK) {
+	if (check_method(d->py_dec, module_name, "reset") != OTD_OK) {
 		fail_txt = "no 'reset()' method";
 		goto err_out;
 	}
 
-	if (check_method(d->py_dec, module_name, "start") != SRD_OK) {
+	if (check_method(d->py_dec, module_name, "start") != OTD_OK) {
 		fail_txt = "no 'start()' method";
 		goto err_out;
 	}
 
-	if (check_method(d->py_dec, module_name, "decode") != SRD_OK) {
+	if (check_method(d->py_dec, module_name, "decode") != OTD_OK) {
 		fail_txt = "no 'decode()' method";
 		goto err_out;
 	}
 
 	/* Store required fields in newly allocated strings. */
-	if (py_attr_as_str(d->py_dec, "id", &(d->id)) != SRD_OK) {
+	if (py_attr_as_str(d->py_dec, "id", &(d->id)) != OTD_OK) {
 		fail_txt = "no 'id' attribute";
 		goto err_out;
 	}
 
-	if (py_attr_as_str(d->py_dec, "name", &(d->name)) != SRD_OK) {
+	if (py_attr_as_str(d->py_dec, "name", &(d->name)) != OTD_OK) {
 		fail_txt = "no 'name' attribute";
 		goto err_out;
 	}
 
-	if (py_attr_as_str(d->py_dec, "longname", &(d->longname)) != SRD_OK) {
+	if (py_attr_as_str(d->py_dec, "longname", &(d->longname)) != OTD_OK) {
 		fail_txt = "no 'longname' attribute";
 		goto err_out;
 	}
 
-	if (py_attr_as_str(d->py_dec, "desc", &(d->desc)) != SRD_OK) {
+	if (py_attr_as_str(d->py_dec, "desc", &(d->desc)) != OTD_OK) {
 		fail_txt = "no 'desc' attribute";
 		goto err_out;
 	}
 
-	if (py_attr_as_str(d->py_dec, "license", &(d->license)) != SRD_OK) {
+	if (py_attr_as_str(d->py_dec, "license", &(d->license)) != OTD_OK) {
 		fail_txt = "no 'license' attribute";
 		goto err_out;
 	}
 
-	if (py_attr_as_strlist(d->py_dec, "inputs", &(d->inputs)) != SRD_OK) {
+	if (py_attr_as_strlist(d->py_dec, "inputs", &(d->inputs)) != OTD_OK) {
 		fail_txt = "missing or malformed 'inputs' attribute";
 		goto err_out;
 	}
 
-	if (py_attr_as_strlist(d->py_dec, "outputs", &(d->outputs)) != SRD_OK) {
+	if (py_attr_as_strlist(d->py_dec, "outputs", &(d->outputs)) != OTD_OK) {
 		fail_txt = "missing or malformed 'outputs' attribute";
 		goto err_out;
 	}
 
-	if (py_attr_as_strlist(d->py_dec, "tags", &(d->tags)) != SRD_OK) {
+	if (py_attr_as_strlist(d->py_dec, "tags", &(d->tags)) != OTD_OK) {
 		fail_txt = "missing or malformed 'tags' attribute";
 		goto err_out;
 	}
 
 	/* All options and their default values. */
-	if (get_options(d) != SRD_OK) {
+	if (get_options(d) != OTD_OK) {
 		fail_txt = "cannot get options";
 		goto err_out;
 	}
 
 	/* Check and import required channels. */
-	if (get_channels(d, "channels", &d->channels, 0) != SRD_OK) {
+	if (get_channels(d, "channels", &d->channels, 0) != OTD_OK) {
 		fail_txt = "cannot get channels";
 		goto err_out;
 	}
 
 	/* Check and import optional channels. */
 	if (get_channels(d, "optional_channels", &d->opt_channels,
-				g_slist_length(d->channels)) != SRD_OK) {
+				g_slist_length(d->channels)) != OTD_OK) {
 		fail_txt = "cannot get optional channels";
 		goto err_out;
 	}
 
-	if (get_annotations(d, &ann_cls_count) != SRD_OK) {
+	if (get_annotations(d, &ann_cls_count) != OTD_OK) {
 		fail_txt = "cannot get annotations";
 		goto err_out;
 	}
 
-	if (get_annotation_rows(d, ann_cls_count) != SRD_OK) {
+	if (get_annotation_rows(d, ann_cls_count) != OTD_OK) {
 		fail_txt = "cannot get annotation rows";
 		goto err_out;
 	}
 
-	if (get_binary_classes(d) != SRD_OK) {
+	if (get_binary_classes(d) != OTD_OK) {
 		fail_txt = "cannot get binary classes";
 		goto err_out;
 	}
@@ -1044,7 +1044,7 @@ SRD_API int srd_decoder_load(const char *module_name)
 		goto err_out;
 	}
 
-	if (get_logic_output_channels(d) != SRD_OK) {
+	if (get_logic_output_channels(d) != OTD_OK) {
 		fail_txt = "cannot get logic output channels";
 		goto err_out;
 	}
@@ -1054,23 +1054,23 @@ SRD_API int srd_decoder_load(const char *module_name)
 	/* Append it to the list of loaded decoders. */
 	pd_list = g_slist_append(pd_list, d);
 
-	return SRD_OK;
+	return OTD_OK;
 
 except_out:
 	/* Don't show a message for the "common" directory, it's not a PD. */
 	if (strcmp(module_name, "common")) {
-		srd_exception_catch("Failed to load decoder %s: %s",
+		otd_exception_catch("Failed to load decoder %s: %s",
 				    module_name, fail_txt);
 	}
 	fail_txt = NULL;
 
 err_out:
 	if (fail_txt)
-		srd_err("Failed to load decoder %s: %s", module_name, fail_txt);
+		otd_err("Failed to load decoder %s: %s", module_name, fail_txt);
 	decoder_free(d);
 	PyGILState_Release(gstate);
 
-	return SRD_ERR_PYTHON;
+	return OTD_ERR_PYTHON;
 }
 
 /**
@@ -1083,13 +1083,13 @@ err_out:
  *
  * @since 0.1.0
  */
-SRD_API char *srd_decoder_doc_get(const struct srd_decoder *dec)
+OTD_API char *otd_decoder_doc_get(const struct otd_decoder *dec)
 {
 	PyObject *py_str;
 	char *doc;
 	PyGILState_STATE gstate;
 
-	if (!srd_check_init())
+	if (!otd_check_init())
 		return NULL;
 
 	if (!dec || !dec->py_mod)
@@ -1101,7 +1101,7 @@ SRD_API char *srd_decoder_doc_get(const struct srd_decoder *dec)
 		goto err;
 
 	if (!(py_str = PyObject_GetAttrString(dec->py_mod, "__doc__"))) {
-		srd_exception_catch("Failed to get docstring");
+		otd_exception_catch("Failed to get docstring");
 		goto err;
 	}
 
@@ -1123,22 +1123,22 @@ err:
 /**
  * Unload the specified protocol decoder.
  *
- * @param dec The struct srd_decoder to be unloaded.
+ * @param dec The struct otd_decoder to be unloaded.
  *
- * @return SRD_OK upon success, a (negative) error code otherwise.
+ * @return OTD_OK upon success, a (negative) error code otherwise.
  *
  * @since 0.1.0
  */
-SRD_API int srd_decoder_unload(struct srd_decoder *dec)
+OTD_API int otd_decoder_unload(struct otd_decoder *dec)
 {
-	struct srd_session *sess;
+	struct otd_session *sess;
 	GSList *l;
 
-	if (!srd_check_init())
-		return SRD_ERR;
+	if (!otd_check_init())
+		return OTD_ERR;
 
 	if (!dec)
-		return SRD_ERR_ARG;
+		return OTD_ERR_ARG;
 
 	/*
 	 * Since any instances of this decoder need to be released as well,
@@ -1148,7 +1148,7 @@ SRD_API int srd_decoder_unload(struct srd_decoder *dec)
 	 */
 	for (l = sessions; l; l = l->next) {
 		sess = l->data;
-		srd_inst_free_all(sess);
+		otd_inst_free_all(sess);
 	}
 
 	/* Remove the PD from the list of loaded decoders. */
@@ -1156,10 +1156,10 @@ SRD_API int srd_decoder_unload(struct srd_decoder *dec)
 
 	decoder_free(dec);
 
-	return SRD_OK;
+	return OTD_OK;
 }
 
-static void srd_decoder_load_all_zip_path(char *zip_path)
+static void otd_decoder_load_all_zip_path(char *zip_path)
 {
 	PyObject *zipimport_mod, *zipimporter_class, *zipimporter;
 	PyObject *prefix_obj, *files, *key, *value, *set, *modname;
@@ -1196,14 +1196,14 @@ static void srd_decoder_load_all_zip_path(char *zip_path)
 	if (set == NULL)
 		goto err_out;
 
-	if (py_str_as_str(prefix_obj, &prefix) != SRD_OK)
+	if (py_str_as_str(prefix_obj, &prefix) != OTD_OK)
 		goto err_out;
 
 	prefix_len = strlen(prefix);
 
 	while (PyDict_Next(files, &pos, &key, &value)) {
 		char *path, *slash;
-		if (py_str_as_str(key, &path) == SRD_OK) {
+		if (py_str_as_str(key, &path) == OTD_OK) {
 			if (strlen(path) > prefix_len
 					&& memcmp(path, prefix, prefix_len) == 0
 					&& (slash = strchr(path + prefix_len, '/'))) {
@@ -1224,9 +1224,9 @@ static void srd_decoder_load_all_zip_path(char *zip_path)
 
 	while ((modname = PySet_Pop(set))) {
 		char *modname_str;
-		if (py_str_as_str(modname, &modname_str) == SRD_OK) {
+		if (py_str_as_str(modname, &modname_str) == OTD_OK) {
 			/* The directory name is the module name (e.g. "i2c"). */
-			srd_decoder_load(modname_str);
+			otd_decoder_load(modname_str);
 			g_free(modname_str);
 		}
 		Py_DECREF(modname);
@@ -1243,25 +1243,25 @@ err_out:
 	PyGILState_Release(gstate);
 }
 
-static void srd_decoder_load_all_path(char *path)
+static void otd_decoder_load_all_path(char *path)
 {
 	GDir *dir;
 	const gchar *direntry;
 
 	if (!(dir = g_dir_open(path, 0, NULL))) {
 		/* Not really fatal. Try zipimport method too. */
-		srd_decoder_load_all_zip_path(path);
+		otd_decoder_load_all_zip_path(path);
 		return;
 	}
 
 	/*
-	 * This ignores errors returned by srd_decoder_load(). That
+	 * This ignores errors returned by otd_decoder_load(). That
 	 * function will have logged the cause, but in any case we
 	 * want to continue anyway.
 	 */
 	while ((direntry = g_dir_read_name(dir)) != NULL) {
 		/* The directory name is the module name (e.g. "i2c"). */
-		srd_decoder_load(direntry);
+		otd_decoder_load(direntry);
 	}
 	g_dir_close(dir);
 }
@@ -1269,44 +1269,44 @@ static void srd_decoder_load_all_path(char *path)
 /**
  * Load all installed protocol decoders.
  *
- * @return SRD_OK upon success, a (negative) error code otherwise.
+ * @return OTD_OK upon success, a (negative) error code otherwise.
  *
  * @since 0.1.0
  */
-SRD_API int srd_decoder_load_all(void)
+OTD_API int otd_decoder_load_all(void)
 {
 	GSList *l;
 
-	if (!srd_check_init())
-		return SRD_ERR;
+	if (!otd_check_init())
+		return OTD_ERR;
 
 	for (l = searchpaths; l; l = l->next)
-		srd_decoder_load_all_path(l->data);
+		otd_decoder_load_all_path(l->data);
 
-	return SRD_OK;
+	return OTD_OK;
 }
 
-static void srd_decoder_unload_cb(void *arg, void *ignored)
+static void otd_decoder_unload_cb(void *arg, void *ignored)
 {
 	(void)ignored;
 
-	srd_decoder_unload((struct srd_decoder *)arg);
+	otd_decoder_unload((struct otd_decoder *)arg);
 }
 
 /**
  * Unload all loaded protocol decoders.
  *
- * @return SRD_OK upon success, a (negative) error code otherwise.
+ * @return OTD_OK upon success, a (negative) error code otherwise.
  *
  * @since 0.1.0
  */
-SRD_API int srd_decoder_unload_all(void)
+OTD_API int otd_decoder_unload_all(void)
 {
-	g_slist_foreach(pd_list, srd_decoder_unload_cb, NULL);
+	g_slist_foreach(pd_list, otd_decoder_unload_cb, NULL);
 	g_slist_free(pd_list);
 	pd_list = NULL;
 
-	return SRD_OK;
+	return OTD_OK;
 }
 
 /** @} */

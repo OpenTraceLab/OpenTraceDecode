@@ -1,5 +1,5 @@
 /*
- * This file is part of the libsigrokdecode project.
+ * This file is part of the libopentracedecode project.
  *
  * Copyright (C) 2010 Uwe Hermann <uwe@hermann-uwe.de>
  * Copyright (C) 2013 Bert Vermeulen <bert@biot.com>
@@ -19,23 +19,23 @@
  */
 
 #include <config.h>
-#include "libsigrokdecode-internal.h" /* First, so we avoid a _POSIX_C_SOURCE warning. */
-#include "libsigrokdecode.h"
+#include "libopentracedecode-internal.h" /* First, so we avoid a _POSIX_C_SOURCE warning. */
+#include <opentracedecode/libopentracedecode.h>
 #include <glib.h>
 
 /** @cond PRIVATE */
 
 /* Python module search paths */
-SRD_PRIV GSList *searchpaths = NULL;
+OTD_PRIV GSList *searchpaths = NULL;
 
 /* session.c */
-extern SRD_PRIV GSList *sessions;
-extern SRD_PRIV int max_session_id;
+extern OTD_PRIV GSList *sessions;
+extern OTD_PRIV int max_session_id;
 
 /** @endcond */
 
 /**
- * @mainpage libsigrokdecode API
+ * @mainpage libopentracedecode API
  *
  * @section sec_intro Introduction
  *
@@ -44,7 +44,7 @@ extern SRD_PRIV int max_session_id;
  * suite that supports various device types (such as logic analyzers,
  * oscilloscopes, multimeters, and more).
  *
- * <a href="http://sigrok.org/wiki/Libsigrokdecode">libsigrokdecode</a> is a
+ * <a href="http://sigrok.org/wiki/Libsigrokdecode">libopentracedecode</a> is a
  * shared library written in C which provides the basic API for (streaming)
  * protocol decoding functionality.
  *
@@ -53,7 +53,7 @@ extern SRD_PRIV int max_session_id;
  *
  * @section sec_api API reference
  *
- * See the "Modules" page for an introduction to various libsigrokdecode
+ * See the "Modules" page for an introduction to various libopentracedecode
  * related topics and the detailed API documentation of the respective
  * functions.
  *
@@ -62,7 +62,7 @@ extern SRD_PRIV int max_session_id;
  *
  * @section sec_mailinglists Mailing lists
  *
- * There is one mailing list for sigrok/libsigrokdecode: <a href="https://lists.sourceforge.net/lists/listinfo/sigrok-devel">sigrok-devel</a>.
+ * There is one mailing list for sigrok/libopentracedecode: <a href="https://lists.sourceforge.net/lists/listinfo/sigrok-devel">sigrok-devel</a>.
  *
  * @section sec_irc IRC
  *
@@ -78,18 +78,18 @@ extern SRD_PRIV int max_session_id;
 /**
  * @file
  *
- * Initializing and shutting down libsigrokdecode.
+ * Initializing and shutting down libopentracedecode.
  */
 
 /**
  * @defgroup grp_init Initialization
  *
- * Initializing and shutting down libsigrokdecode.
+ * Initializing and shutting down libopentracedecode.
  *
- * Before using any of the libsigrokdecode functionality, srd_init() must
+ * Before using any of the libopentracedecode functionality, otd_init() must
  * be called to initialize the library.
  *
- * When libsigrokdecode functionality is no longer needed, srd_exit() should
+ * When libopentracedecode functionality is no longer needed, otd_exit() should
  * be called.
  *
  * @{
@@ -103,9 +103,9 @@ static int searchpath_add_xdg_dir(const char *datadir)
 	decdir = g_build_filename(datadir, PACKAGE_TARNAME, "decoders", NULL);
 
 	if (g_file_test(decdir, G_FILE_TEST_IS_DIR))
-		ret = srd_decoder_searchpath_add(decdir);
+		ret = otd_decoder_searchpath_add(decdir);
 	else
-		ret = SRD_OK; /* Just ignore non-existing directory. */
+		ret = OTD_OK; /* Just ignore non-existing directory. */
 
 	g_free(decdir);
 
@@ -119,13 +119,13 @@ static void print_versions(void)
 	char *str;
 	const char *lib, *version;
 
-	srd_dbg("libsigrokdecode %s/%s (rt: %s/%s).",
-		SRD_PACKAGE_VERSION_STRING, SRD_LIB_VERSION_STRING,
-		srd_package_version_string_get(), srd_lib_version_string_get());
+	otd_dbg("libopentracedecode %s/%s (rt: %s/%s).",
+		OTD_PACKAGE_VERSION_STRING, OTD_LIB_VERSION_STRING,
+		otd_package_version_string_get(), otd_lib_version_string_get());
 
 	s = g_string_sized_new(200);
 	g_string_append(s, "Libs: ");
-	l_orig = srd_buildinfo_libs_get();
+	l_orig = otd_buildinfo_libs_get();
 	for (l = l_orig; l; l = l->next) {
 		m = l->data;
 		lib = m->data;
@@ -136,11 +136,11 @@ static void print_versions(void)
 	g_slist_free(l_orig);
 	s->str[s->len - 2] = '.';
 	s->str[s->len - 1] = '\0';
-	srd_dbg("%s", s->str);
+	otd_dbg("%s", s->str);
 	g_string_free(s, TRUE);
 
-	str = srd_buildinfo_host_get();
-	srd_dbg("Host: %s.", str);
+	str = otd_buildinfo_host_get();
+	otd_dbg("Host: %s.", str);
 	g_free(str);
 }
 
@@ -157,7 +157,7 @@ static int print_searchpaths(void)
 	for (l = searchpaths; l; l = l->next)
 		g_string_append_printf(s, " - %s\n", (const char *)l->data);
 	s->str[s->len - 1] = '\0';
-	srd_dbg("%s", s->str);
+	otd_dbg("%s", s->str);
 	g_string_free(s, TRUE);
 
 	gstate = PyGILState_Ensure();
@@ -175,48 +175,48 @@ static int print_searchpaths(void)
 		Py_DECREF(py_bytes);
 	}
 	s->str[s->len - 1] = '\0';
-	srd_dbg("%s", s->str);
+	otd_dbg("%s", s->str);
 	g_string_free(s, TRUE);
 
 	PyGILState_Release(gstate);
 
-	return SRD_OK;
+	return OTD_OK;
 
 err:
-	srd_err("Unable to query Python system search paths.");
+	otd_err("Unable to query Python system search paths.");
 	PyGILState_Release(gstate);
 
-	return SRD_ERR_PYTHON;
+	return OTD_ERR_PYTHON;
 }
 
 /**
- * Initialize libsigrokdecode.
+ * Initialize libopentracedecode.
  *
  * This initializes the Python interpreter, and creates and initializes
  * a "sigrokdecode" Python module.
  *
  * Then, it searches for sigrok protocol decoders in the "decoders"
- * subdirectory of the the libsigrokdecode installation directory.
+ * subdirectory of the the libopentracedecode installation directory.
  * All decoders that are found are loaded into memory and added to an
- * internal list of decoders, which can be queried via srd_decoder_list().
+ * internal list of decoders, which can be queried via otd_decoder_list().
  *
- * The caller is responsible for calling the clean-up function srd_exit(),
- * which will properly shut down libsigrokdecode and free its allocated memory.
+ * The caller is responsible for calling the clean-up function otd_exit(),
+ * which will properly shut down libopentracedecode and free its allocated memory.
  *
- * Multiple calls to srd_init(), without calling srd_exit() in between,
+ * Multiple calls to otd_init(), without calling otd_exit() in between,
  * are not allowed.
  *
  * @param path Path to an extra directory containing protocol decoders
  *             which will be added to the Python sys.path. May be NULL.
  *
- * @return SRD_OK upon success, a (negative) error code otherwise.
- *         Upon Python errors, SRD_ERR_PYTHON is returned. If the decoders
- *         directory cannot be accessed, SRD_ERR_DECODERS_DIR is returned.
- *         If not enough memory could be allocated, SRD_ERR_MALLOC is returned.
+ * @return OTD_OK upon success, a (negative) error code otherwise.
+ *         Upon Python errors, OTD_ERR_PYTHON is returned. If the decoders
+ *         directory cannot be accessed, OTD_ERR_DECODERS_DIR is returned.
+ *         If not enough memory could be allocated, OTD_ERR_MALLOC is returned.
  *
  * @since 0.1.0
  */
-SRD_API int srd_init(const char *path)
+OTD_API int otd_init(const char *path)
 {
 	const char *const *sys_datadirs;
 	const char *env_path;
@@ -224,16 +224,16 @@ SRD_API int srd_init(const char *path)
 	int ret;
 
 	if (max_session_id != -1) {
-		srd_err("libsigrokdecode is already initialized.");
-		return SRD_ERR;
+		otd_err("libopentracedecode is already initialized.");
+		return OTD_ERR;
 	}
 
 	print_versions();
 
-	srd_dbg("Initializing libsigrokdecode.");
+	otd_dbg("Initializing libopentracedecode.");
 
 	/* Add our own module to the list of built-in modules. */
-	PyImport_AppendInittab("sigrokdecode", PyInit_sigrokdecode);
+	PyImport_AppendInittab("sigrokdecode", PyInit_opentracedecode);
 
 	/* Initialize the Python interpreter. */
 	Py_InitializeEx(0);
@@ -242,28 +242,28 @@ SRD_API int srd_init(const char *path)
 	sys_datadirs = g_get_system_data_dirs();
 	for (i = g_strv_length((char **)sys_datadirs); i > 0; i--) {
 		ret = searchpath_add_xdg_dir(sys_datadirs[i - 1]);
-		if (ret != SRD_OK) {
+		if (ret != OTD_OK) {
 			Py_Finalize();
 			return ret;
 		}
 	}
 #ifdef DECODERS_DIR
 	/* Hardcoded decoders install location, if defined. */
-	if ((ret = srd_decoder_searchpath_add(DECODERS_DIR)) != SRD_OK) {
+	if ((ret = otd_decoder_searchpath_add(DECODERS_DIR)) != OTD_OK) {
 		Py_Finalize();
 		return ret;
 	}
 #endif
 	/* Location relative to the XDG user data directory. */
 	ret = searchpath_add_xdg_dir(g_get_user_data_dir());
-	if (ret != SRD_OK) {
+	if (ret != OTD_OK) {
 		Py_Finalize();
 		return ret;
 	}
 
 	/* Path specified by the user. */
 	if (path) {
-		if ((ret = srd_decoder_searchpath_add(path)) != SRD_OK) {
+		if ((ret = otd_decoder_searchpath_add(path)) != OTD_OK) {
 			Py_Finalize();
 			return ret;
 		}
@@ -280,7 +280,7 @@ SRD_API int srd_init(const char *path)
 	 * Without shadowing all other files still are found.
 	 */
 	if ((env_path = g_getenv("SIGROKDECODE_DIR"))) {
-		if ((ret = srd_decoder_searchpath_add(env_path)) != SRD_OK) {
+		if ((ret = otd_decoder_searchpath_add(env_path)) != OTD_OK) {
 			Py_Finalize();
 			return ret;
 		}
@@ -293,8 +293,8 @@ SRD_API int srd_init(const char *path)
 			dir_item = *dir_iter;
 			if (!dir_item || !*dir_item)
 				continue;
-			ret = srd_decoder_searchpath_add(dir_item);
-			if (ret != SRD_OK) {
+			ret = otd_decoder_searchpath_add(dir_item);
+			if (ret != OTD_OK) {
 				Py_Finalize();
 				return ret;
 			}
@@ -318,38 +318,38 @@ SRD_API int srd_init(const char *path)
 
 	print_searchpaths();
 
-	return SRD_OK;
+	return OTD_OK;
 }
 
-static void srd_session_destroy_cb(void *arg, void *ignored)
+static void otd_session_destroy_cb(void *arg, void *ignored)
 {
 	(void)ignored; // Prevent unused warning
-	srd_session_destroy((struct srd_session *)arg);
+	otd_session_destroy((struct otd_session *)arg);
 }
 
 /**
- * Shutdown libsigrokdecode.
+ * Shutdown libopentracedecode.
  *
  * This frees all the memory allocated for protocol decoders and shuts down
  * the Python interpreter.
  *
  * This function should only be called if there was a (successful!) invocation
- * of srd_init() before. Calling this function multiple times in a row, without
- * any successful srd_init() calls in between, is not allowed.
+ * of otd_init() before. Calling this function multiple times in a row, without
+ * any successful otd_init() calls in between, is not allowed.
  *
- * @return SRD_OK upon success, a (negative) error code otherwise.
+ * @return OTD_OK upon success, a (negative) error code otherwise.
  *
  * @since 0.1.0
  */
-SRD_API int srd_exit(void)
+OTD_API int otd_exit(void)
 {
-	srd_dbg("Exiting libsigrokdecode.");
+	otd_dbg("Exiting libopentracedecode.");
 
-	g_slist_foreach(sessions, srd_session_destroy_cb, NULL);
+	g_slist_foreach(sessions, otd_session_destroy_cb, NULL);
 	g_slist_free(sessions);
 	sessions = NULL;
 
-	srd_decoder_unload_all();
+	otd_decoder_unload_all();
 	g_slist_free_full(searchpaths, g_free);
 	searchpaths = NULL;
 
@@ -367,7 +367,7 @@ SRD_API int srd_exit(void)
 
 	max_session_id = -1;
 
-	return SRD_OK;
+	return OTD_OK;
 }
 
 /**
@@ -383,16 +383,16 @@ SRD_API int srd_exit(void)
  * @param path Path to the directory containing protocol decoders which shall
  *             be added to the Python sys.path, or NULL.
  *
- * @return SRD_OK upon success, a (negative) error code otherwise.
+ * @return OTD_OK upon success, a (negative) error code otherwise.
  *
  * @private
  */
-SRD_PRIV int srd_decoder_searchpath_add(const char *path)
+OTD_PRIV int otd_decoder_searchpath_add(const char *path)
 {
 	PyObject *py_cur_path, *py_item;
 	PyGILState_STATE gstate;
 
-	srd_dbg("Adding '%s' to module path.", path);
+	otd_dbg("Adding '%s' to module path.", path);
 
 	gstate = PyGILState_Ensure();
 
@@ -402,11 +402,11 @@ SRD_PRIV int srd_decoder_searchpath_add(const char *path)
 
 	py_item = PyUnicode_FromString(path);
 	if (!py_item) {
-		srd_exception_catch("Failed to create Unicode object");
+		otd_exception_catch("Failed to create Unicode object");
 		goto err;
 	}
 	if (PyList_Insert(py_cur_path, 0, py_item) < 0) {
-		srd_exception_catch("Failed to insert path element");
+		otd_exception_catch("Failed to insert path element");
 		Py_DECREF(py_item);
 		goto err;
 	}
@@ -416,12 +416,12 @@ SRD_PRIV int srd_decoder_searchpath_add(const char *path)
 
 	searchpaths = g_slist_prepend(searchpaths, g_strdup(path));
 
-	return SRD_OK;
+	return OTD_OK;
 
 err:
 	PyGILState_Release(gstate);
 
-	return SRD_ERR_PYTHON;
+	return OTD_ERR_PYTHON;
 }
 
 /**
@@ -431,7 +431,7 @@ err:
  *
  * @since 0.5.1
  */
-SRD_API GSList *srd_searchpaths_get(void)
+OTD_API GSList *otd_searchpaths_get(void)
 {
 	GSList *paths = NULL;
 

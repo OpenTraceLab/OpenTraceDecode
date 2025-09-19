@@ -1,5 +1,5 @@
 /*
- * This file is part of the libsigrokdecode project.
+ * This file is part of the libopentracedecode project.
  *
  * Copyright (C) 2010 Uwe Hermann <uwe@hermann-uwe.de>
  * Copyright (C) 2012 Bert Vermeulen <bert@biot.com>
@@ -18,8 +18,8 @@
  * along with this program; if not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef LIBSIGROKDECODE_LIBSIGROKDECODE_H
-#define LIBSIGROKDECODE_LIBSIGROKDECODE_H
+#ifndef OPENTRACEDECODE_LIBOPENTRACEDECODE_H
+#define OPENTRACEDECODE_LIBOPENTRACEDECODE_H
 
 #include <stdint.h>
 #include <glib.h>
@@ -28,31 +28,31 @@
 extern "C" {
 #endif
 
-struct srd_session;
+struct otd_session;
 
 /**
  * @file
  *
- * The public libsigrokdecode header file to be used by frontends.
+ * The public libopentracedecode header file to be used by frontends.
  *
- * This is the only file that libsigrokdecode users (frontends) are supposed
+ * This is the only file that libopentracedecode users (frontends) are supposed
  * to use and include. There are other header files which get installed with
- * libsigrokdecode, but those are not meant to be used directly by frontends.
+ * libopentracedecode, but those are not meant to be used directly by frontends.
  *
- * The correct way to get/use the libsigrokdecode API functions is:
+ * The correct way to get/use the libopentracedecode API functions is:
  *
  * @code{.c}
- *   #include <libsigrokdecode/libsigrokdecode.h>
+ *   #include <libopentracedecode/libopentracedecode.h>
  * @endcode
  */
 
 /*
- * All possible return codes of libsigrokdecode functions must be listed here.
+ * All possible return codes of libopentracedecode functions must be listed here.
  * Functions should never return hardcoded numbers as status, but rather
  * use these enum values. All error codes are negative numbers.
  *
- * The error codes are globally unique in libsigrokdecode, i.e. if one of the
- * libsigrokdecode functions returns a "malloc error" it must be exactly the
+ * The error codes are globally unique in libopentracedecode, i.e. if one of the
+ * libopentracedecode functions returns a "malloc error" it must be exactly the
  * same return value as used by all other functions to indicate "malloc error".
  * There must be no functions which indicate two different errors via the
  * same return code.
@@ -62,40 +62,40 @@ struct srd_session;
  * return codes, but never remove or redefine existing ones.
  */
 
-/** Status/error codes returned by libsigrokdecode functions. */
-enum srd_error_code {
-	SRD_OK               =  0, /**< No error */
-	SRD_ERR              = -1, /**< Generic/unspecified error */
-	SRD_ERR_MALLOC       = -2, /**< Malloc/calloc/realloc error */
-	SRD_ERR_ARG          = -3, /**< Function argument error */
-	SRD_ERR_BUG          = -4, /**< Errors hinting at internal bugs */
-	SRD_ERR_PYTHON       = -5, /**< Python C API error */
-	SRD_ERR_DECODERS_DIR = -6, /**< Protocol decoder path invalid */
-	SRD_ERR_TERM_REQ     = -7, /**< Termination requested */
+/** Status/error codes returned by libopentracedecode functions. */
+enum otd_error_code {
+	OTD_OK               =  0, /**< No error */
+	OTD_ERR              = -1, /**< Generic/unspecified error */
+	OTD_ERR_MALLOC       = -2, /**< Malloc/calloc/realloc error */
+	OTD_ERR_ARG          = -3, /**< Function argument error */
+	OTD_ERR_BUG          = -4, /**< Errors hinting at internal bugs */
+	OTD_ERR_PYTHON       = -5, /**< Python C API error */
+	OTD_ERR_DECODERS_DIR = -6, /**< Protocol decoder path invalid */
+	OTD_ERR_TERM_REQ     = -7, /**< Termination requested */
 
 	/*
 	 * Note: When adding entries here, don't forget to also update the
-	 * srd_strerror() and srd_strerror_name() functions in error.c.
+	 * otd_strerror() and otd_strerror_name() functions in error.c.
 	 */
 };
 
-/* libsigrokdecode loglevels. */
-enum srd_loglevel {
-	SRD_LOG_NONE = 0, /**< Output no messages at all. */
-	SRD_LOG_ERR  = 1, /**< Output error messages. */
-	SRD_LOG_WARN = 2, /**< Output warnings. */
-	SRD_LOG_INFO = 3, /**< Output informational messages. */
-	SRD_LOG_DBG  = 4, /**< Output debug messages. */
-	SRD_LOG_SPEW = 5, /**< Output very noisy debug messages. */
+/* libopentracedecode loglevels. */
+enum otd_loglevel {
+	OTD_LOG_NONE = 0, /**< Output no messages at all. */
+	OTD_LOG_ERR  = 1, /**< Output error messages. */
+	OTD_LOG_WARN = 2, /**< Output warnings. */
+	OTD_LOG_INFO = 3, /**< Output informational messages. */
+	OTD_LOG_DBG  = 4, /**< Output debug messages. */
+	OTD_LOG_SPEW = 5, /**< Output very noisy debug messages. */
 };
 
 /*
- * Use SRD_API to mark public API symbols, and SRD_PRIV for private symbols.
+ * Use OTD_API to mark public API symbols, and OTD_PRIV for private symbols.
  *
  * Variables and functions marked 'static' are private already and don't
- * need SRD_PRIV. However, functions which are not static (because they need
- * to be used in other libsigrokdecode-internal files) but are also not
- * meant to be part of the public libsigrokdecode API, must use SRD_PRIV.
+ * need OTD_PRIV. However, functions which are not static (because they need
+ * to be used in other libopentracedecode-internal files) but are also not
+ * meant to be part of the public libopentracedecode API, must use OTD_PRIV.
  *
  * This uses the 'visibility' feature of gcc (requires gcc >= 4.0).
  *
@@ -105,22 +105,22 @@ enum srd_loglevel {
  * Details: http://gcc.gnu.org/wiki/Visibility
  */
 
-/* Marks public libsigrokdecode API symbols. */
+/* Marks public libopentracedecode API symbols. */
 #if defined _WIN32
 #  if defined DLL_EXPORT
-#    define SRD_API __declspec(dllexport)
+#    define OTD_API __declspec(dllexport)
 #  else
-#    define SRD_API extern
+#    define OTD_API extern
 #  endif
 #else
-#  define SRD_API __attribute__((visibility("default")))
+#  define OTD_API __attribute__((visibility("default")))
 #endif
 
-/* Marks private, non-public libsigrokdecode symbols (not part of the API). */
+/* Marks private, non-public libopentracedecode symbols (not part of the API). */
 #if defined _WIN32
-#  define SRD_PRIV /* EMPTY */
+#  define OTD_PRIV /* EMPTY */
 #else
-#  define SRD_PRIV __attribute__((visibility("hidden")))
+#  define OTD_PRIV __attribute__((visibility("hidden")))
 #endif
 
 /*
@@ -129,19 +129,19 @@ enum srd_loglevel {
  *   - add a check in type_decoder.c:Decoder_put()
  *   - add a debug string in type_decoder.c:output_type_name()
  */
-enum srd_output_type {
-	SRD_OUTPUT_ANN,
-	SRD_OUTPUT_PYTHON,
-	SRD_OUTPUT_BINARY,
-	SRD_OUTPUT_LOGIC,
-	SRD_OUTPUT_META,
+enum otd_output_type {
+	OTD_OUTPUT_ANN,
+	OTD_OUTPUT_PYTHON,
+	OTD_OUTPUT_BINARY,
+	OTD_OUTPUT_LOGIC,
+	OTD_OUTPUT_META,
 };
 
-enum srd_configkey {
-	SRD_CONF_SAMPLERATE = 10000,
+enum otd_configkey {
+	OTD_CONF_SAMPLERATE = 10000,
 };
 
-struct srd_decoder {
+struct otd_decoder {
 	/** The decoder ID. Must be non-NULL and unique for all decoders. */
 	char *id;
 
@@ -208,17 +208,17 @@ struct srd_decoder {
 	void *py_dec;
 };
 
-enum srd_initial_pin {
-	SRD_INITIAL_PIN_LOW,
-	SRD_INITIAL_PIN_HIGH,
-	SRD_INITIAL_PIN_SAME_AS_SAMPLE0,
+enum otd_initial_pin {
+	OTD_INITIAL_PIN_LOW,
+	OTD_INITIAL_PIN_HIGH,
+	OTD_INITIAL_PIN_SAME_AS_SAMPLE0,
 };
 
 /**
  * Structure which contains information about one protocol decoder channel.
  * For example, I2C has two channels, SDA and SCL.
  */
-struct srd_channel {
+struct otd_channel {
 	/** The ID of the channel. Must be non-NULL. */
 	char *id;
 	/** The name of the channel. Must not be NULL. */
@@ -229,27 +229,27 @@ struct srd_channel {
 	int order;
 };
 
-struct srd_decoder_option {
+struct otd_decoder_option {
 	char *id;
 	char *desc;
 	GVariant *def;
 	GSList *values;
 };
 
-struct srd_decoder_annotation_row {
+struct otd_decoder_annotation_row {
 	char *id;
 	char *desc;
 	GSList *ann_classes;
 };
 
-struct srd_decoder_logic_output_channel {
+struct otd_decoder_logic_output_channel {
 	char *id;
 	char *desc;
 };
 
-struct srd_decoder_inst {
-	struct srd_decoder *decoder;
-	struct srd_session *sess;
+struct otd_decoder_inst {
+	struct otd_decoder *decoder;
+	struct otd_session *sess;
 	void *py_inst;
 	char *inst_id;
 	GSList *pd_output;
@@ -306,10 +306,10 @@ struct srd_decoder_inst {
 	GMutex data_mutex;
 };
 
-struct srd_pd_output {
+struct otd_pd_output {
 	int pdo_id;
 	int output_type;
-	struct srd_decoder_inst *di;
+	struct otd_decoder_inst *di;
 	char *proto_id;
 	/* Only used for OUTPUT_META. */
 	const GVariantType *meta_type;
@@ -317,102 +317,102 @@ struct srd_pd_output {
 	char *meta_descr;
 };
 
-struct srd_proto_data {
+struct otd_proto_data {
 	uint64_t start_sample;
 	uint64_t end_sample;
-	struct srd_pd_output *pdo;
+	struct otd_pd_output *pdo;
 	void *data;
 };
-struct srd_proto_data_annotation {
-	int ann_class; /* Index into "struct srd_decoder"->annotations. */
+struct otd_proto_data_annotation {
+	int ann_class; /* Index into "struct otd_decoder"->annotations. */
 	char **ann_text;
 };
-struct srd_proto_data_binary {
-	int bin_class; /* Index into "struct srd_decoder"->binary. */
+struct otd_proto_data_binary {
+	int bin_class; /* Index into "struct otd_decoder"->binary. */
 	uint64_t size;
 	const uint8_t *data;
 };
-struct srd_proto_data_logic {
+struct otd_proto_data_logic {
 	int logic_group;
 	uint64_t repeat_count; /* Number of times the value in data was repeated. */
 	const uint8_t *data; /* Bitfield containing the states of the logic outputs */
 };
 
-typedef void (*srd_pd_output_callback)(struct srd_proto_data *pdata,
+typedef void (*otd_pd_output_callback)(struct otd_proto_data *pdata,
 					void *cb_data);
 
-struct srd_pd_callback {
+struct otd_pd_callback {
 	int output_type;
-	srd_pd_output_callback cb;
+	otd_pd_output_callback cb;
 	void *cb_data;
 };
 
 /* srd.c */
-SRD_API int srd_init(const char *path);
-SRD_API int srd_exit(void);
-SRD_API GSList *srd_searchpaths_get(void);
+OTD_API int otd_init(const char *path);
+OTD_API int otd_exit(void);
+OTD_API GSList *otd_searchpaths_get(void);
 
 /* session.c */
-SRD_API int srd_session_new(struct srd_session **sess);
-SRD_API int srd_session_start(struct srd_session *sess);
-SRD_API int srd_session_metadata_set(struct srd_session *sess, int key,
+OTD_API int otd_session_new(struct otd_session **sess);
+OTD_API int otd_session_start(struct otd_session *sess);
+OTD_API int otd_session_metadata_set(struct otd_session *sess, int key,
 		GVariant *data);
-SRD_API int srd_session_send(struct srd_session *sess,
+OTD_API int otd_session_send(struct otd_session *sess,
 		uint64_t abs_start_samplenum, uint64_t abs_end_samplenum,
 		const uint8_t *inbuf, uint64_t inbuflen, uint64_t unitsize);
-SRD_API int srd_session_send_eof(struct srd_session *sess);
-SRD_API int srd_session_terminate_reset(struct srd_session *sess);
-SRD_API int srd_session_destroy(struct srd_session *sess);
-SRD_API int srd_pd_output_callback_add(struct srd_session *sess,
-		int output_type, srd_pd_output_callback cb, void *cb_data);
+OTD_API int otd_session_send_eof(struct otd_session *sess);
+OTD_API int otd_session_terminate_reset(struct otd_session *sess);
+OTD_API int otd_session_destroy(struct otd_session *sess);
+OTD_API int otd_pd_output_callback_add(struct otd_session *sess,
+		int output_type, otd_pd_output_callback cb, void *cb_data);
 
 /* decoder.c */
-SRD_API const GSList *srd_decoder_list(void);
-SRD_API struct srd_decoder *srd_decoder_get_by_id(const char *id);
-SRD_API int srd_decoder_load(const char *name);
-SRD_API char *srd_decoder_doc_get(const struct srd_decoder *dec);
-SRD_API int srd_decoder_unload(struct srd_decoder *dec);
-SRD_API int srd_decoder_load_all(void);
-SRD_API int srd_decoder_unload_all(void);
+OTD_API const GSList *otd_decoder_list(void);
+OTD_API struct otd_decoder *otd_decoder_get_by_id(const char *id);
+OTD_API int otd_decoder_load(const char *name);
+OTD_API char *otd_decoder_doc_get(const struct otd_decoder *dec);
+OTD_API int otd_decoder_unload(struct otd_decoder *dec);
+OTD_API int otd_decoder_load_all(void);
+OTD_API int otd_decoder_unload_all(void);
 
 /* instance.c */
-SRD_API int srd_inst_option_set(struct srd_decoder_inst *di,
+OTD_API int otd_inst_option_set(struct otd_decoder_inst *di,
 		GHashTable *options);
-SRD_API int srd_inst_channel_set_all(struct srd_decoder_inst *di,
+OTD_API int otd_inst_channel_set_all(struct otd_decoder_inst *di,
 		GHashTable *channels);
-SRD_API struct srd_decoder_inst *srd_inst_new(struct srd_session *sess,
+OTD_API struct otd_decoder_inst *otd_inst_new(struct otd_session *sess,
 		const char *id, GHashTable *options);
-SRD_API int srd_inst_stack(struct srd_session *sess,
-		struct srd_decoder_inst *di_from, struct srd_decoder_inst *di_to);
-SRD_API struct srd_decoder_inst *srd_inst_find_by_id(struct srd_session *sess,
+OTD_API int otd_inst_stack(struct otd_session *sess,
+		struct otd_decoder_inst *di_from, struct otd_decoder_inst *di_to);
+OTD_API struct otd_decoder_inst *otd_inst_find_by_id(struct otd_session *sess,
 		const char *inst_id);
-SRD_API int srd_inst_initial_pins_set_all(struct srd_decoder_inst *di,
+OTD_API int otd_inst_initial_pins_set_all(struct otd_decoder_inst *di,
 		GArray *initial_pins);
 
 /* log.c */
-typedef int (*srd_log_callback)(void *cb_data, int loglevel,
+typedef int (*otd_log_callback)(void *cb_data, int loglevel,
 				  const char *format, va_list args);
-SRD_API int srd_log_loglevel_set(int loglevel);
-SRD_API int srd_log_loglevel_get(void);
-SRD_API int srd_log_callback_get(srd_log_callback *cb, void **cb_data);
-SRD_API int srd_log_callback_set(srd_log_callback cb, void *cb_data);
-SRD_API int srd_log_callback_set_default(void);
+OTD_API int otd_log_loglevel_set(int loglevel);
+OTD_API int otd_log_loglevel_get(void);
+OTD_API int otd_log_callback_get(otd_log_callback *cb, void **cb_data);
+OTD_API int otd_log_callback_set(otd_log_callback cb, void *cb_data);
+OTD_API int otd_log_callback_set_default(void);
 
 /* error.c */
-SRD_API const char *srd_strerror(int error_code);
-SRD_API const char *srd_strerror_name(int error_code);
+OTD_API const char *otd_strerror(int error_code);
+OTD_API const char *otd_strerror_name(int error_code);
 
 /* version.c */
-SRD_API int srd_package_version_major_get(void);
-SRD_API int srd_package_version_minor_get(void);
-SRD_API int srd_package_version_micro_get(void);
-SRD_API const char *srd_package_version_string_get(void);
-SRD_API int srd_lib_version_current_get(void);
-SRD_API int srd_lib_version_revision_get(void);
-SRD_API int srd_lib_version_age_get(void);
-SRD_API const char *srd_lib_version_string_get(void);
-SRD_API GSList *srd_buildinfo_libs_get(void);
-SRD_API char *srd_buildinfo_host_get(void);
+OTD_API int otd_package_version_major_get(void);
+OTD_API int otd_package_version_minor_get(void);
+OTD_API int otd_package_version_micro_get(void);
+OTD_API const char *otd_package_version_string_get(void);
+OTD_API int otd_lib_version_current_get(void);
+OTD_API int otd_lib_version_revision_get(void);
+OTD_API int otd_lib_version_age_get(void);
+OTD_API const char *otd_lib_version_string_get(void);
+OTD_API GSList *otd_buildinfo_libs_get(void);
+OTD_API char *otd_buildinfo_host_get(void);
 
 #include "version.h"
 

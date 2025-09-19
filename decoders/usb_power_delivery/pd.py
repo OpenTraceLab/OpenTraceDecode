@@ -1,5 +1,5 @@
 ##
-## This file is part of the libsigrokdecode project.
+## This file is part of the libopentracedecode project.
 ##
 ## Copyright (C) 2015 Google, Inc
 ## Copyright (C) 2018 davidanger <davidanger@163.com>

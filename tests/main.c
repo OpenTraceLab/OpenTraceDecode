@@ -1,5 +1,5 @@
 /*
- * This file is part of the libsigrokdecode project.
+ * This file is part of the libopentracedecode project.
  *
  * Copyright (C) 2013 Uwe Hermann <uwe@hermann-uwe.de>
  *
@@ -18,15 +18,15 @@
  */
 
 #include <config.h>
-#include <libsigrokdecode.h> /* First, to avoid compiler warning. */
+#include <libopentracedecode.h> /* First, to avoid compiler warning. */
 #include <stdlib.h>
 #include <check.h>
 #include "lib.h"
 
 void srdtest_setup(void)
 {
-	/* Silence libsigrokdecode while the unit tests run. */
-	srd_log_loglevel_set(SRD_LOG_NONE);
+	/* Silence libopentracedecode while the unit tests run. */
+	otd_log_loglevel_set(OTD_LOG_NONE);
 }
 
 void srdtest_teardown(void)

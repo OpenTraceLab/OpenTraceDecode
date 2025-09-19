@@ -1,5 +1,5 @@
 ##
-## This file is part of the libsigrokdecode project.
+## This file is part of the libopentracedecode project.
 ##
 ## Copyright (C) 2016 Fabian J. Stumpf <sigrok@fabianstumpf.de>
 ## Copyright (C) 2019-2020 Gerhard Sittig <gerhard.sittig@gmx.net>

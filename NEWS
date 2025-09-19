@@ -1,3 +1,18 @@
+OpenTraceDecode 1.0.0 (2024-XX-XX)
+-----------------------------------
+
+Initial fork of libsigrokdecode with the following changes:
+ * Migrated build system from Autotools to Meson
+ * Enhanced trace decoding capabilities
+ * Modern C API improvements
+ * Updated Python requirements (>= 3.8)
+
+Based on libsigrokdecode 0.5.0 and later updates.
+
+===============================================================================
+Original libsigrokdecode Release History
+===============================================================================
+
 0.5.0 (2017-06-12)
 ------------------
 

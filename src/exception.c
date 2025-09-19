@@ -1,5 +1,5 @@
 /*
- * This file is part of the libsigrokdecode project.
+ * This file is part of the libopentracedecode project.
  *
  * Copyright (C) 2012 Bert Vermeulen <bert@biot.com>
  *
@@ -18,8 +18,8 @@
  */
 
 #include <config.h>
-#include "libsigrokdecode-internal.h" /* First, so we avoid a _POSIX_C_SOURCE warning. */
-#include "libsigrokdecode.h"
+#include "libopentracedecode-internal.h" /* First, so we avoid a _POSIX_C_SOURCE warning. */
+#include <opentracedecode/libopentracedecode.h>
 #include <stdarg.h>
 #include <glib.h>
 
@@ -48,7 +48,7 @@ cleanup:
 	Py_XDECREF(py_str);
 	if (!str) {
 		PyErr_Clear();
-		srd_dbg("Failed to stringify object.");
+		otd_dbg("Failed to stringify object.");
 	}
 
 	return str;
@@ -79,14 +79,14 @@ cleanup:
 	Py_XDECREF(py_str);
 	if (!str) {
 		PyErr_Clear();
-		srd_dbg("Failed to get object attribute %s.", attr);
+		otd_dbg("Failed to get object attribute %s.", attr);
 	}
 
 	return str;
 }
 
 /** @private */
-SRD_PRIV void srd_exception_catch(const char *format, ...)
+OTD_PRIV void otd_exception_catch(const char *format, ...)
 {
 	int i, ret;
 	va_list args;
@@ -108,7 +108,7 @@ SRD_PRIV void srd_exception_catch(const char *format, ...)
 	PyErr_Fetch(&py_etype, &py_evalue, &py_etraceback);
 	if (!py_etype) {
 		/* No current exception, so just print the message. */
-		srd_err("%s.", msg);
+		otd_err("%s.", msg);
 		goto cleanup;
 	}
 	PyErr_NormalizeException(&py_etype, &py_evalue, &py_etraceback);
@@ -118,9 +118,9 @@ SRD_PRIV void srd_exception_catch(const char *format, ...)
 	etype_name_fallback = (etype_name) ? etype_name : "(unknown exception)";
 
 	if (evalue_str)
-		srd_err("%s: %s: %s", etype_name_fallback, msg, evalue_str);
+		otd_err("%s: %s: %s", etype_name_fallback, msg, evalue_str);
 	else
-		srd_err("%s: %s.", etype_name_fallback, msg);
+		otd_err("%s: %s.", etype_name_fallback, msg);
 
 	g_free(evalue_str);
 	g_free(etype_name);
@@ -151,7 +151,7 @@ SRD_PRIV void srd_exception_catch(const char *format, ...)
 			g_free(outstr);
 		}
 	}
-	srd_err("%s", s->str);
+	otd_err("%s", s->str);
 	g_string_free(s, TRUE);
 
 	Py_DECREF(py_tracefmt);

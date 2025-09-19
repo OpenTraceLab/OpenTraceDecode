@@ -1,3 +1,9 @@
+OpenTraceDecode - Enhanced trace decoding library
+Copyright (C) 2024 OpenTraceLab
+
+This is a fork of libsigrokdecode from the sigrok project.
+Original copyright notices are preserved below.
+
                     GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 

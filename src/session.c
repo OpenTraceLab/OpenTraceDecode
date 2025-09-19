@@ -1,5 +1,5 @@
 /*
- * This file is part of the libsigrokdecode project.
+ * This file is part of the libopentracedecode project.
  *
  * Copyright (C) 2010 Uwe Hermann <uwe@hermann-uwe.de>
  * Copyright (C) 2013 Bert Vermeulen <bert@biot.com>
@@ -19,8 +19,8 @@
  */
 
 #include <config.h>
-#include "libsigrokdecode-internal.h" /* First, so we avoid a _POSIX_C_SOURCE warning. */
-#include "libsigrokdecode.h"
+#include "libopentracedecode-internal.h" /* First, so we avoid a _POSIX_C_SOURCE warning. */
+#include <opentracedecode/libopentracedecode.h>
 #include <inttypes.h>
 #include <glib.h>
 
@@ -40,8 +40,8 @@
 
 /** @cond PRIVATE */
 
-SRD_PRIV GSList *sessions = NULL;
-SRD_PRIV int max_session_id = -1;
+OTD_PRIV GSList *sessions = NULL;
+OTD_PRIV int max_session_id = -1;
 
 /** @endcond */
 
@@ -54,79 +54,79 @@ SRD_PRIV int max_session_id = -1;
  * @param sess A pointer which will hold a pointer to a newly
  *             initialized session on return. Must not be NULL.
  *
- * @return SRD_OK upon success, a (negative) error code otherwise.
+ * @return OTD_OK upon success, a (negative) error code otherwise.
  *
  * @since 0.3.0
  */
-SRD_API int srd_session_new(struct srd_session **sess)
+OTD_API int otd_session_new(struct otd_session **sess)
 {
 	if (!sess)
-		return SRD_ERR_ARG;
+		return OTD_ERR_ARG;
 
-	*sess = g_malloc(sizeof(struct srd_session));
+	*sess = g_malloc(sizeof(struct otd_session));
 	(*sess)->session_id = ++max_session_id;
 	(*sess)->di_list = (*sess)->callbacks = NULL;
 
 	/* Keep a list of all sessions, so we can clean up as needed. */
 	sessions = g_slist_append(sessions, *sess);
 
-	srd_dbg("Creating session %d.", (*sess)->session_id);
+	otd_dbg("Creating session %d.", (*sess)->session_id);
 
-	return SRD_OK;
+	return OTD_OK;
 }
 
 /**
  * Start a decoding session.
  *
  * Decoders, instances and stack must have been prepared beforehand,
- * and all SRD_CONF parameters set.
+ * and all OTD_CONF parameters set.
  *
  * @param sess The session to start. Must not be NULL.
  *
- * @return SRD_OK upon success, a (negative) error code otherwise.
+ * @return OTD_OK upon success, a (negative) error code otherwise.
  *
  * @since 0.3.0
  */
-SRD_API int srd_session_start(struct srd_session *sess)
+OTD_API int otd_session_start(struct otd_session *sess)
 {
 	GSList *d;
-	struct srd_decoder_inst *di;
+	struct otd_decoder_inst *di;
 	int ret;
 
 	if (!sess)
-		return SRD_ERR_ARG;
+		return OTD_ERR_ARG;
 
-	srd_dbg("Calling start() of all instances in session %d.", sess->session_id);
+	otd_dbg("Calling start() of all instances in session %d.", sess->session_id);
 
 	/* Run the start() method of all decoders receiving frontend data. */
-	ret = SRD_OK;
+	ret = OTD_OK;
 	for (d = sess->di_list; d; d = d->next) {
 		di = d->data;
-		if ((ret = srd_inst_start(di)) != SRD_OK)
+		if ((ret = otd_inst_start(di)) != OTD_OK)
 			break;
 	}
 
 	return ret;
 }
 
-static int srd_inst_send_meta(struct srd_decoder_inst *di, int key,
+static int otd_inst_send_meta(struct otd_decoder_inst *di, int key,
 		GVariant *data)
 {
 	PyObject *py_ret;
 	GSList *l;
-	struct srd_decoder_inst *next_di;
+	struct otd_decoder_inst *next_di;
 	int ret;
 	PyGILState_STATE gstate;
 
-	if (key != SRD_CONF_SAMPLERATE)
+	if (key != OTD_CONF_SAMPLERATE)
 		/* This is the only key we pass on to the decoder for now. */
-		return SRD_OK;
+		return OTD_OK;
 
 	gstate = PyGILState_Ensure();
 
 	if (PyObject_HasAttrString(di->py_inst, "metadata")) {
 		py_ret = PyObject_CallMethod(di->py_inst, "metadata", "lK",
-				(long)SRD_CONF_SAMPLERATE,
+				(long)OTD_CONF_SAMPLERATE,
 				(unsigned long long)g_variant_get_uint64(data));
 		Py_XDECREF(py_ret);
 	}
@@ -136,63 +136,63 @@ static int srd_inst_send_meta(struct srd_decoder_inst *di, int key,
 	/* Push metadata to all the PDs stacked on top of this one. */
 	for (l = di->next_di; l; l = l->next) {
 		next_di = l->data;
-		if ((ret = srd_inst_send_meta(next_di, key, data)) != SRD_OK)
+		if ((ret = otd_inst_send_meta(next_di, key, data)) != OTD_OK)
 			return ret;
 	}
 
-	return SRD_OK;
+	return OTD_OK;
 }
 
 /**
  * Set a metadata configuration key in a session.
  *
  * @param sess The session to configure. Must not be NULL.
- * @param key The configuration key (SRD_CONF_*).
+ * @param key The configuration key (OTD_CONF_*).
  * @param data The new value for the key, as a GVariant with GVariantType
  *             appropriate to that key. A floating reference can be passed
  *             in; its refcount will be sunk and unreferenced after use.
  *
- * @return SRD_OK upon success, a (negative) error code otherwise.
+ * @return OTD_OK upon success, a (negative) error code otherwise.
  *
  * @since 0.3.0
  */
-SRD_API int srd_session_metadata_set(struct srd_session *sess, int key,
+OTD_API int otd_session_metadata_set(struct otd_session *sess, int key,
 		GVariant *data)
 {
 	GSList *l;
 	int ret;
 
 	if (!sess)
-		return SRD_ERR_ARG;
+		return OTD_ERR_ARG;
 
 	if (!key) {
-		srd_err("Invalid key.");
-		return SRD_ERR_ARG;
+		otd_err("Invalid key.");
+		return OTD_ERR_ARG;
 	}
 
 	if (!data) {
-		srd_err("Invalid value.");
-		return SRD_ERR_ARG;
+		otd_err("Invalid value.");
+		return OTD_ERR_ARG;
 	}
 
 	/* Hardcoded to samplerate/uint64 for now. */
 
-	if (key != SRD_CONF_SAMPLERATE) {
-		srd_err("Unknown config key %d.", key);
-		return SRD_ERR_ARG;
+	if (key != OTD_CONF_SAMPLERATE) {
+		otd_err("Unknown config key %d.", key);
+		return OTD_ERR_ARG;
 	}
 	if (!g_variant_is_of_type(data, G_VARIANT_TYPE_UINT64)) {
-		srd_err("Invalid value type: expected uint64, got %s",
+		otd_err("Invalid value type: expected uint64, got %s",
 				g_variant_get_type_string(data));
-		return SRD_ERR_ARG;
+		return OTD_ERR_ARG;
 	}
 
-	srd_dbg("Setting session %d samplerate to %"G_GUINT64_FORMAT".",
+	otd_dbg("Setting session %d samplerate to %"G_GUINT64_FORMAT".",
 			sess->session_id, g_variant_get_uint64(data));
 
-	ret = SRD_OK;
+	ret = OTD_OK;
 	for (l = sess->di_list; l; l = l->next) {
-		if ((ret = srd_inst_send_meta(l->data, key, data)) != SRD_OK)
+		if ((ret = otd_inst_send_meta(l->data, key, data)) != OTD_OK)
 			break;
 	}
 
@@ -223,28 +223,28 @@ SRD_API int srd_session_metadata_set(struct srd_session *sess, int key,
  * sample numbers within the chunk specified by 'inbuf' and 'inbuflen'.
  *
  * Correct example (4096 samples total, 4 chunks @ 1024 samples each):
- *   srd_session_send(s, 0,    1023, inbuf, 1024, 1);
- *   srd_session_send(s, 1024, 2047, inbuf, 1024, 1);
- *   srd_session_send(s, 2048, 3071, inbuf, 1024, 1);
- *   srd_session_send(s, 3072, 4095, inbuf, 1024, 1);
+ *   otd_session_send(s, 0,    1023, inbuf, 1024, 1);
+ *   otd_session_send(s, 1024, 2047, inbuf, 1024, 1);
+ *   otd_session_send(s, 2048, 3071, inbuf, 1024, 1);
+ *   otd_session_send(s, 3072, 4095, inbuf, 1024, 1);
  *
  * The chunk size ('inbuflen') can be arbitrary and can differ between calls.
  *
  * Correct example (4096 samples total, 7 chunks @ various samples each):
- *   srd_session_send(s, 0,    1023, inbuf, 1024, 1);
- *   srd_session_send(s, 1024, 1123, inbuf,  100, 1);
- *   srd_session_send(s, 1124, 1423, inbuf,  300, 1);
- *   srd_session_send(s, 1424, 1642, inbuf,  219, 1);
- *   srd_session_send(s, 1643, 2047, inbuf,  405, 1);
- *   srd_session_send(s, 2048, 3071, inbuf, 1024, 1);
- *   srd_session_send(s, 3072, 4095, inbuf, 1024, 1);
+ *   otd_session_send(s, 0,    1023, inbuf, 1024, 1);
+ *   otd_session_send(s, 1024, 1123, inbuf,  100, 1);
+ *   otd_session_send(s, 1124, 1423, inbuf,  300, 1);
+ *   otd_session_send(s, 1424, 1642, inbuf,  219, 1);
+ *   otd_session_send(s, 1643, 2047, inbuf,  405, 1);
+ *   otd_session_send(s, 2048, 3071, inbuf, 1024, 1);
+ *   otd_session_send(s, 3072, 4095, inbuf, 1024, 1);
  *
  * INCORRECT example (4096 samples total, 4 chunks @ 1024 samples each, but
  * the start- and end-samplenumbers are not absolute):
- *   srd_session_send(s, 0,    1023, inbuf, 1024, 1);
- *   srd_session_send(s, 0,    1023, inbuf, 1024, 1);
- *   srd_session_send(s, 0,    1023, inbuf, 1024, 1);
- *   srd_session_send(s, 0,    1023, inbuf, 1024, 1);
+ *   otd_session_send(s, 0,    1023, inbuf, 1024, 1);
+ *   otd_session_send(s, 0,    1023, inbuf, 1024, 1);
+ *   otd_session_send(s, 0,    1023, inbuf, 1024, 1);
+ *   otd_session_send(s, 0,    1023, inbuf, 1024, 1);
  *
  * @param sess The session to use. Must not be NULL.
  * @param abs_start_samplenum The absolute starting sample number for the
@@ -255,11 +255,11 @@ SRD_API int srd_session_metadata_set(struct srd_session *sess, int key,
  * @param inbuflen Length in bytes of the buffer. Must be > 0.
  * @param unitsize The number of bytes per sample. Must be > 0.
  *
- * @return SRD_OK upon success, a (negative) error code otherwise.
+ * @return OTD_OK upon success, a (negative) error code otherwise.
  *
  * @since 0.4.0
  */
-SRD_API int srd_session_send(struct srd_session *sess,
+OTD_API int otd_session_send(struct otd_session *sess,
 		uint64_t abs_start_samplenum, uint64_t abs_end_samplenum,
 		const uint8_t *inbuf, uint64_t inbuflen, uint64_t unitsize)
 {
@@ -267,15 +267,15 @@ SRD_API int srd_session_send(struct srd_session *sess,
 	int ret;
 
 	if (!sess)
-		return SRD_ERR_ARG;
+		return OTD_ERR_ARG;
 
 	for (d = sess->di_list; d; d = d->next) {
-		if ((ret = srd_inst_decode(d->data, abs_start_samplenum,
-				abs_end_samplenum, inbuf, inbuflen, unitsize)) != SRD_OK)
+		if ((ret = otd_inst_decode(d->data, abs_start_samplenum,
+				abs_end_samplenum, inbuf, inbuflen, unitsize)) != OTD_OK)
 			return ret;
 	}
 
-	return SRD_OK;
+	return OTD_OK;
 }
 
 /**
@@ -283,25 +283,25 @@ SRD_API int srd_session_send(struct srd_session *sess,
  *
  * @param[in] sess The session. Must not be NULL.
  *
- * @return SRD_OK upon success. A (negative) error code otherwise.
+ * @return OTD_OK upon success. A (negative) error code otherwise.
  *
  * @since 0.6.0
  */
-SRD_API int srd_session_send_eof(struct srd_session *sess)
+OTD_API int otd_session_send_eof(struct otd_session *sess)
 {
 	GSList *d;
 	int ret;
 
 	if (!sess)
-		return SRD_ERR_ARG;
+		return OTD_ERR_ARG;
 
 	for (d = sess->di_list; d; d = d->next) {
-		ret = srd_inst_send_eof(d->data);
-		if (ret != SRD_OK)
+		ret = otd_inst_send_eof(d->data);
+		if (ret != OTD_OK)
 			return ret;
 	}
 
-	return SRD_OK;
+	return OTD_OK;
 }
 
 /**
@@ -322,25 +322,25 @@ SRD_API int srd_session_send_eof(struct srd_session *sess)
  *
  * @param sess The session in which to terminate decoders. Must not be NULL.
  *
- * @return SRD_OK upon success, a (negative) error code otherwise.
+ * @return OTD_OK upon success, a (negative) error code otherwise.
  *
  * @since 0.5.1
  */
-SRD_API int srd_session_terminate_reset(struct srd_session *sess)
+OTD_API int otd_session_terminate_reset(struct otd_session *sess)
 {
 	GSList *d;
 	int ret;
 
 	if (!sess)
-		return SRD_ERR_ARG;
+		return OTD_ERR_ARG;
 
 	for (d = sess->di_list; d; d = d->next) {
-		ret = srd_inst_terminate_reset(d->data);
-		if (ret != SRD_OK)
+		ret = otd_inst_terminate_reset(d->data);
+		if (ret != OTD_OK)
 			return ret;
 	}
 
-	return SRD_OK;
+	return OTD_OK;
 }
 
 /**
@@ -350,28 +350,28 @@ SRD_API int srd_session_terminate_reset(struct srd_session *sess)
  *
  * @param sess The session to be destroyed. Must not be NULL.
  *
- * @return SRD_OK upon success, a (negative) error code otherwise.
+ * @return OTD_OK upon success, a (negative) error code otherwise.
  *
  * @since 0.3.0
  */
-SRD_API int srd_session_destroy(struct srd_session *sess)
+OTD_API int otd_session_destroy(struct otd_session *sess)
 {
 	int session_id;
 
 	if (!sess)
-		return SRD_ERR_ARG;
+		return OTD_ERR_ARG;
 
 	session_id = sess->session_id;
 	if (sess->di_list)
-		srd_inst_free_all(sess);
+		otd_inst_free_all(sess);
 	if (sess->callbacks)
 		g_slist_free_full(sess->callbacks, g_free);
 	sessions = g_slist_remove(sessions, sess);
 	g_free(sess);
 
-	srd_dbg("Destroyed session %d.", session_id);
+	otd_dbg("Destroyed session %d.", session_id);
 
-	return SRD_OK;
+	return OTD_OK;
 }
 
 /**
@@ -390,32 +390,32 @@ SRD_API int srd_session_destroy(struct srd_session *sess)
  *
  * @since 0.3.0
  */
-SRD_API int srd_pd_output_callback_add(struct srd_session *sess,
-		int output_type, srd_pd_output_callback cb, void *cb_data)
+OTD_API int otd_pd_output_callback_add(struct otd_session *sess,
+		int output_type, otd_pd_output_callback cb, void *cb_data)
 {
-	struct srd_pd_callback *pd_cb;
+	struct otd_pd_callback *pd_cb;
 
 	if (!sess)
-		return SRD_ERR_ARG;
+		return OTD_ERR_ARG;
 
-	srd_dbg("Registering new callback for output type %s.",
+	otd_dbg("Registering new callback for output type %s.",
 		output_type_name(output_type));
 
-	pd_cb = g_malloc(sizeof(struct srd_pd_callback));
+	pd_cb = g_malloc(sizeof(struct otd_pd_callback));
 	pd_cb->output_type = output_type;
 	pd_cb->cb = cb;
 	pd_cb->cb_data = cb_data;
 	sess->callbacks = g_slist_append(sess->callbacks, pd_cb);
 
-	return SRD_OK;
+	return OTD_OK;
 }
 
 /** @private */
-SRD_PRIV struct srd_pd_callback *srd_pd_output_callback_find(
-		struct srd_session *sess, int output_type)
+OTD_PRIV struct otd_pd_callback *otd_pd_output_callback_find(
+		struct otd_session *sess, int output_type)
 {
 	GSList *l;
-	struct srd_pd_callback *tmp, *pd_cb;
+	struct otd_pd_callback *tmp, *pd_cb;
 
 	if (!sess)
 		return NULL;

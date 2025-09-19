@@ -28,7 +28,7 @@
  * static variables which hold internal state. The core logic started
  * as an MCU project where resources are severely constrained.
  *
- * This libsigrokdecode incarnation of IRMP will always be used in the
+ * This libopentracedecode incarnation of IRMP will always be used in the
  * UNIX_OR_WINDOWS configuration. But libtool(1) breaks the upstream
  * logic's platform detection. Check reliably available conditions here
  * and provide expected symbols to the library, to reduce changes to the
