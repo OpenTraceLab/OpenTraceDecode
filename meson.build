@@ -123,11 +123,13 @@ if get_option('decoders_path') != ''
   test_env.set('PYTHONPATH', get_option('decoders_path'))
 endif
 
+# Test executable - use static lib on Windows to avoid DLL export issues
+test_lib = host_machine.system() == 'windows' ? lib_static : lib_shared
 test_exe = executable('otd-smoke',
   ['tests/smoke.c'],
   include_directories: inc_pub,
   dependencies: libdeps,
-  link_with: lib_shared)
+  link_with: test_lib)
 test('smoke', test_exe, env: test_env)
 
 # Feature summary
