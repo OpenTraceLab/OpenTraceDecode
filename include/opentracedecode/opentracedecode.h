@@ -1,11 +1,11 @@
 #ifndef OPENTRACEDECODE_OPENTRACEDECODE_H
 #define OPENTRACEDECODE_OPENTRACEDECODE_H
 
+#include <glib.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif
-
-#include <glib.h>
 
 /* Minimal public surface to bootstrap */
 int otd_init(const char *path);
