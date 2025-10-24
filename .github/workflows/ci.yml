@@ -103,7 +103,12 @@ jobs:
       - name: Build & test (Linux/macOS)
         if: runner.os != 'Windows'
         run: |
-          meson setup build --buildtype=release
+          if [ "${{ runner.os }}" = "macOS" ]; then
+            PREFIX=/usr/local
+          else
+            PREFIX=/usr
+          fi
+          meson setup build --buildtype=release --prefix=$PREFIX
           meson configure build
           meson compile -C build
           meson test -C build --print-errorlogs
