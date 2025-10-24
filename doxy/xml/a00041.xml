@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="a00041" kind="file" language="Markdown">
+    <compoundname>README.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>OpenTraceDecode</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">OpenTraceDecode<sp/>is<sp/>a<sp/>fork<sp/>of<sp/>libsigrokdecode,<sp/>providing<sp/>a<sp/>shared<sp/>library<sp/>for<sp/>running<sp/>protocol<sp/>decoders<sp/>on<sp/>signal<sp/>analysis<sp/>data.<sp/>This<sp/>fork<sp/>focuses<sp/>on<sp/>enhanced<sp/>trace<sp/>decoding<sp/>capabilities<sp/>and<sp/>modern<sp/>build<sp/>systems.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Versioning</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>project<sp/>follows<sp/>semantic<sp/>versioning<sp/>starting<sp/>from<sp/>version<sp/>0.1.0.<sp/>The<sp/>ABI<sp/>(Application<sp/>Binary<sp/>Interface)<sp/>is<sp/>tied<sp/>to<sp/>the<sp/>minor<sp/>version<sp/>number,<sp/>meaning:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**Major<sp/>version**<sp/>(0.x.x):<sp/>Breaking<sp/>API/ABI<sp/>changes</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**Minor<sp/>version**<sp/>(x.1.x):<sp/>ABI<sp/>changes,<sp/>new<sp/>features<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**Patch<sp/>version**<sp/>(x.x.1):<sp/>Bug<sp/>fixes,<sp/>no<sp/>ABI<sp/>changes</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Current<sp/>version:<sp/>**0.1.0**</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>About</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">OpenTraceDecode<sp/>maintains<sp/>the<sp/>core<sp/>functionality<sp/>of<sp/>libsigrokdecode<sp/>while<sp/>adding<sp/>improvements<sp/>for<sp/>trace<sp/>analysis<sp/>workflows.<sp/>The<sp/>protocol<sp/>decoders<sp/>are<sp/>written<sp/>in<sp/>Python<sp/>and<sp/>provide<sp/>the<sp/>foundation<sp/>for<sp/>analyzing<sp/>various<sp/>communication<sp/>protocols.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Building</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">OpenTraceDecode<sp/>uses<sp/>Meson<sp/>as<sp/>its<sp/>build<sp/>system:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">meson<sp/>setup<sp/>builddir</highlight></codeline>
+<codeline><highlight class="normal">meson<sp/>compile<sp/>-C<sp/>builddir</highlight></codeline>
+<codeline><highlight class="normal">meson<sp/>install<sp/>-C<sp/>builddir</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Developer<sp/>Options</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">For<sp/>development<sp/>and<sp/>debugging:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">#<sp/>Enable<sp/>LTO,<sp/>sanitizers,<sp/>and<sp/>unity<sp/>builds</highlight></codeline>
+<codeline><highlight class="normal">meson<sp/>setup<sp/>builddir<sp/>-Db_lto=true<sp/>-Db_sanitize=address,undefined<sp/>-Dunity=on</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>Custom<sp/>decoder<sp/>path<sp/>for<sp/>testing</highlight></codeline>
+<codeline><highlight class="normal">meson<sp/>setup<sp/>builddir<sp/>-Ddecoders_path=/path/to/custom/decoders</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>Build<sp/>Python<sp/>extension<sp/>modules</highlight></codeline>
+<codeline><highlight class="normal">meson<sp/>setup<sp/>builddir<sp/>-Dpython_shims=true</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>Static<sp/>library<sp/>build</highlight></codeline>
+<codeline><highlight class="normal">meson<sp/>setup<sp/>builddir<sp/>-Dbuild_static=true<sp/>-Dbuild_shared=false</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Requirements</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Meson<sp/>&gt;=<sp/>0.60</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Python<sp/>&gt;=<sp/>3.8</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>libglib<sp/>&gt;=<sp/>2.34</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>pkg-config<sp/>&gt;=<sp/>0.22</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>gcc<sp/>&gt;=<sp/>4.0<sp/>or<sp/>clang</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>✅<sp/>Multi-Platform<sp/>CI/CD<sp/>Pipeline:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>**Platforms<sp/>Supported:**</highlight></codeline>
+<codeline><highlight class="normal">•<sp/>**Linux<sp/>(Ubuntu):**<sp/>DEB<sp/>and<sp/>RPM<sp/>packages<sp/>via<sp/>fpm</highlight></codeline>
+<codeline><highlight class="normal">•<sp/>**macOS:**<sp/>Native<sp/>.pkg<sp/>packages<sp/>via<sp/>pkgbuild</highlight></codeline>
+<codeline><highlight class="normal">•<sp/>**Windows:**<sp/>ZIP<sp/>archives<sp/>via<sp/>MSYS2</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>**CI<sp/>Features:**</highlight></codeline>
+<codeline><highlight class="normal">•<sp/>**Build<sp/>&amp;<sp/>Test:**<sp/>All<sp/>platforms<sp/>compile<sp/>and<sp/>run<sp/>tests</highlight></codeline>
+<codeline><highlight class="normal">•<sp/>**Automatic<sp/>Packaging:**<sp/>Only<sp/>on<sp/>git<sp/>tags<sp/>(releases)</highlight></codeline>
+<codeline><highlight class="normal">•<sp/>**Artifact<sp/>Upload:**<sp/>Packages<sp/>uploaded<sp/>for<sp/>download</highlight></codeline>
+<codeline><highlight class="normal">•<sp/>**Dependencies:**<sp/>Proper<sp/>installation<sp/>of<sp/>build<sp/>tools<sp/>and<sp/>libraries</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>**Package<sp/>Contents:**</highlight></codeline>
+<codeline><highlight class="normal">•<sp/>**Libraries:**<sp/>libopentracedecode.so<sp/>(shared),<sp/>.a<sp/>(static)</highlight></codeline>
+<codeline><highlight class="normal">•<sp/>**Headers:**<sp/>include/opentracedecode/*.h</highlight></codeline>
+<codeline><highlight class="normal">•<sp/>**pkg-config:**<sp/>.pc<sp/>files<sp/>for<sp/>easy<sp/>integration</highlight></codeline>
+<codeline><highlight class="normal">•<sp/>**Proper<sp/>versioning:**<sp/>Uses<sp/>git<sp/>tag<sp/>for<sp/>package<sp/>version</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>**Local<sp/>Development<sp/>Tools:**</highlight></codeline>
+<codeline><highlight class="normal">•<sp/>**build-packages.sh:**<sp/>Local<sp/>package<sp/>building<sp/>(requires<sp/>fpm)</highlight></codeline>
+<codeline><highlight class="normal">•<sp/>**prepare-release.sh:**<sp/>Version<sp/>bumping<sp/>and<sp/>release<sp/>prep</highlight></codeline>
+<codeline><highlight class="normal">•<sp/>**Staging<sp/>verification:**<sp/>Install<sp/>to<sp/>dist/<sp/>directory</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>**Release<sp/>Workflow:**</highlight></codeline>
+<codeline><highlight class="normal">1.<sp/>Run<sp/>./packaging/prepare-release.sh<sp/>1.0.0</highlight></codeline>
+<codeline><highlight class="normal">2.<sp/>Commit<sp/>and<sp/>tag:<sp/>git<sp/>tag<sp/>v1.0.0<sp/>&amp;&amp;<sp/>git<sp/>push<sp/>--tags</highlight></codeline>
+<codeline><highlight class="normal">3.<sp/>GitHub<sp/>Actions<sp/>automatically<sp/>builds<sp/>packages<sp/>for<sp/>all<sp/>platforms</highlight></codeline>
+<codeline><highlight class="normal">4.<sp/>Download<sp/>artifacts<sp/>from<sp/>GitHub<sp/>Actions</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>License</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">OpenTraceDecode<sp/>is<sp/>licensed<sp/>under<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>(GPL),<sp/>version<sp/>3<sp/>or<sp/>later.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Original<sp/>Project</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>is<sp/>a<sp/>fork<sp/>of<sp/>libsigrokdecode<sp/>from<sp/>the<sp/>sigrok<sp/>project.<sp/>The<sp/>original<sp/>project<sp/>can<sp/>be<sp/>found<sp/>at<sp/>http://sigrok.org/wiki/Libsigrokdecode</highlight></codeline>
+    </programlisting>
+    <location file="README.md"/>
+  </compounddef>
+</doxygen>

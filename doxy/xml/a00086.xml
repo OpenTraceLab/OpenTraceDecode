@@ -1,0 +1,288 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="a00086" kind="group">
+    <compoundname>grp_logging</compoundname>
+    <title>Logging</title>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="a00086_1gae47dc404dd0450cbe82ef5bf6804a485" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int cur_loglevel</definition>
+        <argsstring></argsstring>
+        <name>cur_loglevel</name>
+        <initializer>= <ref refid="a00258_1aee80ec82069aab48dfe49df7c1e58b9aac1b03ffc8f788454fae8c8e8066cba4d" kindref="member">OTD_LOG_WARN</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/log.c" line="42" column="12" bodyfile="src/log.c" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="a00086_1ga6b155a9926ad6e21290f5ed8bf0eb752" prot="public" static="yes" mutable="no">
+        <type><ref refid="a00258_1a04233bc35d37a1ee72b7b6f7d3677a49" kindref="member">otd_log_callback</ref></type>
+        <definition>otd_log_callback otd_log_cb</definition>
+        <argsstring></argsstring>
+        <name>otd_log_cb</name>
+        <initializer>= otd_logv</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/log.c" line="49" column="25" bodyfile="src/log.c" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="a00086_1gac73e0632074688e4e4137b12a5cd95fb" prot="public" static="yes" mutable="no">
+        <type>void *</type>
+        <definition>void* otd_log_cb_data</definition>
+        <argsstring></argsstring>
+        <name>otd_log_cb_data</name>
+        <initializer>= NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/log.c" line="55" column="13" bodyfile="src/log.c" bodystart="55" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="a00086_1gac7ee82d079764f6ce4d047e57a409a8e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>static int otd_logv</definition>
+        <argsstring>(void *cb_data, int loglevel, const char *format, va_list args)</argsstring>
+        <name>otd_logv</name>
+        <param>
+          <type>void *</type>
+          <declname>cb_data</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>loglevel</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>va_list</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/log.c" line="175" column="12" bodyfile="src/log.c" bodystart="175" bodyend="191" declfile="src/log.c" declline="45" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="a00086_1gae1ea4ba8e876c58351a757407042153b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref> int</type>
+        <definition>OTD_API int otd_log_loglevel_set</definition>
+        <argsstring>(int loglevel)</argsstring>
+        <name>otd_log_loglevel_set</name>
+        <param>
+          <type>int</type>
+          <declname>loglevel</declname>
+        </param>
+        <briefdescription>
+<para>Set the libopentracedecode loglevel. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This influences the amount of log messages (debug messages, error messages, and so on) libopentracedecode will output. Using OTD_LOG_NONE disables all messages.</para>
+<para>Note that this function itself will also output log messages. After the loglevel has changed, it will output a debug message with OTD_LOG_DBG for example. Whether this message is shown depends on the (new) loglevel.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>loglevel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The loglevel to set (OTD_LOG_NONE, OTD_LOG_ERR, OTD_LOG_WARN, OTD_LOG_INFO, OTD_LOG_DBG, or OTD_LOG_SPEW).</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>OTD_OK upon success, OTD_ERR_ARG upon invalid loglevel.</para>
+</simplesect>
+<simplesect kind="since"><para>0.1.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/log.c" line="75" column="13" bodyfile="src/log.c" bodystart="75" bodyend="87"/>
+        <references refid="a00062_1abe0db3bab3b85f46343afb04b24d59a2" compoundref="a00062" startline="115">otd_dbg</references>
+        <references refid="a00062_1adfd45428ae0a51e6162ff442c97dbce7" compoundref="a00062" startline="118">otd_err</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebca0b8a159c5ce1e9d1e1d58384820a88d2" compoundref="a00258" startline="70">OTD_ERR_ARG</references>
+        <references refid="a00258_1aee80ec82069aab48dfe49df7c1e58b9aa15fdea0c29121fd82c4b5c830b80b84e" compoundref="a00258" startline="89">OTD_LOG_SPEW</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcafcf78f6457d3099b0fc89415a3f9eaa5" compoundref="a00258" startline="67">OTD_OK</references>
+      </memberdef>
+      <memberdef kind="function" id="a00086_1ga427dae404bfb3222201fd2915a8ed1f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref> int</type>
+        <definition>OTD_API int otd_log_loglevel_get</definition>
+        <argsstring>(void)</argsstring>
+        <name>otd_log_loglevel_get</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Get the libopentracedecode loglevel. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The currently configured libopentracedecode loglevel.</para>
+</simplesect>
+<simplesect kind="since"><para>0.1.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/log.c" line="96" column="13" bodyfile="src/log.c" bodystart="96" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="a00086_1ga3795e9e43b613c5419e02d6c8862f1ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref> int</type>
+        <definition>OTD_API int otd_log_callback_set</definition>
+        <argsstring>(otd_log_callback cb, void *cb_data)</argsstring>
+        <name>otd_log_callback_set</name>
+        <param>
+          <type><ref refid="a00258_1a04233bc35d37a1ee72b7b6f7d3677a49" kindref="member">otd_log_callback</ref></type>
+          <declname>cb</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>cb_data</declname>
+        </param>
+        <briefdescription>
+<para>Set the libopentracedecode log callback to the specified function. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cb</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Function pointer to the log callback function to use. Must not be NULL. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cb_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to private data to be passed on. This can be used by the caller to pass arbitrary data to the log functions. This pointer is only stored or passed on by libopentracedecode, and is never used or interpreted in any way. The pointer is allowed to be NULL if the caller doesn&apos;t need/want to pass any data.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>OTD_OK upon success, OTD_ERR_ARG upon invalid arguments.</para>
+</simplesect>
+<simplesect kind="since"><para>0.3.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/log.c" line="117" column="13" bodyfile="src/log.c" bodystart="117" bodyend="130"/>
+        <references refid="a00062_1adfd45428ae0a51e6162ff442c97dbce7" compoundref="a00062" startline="118">otd_err</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebca0b8a159c5ce1e9d1e1d58384820a88d2" compoundref="a00258" startline="70">OTD_ERR_ARG</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcafcf78f6457d3099b0fc89415a3f9eaa5" compoundref="a00258" startline="67">OTD_OK</references>
+      </memberdef>
+      <memberdef kind="function" id="a00086_1ga0747f5156b7f8988695016aa340c8657" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref> int</type>
+        <definition>OTD_API int otd_log_callback_get</definition>
+        <argsstring>(otd_log_callback *cb, void **cb_data)</argsstring>
+        <name>otd_log_callback_get</name>
+        <param>
+          <type><ref refid="a00258_1a04233bc35d37a1ee72b7b6f7d3677a49" kindref="member">otd_log_callback</ref> *</type>
+          <declname>cb</declname>
+        </param>
+        <param>
+          <type>void **</type>
+          <declname>cb_data</declname>
+        </param>
+        <briefdescription>
+<para>Get the libopentracedecode log callback routine and callback data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">cb</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a function pointer to receive the log callback function. Optional, can be NULL. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">cb_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a void pointer to receive the log callback&apos;s additional arguments. Optional, can be NULL.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>OTD_OK upon success.</para>
+</simplesect>
+<simplesect kind="since"><para>0.5.2 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/log.c" line="144" column="13" bodyfile="src/log.c" bodystart="144" bodyend="152"/>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcafcf78f6457d3099b0fc89415a3f9eaa5" compoundref="a00258" startline="67">OTD_OK</references>
+      </memberdef>
+      <memberdef kind="function" id="a00086_1ga9e086b71908360eae7ceec45e524d3a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref> int</type>
+        <definition>OTD_API int otd_log_callback_set_default</definition>
+        <argsstring>(void)</argsstring>
+        <name>otd_log_callback_set_default</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Set the libopentracedecode log callback to the default built-in one. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Additionally, the internal &apos;otd_log_cb_data&apos; pointer is set to NULL.</para>
+<para><simplesect kind="return"><para>OTD_OK upon success, a (negative) error code otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>0.1.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/log.c" line="163" column="13" bodyfile="src/log.c" bodystart="163" bodyend="173"/>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcafcf78f6457d3099b0fc89415a3f9eaa5" compoundref="a00258" startline="67">OTD_OK</references>
+      </memberdef>
+      <memberdef kind="function" id="a00086_1gaa6b1d6366e8f29ff84dab44ed8a8ef8c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1a3a90167f4b0b0cb829b5b15e0663af50" kindref="member">OTD_PRIV</ref> int</type>
+        <definition>OTD_PRIV int otd_log</definition>
+        <argsstring>(int loglevel, const char *format,...)</argsstring>
+        <name>otd_log</name>
+        <param>
+          <type>int</type>
+          <declname>loglevel</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/log.c" line="194" column="14" bodyfile="src/log.c" bodystart="194" bodyend="208"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Controlling the libopentracedecode message logging functionality. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

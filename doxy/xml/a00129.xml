@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="a00129" kind="struct" language="C++" prot="public">
+    <compoundname>otd_proto_data_binary</compoundname>
+    <includes refid="a00258" local="no">libopentracedecode.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="a00129_1a2ef1c5f82c6675d0ae0fbec75d76ec00" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int otd_proto_data_binary::bin_class</definition>
+        <argsstring></argsstring>
+        <name>bin_class</name>
+        <qualifiedname>otd_proto_data_binary::bin_class</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="331" column="5" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="331" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="a00129_1a560824dc8e1b8a158f33c9b48409e161" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t otd_proto_data_binary::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <qualifiedname>otd_proto_data_binary::size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="332" column="10" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="332" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="a00129_1aae4589e82ffd01ba2bee00af7159a396" prot="public" static="no" mutable="no">
+        <type>const uint8_t *</type>
+        <definition>const uint8_t * otd_proto_data_binary::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <qualifiedname>otd_proto_data_binary::data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="333" column="15" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="333" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>int</label>
+      </node>
+      <node id="1">
+        <label>otd_proto_data_binary</label>
+        <link refid="a00129"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>bin_class</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>size</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>data</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>uint64_t</label>
+      </node>
+      <node id="4">
+        <label>uint8_t</label>
+      </node>
+    </collaborationgraph>
+    <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="330" column="1" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="330" bodyend="334"/>
+    <listofallmembers>
+      <member refid="a00129_1a2ef1c5f82c6675d0ae0fbec75d76ec00" prot="public" virt="non-virtual"><scope>otd_proto_data_binary</scope><name>bin_class</name></member>
+      <member refid="a00129_1aae4589e82ffd01ba2bee00af7159a396" prot="public" virt="non-virtual"><scope>otd_proto_data_binary</scope><name>data</name></member>
+      <member refid="a00129_1a560824dc8e1b8a158f33c9b48409e161" prot="public" virt="non-virtual"><scope>otd_proto_data_binary</scope><name>size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

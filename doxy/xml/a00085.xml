@@ -1,0 +1,1169 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="a00085" kind="group">
+    <compoundname>grp_instances</compoundname>
+    <title>Decoder instances</title>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="a00085_1ga841c5b6f22f156cf3a0b2345c1aa3149" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void oldpins_array_seed</definition>
+        <argsstring>(struct otd_decoder_inst *di)</argsstring>
+        <name>oldpins_array_seed</name>
+        <param>
+          <type>struct <ref refid="a00113" kindref="compound">otd_decoder_inst</ref> *</type>
+          <declname>di</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/instance.c" line="49" column="13" bodyfile="src/instance.c" bodystart="49" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="a00085_1ga22d8f0aa6af6e63d7ba88f2fd2587874" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void oldpins_array_free</definition>
+        <argsstring>(struct otd_decoder_inst *di)</argsstring>
+        <name>oldpins_array_free</name>
+        <param>
+          <type>struct <ref refid="a00113" kindref="compound">otd_decoder_inst</ref> *</type>
+          <declname>di</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/instance.c" line="67" column="13" bodyfile="src/instance.c" bodystart="67" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="a00085_1ga465fa07a525a264e429dfbccb2abe3c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref> int</type>
+        <definition>OTD_API int otd_inst_option_set</definition>
+        <argsstring>(struct otd_decoder_inst *di, GHashTable *options)</argsstring>
+        <name>otd_inst_option_set</name>
+        <param>
+          <type>struct <ref refid="a00113" kindref="compound">otd_decoder_inst</ref> *</type>
+          <declname>di</declname>
+        </param>
+        <param>
+          <type>GHashTable *</type>
+          <declname>options</declname>
+        </param>
+        <briefdescription>
+<para>Set one or more options in a decoder instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Handled options are removed from the hash.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>di</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Decoder instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>options</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A GHashTable of options to set.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>OTD_OK upon success, a (negative) error code otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>0.1.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/instance.c" line="92" column="13" bodyfile="src/instance.c" bodystart="92" bodyend="207"/>
+        <references refid="a00113_1a3f7cddd503846ba899d5f46fbdff36b6" compoundref="a00258" startline="251">otd_decoder_inst::decoder</references>
+        <references refid="a00101_1a36eed8e337e813943cada4d7f74b7ea7" compoundref="a00258" startline="235">otd_decoder_option::def</references>
+        <references refid="a00101_1a74411014f7bc54784d79052d777ce456" compoundref="a00258" startline="233">otd_decoder_option::id</references>
+        <references refid="a00113_1abde64b952bdf7918589230fe1b6cd124" compoundref="a00258" startline="254">otd_decoder_inst::inst_id</references>
+        <references refid="a00093_1a771ab5da20cee67b943cfe74da1302f1" compoundref="a00258" startline="202">otd_decoder::options</references>
+        <references refid="a00062_1adfd45428ae0a51e6162ff442c97dbce7" compoundref="a00062" startline="118">otd_err</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebca0b8a159c5ce1e9d1e1d58384820a88d2" compoundref="a00258" startline="70">OTD_ERR_ARG</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcaaecfc1f18b22e996112bec32462cb5d5" compoundref="a00258" startline="72">OTD_ERR_PYTHON</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcafcf78f6457d3099b0fc89415a3f9eaa5" compoundref="a00258" startline="67">OTD_OK</references>
+        <references refid="a00062_1a27487282ab8fa0ac93ef0640d85be767" compoundref="a00062" startline="117">otd_warn</references>
+        <references refid="a00093_1a3594f95387546b72c7b6a7d5a09c3de8" compoundref="a00258" startline="208">otd_decoder::py_dec</references>
+        <references refid="a00113_1a81ec9ee5165f12f9079683bcf57cf4cd" compoundref="a00258" startline="253">otd_decoder_inst::py_inst</references>
+        <referencedby refid="a00085_1ga93239c3c924c6f71393cdcf619ecf67b" compoundref="a00050" startline="336" endline="447">otd_inst_new</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="a00085_1ga1664d9f195695e62fb074338e0c0151c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>gint</type>
+        <definition>static gint compare_channel_id</definition>
+        <argsstring>(const struct otd_channel *pdch, const char *channel_id)</argsstring>
+        <name>compare_channel_id</name>
+        <param>
+          <type>const struct <ref refid="a00097" kindref="compound">otd_channel</ref> *</type>
+          <declname>pdch</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>channel_id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/instance.c" line="210" column="13" bodyfile="src/instance.c" bodystart="210" bodyend="214"/>
+      </memberdef>
+      <memberdef kind="function" id="a00085_1gab5a386924fc4ab4a61f0f3b3e7eef0f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref> int</type>
+        <definition>OTD_API int otd_inst_channel_set_all</definition>
+        <argsstring>(struct otd_decoder_inst *di, GHashTable *new_channels)</argsstring>
+        <name>otd_inst_channel_set_all</name>
+        <param>
+          <type>struct <ref refid="a00113" kindref="compound">otd_decoder_inst</ref> *</type>
+          <declname>di</declname>
+        </param>
+        <param>
+          <type>GHashTable *</type>
+          <declname>new_channels</declname>
+        </param>
+        <briefdescription>
+<para>Set all channels in a decoder instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function sets <emphasis>all</emphasis> channels for the specified decoder instance, i.e., it overwrites any channels that were already defined (if any).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>di</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Decoder instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>new_channels</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A GHashTable of channels to set. Key is channel name, value is the channel number. Samples passed to this instance will be arranged in this order.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>OTD_OK upon success, a (negative) error code otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>0.4.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/instance.c" line="231" column="13" bodyfile="src/instance.c" bodystart="231" bodyend="320"/>
+        <references refid="a00093_1a791a5fc555163f0e750fc8270c5dd33a" compoundref="a00258" startline="173">otd_decoder::channels</references>
+        <references refid="a00113_1a70113106efa4f1a7e3c08fc1a94c52b3" compoundref="a00258" startline="257">otd_decoder_inst::dec_channelmap</references>
+        <references refid="a00113_1ae5ade9bfe37f0f19cb4873264a0770ac" compoundref="a00258" startline="256">otd_decoder_inst::dec_num_channels</references>
+        <references refid="a00113_1a3f7cddd503846ba899d5f46fbdff36b6" compoundref="a00258" startline="251">otd_decoder_inst::decoder</references>
+        <references refid="a00097_1a33b5433c4425cbd3fb83f396752db1d4" compoundref="a00258" startline="223">otd_channel::id</references>
+        <references refid="a00113_1abde64b952bdf7918589230fe1b6cd124" compoundref="a00258" startline="254">otd_decoder_inst::inst_id</references>
+        <references refid="a00093_1ad71875a3a5881d5693711ff6042c029d" compoundref="a00258" startline="149">otd_decoder::name</references>
+        <references refid="a00093_1a00aa7b406a328a493b154c5af2f0db55" compoundref="a00258" startline="176">otd_decoder::opt_channels</references>
+        <references refid="a00097_1a805a57b9d8c7f3045c5bebbc90be5ef8" compoundref="a00258" startline="229">otd_channel::order</references>
+        <references refid="a00062_1abe0db3bab3b85f46343afb04b24d59a2" compoundref="a00062" startline="115">otd_dbg</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcad6e315777c65836ac7489ddb503aceab" compoundref="a00258" startline="68">OTD_ERR</references>
+        <references refid="a00062_1adfd45428ae0a51e6162ff442c97dbce7" compoundref="a00062" startline="118">otd_err</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebca0b8a159c5ce1e9d1e1d58384820a88d2" compoundref="a00258" startline="70">OTD_ERR_ARG</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcafcf78f6457d3099b0fc89415a3f9eaa5" compoundref="a00258" startline="67">OTD_OK</references>
+      </memberdef>
+      <memberdef kind="function" id="a00085_1ga93239c3c924c6f71393cdcf619ecf67b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref> struct <ref refid="a00113" kindref="compound">otd_decoder_inst</ref> *</type>
+        <definition>OTD_API struct otd_decoder_inst * otd_inst_new</definition>
+        <argsstring>(struct otd_session *sess, const char *decoder_id, GHashTable *options)</argsstring>
+        <name>otd_inst_new</name>
+        <param>
+          <type>struct <ref refid="a00165" kindref="compound">otd_session</ref> *</type>
+          <declname>sess</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>decoder_id</declname>
+        </param>
+        <param>
+          <type>GHashTable *</type>
+          <declname>options</declname>
+        </param>
+        <briefdescription>
+<para>Create a new protocol decoder instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sess</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The session holding the protocol decoder instance. Must not be NULL. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>decoder_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Decoder &apos;id&apos; field. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>options</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>GHashtable of options which override the defaults set in the decoder class. May be NULL.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to a newly allocated struct <ref refid="a00113" kindref="compound">otd_decoder_inst</ref>, or NULL in case of failure.</para>
+</simplesect>
+<simplesect kind="since"><para>0.3.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/instance.c" line="336" column="31" bodyfile="src/instance.c" bodystart="336" bodyend="447"/>
+        <references refid="a00113_1aa5f6bb4a9f66843b74866b5697f888ca" compoundref="a00258" startline="281">otd_decoder_inst::abs_cur_samplenum</references>
+        <references refid="a00113_1a21041f21583e4260a07449dc1612a8ea" compoundref="a00258" startline="272">otd_decoder_inst::abs_end_samplenum</references>
+        <references refid="a00113_1acb8e6b509a2959427a0cce8645ddeb20" compoundref="a00258" startline="269">otd_decoder_inst::abs_start_samplenum</references>
+        <references refid="a00113_1ac5df4ad4c63cdada014c2fc86f74accb" compoundref="a00258" startline="259">otd_decoder_inst::channel_samples</references>
+        <references refid="a00093_1a791a5fc555163f0e750fc8270c5dd33a" compoundref="a00258" startline="173">otd_decoder::channels</references>
+        <references refid="a00113_1af4d0628e6d7341c9cd64fb2c7f58798b" compoundref="a00258" startline="299">otd_decoder_inst::communicate_eof</references>
+        <references refid="a00113_1a14f2d86acd8cce0b3562f6eac77a8135" compoundref="a00258" startline="263">otd_decoder_inst::condition_list</references>
+        <references refid="a00113_1a0b14c71c1990b9d61c3d557b25dc96b4" compoundref="a00258" startline="306">otd_decoder_inst::data_mutex</references>
+        <references refid="a00113_1a70113106efa4f1a7e3c08fc1a94c52b3" compoundref="a00258" startline="257">otd_decoder_inst::dec_channelmap</references>
+        <references refid="a00113_1ae5ade9bfe37f0f19cb4873264a0770ac" compoundref="a00258" startline="256">otd_decoder_inst::dec_num_channels</references>
+        <references refid="a00113_1a3f7cddd503846ba899d5f46fbdff36b6" compoundref="a00258" startline="251">otd_decoder_inst::decoder</references>
+        <references refid="a00113_1a9b5ac5ebbf789c6c00537460a20d9068" compoundref="a00258" startline="302">otd_decoder_inst::decoder_state</references>
+        <references refid="a00165_1a5e1296e48d6a16e2a5fe2a574e9d93cc" compoundref="a00062" startline="75">otd_session::di_list</references>
+        <references refid="a00029_1aa93f0eb578d23995850d61f7d61c55c1" compoundref="a00029" startline="194">FALSE</references>
+        <references refid="a00113_1a045375c6886c8508d2057ceb402bd246" compoundref="a00258" startline="290">otd_decoder_inst::got_new_samples</references>
+        <references refid="a00113_1aa6330fb8d39f3192cb6cf3ec63ceac19" compoundref="a00258" startline="304">otd_decoder_inst::got_new_samples_cond</references>
+        <references refid="a00113_1a974ca6038f2782e28aa9273073db7b7f" compoundref="a00258" startline="293">otd_decoder_inst::handled_all_samples</references>
+        <references refid="a00113_1a369833301696288db4a2201f44dc4c3e" compoundref="a00258" startline="305">otd_decoder_inst::handled_all_samples_cond</references>
+        <references refid="a00113_1ac5e48df7922126d6bbce1364d3c94ffe" compoundref="a00258" startline="275">otd_decoder_inst::inbuf</references>
+        <references refid="a00113_1af5d715e676e52b289de4b9692ccd0d01" compoundref="a00258" startline="278">otd_decoder_inst::inbuflen</references>
+        <references refid="a00113_1abde64b952bdf7918589230fe1b6cd124" compoundref="a00258" startline="254">otd_decoder_inst::inst_id</references>
+        <references refid="a00113_1abfda650553b54d3d44fdf10fa501dc3a" compoundref="a00258" startline="266">otd_decoder_inst::match_array</references>
+        <references refid="a00093_1a00aa7b406a328a493b154c5af2f0db55" compoundref="a00258" startline="176">otd_decoder::opt_channels</references>
+        <references refid="a00062_1abe0db3bab3b85f46343afb04b24d59a2" compoundref="a00062" startline="115">otd_dbg</references>
+        <references refid="a00083_1gad7e0a74c1ce3f48fa47b1c3ce1255fdf" compoundref="a00059" startline="89" endline="101">otd_decoder_get_by_id</references>
+        <references refid="a00062_1adfd45428ae0a51e6162ff442c97dbce7" compoundref="a00062" startline="118">otd_err</references>
+        <references refid="a00085_1ga85fb36f5ae3affa7f4c89f129f51f637" compoundref="a00050" startline="613" endline="630">otd_inst_find_by_id</references>
+        <references refid="a00085_1ga465fa07a525a264e429dfbccb2abe3c6" compoundref="a00050" startline="92" endline="207">otd_inst_option_set</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcafcf78f6457d3099b0fc89415a3f9eaa5" compoundref="a00258" startline="67">OTD_OK</references>
+        <references refid="a00093_1a3594f95387546b72c7b6a7d5a09c3de8" compoundref="a00258" startline="208">otd_decoder::py_dec</references>
+        <references refid="a00113_1a81ec9ee5165f12f9079683bcf57cf4cd" compoundref="a00258" startline="253">otd_decoder_inst::py_inst</references>
+        <references refid="a00113_1a8f310ba6956102b88003d3e7a433f2ef" compoundref="a00258" startline="252">otd_decoder_inst::sess</references>
+        <references refid="a00113_1a8f0d222a1ee6d9293e05b8d8b8417938" compoundref="a00258" startline="287">otd_decoder_inst::thread_handle</references>
+        <references refid="a00113_1a7f0afc17aaf2b3dad6885c2636e5d2cb" compoundref="a00258" startline="296">otd_decoder_inst::want_wait_terminate</references>
+      </memberdef>
+      <memberdef kind="function" id="a00085_1ga9472968b643488dd8d3d2d2e19e8e2c8" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void otd_inst_join_decode_thread</definition>
+        <argsstring>(struct otd_decoder_inst *di)</argsstring>
+        <name>otd_inst_join_decode_thread</name>
+        <param>
+          <type>struct <ref refid="a00113" kindref="compound">otd_decoder_inst</ref> *</type>
+          <declname>di</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/instance.c" line="449" column="13" bodyfile="src/instance.c" bodystart="449" bodyend="483"/>
+      </memberdef>
+      <memberdef kind="function" id="a00085_1gae780d1105f99afc88406087dafca0df3" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void otd_inst_reset_state</definition>
+        <argsstring>(struct otd_decoder_inst *di)</argsstring>
+        <name>otd_inst_reset_state</name>
+        <param>
+          <type>struct <ref refid="a00113" kindref="compound">otd_decoder_inst</ref> *</type>
+          <declname>di</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/instance.c" line="485" column="13" bodyfile="src/instance.c" bodystart="485" bodyend="507"/>
+      </memberdef>
+      <memberdef kind="function" id="a00085_1ga2d145b7c48e57509dc22988ad0c36a02" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref> int</type>
+        <definition>OTD_API int otd_inst_stack</definition>
+        <argsstring>(struct otd_session *sess, struct otd_decoder_inst *di_bottom, struct otd_decoder_inst *di_top)</argsstring>
+        <name>otd_inst_stack</name>
+        <param>
+          <type>struct <ref refid="a00165" kindref="compound">otd_session</ref> *</type>
+          <declname>sess</declname>
+        </param>
+        <param>
+          <type>struct <ref refid="a00113" kindref="compound">otd_decoder_inst</ref> *</type>
+          <declname>di_bottom</declname>
+        </param>
+        <param>
+          <type>struct <ref refid="a00113" kindref="compound">otd_decoder_inst</ref> *</type>
+          <declname>di_top</declname>
+        </param>
+        <briefdescription>
+<para>Stack a decoder instance on top of another. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sess</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The session holding the protocol decoder instances. Must not be NULL. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>di_bottom</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The instance on top of which di_top will be stacked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>di_top</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The instance to go on top.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>OTD_OK upon success, a (negative) error code otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>0.3.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/instance.c" line="521" column="13" bodyfile="src/instance.c" bodystart="521" bodyend="565"/>
+        <references refid="a00113_1a3f7cddd503846ba899d5f46fbdff36b6" compoundref="a00258" startline="251">otd_decoder_inst::decoder</references>
+        <references refid="a00165_1a5e1296e48d6a16e2a5fe2a574e9d93cc" compoundref="a00062" startline="75">otd_session::di_list</references>
+        <references refid="a00029_1aa93f0eb578d23995850d61f7d61c55c1" compoundref="a00029" startline="194">FALSE</references>
+        <references refid="a00093_1ad01765fdc44199b5a2d5f8aa873e7fc3" compoundref="a00258" startline="164">otd_decoder::inputs</references>
+        <references refid="a00113_1abde64b952bdf7918589230fe1b6cd124" compoundref="a00258" startline="254">otd_decoder_inst::inst_id</references>
+        <references refid="a00113_1a0513a08c7294e76850febc56ba372187" compoundref="a00258" startline="260">otd_decoder_inst::next_di</references>
+        <references refid="a00062_1abe0db3bab3b85f46343afb04b24d59a2" compoundref="a00062" startline="115">otd_dbg</references>
+        <references refid="a00062_1adfd45428ae0a51e6162ff442c97dbce7" compoundref="a00062" startline="118">otd_err</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebca0b8a159c5ce1e9d1e1d58384820a88d2" compoundref="a00258" startline="70">OTD_ERR_ARG</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcafcf78f6457d3099b0fc89415a3f9eaa5" compoundref="a00258" startline="67">OTD_OK</references>
+        <references refid="a00062_1a27487282ab8fa0ac93ef0640d85be767" compoundref="a00062" startline="117">otd_warn</references>
+        <references refid="a00093_1a06a1704295b5bd7b49fa6951069011d2" compoundref="a00258" startline="167">otd_decoder::outputs</references>
+        <references refid="a00113_1a8f310ba6956102b88003d3e7a433f2ef" compoundref="a00258" startline="252">otd_decoder_inst::sess</references>
+        <references refid="a00029_1aa8cecfc5c5c054d2875c03e77b7be15d" compoundref="a00029" startline="193">TRUE</references>
+      </memberdef>
+      <memberdef kind="function" id="a00085_1gac83cd2d57e1fce34203a4d41a4542710" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>struct <ref refid="a00113" kindref="compound">otd_decoder_inst</ref> *</type>
+        <definition>static struct otd_decoder_inst * otd_inst_find_by_id_stack</definition>
+        <argsstring>(const char *inst_id, struct otd_decoder_inst *stack)</argsstring>
+        <name>otd_inst_find_by_id_stack</name>
+        <param>
+          <type>const char *</type>
+          <declname>inst_id</declname>
+        </param>
+        <param>
+          <type>struct <ref refid="a00113" kindref="compound">otd_decoder_inst</ref> *</type>
+          <declname>stack</declname>
+        </param>
+        <briefdescription>
+<para>Search a decoder instance and its stack for instance ID. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">inst_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID to search for. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">stack</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A decoder instance, potentially with stacked instances.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The matching instance, or NULL. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/instance.c" line="575" column="30" bodyfile="src/instance.c" bodystart="575" bodyend="597"/>
+      </memberdef>
+      <memberdef kind="function" id="a00085_1ga85fb36f5ae3affa7f4c89f129f51f637" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref> struct <ref refid="a00113" kindref="compound">otd_decoder_inst</ref> *</type>
+        <definition>OTD_API struct otd_decoder_inst * otd_inst_find_by_id</definition>
+        <argsstring>(struct otd_session *sess, const char *inst_id)</argsstring>
+        <name>otd_inst_find_by_id</name>
+        <param>
+          <type>struct <ref refid="a00165" kindref="compound">otd_session</ref> *</type>
+          <declname>sess</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>inst_id</declname>
+        </param>
+        <briefdescription>
+<para>Find a decoder instance by its instance ID. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This will recurse to find the instance anywhere in the stack tree of the given session.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sess</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The session holding the protocol decoder instance. Must not be NULL. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inst_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The instance ID to be found.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to struct <ref refid="a00113" kindref="compound">otd_decoder_inst</ref>, or NULL if not found.</para>
+</simplesect>
+<simplesect kind="since"><para>0.3.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/instance.c" line="613" column="31" bodyfile="src/instance.c" bodystart="613" bodyend="630"/>
+        <references refid="a00165_1a5e1296e48d6a16e2a5fe2a574e9d93cc" compoundref="a00062" startline="75">otd_session::di_list</references>
+        <references refid="a00113_1abde64b952bdf7918589230fe1b6cd124" compoundref="a00258" startline="254">otd_decoder_inst::inst_id</references>
+        <references refid="a00113_1a8f310ba6956102b88003d3e7a433f2ef" compoundref="a00258" startline="252">otd_decoder_inst::sess</references>
+        <referencedby refid="a00085_1ga93239c3c924c6f71393cdcf619ecf67b" compoundref="a00050" startline="336" endline="447">otd_inst_new</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="a00085_1ga51c30e41b8b99bc6076bea9bf999303a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref> int</type>
+        <definition>OTD_API int otd_inst_initial_pins_set_all</definition>
+        <argsstring>(struct otd_decoder_inst *di, GArray *initial_pins)</argsstring>
+        <name>otd_inst_initial_pins_set_all</name>
+        <param>
+          <type>struct <ref refid="a00113" kindref="compound">otd_decoder_inst</ref> *</type>
+          <declname>di</declname>
+        </param>
+        <param>
+          <type>GArray *</type>
+          <declname>initial_pins</declname>
+        </param>
+        <briefdescription>
+<para>Set the list of initial (assumed) pin values. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>di</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Decoder instance to use. Must not be NULL. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>initial_pins</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A GArray of uint8_t values. Must not be NULL.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>0.5.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/instance.c" line="640" column="13" bodyfile="src/instance.c" bodystart="640" bodyend="679"/>
+        <references refid="a00113_1ae5ade9bfe37f0f19cb4873264a0770ac" compoundref="a00258" startline="256">otd_decoder_inst::dec_num_channels</references>
+        <references refid="a00113_1aa1c3320e468b9dc8c8c72ecf8317995e" compoundref="a00258" startline="284">otd_decoder_inst::old_pins_array</references>
+        <references refid="a00062_1abe0db3bab3b85f46343afb04b24d59a2" compoundref="a00062" startline="115">otd_dbg</references>
+        <references refid="a00062_1adfd45428ae0a51e6162ff442c97dbce7" compoundref="a00062" startline="118">otd_err</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebca0b8a159c5ce1e9d1e1d58384820a88d2" compoundref="a00258" startline="70">OTD_ERR_ARG</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcafcf78f6457d3099b0fc89415a3f9eaa5" compoundref="a00258" startline="67">OTD_OK</references>
+        <references refid="a00029_1aa8cecfc5c5c054d2875c03e77b7be15d" compoundref="a00029" startline="193">TRUE</references>
+      </memberdef>
+      <memberdef kind="function" id="a00085_1ga21cc0890d564bc0c72ee93bae8dbd773" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1a3a90167f4b0b0cb829b5b15e0663af50" kindref="member">OTD_PRIV</ref> int</type>
+        <definition>OTD_PRIV int otd_inst_start</definition>
+        <argsstring>(struct otd_decoder_inst *di)</argsstring>
+        <name>otd_inst_start</name>
+        <param>
+          <type>struct <ref refid="a00113" kindref="compound">otd_decoder_inst</ref> *</type>
+          <declname>di</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/instance.c" line="682" column="14" bodyfile="src/instance.c" bodystart="682" bodyend="721"/>
+        <references refid="a00113_1abde64b952bdf7918589230fe1b6cd124" compoundref="a00258" startline="254">otd_decoder_inst::inst_id</references>
+        <references refid="a00113_1a0513a08c7294e76850febc56ba372187" compoundref="a00258" startline="260">otd_decoder_inst::next_di</references>
+        <references refid="a00062_1abe0db3bab3b85f46343afb04b24d59a2" compoundref="a00062" startline="115">otd_dbg</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcaaecfc1f18b22e996112bec32462cb5d5" compoundref="a00258" startline="72">OTD_ERR_PYTHON</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcafcf78f6457d3099b0fc89415a3f9eaa5" compoundref="a00258" startline="67">OTD_OK</references>
+        <references refid="a00113_1a81ec9ee5165f12f9079683bcf57cf4cd" compoundref="a00258" startline="253">otd_decoder_inst::py_inst</references>
+      </memberdef>
+      <memberdef kind="function" id="a00085_1gaea7ccb1f68c35c1ace876675a6c406d7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>__attribute__</definition>
+        <argsstring>((always_inline))</argsstring>
+        <name>__attribute__</name>
+        <param>
+          <type>(always_inline)</type>
+        </param>
+        <briefdescription>
+<para>Check whether the specified sample matches the specified term. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>In the case of OTD_TERM_SKIP, this function can modify term-&gt;num_samples_already_skipped.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>old_sample</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The value of the previous sample (0/1). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sample</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The value of the current sample (0/1). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>term</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The term that should be checked for a match. Must not be NULL.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>TRUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The current sample matches the specified term. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>FALSE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The current sample doesn&apos;t match the specified term, or an invalid term was provided. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/instance.c" line="739" column="1" bodyfile="src/instance.c" bodystart="739" bodyend="780"/>
+      </memberdef>
+      <memberdef kind="function" id="a00085_1ga4f385e5a752a33a538c128cb7335ff20" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1a3a90167f4b0b0cb829b5b15e0663af50" kindref="member">OTD_PRIV</ref> void</type>
+        <definition>OTD_PRIV void match_array_free</definition>
+        <argsstring>(struct otd_decoder_inst *di)</argsstring>
+        <name>match_array_free</name>
+        <param>
+          <type>struct <ref refid="a00113" kindref="compound">otd_decoder_inst</ref> *</type>
+          <declname>di</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/instance.c" line="783" column="15" bodyfile="src/instance.c" bodystart="783" bodyend="790"/>
+        <references refid="a00113_1abfda650553b54d3d44fdf10fa501dc3a" compoundref="a00258" startline="266">otd_decoder_inst::match_array</references>
+        <references refid="a00029_1aa8cecfc5c5c054d2875c03e77b7be15d" compoundref="a00029" startline="193">TRUE</references>
+      </memberdef>
+      <memberdef kind="function" id="a00085_1ga5a47265f727fbb1ec521a564d8f957d3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1a3a90167f4b0b0cb829b5b15e0663af50" kindref="member">OTD_PRIV</ref> void</type>
+        <definition>OTD_PRIV void condition_list_free</definition>
+        <argsstring>(struct otd_decoder_inst *di)</argsstring>
+        <name>condition_list_free</name>
+        <param>
+          <type>struct <ref refid="a00113" kindref="compound">otd_decoder_inst</ref> *</type>
+          <declname>di</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/instance.c" line="793" column="15" bodyfile="src/instance.c" bodystart="793" bodyend="808"/>
+        <references refid="a00113_1a14f2d86acd8cce0b3562f6eac77a8135" compoundref="a00258" startline="263">otd_decoder_inst::condition_list</references>
+      </memberdef>
+      <memberdef kind="function" id="a00085_1gabd47c72fcdeb87b2a08a495b4f949542" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>gboolean</type>
+        <definition>static gboolean have_non_null_conds</definition>
+        <argsstring>(const struct otd_decoder_inst *di)</argsstring>
+        <name>have_non_null_conds</name>
+        <param>
+          <type>const struct <ref refid="a00113" kindref="compound">otd_decoder_inst</ref> *</type>
+          <declname>di</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/instance.c" line="810" column="17" bodyfile="src/instance.c" bodystart="810" bodyend="824"/>
+      </memberdef>
+      <memberdef kind="function" id="a00085_1ga0728011b012cb18774712a949c26f4e4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void update_old_pins_array</definition>
+        <argsstring>(struct otd_decoder_inst *di, const uint8_t *sample_pos)</argsstring>
+        <name>update_old_pins_array</name>
+        <param>
+          <type>struct <ref refid="a00113" kindref="compound">otd_decoder_inst</ref> *</type>
+          <declname>di</declname>
+        </param>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>sample_pos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/instance.c" line="826" column="13" bodyfile="src/instance.c" bodystart="826" bodyend="844"/>
+      </memberdef>
+      <memberdef kind="function" id="a00085_1ga7afe899f84ce0b796c6acaeadd887a9a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void update_old_pins_array_initial_pins</definition>
+        <argsstring>(struct otd_decoder_inst *di)</argsstring>
+        <name>update_old_pins_array_initial_pins</name>
+        <param>
+          <type>struct <ref refid="a00113" kindref="compound">otd_decoder_inst</ref> *</type>
+          <declname>di</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/instance.c" line="846" column="13" bodyfile="src/instance.c" bodystart="846" bodyend="868"/>
+      </memberdef>
+      <memberdef kind="function" id="a00085_1ga7742686e9136d685adde4080829f2f40" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>gboolean</type>
+        <definition>static gboolean term_matches</definition>
+        <argsstring>(const struct otd_decoder_inst *di, struct otd_term *term, const uint8_t *sample_pos)</argsstring>
+        <name>term_matches</name>
+        <param>
+          <type>const struct <ref refid="a00113" kindref="compound">otd_decoder_inst</ref> *</type>
+          <declname>di</declname>
+        </param>
+        <param>
+          <type>struct <ref refid="a00157" kindref="compound">otd_term</ref> *</type>
+          <declname>term</declname>
+        </param>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>sample_pos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/instance.c" line="870" column="17" bodyfile="src/instance.c" bodystart="870" bodyend="888"/>
+      </memberdef>
+      <memberdef kind="function" id="a00085_1gaa004dee7b07f8626152151648fd7e8b3" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>gboolean</type>
+        <definition>static gboolean all_terms_match</definition>
+        <argsstring>(const struct otd_decoder_inst *di, const GSList *cond, const uint8_t *sample_pos)</argsstring>
+        <name>all_terms_match</name>
+        <param>
+          <type>const struct <ref refid="a00113" kindref="compound">otd_decoder_inst</ref> *</type>
+          <declname>di</declname>
+        </param>
+        <param>
+          <type>const GSList *</type>
+          <declname>cond</declname>
+        </param>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>sample_pos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/instance.c" line="890" column="17" bodyfile="src/instance.c" bodystart="890" bodyend="907"/>
+      </memberdef>
+      <memberdef kind="function" id="a00085_1ga9aa2a2c68a488d20b9bb9ff3f6127b62" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>gboolean</type>
+        <definition>static gboolean at_least_one_condition_matched</definition>
+        <argsstring>(const struct otd_decoder_inst *di, unsigned int num_conditions)</argsstring>
+        <name>at_least_one_condition_matched</name>
+        <param>
+          <type>const struct <ref refid="a00113" kindref="compound">otd_decoder_inst</ref> *</type>
+          <declname>di</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>num_conditions</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/instance.c" line="909" column="17" bodyfile="src/instance.c" bodystart="909" bodyend="922"/>
+      </memberdef>
+      <memberdef kind="function" id="a00085_1ga9ef2e592da246aabd488cd13a8613fec" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>gboolean</type>
+        <definition>static gboolean find_match</definition>
+        <argsstring>(struct otd_decoder_inst *di)</argsstring>
+        <name>find_match</name>
+        <param>
+          <type>struct <ref refid="a00113" kindref="compound">otd_decoder_inst</ref> *</type>
+          <declname>di</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/instance.c" line="924" column="17" bodyfile="src/instance.c" bodystart="924" bodyend="978"/>
+      </memberdef>
+      <memberdef kind="function" id="a00085_1ga6640c1503a8f6d1deaf87c344cf90225" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1a3a90167f4b0b0cb829b5b15e0663af50" kindref="member">OTD_PRIV</ref> int</type>
+        <definition>OTD_PRIV int process_samples_until_condition_match</definition>
+        <argsstring>(struct otd_decoder_inst *di, gboolean *found_match)</argsstring>
+        <name>process_samples_until_condition_match</name>
+        <param>
+          <type>struct <ref refid="a00113" kindref="compound">otd_decoder_inst</ref> *</type>
+          <declname>di</declname>
+        </param>
+        <param>
+          <type>gboolean *</type>
+          <declname>found_match</declname>
+        </param>
+        <briefdescription>
+<para>Process available samples and check if they match the defined conditions. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function returns if there is an error, or when a match is found, or when all samples have been processed (whether a match was found or not). This function immediately terminates when the decoder&apos;s wait() method invocation shall get terminated.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>di</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The decoder instance to use. Must not be NULL. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>found_match</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Will be set to TRUE if at least one condition matched, FALSE otherwise. Must not be NULL.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>OTD_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>No errors occured, see found_match for the result. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>OTD_ERR_ARG</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Invalid arguments. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/instance.c" line="997" column="14" bodyfile="src/instance.c" bodystart="997" bodyend="1028"/>
+        <references refid="a00113_1aa5f6bb4a9f66843b74866b5697f888ca" compoundref="a00258" startline="281">otd_decoder_inst::abs_cur_samplenum</references>
+        <references refid="a00113_1a21041f21583e4260a07449dc1612a8ea" compoundref="a00258" startline="272">otd_decoder_inst::abs_end_samplenum</references>
+        <references refid="a00029_1aa93f0eb578d23995850d61f7d61c55c1" compoundref="a00029" startline="194">FALSE</references>
+        <references refid="a00062_1abe0db3bab3b85f46343afb04b24d59a2" compoundref="a00062" startline="115">otd_dbg</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebca0b8a159c5ce1e9d1e1d58384820a88d2" compoundref="a00258" startline="70">OTD_ERR_ARG</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcafcf78f6457d3099b0fc89415a3f9eaa5" compoundref="a00258" startline="67">OTD_OK</references>
+        <references refid="a00029_1aa8cecfc5c5c054d2875c03e77b7be15d" compoundref="a00029" startline="193">TRUE</references>
+        <references refid="a00113_1a7f0afc17aaf2b3dad6885c2636e5d2cb" compoundref="a00258" startline="296">otd_decoder_inst::want_wait_terminate</references>
+      </memberdef>
+      <memberdef kind="function" id="a00085_1ga6ed8c792148d59db504bf0ff2525fab5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>gpointer</type>
+        <definition>static gpointer di_thread</definition>
+        <argsstring>(gpointer data)</argsstring>
+        <name>di_thread</name>
+        <param>
+          <type>gpointer</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Worker thread (per PD-stack). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the lowest-level PD&apos;s device instance. Must not be NULL.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>NULL if there was an error. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/instance.c" line="1038" column="17" bodyfile="src/instance.c" bodystart="1038" bodyend="1133"/>
+      </memberdef>
+      <memberdef kind="function" id="a00085_1ga16bc8c1ec4cbfaa9a3341af1a485cbf5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1a3a90167f4b0b0cb829b5b15e0663af50" kindref="member">OTD_PRIV</ref> int</type>
+        <definition>OTD_PRIV int otd_inst_decode</definition>
+        <argsstring>(struct otd_decoder_inst *di, uint64_t abs_start_samplenum, uint64_t abs_end_samplenum, const uint8_t *inbuf, uint64_t inbuflen, uint64_t unitsize)</argsstring>
+        <name>otd_inst_decode</name>
+        <param>
+          <type>struct <ref refid="a00113" kindref="compound">otd_decoder_inst</ref> *</type>
+          <declname>di</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>abs_start_samplenum</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>abs_end_samplenum</declname>
+        </param>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>inbuf</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>inbuflen</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>unitsize</declname>
+        </param>
+        <briefdescription>
+<para>Decode a chunk of samples. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The calls to this function must provide the samples that shall be used by the protocol decoder<itemizedlist>
+<listitem><para>in the correct order ([...]5, 6, 4, 7, 8[...] is a bug),</para>
+</listitem><listitem><para>starting from sample zero (2, 3, 4, 5, 6[...] is a bug),</para>
+</listitem><listitem><para>consecutively, with no gaps (0, 1, 2, 4, 5[...] is a bug).</para>
+</listitem></itemizedlist>
+</para>
+<para>The start- and end-sample numbers are absolute sample numbers (relative to the start of the whole capture/file/stream), i.e. they are not relative sample numbers within the chunk specified by &apos;inbuf&apos; and &apos;inbuflen&apos;.</para>
+<para>Correct example (4096 samples total, 4 chunks @ 1024 samples each): otd_inst_decode(di, 0,    1024, inbuf, 1024, 1); otd_inst_decode(di, 1024, 2048, inbuf, 1024, 1); otd_inst_decode(di, 2048, 3072, inbuf, 1024, 1); otd_inst_decode(di, 3072, 4096, inbuf, 1024, 1);</para>
+<para>The chunk size (&apos;inbuflen&apos;) can be arbitrary and can differ between calls.</para>
+<para>Correct example (4096 samples total, 7 chunks @ various samples each): otd_inst_decode(di, 0,    1024, inbuf, 1024, 1); otd_inst_decode(di, 1024, 1124, inbuf,  100, 1); otd_inst_decode(di, 1124, 1424, inbuf,  300, 1); otd_inst_decode(di, 1424, 1643, inbuf,  219, 1); otd_inst_decode(di, 1643, 2048, inbuf,  405, 1); otd_inst_decode(di, 2048, 3072, inbuf, 1024, 1); otd_inst_decode(di, 3072, 4096, inbuf, 1024, 1);</para>
+<para>INCORRECT example (4096 samples total, 4 chunks @ 1024 samples each, but the start- and end-samplenumbers are not absolute): otd_inst_decode(di, 0,    1024, inbuf, 1024, 1); otd_inst_decode(di, 0,    1024, inbuf, 1024, 1); otd_inst_decode(di, 0,    1024, inbuf, 1024, 1); otd_inst_decode(di, 0,    1024, inbuf, 1024, 1);</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>di</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The decoder instance to call. Must not be NULL. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>abs_start_samplenum</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The absolute starting sample number for the buffer&apos;s sample set, relative to the start of capture. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>abs_end_samplenum</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The absolute ending sample number for the buffer&apos;s sample set, relative to the start of capture. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inbuf</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The buffer to decode. Must not be NULL. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inbuflen</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of the buffer. Must be &gt; 0. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>unitsize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of bytes per sample. Must be &gt; 0.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>OTD_OK upon success, a (negative) error code otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/instance.c" line="1185" column="14" bodyfile="src/instance.c" bodystart="1185" bodyend="1257"/>
+        <references refid="a00113_1aa5f6bb4a9f66843b74866b5697f888ca" compoundref="a00258" startline="281">otd_decoder_inst::abs_cur_samplenum</references>
+        <references refid="a00113_1a21041f21583e4260a07449dc1612a8ea" compoundref="a00258" startline="272">otd_decoder_inst::abs_end_samplenum</references>
+        <references refid="a00113_1acb8e6b509a2959427a0cce8645ddeb20" compoundref="a00258" startline="269">otd_decoder_inst::abs_start_samplenum</references>
+        <references refid="a00113_1a0b14c71c1990b9d61c3d557b25dc96b4" compoundref="a00258" startline="306">otd_decoder_inst::data_mutex</references>
+        <references refid="a00113_1a2fbe8e3d4014000dc83066c064c573e5" compoundref="a00258" startline="258">otd_decoder_inst::data_unitsize</references>
+        <references refid="a00029_1aa93f0eb578d23995850d61f7d61c55c1" compoundref="a00029" startline="194">FALSE</references>
+        <references refid="a00113_1a045375c6886c8508d2057ceb402bd246" compoundref="a00258" startline="290">otd_decoder_inst::got_new_samples</references>
+        <references refid="a00113_1aa6330fb8d39f3192cb6cf3ec63ceac19" compoundref="a00258" startline="304">otd_decoder_inst::got_new_samples_cond</references>
+        <references refid="a00113_1a974ca6038f2782e28aa9273073db7b7f" compoundref="a00258" startline="293">otd_decoder_inst::handled_all_samples</references>
+        <references refid="a00113_1a369833301696288db4a2201f44dc4c3e" compoundref="a00258" startline="305">otd_decoder_inst::handled_all_samples_cond</references>
+        <references refid="a00113_1ac5e48df7922126d6bbce1364d3c94ffe" compoundref="a00258" startline="275">otd_decoder_inst::inbuf</references>
+        <references refid="a00113_1af5d715e676e52b289de4b9692ccd0d01" compoundref="a00258" startline="278">otd_decoder_inst::inbuflen</references>
+        <references refid="a00113_1abde64b952bdf7918589230fe1b6cd124" compoundref="a00258" startline="254">otd_decoder_inst::inst_id</references>
+        <references refid="a00062_1abe0db3bab3b85f46343afb04b24d59a2" compoundref="a00062" startline="115">otd_dbg</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebca0b8a159c5ce1e9d1e1d58384820a88d2" compoundref="a00258" startline="70">OTD_ERR_ARG</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebca87817509949d26cfd8918eb87b8a4eaa" compoundref="a00258" startline="74">OTD_ERR_TERM_REQ</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcafcf78f6457d3099b0fc89415a3f9eaa5" compoundref="a00258" startline="67">OTD_OK</references>
+        <references refid="a00113_1a8f0d222a1ee6d9293e05b8d8b8417938" compoundref="a00258" startline="287">otd_decoder_inst::thread_handle</references>
+        <references refid="a00029_1aa8cecfc5c5c054d2875c03e77b7be15d" compoundref="a00029" startline="193">TRUE</references>
+        <references refid="a00113_1a7f0afc17aaf2b3dad6885c2636e5d2cb" compoundref="a00258" startline="296">otd_decoder_inst::want_wait_terminate</references>
+      </memberdef>
+      <memberdef kind="function" id="a00085_1ga8fb9318bbcbde31049c29877e75034ec" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1a3a90167f4b0b0cb829b5b15e0663af50" kindref="member">OTD_PRIV</ref> int</type>
+        <definition>OTD_PRIV int otd_inst_flush</definition>
+        <argsstring>(struct otd_decoder_inst *di)</argsstring>
+        <name>otd_inst_flush</name>
+        <param>
+          <type>struct <ref refid="a00113" kindref="compound">otd_decoder_inst</ref> *</type>
+          <declname>di</declname>
+        </param>
+        <briefdescription>
+<para>Flush all data that is pending, bottom decoder first up to the top of the stack. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>di</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The decoder instance to call. Must not be NULL.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>OTD_OK upon success, a (negative) error code otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/instance.c" line="1269" column="14" bodyfile="src/instance.c" bodystart="1269" bodyend="1295"/>
+        <references refid="a00113_1a9b5ac5ebbf789c6c00537460a20d9068" compoundref="a00258" startline="302">otd_decoder_inst::decoder_state</references>
+        <references refid="a00113_1abde64b952bdf7918589230fe1b6cd124" compoundref="a00258" startline="254">otd_decoder_inst::inst_id</references>
+        <references refid="a00113_1a0513a08c7294e76850febc56ba372187" compoundref="a00258" startline="260">otd_decoder_inst::next_di</references>
+        <references refid="a00062_1abe0db3bab3b85f46343afb04b24d59a2" compoundref="a00062" startline="115">otd_dbg</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebca0b8a159c5ce1e9d1e1d58384820a88d2" compoundref="a00258" startline="70">OTD_ERR_ARG</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcafcf78f6457d3099b0fc89415a3f9eaa5" compoundref="a00258" startline="67">OTD_OK</references>
+        <references refid="a00113_1a81ec9ee5165f12f9079683bcf57cf4cd" compoundref="a00258" startline="253">otd_decoder_inst::py_inst</references>
+      </memberdef>
+      <memberdef kind="function" id="a00085_1ga59a9e52ee0d4444adf57fcf63ba508b2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1a3a90167f4b0b0cb829b5b15e0663af50" kindref="member">OTD_PRIV</ref> int</type>
+        <definition>OTD_PRIV int otd_inst_send_eof</definition>
+        <argsstring>(struct otd_decoder_inst *di)</argsstring>
+        <name>otd_inst_send_eof</name>
+        <param>
+          <type>struct <ref refid="a00113" kindref="compound">otd_decoder_inst</ref> *</type>
+          <declname>di</declname>
+        </param>
+        <briefdescription>
+<para>Communicate the end of the stream of sample data to a decoder instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">di</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The decoder instance to call. Must not be NULL.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>OTD_OK upon success, a (negative) error code otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/instance.c" line="1306" column="14" bodyfile="src/instance.c" bodystart="1306" bodyend="1353"/>
+        <references refid="a00113_1af4d0628e6d7341c9cd64fb2c7f58798b" compoundref="a00258" startline="299">otd_decoder_inst::communicate_eof</references>
+        <references refid="a00113_1a0b14c71c1990b9d61c3d557b25dc96b4" compoundref="a00258" startline="306">otd_decoder_inst::data_mutex</references>
+        <references refid="a00029_1aa93f0eb578d23995850d61f7d61c55c1" compoundref="a00029" startline="194">FALSE</references>
+        <references refid="a00113_1a045375c6886c8508d2057ceb402bd246" compoundref="a00258" startline="290">otd_decoder_inst::got_new_samples</references>
+        <references refid="a00113_1aa6330fb8d39f3192cb6cf3ec63ceac19" compoundref="a00258" startline="304">otd_decoder_inst::got_new_samples_cond</references>
+        <references refid="a00113_1a974ca6038f2782e28aa9273073db7b7f" compoundref="a00258" startline="293">otd_decoder_inst::handled_all_samples</references>
+        <references refid="a00113_1a369833301696288db4a2201f44dc4c3e" compoundref="a00258" startline="305">otd_decoder_inst::handled_all_samples_cond</references>
+        <references refid="a00113_1ac5e48df7922126d6bbce1364d3c94ffe" compoundref="a00258" startline="275">otd_decoder_inst::inbuf</references>
+        <references refid="a00113_1af5d715e676e52b289de4b9692ccd0d01" compoundref="a00258" startline="278">otd_decoder_inst::inbuflen</references>
+        <references refid="a00113_1abde64b952bdf7918589230fe1b6cd124" compoundref="a00258" startline="254">otd_decoder_inst::inst_id</references>
+        <references refid="a00113_1a0513a08c7294e76850febc56ba372187" compoundref="a00258" startline="260">otd_decoder_inst::next_di</references>
+        <references refid="a00062_1abe0db3bab3b85f46343afb04b24d59a2" compoundref="a00062" startline="115">otd_dbg</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebca0b8a159c5ce1e9d1e1d58384820a88d2" compoundref="a00258" startline="70">OTD_ERR_ARG</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcafcf78f6457d3099b0fc89415a3f9eaa5" compoundref="a00258" startline="67">OTD_OK</references>
+        <references refid="a00113_1a8f0d222a1ee6d9293e05b8d8b8417938" compoundref="a00258" startline="287">otd_decoder_inst::thread_handle</references>
+        <references refid="a00029_1aa8cecfc5c5c054d2875c03e77b7be15d" compoundref="a00029" startline="193">TRUE</references>
+        <references refid="a00113_1a7f0afc17aaf2b3dad6885c2636e5d2cb" compoundref="a00258" startline="296">otd_decoder_inst::want_wait_terminate</references>
+      </memberdef>
+      <memberdef kind="function" id="a00085_1ga3a256fb72531757070ae05bac39bcb1c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1a3a90167f4b0b0cb829b5b15e0663af50" kindref="member">OTD_PRIV</ref> int</type>
+        <definition>OTD_PRIV int otd_inst_terminate_reset</definition>
+        <argsstring>(struct otd_decoder_inst *di)</argsstring>
+        <name>otd_inst_terminate_reset</name>
+        <param>
+          <type>struct <ref refid="a00113" kindref="compound">otd_decoder_inst</ref> *</type>
+          <declname>di</declname>
+        </param>
+        <briefdescription>
+<para>Terminate current decoder work, prepare for re-use on new input data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Terminates all decoder operations in the specified decoder instance and the instances stacked on top of it. Resets internal state such that the previously constructed stack can process new input data that is not related to previously processed input data. This avoids the expensive and complex re-construction of decoder stacks.</para>
+<para>Callers are expected to follow up with start, metadata, and decode calls like they would for newly constructed decoder stacks.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>di</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The decoder instance to call. Must not be NULL.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>OTD_OK upon success, a (negative) error code otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/instance.c" line="1373" column="14" bodyfile="src/instance.c" bodystart="1373" bodyend="1417"/>
+        <references refid="a00113_1a9b5ac5ebbf789c6c00537460a20d9068" compoundref="a00258" startline="302">otd_decoder_inst::decoder_state</references>
+        <references refid="a00113_1abde64b952bdf7918589230fe1b6cd124" compoundref="a00258" startline="254">otd_decoder_inst::inst_id</references>
+        <references refid="a00113_1a0513a08c7294e76850febc56ba372187" compoundref="a00258" startline="260">otd_decoder_inst::next_di</references>
+        <references refid="a00062_1abe0db3bab3b85f46343afb04b24d59a2" compoundref="a00062" startline="115">otd_dbg</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebca0b8a159c5ce1e9d1e1d58384820a88d2" compoundref="a00258" startline="70">OTD_ERR_ARG</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcafcf78f6457d3099b0fc89415a3f9eaa5" compoundref="a00258" startline="67">OTD_OK</references>
+        <references refid="a00113_1a81ec9ee5165f12f9079683bcf57cf4cd" compoundref="a00258" startline="253">otd_decoder_inst::py_inst</references>
+      </memberdef>
+      <memberdef kind="function" id="a00085_1ga754b863cb710a4fdeecef5d70c8ee689" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1a3a90167f4b0b0cb829b5b15e0663af50" kindref="member">OTD_PRIV</ref> void</type>
+        <definition>OTD_PRIV void otd_inst_free</definition>
+        <argsstring>(struct otd_decoder_inst *di)</argsstring>
+        <name>otd_inst_free</name>
+        <param>
+          <type>struct <ref refid="a00113" kindref="compound">otd_decoder_inst</ref> *</type>
+          <declname>di</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/instance.c" line="1420" column="15" bodyfile="src/instance.c" bodystart="1420" bodyend="1447"/>
+        <references refid="a00113_1ac5df4ad4c63cdada014c2fc86f74accb" compoundref="a00258" startline="259">otd_decoder_inst::channel_samples</references>
+        <references refid="a00113_1a70113106efa4f1a7e3c08fc1a94c52b3" compoundref="a00258" startline="257">otd_decoder_inst::dec_channelmap</references>
+        <references refid="a00117_1a5b8cc909c968fde6aa508c203dd68b29" compoundref="a00258" startline="312">otd_pd_output::di</references>
+        <references refid="a00113_1abde64b952bdf7918589230fe1b6cd124" compoundref="a00258" startline="254">otd_decoder_inst::inst_id</references>
+        <references refid="a00113_1a0513a08c7294e76850febc56ba372187" compoundref="a00258" startline="260">otd_decoder_inst::next_di</references>
+        <references refid="a00062_1abe0db3bab3b85f46343afb04b24d59a2" compoundref="a00062" startline="115">otd_dbg</references>
+        <references refid="a00113_1a26a270791d5d906dd7e771a9a92843c9" compoundref="a00258" startline="255">otd_decoder_inst::pd_output</references>
+        <references refid="a00117_1abd149710bf6058bd5721294cd80ba543" compoundref="a00258" startline="313">otd_pd_output::proto_id</references>
+        <references refid="a00113_1a81ec9ee5165f12f9079683bcf57cf4cd" compoundref="a00258" startline="253">otd_decoder_inst::py_inst</references>
+      </memberdef>
+      <memberdef kind="function" id="a00085_1ga5a5ccf21d80fa12706ba83cffa3de267" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1a3a90167f4b0b0cb829b5b15e0663af50" kindref="member">OTD_PRIV</ref> void</type>
+        <definition>OTD_PRIV void otd_inst_free_all</definition>
+        <argsstring>(struct otd_session *sess)</argsstring>
+        <name>otd_inst_free_all</name>
+        <param>
+          <type>struct <ref refid="a00165" kindref="compound">otd_session</ref> *</type>
+          <declname>sess</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/instance.c" line="1450" column="15" bodyfile="src/instance.c" bodystart="1450" bodyend="1456"/>
+        <references refid="a00165_1a5e1296e48d6a16e2a5fe2a574e9d93cc" compoundref="a00062" startline="75">otd_session::di_list</references>
+        <referencedby refid="a00083_1gaa64090de5103a8b6c8a335777d7f0e12" compoundref="a00059" startline="1132" endline="1160">otd_decoder_unload</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Decoder instance handling. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

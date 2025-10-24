@@ -1,0 +1,237 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="a00056" kind="file" language="C++">
+    <compoundname>version.c</compoundname>
+    <includes local="no">config.h</includes>
+    <includes refid="a00062" local="yes">libopentracedecode-internal.h</includes>
+    <includes local="no">opentracedecode/libopentracedecode.h</includes>
+    <incdepgraph>
+      <node id="3">
+        <label>libopentracedecode-internal.h</label>
+        <link refid="a00062"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/version.c</label>
+        <link refid="a00056"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Python.h</label>
+      </node>
+      <node id="2">
+        <label>config.h</label>
+      </node>
+      <node id="5">
+        <label>opentracedecode/libopentracedecode.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="func">
+      <member refid="a00089_1gaca88af05a0e9d37fcc81f7a05f25ff4f" kind="function"><name>otd_package_version_major_get</name></member>
+      <member refid="a00089_1ga2b514e5c517481dce7060a3a074690e2" kind="function"><name>otd_package_version_minor_get</name></member>
+      <member refid="a00089_1gadec565dc41c4c937a543a6ea3bd94a79" kind="function"><name>otd_package_version_micro_get</name></member>
+      <member refid="a00089_1ga543544071fe659c4e8830a0adf736dd5" kind="function"><name>otd_package_version_string_get</name></member>
+      <member refid="a00089_1gaf70e82cfdb2e6a95a21d24a4ef46843c" kind="function"><name>otd_lib_version_current_get</name></member>
+      <member refid="a00089_1ga59aa4e73fccfdea8aa405fefc84d3891" kind="function"><name>otd_lib_version_revision_get</name></member>
+      <member refid="a00089_1gafeecad1d9783acb153cc0e6f69f5f98d" kind="function"><name>otd_lib_version_age_get</name></member>
+      <member refid="a00089_1gad586aa40dd763ea132c87dd5adebfe28" kind="function"><name>otd_lib_version_string_get</name></member>
+      <member refid="a00089_1gab8b1b7100e1b1a4cfe20ba5607320e35" kind="function"><name>otd_buildinfo_libs_get</name></member>
+      <member refid="a00089_1ga198f95837dba3e3116765bc9f9756a8b" kind="function"><name>otd_buildinfo_host_get</name></member>
+    </sectiondef>
+    <briefdescription>
+<para>Version number querying functions, definitions, and macros. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>This<sp/>file<sp/>is<sp/>part<sp/>of<sp/>the<sp/>libopentracedecode<sp/>project.</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(C)<sp/>2012-2013<sp/>Uwe<sp/>Hermann<sp/>&lt;uwe@hermann-uwe.de&gt;</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/>This<sp/>program<sp/>is<sp/>distributed<sp/>in<sp/>the<sp/>hope<sp/>that<sp/>it<sp/>will<sp/>be<sp/>useful,</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/>but<sp/>WITHOUT<sp/>ANY<sp/>WARRANTY;<sp/>without<sp/>even<sp/>the<sp/>implied<sp/>warranty<sp/>of</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>MERCHANTABILITY<sp/>or<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE.<sp/><sp/>See<sp/>the</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>for<sp/>more<sp/>details.</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/>You<sp/>should<sp/>have<sp/>received<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>along<sp/>with<sp/>this<sp/>program;<sp/>if<sp/>not,<sp/>see<sp/>&lt;http://www.gnu.org/licenses/&gt;.</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;config.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="a00062" kindref="compound">libopentracedecode-internal.h</ref>&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="comment">/*<sp/>First,<sp/>so<sp/>we<sp/>avoid<sp/>a<sp/>_POSIX_C_SOURCE<sp/>warning.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;opentracedecode/libopentracedecode.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="24"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>@file</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>Version<sp/>number<sp/>querying<sp/>functions,<sp/>definitions,<sp/>and<sp/>macros.</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="30"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>@defgroup<sp/>grp_versions<sp/>Versions</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*<sp/>Version<sp/>number<sp/>querying<sp/>functions,<sp/>definitions,<sp/>and<sp/>macros.</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/>*<sp/>This<sp/>set<sp/>of<sp/>API<sp/>calls<sp/>returns<sp/>two<sp/>different<sp/>version<sp/>numbers<sp/>related</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*<sp/>to<sp/>libopentracedecode.<sp/>The<sp/>&quot;package<sp/>version&quot;<sp/>is<sp/>the<sp/>release<sp/>version<sp/>number</highlight></codeline>
+<codeline lineno="37"><highlight class="comment"><sp/>*<sp/>of<sp/>the<sp/>libopentracedecode<sp/>tarball<sp/>in<sp/>the<sp/>usual<sp/>&quot;major.minor.micro&quot;<sp/>format,</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/>*<sp/>e.g.<sp/>&quot;0.1.0&quot;.</highlight></codeline>
+<codeline lineno="39"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="40"><highlight class="comment"><sp/>*<sp/>The<sp/>&quot;library<sp/>version&quot;<sp/>is<sp/>independent<sp/>of<sp/>that;<sp/>it<sp/>is<sp/>the<sp/>libtool<sp/>version</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/>*<sp/>number<sp/>in<sp/>the<sp/>&quot;current:revision:age&quot;<sp/>format,<sp/>e.g.<sp/>&quot;2:0:0&quot;.</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/>*<sp/>See<sp/>http://www.gnu.org/software/libtool/manual/libtool.html#Libtool-versioning<sp/>for<sp/>details.</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/>*<sp/>Both<sp/>version<sp/>numbers<sp/>(and/or<sp/>individual<sp/>components<sp/>of<sp/>them)<sp/>can<sp/>be</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*<sp/>retrieved<sp/>via<sp/>the<sp/>API<sp/>calls<sp/>at<sp/>runtime,<sp/>and/or<sp/>they<sp/>can<sp/>be<sp/>checked<sp/>at</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*<sp/>compile/preprocessor<sp/>time<sp/>using<sp/>the<sp/>respective<sp/>macros.</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*<sp/>@{</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="51"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/>*<sp/>Get<sp/>the<sp/>major<sp/>libopentracedecode<sp/>package<sp/>version<sp/>number.</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/>*<sp/>@return<sp/>The<sp/>major<sp/>package<sp/>version<sp/>number.</highlight></codeline>
+<codeline lineno="55"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="56"><highlight class="comment"><sp/>*<sp/>@since<sp/>0.1.0</highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58" refid="a00089_1gaca88af05a0e9d37fcc81f7a05f25ff4f" refkind="member"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00089_1gaca88af05a0e9d37fcc81f7a05f25ff4f" kindref="member">otd_package_version_major_get</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="59"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="a00270_1aa4b4d1d0195f7887de84cd6aede7cec3" kindref="member">OTD_PACKAGE_VERSION_MAJOR</ref>;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="63"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="64"><highlight class="comment"><sp/>*<sp/>Get<sp/>the<sp/>minor<sp/>libopentracedecode<sp/>package<sp/>version<sp/>number.</highlight></codeline>
+<codeline lineno="65"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/>*<sp/>@return<sp/>The<sp/>minor<sp/>package<sp/>version<sp/>number.</highlight></codeline>
+<codeline lineno="67"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="68"><highlight class="comment"><sp/>*<sp/>@since<sp/>0.1.0</highlight></codeline>
+<codeline lineno="69"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70" refid="a00089_1ga2b514e5c517481dce7060a3a074690e2" refkind="member"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00089_1ga2b514e5c517481dce7060a3a074690e2" kindref="member">otd_package_version_minor_get</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="71"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="a00270_1a1eeb8f45603a326c5c07281f4e9785c3" kindref="member">OTD_PACKAGE_VERSION_MINOR</ref>;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="75"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="76"><highlight class="comment"><sp/>*<sp/>Get<sp/>the<sp/>micro<sp/>libopentracedecode<sp/>package<sp/>version<sp/>number.</highlight></codeline>
+<codeline lineno="77"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="78"><highlight class="comment"><sp/>*<sp/>@return<sp/>The<sp/>micro<sp/>package<sp/>version<sp/>number.</highlight></codeline>
+<codeline lineno="79"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="80"><highlight class="comment"><sp/>*<sp/>@since<sp/>0.1.0</highlight></codeline>
+<codeline lineno="81"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82" refid="a00089_1gadec565dc41c4c937a543a6ea3bd94a79" refkind="member"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00089_1gadec565dc41c4c937a543a6ea3bd94a79" kindref="member">otd_package_version_micro_get</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="83"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="a00270_1a163a02dec064a3a54f7f6779ba952ca5" kindref="member">OTD_PACKAGE_VERSION_MICRO</ref>;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="87"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="88"><highlight class="comment"><sp/>*<sp/>Get<sp/>the<sp/>libopentracedecode<sp/>package<sp/>version<sp/>number<sp/>as<sp/>a<sp/>string.</highlight></codeline>
+<codeline lineno="89"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="90"><highlight class="comment"><sp/>*<sp/>@return<sp/>The<sp/>package<sp/>version<sp/>number<sp/>string.<sp/>The<sp/>returned<sp/>string<sp/>is</highlight></codeline>
+<codeline lineno="91"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>static<sp/>and<sp/>thus<sp/>should<sp/>NOT<sp/>be<sp/>free&apos;d<sp/>by<sp/>the<sp/>caller.</highlight></codeline>
+<codeline lineno="92"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="93"><highlight class="comment"><sp/>*<sp/>@since<sp/>0.1.0</highlight></codeline>
+<codeline lineno="94"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95" refid="a00089_1ga543544071fe659c4e8830a0adf736dd5" refkind="member"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="a00089_1ga543544071fe659c4e8830a0adf736dd5" kindref="member">otd_package_version_string_get</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="96"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="a00270_1ac06306b00b13a4fba1e354a28adc6887" kindref="member">OTD_PACKAGE_VERSION_STRING</ref>;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="100"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="101"><highlight class="comment"><sp/>*<sp/>Get<sp/>the<sp/>&quot;current&quot;<sp/>part<sp/>of<sp/>the<sp/>libopentracedecode<sp/>library<sp/>version<sp/>number.</highlight></codeline>
+<codeline lineno="102"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="103"><highlight class="comment"><sp/>*<sp/>@return<sp/>The<sp/>&quot;current&quot;<sp/>library<sp/>version<sp/>number.</highlight></codeline>
+<codeline lineno="104"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="105"><highlight class="comment"><sp/>*<sp/>@since<sp/>0.1.0</highlight></codeline>
+<codeline lineno="106"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107" refid="a00089_1gaf70e82cfdb2e6a95a21d24a4ef46843c" refkind="member"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00089_1gaf70e82cfdb2e6a95a21d24a4ef46843c" kindref="member">otd_lib_version_current_get</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="108"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="a00270_1aaf98080e3dcdb2f8193c1ce4ca9ca3c3" kindref="member">OTD_LIB_VERSION_CURRENT</ref>;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="112"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="113"><highlight class="comment"><sp/>*<sp/>Get<sp/>the<sp/>&quot;revision&quot;<sp/>part<sp/>of<sp/>the<sp/>libopentracedecode<sp/>library<sp/>version<sp/>number.</highlight></codeline>
+<codeline lineno="114"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="115"><highlight class="comment"><sp/>*<sp/>@return<sp/>The<sp/>&quot;revision&quot;<sp/>library<sp/>version<sp/>number.</highlight></codeline>
+<codeline lineno="116"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="117"><highlight class="comment"><sp/>*<sp/>@since<sp/>0.1.0</highlight></codeline>
+<codeline lineno="118"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119" refid="a00089_1ga59aa4e73fccfdea8aa405fefc84d3891" refkind="member"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00089_1ga59aa4e73fccfdea8aa405fefc84d3891" kindref="member">otd_lib_version_revision_get</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="120"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="a00270_1a0e2a482c7f6bf4ddd2d60cd79375c4c5" kindref="member">OTD_LIB_VERSION_REVISION</ref>;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="124"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="125"><highlight class="comment"><sp/>*<sp/>Get<sp/>the<sp/>&quot;age&quot;<sp/>part<sp/>of<sp/>the<sp/>libopentracedecode<sp/>library<sp/>version<sp/>number.</highlight></codeline>
+<codeline lineno="126"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="127"><highlight class="comment"><sp/>*<sp/>@return<sp/>The<sp/>&quot;age&quot;<sp/>library<sp/>version<sp/>number.</highlight></codeline>
+<codeline lineno="128"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="129"><highlight class="comment"><sp/>*<sp/>@since<sp/>0.1.0</highlight></codeline>
+<codeline lineno="130"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131" refid="a00089_1gafeecad1d9783acb153cc0e6f69f5f98d" refkind="member"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00089_1gafeecad1d9783acb153cc0e6f69f5f98d" kindref="member">otd_lib_version_age_get</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="132"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="a00270_1a9d83ccb2dcdd0c840a7bf60ba24edd98" kindref="member">OTD_LIB_VERSION_AGE</ref>;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="136"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="137"><highlight class="comment"><sp/>*<sp/>Get<sp/>the<sp/>libopentracedecode<sp/>library<sp/>version<sp/>number<sp/>as<sp/>a<sp/>string.</highlight></codeline>
+<codeline lineno="138"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="139"><highlight class="comment"><sp/>*<sp/>@return<sp/>The<sp/>library<sp/>version<sp/>number<sp/>string.<sp/>The<sp/>returned<sp/>string<sp/>is</highlight></codeline>
+<codeline lineno="140"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>static<sp/>and<sp/>thus<sp/>should<sp/>NOT<sp/>be<sp/>free&apos;d<sp/>by<sp/>the<sp/>caller.</highlight></codeline>
+<codeline lineno="141"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="142"><highlight class="comment"><sp/>*<sp/>@since<sp/>0.1.0</highlight></codeline>
+<codeline lineno="143"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="144" refid="a00089_1gad586aa40dd763ea132c87dd5adebfe28" refkind="member"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="a00089_1gad586aa40dd763ea132c87dd5adebfe28" kindref="member">otd_lib_version_string_get</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="145"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="a00270_1a575097d427a201646adbbb589a6f770c" kindref="member">OTD_LIB_VERSION_STRING</ref>;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149" refid="a00089_1gab8b1b7100e1b1a4cfe20ba5607320e35" refkind="member"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/>GSList<sp/>*<ref refid="a00089_1gab8b1b7100e1b1a4cfe20ba5607320e35" kindref="member">otd_buildinfo_libs_get</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="150"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GSList<sp/>*l<sp/>=<sp/>NULL,<sp/>*m<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m<sp/>=<sp/>g_slist_append(NULL,<sp/>g_strdup(</highlight><highlight class="stringliteral">&quot;glib&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m<sp/>=<sp/>g_slist_append(m,<sp/>g_strdup_printf(</highlight><highlight class="stringliteral">&quot;%d.%d.%d<sp/>(rt:<sp/>%d.%d.%d/%d:%d)&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GLIB_MAJOR_VERSION,<sp/>GLIB_MINOR_VERSION,<sp/>GLIB_MICRO_VERSION,</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>glib_major_version,<sp/>glib_minor_version,<sp/>glib_micro_version,</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>glib_binary_age,<sp/>glib_interface_age));</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>l<sp/>=<sp/>g_slist_append(l,<sp/>m);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m<sp/>=<sp/>g_slist_append(NULL,<sp/>g_strdup(</highlight><highlight class="stringliteral">&quot;Python&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m<sp/>=<sp/>g_slist_append(m,<sp/>g_strdup_printf(</highlight><highlight class="stringliteral">&quot;%s<sp/>/<sp/>0x%x<sp/>(API<sp/>%s,<sp/>ABI<sp/>%s)&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PY_VERSION,<sp/>PY_VERSION_HEX,<sp/>PYTHON_API_STRING,<sp/>PYTHON_ABI_STRING));</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>l<sp/>=<sp/>g_slist_append(l,<sp/>m);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>l;</highlight></codeline>
+<codeline lineno="166"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168" refid="a00089_1ga198f95837dba3e3116765bc9f9756a8b" refkind="member"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="a00089_1ga198f95837dba3e3116765bc9f9756a8b" kindref="member">otd_buildinfo_host_get</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="169"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>g_strdup_printf(</highlight><highlight class="stringliteral">&quot;%s,<sp/>%s-endian&quot;</highlight><highlight class="normal">,<sp/><ref refid="a00270_1aca721b6ccddfc5814e2846fb4012d3aa" kindref="member">CONF_HOST</ref>,</highlight></codeline>
+<codeline lineno="171"><highlight class="normal">#ifdef<sp/>WORDS_BIGENDIAN</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;big&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal">#</highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;little&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal">#endif</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="179"><highlight class="comment">/**<sp/>@}<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/version.c"/>
+  </compounddef>
+</doxygen>

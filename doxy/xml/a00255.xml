@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="a00255" kind="page">
+    <compoundname>md__c_o_n_t_r_i_b_u_t_i_n_g</compoundname>
+    <title>Contributing to OpenTraceDecode</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Thank you for your interest in contributing to OpenTraceDecode!</para>
+<para><heading level="1">Building</heading>
+</para>
+<para>OpenTraceDecode uses Meson as its build system:</para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">meson<sp/>setup<sp/>builddir</highlight></codeline>
+<codeline><highlight class="normal">meson<sp/>compile<sp/>-C<sp/>builddir</highlight></codeline>
+<codeline><highlight class="normal">meson<sp/>test<sp/>-C<sp/>builddir<sp/><sp/>#<sp/>Run<sp/>tests</highlight></codeline>
+</programlisting></para>
+<para><heading level="1">Development Guidelines</heading>
+</para>
+<para><itemizedlist>
+<listitem><para>Follow existing code style and conventions</para>
+</listitem><listitem><para>Write tests for new functionality</para>
+</listitem><listitem><para>Update documentation as needed</para>
+</listitem><listitem><para>Protocol decoders should be written in Python</para>
+</listitem><listitem><para>C API changes require careful consideration for backward compatibility</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="1">Submitting Changes</heading>
+</para>
+<para><orderedlist>
+<listitem><para>Fork the repository</para>
+</listitem><listitem><para>Create a feature branch</para>
+</listitem><listitem><para>Make your changes with appropriate tests</para>
+</listitem><listitem><para>Submit a pull request with a clear description</para>
+</listitem></orderedlist>
+</para>
+<para><heading level="1">Reporting Issues</heading>
+</para>
+<para>Please use GitHub issues to report bugs or request features. Include:<itemizedlist>
+<listitem><para>Clear description of the issue</para>
+</listitem><listitem><para>Steps to reproduce</para>
+</listitem><listitem><para>Expected vs actual behavior</para>
+</listitem><listitem><para>System information (OS, Python version, etc.)</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="1">Protocol Decoder Development</heading>
+</para>
+<para>When adding new protocol decoders:<itemizedlist>
+<listitem><para>Follow the existing decoder structure</para>
+</listitem><listitem><para>Include comprehensive test cases</para>
+</listitem><listitem><para>Document the protocol and decoder usage</para>
+</listitem><listitem><para>Ensure compatibility with the current API</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="1">Code of Conduct</heading>
+</para>
+<para>Please follow our Code of Conduct in all interactions. </para>
+    </detaileddescription>
+    <location file="CONTRIBUTING.md"/>
+  </compounddef>
+</doxygen>

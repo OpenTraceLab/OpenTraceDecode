@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="a00145" kind="struct" language="C++" prot="public">
+    <compoundname>irmp_result_data</compoundname>
+    <includes refid="a00014" local="no">irmp-main-sharedlib.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="a00145_1a3d20bd393772b4a6a38c82c88159a600" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t irmp_result_data::protocol</definition>
+        <argsstring></argsstring>
+        <name>protocol</name>
+        <qualifiedname>irmp_result_data::protocol</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp-main-sharedlib.h" line="83" column="10" bodyfile="irmp/irmp-main-sharedlib.h" bodystart="83" bodyend="-1"/>
+        <referencedby refid="a00032_1a46ec5c979b2c97c4e1dc4140c6731caa" compoundref="a00032" startline="294" endline="304">irmp_get_protocol_name</referencedby>
+        <referencedby refid="a00032_1ac51614b600a56e7d401ddd1d0a16cb35" compoundref="a00032" startline="261" endline="276">irmp_get_result_data</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00145_1a4485ea87ed60d4c2409776d01ad4fd92" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* irmp_result_data::protocol_name</definition>
+        <argsstring></argsstring>
+        <name>protocol_name</name>
+        <qualifiedname>irmp_result_data::protocol_name</qualifiedname>
+        <briefdescription>
+<para>!&lt; protocol, e.g. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>NEC_PROTOCOL </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp-main-sharedlib.h" line="84" column="12" bodyfile="irmp/irmp-main-sharedlib.h" bodystart="84" bodyend="-1"/>
+        <referencedby refid="a00032_1ac51614b600a56e7d401ddd1d0a16cb35" compoundref="a00032" startline="261" endline="276">irmp_get_result_data</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00145_1a59eda9a871b4e0b3ceb28b6b8e8e3b86" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t irmp_result_data::address</definition>
+        <argsstring></argsstring>
+        <name>address</name>
+        <qualifiedname>irmp_result_data::address</qualifiedname>
+        <briefdescription>
+<para>!&lt; name of the protocol </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp-main-sharedlib.h" line="85" column="10" bodyfile="irmp/irmp-main-sharedlib.h" bodystart="85" bodyend="-1"/>
+        <referencedby refid="a00032_1ac51614b600a56e7d401ddd1d0a16cb35" compoundref="a00032" startline="261" endline="276">irmp_get_result_data</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00145_1a6bf9523a9cf83421d244540de7c9d3ad" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t irmp_result_data::command</definition>
+        <argsstring></argsstring>
+        <name>command</name>
+        <qualifiedname>irmp_result_data::command</qualifiedname>
+        <briefdescription>
+<para>!&lt; address </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp-main-sharedlib.h" line="86" column="10" bodyfile="irmp/irmp-main-sharedlib.h" bodystart="86" bodyend="-1"/>
+        <referencedby refid="a00032_1ac51614b600a56e7d401ddd1d0a16cb35" compoundref="a00032" startline="261" endline="276">irmp_get_result_data</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00145_1ab0ae80e8dbb3d91242d095399e66b143" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t irmp_result_data::flags</definition>
+        <argsstring></argsstring>
+        <name>flags</name>
+        <qualifiedname>irmp_result_data::flags</qualifiedname>
+        <briefdescription>
+<para>!&lt; command </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp-main-sharedlib.h" line="87" column="10" bodyfile="irmp/irmp-main-sharedlib.h" bodystart="87" bodyend="-1"/>
+        <referencedby refid="a00032_1ac51614b600a56e7d401ddd1d0a16cb35" compoundref="a00032" startline="261" endline="276">irmp_get_result_data</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00145_1aaf474ecaf3d25cdc845f398ca96143be" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t irmp_result_data::start_sample</definition>
+        <argsstring></argsstring>
+        <name>start_sample</name>
+        <qualifiedname>irmp_result_data::start_sample</qualifiedname>
+        <briefdescription>
+<para>!&lt; flags currently only repetition (bit 0) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp-main-sharedlib.h" line="88" column="10" bodyfile="irmp/irmp-main-sharedlib.h" bodystart="88" bodyend="-1"/>
+        <referencedby refid="a00032_1ac51614b600a56e7d401ddd1d0a16cb35" compoundref="a00032" startline="261" endline="276">irmp_get_result_data</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00145_1ab39f932299942202fab9e24130e0b2a1" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t irmp_result_data::end_sample</definition>
+        <argsstring></argsstring>
+        <name>end_sample</name>
+        <qualifiedname>irmp_result_data::end_sample</qualifiedname>
+        <briefdescription>
+<para>!&lt; the sampleindex there the detected command started </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp-main-sharedlib.h" line="89" column="10" bodyfile="irmp/irmp-main-sharedlib.h" bodystart="89" bodyend="-1"/>
+        <referencedby refid="a00032_1ac51614b600a56e7d401ddd1d0a16cb35" compoundref="a00032" startline="261" endline="276">irmp_get_result_data</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>IR decoder result data at the library&apos;s public API. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>const char *</label>
+      </node>
+      <node id="1">
+        <label>irmp_result_data</label>
+        <link refid="a00145"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>address</edgelabel>
+          <edgelabel>command</edgelabel>
+          <edgelabel>end_sample</edgelabel>
+          <edgelabel>flags</edgelabel>
+          <edgelabel>protocol</edgelabel>
+          <edgelabel>start_sample</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>protocol_name</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>uint32_t</label>
+      </node>
+    </collaborationgraph>
+    <location file="irmp/irmp-main-sharedlib.h" line="82" column="1" bodyfile="irmp/irmp-main-sharedlib.h" bodystart="82" bodyend="90"/>
+    <listofallmembers>
+      <member refid="a00145_1a59eda9a871b4e0b3ceb28b6b8e8e3b86" prot="public" virt="non-virtual"><scope>irmp_result_data</scope><name>address</name></member>
+      <member refid="a00145_1a6bf9523a9cf83421d244540de7c9d3ad" prot="public" virt="non-virtual"><scope>irmp_result_data</scope><name>command</name></member>
+      <member refid="a00145_1ab39f932299942202fab9e24130e0b2a1" prot="public" virt="non-virtual"><scope>irmp_result_data</scope><name>end_sample</name></member>
+      <member refid="a00145_1ab0ae80e8dbb3d91242d095399e66b143" prot="public" virt="non-virtual"><scope>irmp_result_data</scope><name>flags</name></member>
+      <member refid="a00145_1a3d20bd393772b4a6a38c82c88159a600" prot="public" virt="non-virtual"><scope>irmp_result_data</scope><name>protocol</name></member>
+      <member refid="a00145_1a4485ea87ed60d4c2409776d01ad4fd92" prot="public" virt="non-virtual"><scope>irmp_result_data</scope><name>protocol_name</name></member>
+      <member refid="a00145_1aaf474ecaf3d25cdc845f398ca96143be" prot="public" virt="non-virtual"><scope>irmp_result_data</scope><name>start_sample</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

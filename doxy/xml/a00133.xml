@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="a00133" kind="struct" language="C++" prot="public">
+    <compoundname>otd_proto_data_logic</compoundname>
+    <includes refid="a00258" local="no">libopentracedecode.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="a00133_1a04bf3fd3b3c4162efcd72414df15bbe0" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int otd_proto_data_logic::logic_group</definition>
+        <argsstring></argsstring>
+        <name>logic_group</name>
+        <qualifiedname>otd_proto_data_logic::logic_group</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="336" column="5" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="336" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="a00133_1aaf9fbd38d002f505de66dfc67a44b565" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t otd_proto_data_logic::repeat_count</definition>
+        <argsstring></argsstring>
+        <name>repeat_count</name>
+        <qualifiedname>otd_proto_data_logic::repeat_count</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="337" column="10" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="337" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="a00133_1a192b4fc500555ad69d684ab0ac916a41" prot="public" static="no" mutable="no">
+        <type>const uint8_t *</type>
+        <definition>const uint8_t * otd_proto_data_logic::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <qualifiedname>otd_proto_data_logic::data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="338" column="15" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="338" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>int</label>
+      </node>
+      <node id="1">
+        <label>otd_proto_data_logic</label>
+        <link refid="a00133"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>logic_group</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>repeat_count</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>data</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>uint64_t</label>
+      </node>
+      <node id="4">
+        <label>uint8_t</label>
+      </node>
+    </collaborationgraph>
+    <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="335" column="1" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="335" bodyend="339"/>
+    <listofallmembers>
+      <member refid="a00133_1a192b4fc500555ad69d684ab0ac916a41" prot="public" virt="non-virtual"><scope>otd_proto_data_logic</scope><name>data</name></member>
+      <member refid="a00133_1a04bf3fd3b3c4162efcd72414df15bbe0" prot="public" virt="non-virtual"><scope>otd_proto_data_logic</scope><name>logic_group</name></member>
+      <member refid="a00133_1aaf9fbd38d002f505de66dfc67a44b565" prot="public" virt="non-virtual"><scope>otd_proto_data_logic</scope><name>repeat_count</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

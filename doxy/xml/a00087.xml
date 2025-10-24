@@ -1,0 +1,214 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="a00087" kind="group">
+    <compoundname>grp_init</compoundname>
+    <title>Initialization</title>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="a00087_1gad7458a5fc78be4470411c557fd7efa77" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>static int searchpath_add_xdg_dir</definition>
+        <argsstring>(const char *datadir)</argsstring>
+        <name>searchpath_add_xdg_dir</name>
+        <param>
+          <type>const char *</type>
+          <declname>datadir</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/otd.c" line="98" column="12" bodyfile="src/otd.c" bodystart="98" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="a00087_1gaf2242488d82c6de683e36827f0ca309e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void print_versions</definition>
+        <argsstring>(void)</argsstring>
+        <name>print_versions</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/otd.c" line="115" column="13" bodyfile="src/otd.c" bodystart="115" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="a00087_1ga03cf99da57b0505596ec874dcbe8a3e8" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>static int print_searchpaths</definition>
+        <argsstring>(void)</argsstring>
+        <name>print_searchpaths</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/otd.c" line="147" column="12" bodyfile="src/otd.c" bodystart="147" bodyend="190"/>
+      </memberdef>
+      <memberdef kind="function" id="a00087_1ga67fdfc4ec132b22cec05a0e7bc1ddd84" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref> int</type>
+        <definition>OTD_API int otd_init</definition>
+        <argsstring>(const char *path)</argsstring>
+        <name>otd_init</name>
+        <param>
+          <type>const char *</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Initialize libopentracedecode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This initializes the Python interpreter, and creates and initializes a &quot;sigrokdecode&quot; Python module.</para>
+<para>Then, it searches for sigrok protocol decoders in the &quot;decoders&quot; subdirectory of the the libopentracedecode installation directory. All decoders that are found are loaded into memory and added to an internal list of decoders, which can be queried via <ref refid="a00083_1gaee447626b718c4de27e703452cba60ad" kindref="member">otd_decoder_list()</ref>.</para>
+<para>The caller is responsible for calling the clean-up function <ref refid="a00087_1ga69b20ec5173c2ad80d51b54727b6b07e" kindref="member">otd_exit()</ref>, which will properly shut down libopentracedecode and free its allocated memory.</para>
+<para>Multiple calls to <ref refid="a00087_1ga67fdfc4ec132b22cec05a0e7bc1ddd84" kindref="member">otd_init()</ref>, without calling <ref refid="a00087_1ga69b20ec5173c2ad80d51b54727b6b07e" kindref="member">otd_exit()</ref> in between, are not allowed.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Path to an extra directory containing protocol decoders which will be added to the Python sys.path. May be NULL.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>OTD_OK upon success, a (negative) error code otherwise. Upon Python errors, OTD_ERR_PYTHON is returned. If the decoders directory cannot be accessed, OTD_ERR_DECODERS_DIR is returned. If not enough memory could be allocated, OTD_ERR_MALLOC is returned.</para>
+</simplesect>
+<simplesect kind="since"><para>0.1.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/otd.c" line="219" column="13" bodyfile="src/otd.c" bodystart="219" bodyend="322"/>
+        <references refid="a00062_1abe0db3bab3b85f46343afb04b24d59a2" compoundref="a00062" startline="115">otd_dbg</references>
+        <references refid="a00087_1gad8940cb716329201a468e14f3c75747e" compoundref="a00053" startline="390" endline="425">otd_decoder_searchpath_add</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcad6e315777c65836ac7489ddb503aceab" compoundref="a00258" startline="68">OTD_ERR</references>
+        <references refid="a00062_1adfd45428ae0a51e6162ff442c97dbce7" compoundref="a00062" startline="118">otd_err</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcafcf78f6457d3099b0fc89415a3f9eaa5" compoundref="a00258" startline="67">OTD_OK</references>
+        <references refid="a00062_1abc7bd38e0e284d3a3ba5e5e30ec3dfe1">PyInit_opentracedecode</references>
+      </memberdef>
+      <memberdef kind="function" id="a00087_1ga0bd34898b2a5e89786ccd660e8531fe3" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void otd_session_destroy_cb</definition>
+        <argsstring>(void *arg, void *ignored)</argsstring>
+        <name>otd_session_destroy_cb</name>
+        <param>
+          <type>void *</type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>ignored</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/otd.c" line="324" column="13" bodyfile="src/otd.c" bodystart="324" bodyend="328"/>
+      </memberdef>
+      <memberdef kind="function" id="a00087_1ga69b20ec5173c2ad80d51b54727b6b07e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref> int</type>
+        <definition>OTD_API int otd_exit</definition>
+        <argsstring>(void)</argsstring>
+        <name>otd_exit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Shutdown libopentracedecode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This frees all the memory allocated for protocol decoders and shuts down the Python interpreter.</para>
+<para>This function should only be called if there was a (successful!) invocation of <ref refid="a00087_1ga67fdfc4ec132b22cec05a0e7bc1ddd84" kindref="member">otd_init()</ref> before. Calling this function multiple times in a row, without any successful <ref refid="a00087_1ga67fdfc4ec132b22cec05a0e7bc1ddd84" kindref="member">otd_init()</ref> calls in between, is not allowed.</para>
+<para><simplesect kind="return"><para>OTD_OK upon success, a (negative) error code otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>0.1.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/otd.c" line="344" column="13" bodyfile="src/otd.c" bodystart="344" bodyend="371"/>
+        <references refid="a00062_1abe0db3bab3b85f46343afb04b24d59a2" compoundref="a00062" startline="115">otd_dbg</references>
+        <references refid="a00083_1ga9552e97b41e89c206aa96aec52ee41e9" compoundref="a00059" startline="1303" endline="1310">otd_decoder_unload_all</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcafcf78f6457d3099b0fc89415a3f9eaa5" compoundref="a00258" startline="67">OTD_OK</references>
+      </memberdef>
+      <memberdef kind="function" id="a00087_1gad8940cb716329201a468e14f3c75747e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1a3a90167f4b0b0cb829b5b15e0663af50" kindref="member">OTD_PRIV</ref> int</type>
+        <definition>OTD_PRIV int otd_decoder_searchpath_add</definition>
+        <argsstring>(const char *path)</argsstring>
+        <name>otd_decoder_searchpath_add</name>
+        <param>
+          <type>const char *</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Add an additional search directory for the protocol decoders. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The specified directory is prepended (not appended!) to Python&apos;s sys.path, in order to search for sigrok protocol decoders in the specified directories first, and in the generic Python module directories (and in the current working directory) last. This avoids conflicts if there are Python modules which have the same name as a sigrok protocol decoder in sys.path or in the current working directory.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Path to the directory containing protocol decoders which shall be added to the Python sys.path, or NULL.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>OTD_OK upon success, a (negative) error code otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/otd.c" line="390" column="14" bodyfile="src/otd.c" bodystart="390" bodyend="425"/>
+        <references refid="a00062_1abe0db3bab3b85f46343afb04b24d59a2" compoundref="a00062" startline="115">otd_dbg</references>
+        <references refid="a00087_1gad8940cb716329201a468e14f3c75747e" compoundref="a00053" startline="390" endline="425">otd_decoder_searchpath_add</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcaaecfc1f18b22e996112bec32462cb5d5" compoundref="a00258" startline="72">OTD_ERR_PYTHON</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcafcf78f6457d3099b0fc89415a3f9eaa5" compoundref="a00258" startline="67">OTD_OK</references>
+        <referencedby refid="a00087_1gad8940cb716329201a468e14f3c75747e" compoundref="a00053" startline="390" endline="425">otd_decoder_searchpath_add</referencedby>
+        <referencedby refid="a00087_1ga67fdfc4ec132b22cec05a0e7bc1ddd84" compoundref="a00053" startline="219" endline="322">otd_init</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="a00087_1ga3360236fc45072044f24ba1ef274cf0b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref> GSList *</type>
+        <definition>OTD_API GSList * otd_searchpaths_get</definition>
+        <argsstring>(void)</argsstring>
+        <name>otd_searchpaths_get</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Return the list of protocol decoder search paths. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The list of search paths used when loading protocol decoders.</para>
+</simplesect>
+<simplesect kind="since"><para>0.5.1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/otd.c" line="434" column="16" bodyfile="src/otd.c" bodystart="434" bodyend="442"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Initializing and shutting down libopentracedecode. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Before using any of the libopentracedecode functionality, <ref refid="a00087_1ga67fdfc4ec132b22cec05a0e7bc1ddd84" kindref="member">otd_init()</ref> must be called to initialize the library.</para>
+<para>When libopentracedecode functionality is no longer needed, <ref refid="a00087_1ga69b20ec5173c2ad80d51b54727b6b07e" kindref="member">otd_exit()</ref> should be called. </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

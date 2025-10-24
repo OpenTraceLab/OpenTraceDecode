@@ -1,0 +1,288 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="a00071" kind="file" language="C++">
+    <compoundname>log.c</compoundname>
+    <includes local="no">config.h</includes>
+    <includes refid="a00062" local="yes">libopentracedecode-internal.h</includes>
+    <includes local="no">opentracedecode/libopentracedecode.h</includes>
+    <includes local="no">stdarg.h</includes>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">glib/gprintf.h</includes>
+    <incdepgraph>
+      <node id="3">
+        <label>libopentracedecode-internal.h</label>
+        <link refid="a00062"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/log.c</label>
+        <link refid="a00071"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Python.h</label>
+      </node>
+      <node id="2">
+        <label>config.h</label>
+      </node>
+      <node id="8">
+        <label>glib/gprintf.h</label>
+      </node>
+      <node id="5">
+        <label>opentracedecode/libopentracedecode.h</label>
+      </node>
+      <node id="6">
+        <label>stdarg.h</label>
+      </node>
+      <node id="7">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="var">
+      <member refid="a00086_1gae47dc404dd0450cbe82ef5bf6804a485" kind="variable"><name>cur_loglevel</name></member>
+      <member refid="a00086_1ga6b155a9926ad6e21290f5ed8bf0eb752" kind="variable"><name>otd_log_cb</name></member>
+      <member refid="a00086_1gac73e0632074688e4e4137b12a5cd95fb" kind="variable"><name>otd_log_cb_data</name></member>
+    </sectiondef>
+    <sectiondef kind="func">
+      <member refid="a00086_1gac7ee82d079764f6ce4d047e57a409a8e" kind="function"><name>otd_logv</name></member>
+      <member refid="a00086_1gae1ea4ba8e876c58351a757407042153b" kind="function"><name>otd_log_loglevel_set</name></member>
+      <member refid="a00086_1ga427dae404bfb3222201fd2915a8ed1f9" kind="function"><name>otd_log_loglevel_get</name></member>
+      <member refid="a00086_1ga3795e9e43b613c5419e02d6c8862f1ed" kind="function"><name>otd_log_callback_set</name></member>
+      <member refid="a00086_1ga0747f5156b7f8988695016aa340c8657" kind="function"><name>otd_log_callback_get</name></member>
+      <member refid="a00086_1ga9e086b71908360eae7ceec45e524d3a8" kind="function"><name>otd_log_callback_set_default</name></member>
+      <member refid="a00086_1gaa6b1d6366e8f29ff84dab44ed8a8ef8c" kind="function"><name>otd_log</name></member>
+    </sectiondef>
+    <briefdescription>
+<para>Controlling the libopentracedecode message logging functionality. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>This<sp/>file<sp/>is<sp/>part<sp/>of<sp/>the<sp/>libopentracedecode<sp/>project.</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(C)<sp/>2011-2012<sp/>Uwe<sp/>Hermann<sp/>&lt;uwe@hermann-uwe.de&gt;</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/>This<sp/>program<sp/>is<sp/>distributed<sp/>in<sp/>the<sp/>hope<sp/>that<sp/>it<sp/>will<sp/>be<sp/>useful,</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/>but<sp/>WITHOUT<sp/>ANY<sp/>WARRANTY;<sp/>without<sp/>even<sp/>the<sp/>implied<sp/>warranty<sp/>of</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>MERCHANTABILITY<sp/>or<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE.<sp/><sp/>See<sp/>the</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>for<sp/>more<sp/>details.</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/>You<sp/>should<sp/>have<sp/>received<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>along<sp/>with<sp/>this<sp/>program;<sp/>if<sp/>not,<sp/>see<sp/>&lt;http://www.gnu.org/licenses/&gt;.</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;config.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="a00062" kindref="compound">libopentracedecode-internal.h</ref>&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="comment">/*<sp/>First,<sp/>so<sp/>we<sp/>avoid<sp/>a<sp/>_POSIX_C_SOURCE<sp/>warning.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;opentracedecode/libopentracedecode.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdarg.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;glib/gprintf.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="27"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>@file</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>Controlling<sp/>the<sp/>libopentracedecode<sp/>message<sp/>logging<sp/>functionality.</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="33"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*<sp/>@defgroup<sp/>grp_logging<sp/>Logging</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*<sp/>Controlling<sp/>the<sp/>libopentracedecode<sp/>message<sp/>logging<sp/>functionality.</highlight></codeline>
+<codeline lineno="37"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/>*<sp/>@{</highlight></codeline>
+<codeline lineno="39"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Currently<sp/>selected<sp/>libopentracedecode<sp/>loglevel.<sp/>Default:<sp/>OTD_LOG_WARN.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cur_loglevel<sp/>=<sp/><ref refid="a00258_1aee80ec82069aab48dfe49df7c1e58b9aac1b03ffc8f788454fae8c8e8066cba4d" kindref="member">OTD_LOG_WARN</ref>;<sp/></highlight><highlight class="comment">/*<sp/>Show<sp/>errors+warnings<sp/>per<sp/>default.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Function<sp/>prototype.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>otd_logv(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*cb_data,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>loglevel,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*format,</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>va_list<sp/>args);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Pointer<sp/>to<sp/>the<sp/>currently<sp/>selected<sp/>log<sp/>callback.<sp/>Default:<sp/>otd_logv().<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="a00258_1a04233bc35d37a1ee72b7b6f7d3677a49" kindref="member">otd_log_callback</ref><sp/>otd_log_cb<sp/>=<sp/>otd_logv;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/>*<sp/>Pointer<sp/>to<sp/>private<sp/>data<sp/>that<sp/>can<sp/>be<sp/>passed<sp/>to<sp/>the<sp/>log<sp/>callback.</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/>*<sp/>This<sp/>can<sp/>be<sp/>used<sp/>(for<sp/>example)<sp/>by<sp/>C++<sp/>GUIs<sp/>to<sp/>pass<sp/>a<sp/>&quot;this&quot;<sp/>pointer.</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*otd_log_cb_data<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="57"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/>*<sp/>Set<sp/>the<sp/>libopentracedecode<sp/>loglevel.</highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="60"><highlight class="comment"><sp/>*<sp/>This<sp/>influences<sp/>the<sp/>amount<sp/>of<sp/>log<sp/>messages<sp/>(debug<sp/>messages,<sp/>error<sp/>messages,</highlight></codeline>
+<codeline lineno="61"><highlight class="comment"><sp/>*<sp/>and<sp/>so<sp/>on)<sp/>libopentracedecode<sp/>will<sp/>output.<sp/>Using<sp/>OTD_LOG_NONE<sp/>disables<sp/>all</highlight></codeline>
+<codeline lineno="62"><highlight class="comment"><sp/>*<sp/>messages.</highlight></codeline>
+<codeline lineno="63"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="64"><highlight class="comment"><sp/>*<sp/>Note<sp/>that<sp/>this<sp/>function<sp/>itself<sp/>will<sp/>also<sp/>output<sp/>log<sp/>messages.<sp/>After<sp/>the</highlight></codeline>
+<codeline lineno="65"><highlight class="comment"><sp/>*<sp/>loglevel<sp/>has<sp/>changed,<sp/>it<sp/>will<sp/>output<sp/>a<sp/>debug<sp/>message<sp/>with<sp/>OTD_LOG_DBG<sp/>for</highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/>*<sp/>example.<sp/>Whether<sp/>this<sp/>message<sp/>is<sp/>shown<sp/>depends<sp/>on<sp/>the<sp/>(new)<sp/>loglevel.</highlight></codeline>
+<codeline lineno="67"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="68"><highlight class="comment"><sp/>*<sp/>@param<sp/>loglevel<sp/>The<sp/>loglevel<sp/>to<sp/>set<sp/>(OTD_LOG_NONE,<sp/>OTD_LOG_ERR,</highlight></codeline>
+<codeline lineno="69"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>OTD_LOG_WARN,<sp/>OTD_LOG_INFO,<sp/>OTD_LOG_DBG,<sp/>or<sp/>OTD_LOG_SPEW).</highlight></codeline>
+<codeline lineno="70"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="71"><highlight class="comment"><sp/>*<sp/>@return<sp/>OTD_OK<sp/>upon<sp/>success,<sp/>OTD_ERR_ARG<sp/>upon<sp/>invalid<sp/>loglevel.</highlight></codeline>
+<codeline lineno="72"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/>*<sp/>@since<sp/>0.1.0</highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75" refid="a00086_1gae1ea4ba8e876c58351a757407042153b" refkind="member"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00086_1gae1ea4ba8e876c58351a757407042153b" kindref="member">otd_log_loglevel_set</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>loglevel)</highlight></codeline>
+<codeline lineno="76"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(loglevel<sp/>&lt;<sp/>OTD_LOG_NONE<sp/>||<sp/>loglevel<sp/>&gt;<sp/><ref refid="a00258_1aee80ec82069aab48dfe49df7c1e58b9aa15fdea0c29121fd82c4b5c830b80b84e" kindref="member">OTD_LOG_SPEW</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00062_1adfd45428ae0a51e6162ff442c97dbce7" kindref="member">otd_err</ref>(</highlight><highlight class="stringliteral">&quot;Invalid<sp/>loglevel<sp/>%d.&quot;</highlight><highlight class="normal">,<sp/>loglevel);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebca0b8a159c5ce1e9d1e1d58384820a88d2" kindref="member">OTD_ERR_ARG</ref>;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cur_loglevel<sp/>=<sp/>loglevel;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00062_1abe0db3bab3b85f46343afb04b24d59a2" kindref="member">otd_dbg</ref>(</highlight><highlight class="stringliteral">&quot;libopentracedecode<sp/>loglevel<sp/>set<sp/>to<sp/>%d.&quot;</highlight><highlight class="normal">,<sp/>loglevel);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcafcf78f6457d3099b0fc89415a3f9eaa5" kindref="member">OTD_OK</ref>;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="89"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="90"><highlight class="comment"><sp/>*<sp/>Get<sp/>the<sp/>libopentracedecode<sp/>loglevel.</highlight></codeline>
+<codeline lineno="91"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="92"><highlight class="comment"><sp/>*<sp/>@return<sp/>The<sp/>currently<sp/>configured<sp/>libopentracedecode<sp/>loglevel.</highlight></codeline>
+<codeline lineno="93"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="94"><highlight class="comment"><sp/>*<sp/>@since<sp/>0.1.0</highlight></codeline>
+<codeline lineno="95"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96" refid="a00086_1ga427dae404bfb3222201fd2915a8ed1f9" refkind="member"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00086_1ga427dae404bfb3222201fd2915a8ed1f9" kindref="member">otd_log_loglevel_get</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="97"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>cur_loglevel;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="101"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="102"><highlight class="comment"><sp/>*<sp/>Set<sp/>the<sp/>libopentracedecode<sp/>log<sp/>callback<sp/>to<sp/>the<sp/>specified<sp/>function.</highlight></codeline>
+<codeline lineno="103"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="104"><highlight class="comment"><sp/>*<sp/>@param<sp/>cb<sp/>Function<sp/>pointer<sp/>to<sp/>the<sp/>log<sp/>callback<sp/>function<sp/>to<sp/>use.</highlight></codeline>
+<codeline lineno="105"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Must<sp/>not<sp/>be<sp/>NULL.</highlight></codeline>
+<codeline lineno="106"><highlight class="comment"><sp/>*<sp/>@param<sp/>cb_data<sp/>Pointer<sp/>to<sp/>private<sp/>data<sp/>to<sp/>be<sp/>passed<sp/>on.<sp/>This<sp/>can<sp/>be<sp/>used</highlight></codeline>
+<codeline lineno="107"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>by<sp/>the<sp/>caller<sp/>to<sp/>pass<sp/>arbitrary<sp/>data<sp/>to<sp/>the<sp/>log<sp/>functions.</highlight></codeline>
+<codeline lineno="108"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>This<sp/>pointer<sp/>is<sp/>only<sp/>stored<sp/>or<sp/>passed<sp/>on<sp/>by<sp/>libopentracedecode,</highlight></codeline>
+<codeline lineno="109"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>and<sp/>is<sp/>never<sp/>used<sp/>or<sp/>interpreted<sp/>in<sp/>any<sp/>way.<sp/>The<sp/>pointer</highlight></codeline>
+<codeline lineno="110"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>is<sp/>allowed<sp/>to<sp/>be<sp/>NULL<sp/>if<sp/>the<sp/>caller<sp/>doesn&apos;t<sp/>need/want<sp/>to</highlight></codeline>
+<codeline lineno="111"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pass<sp/>any<sp/>data.</highlight></codeline>
+<codeline lineno="112"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="113"><highlight class="comment"><sp/>*<sp/>@return<sp/>OTD_OK<sp/>upon<sp/>success,<sp/>OTD_ERR_ARG<sp/>upon<sp/>invalid<sp/>arguments.</highlight></codeline>
+<codeline lineno="114"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="115"><highlight class="comment"><sp/>*<sp/>@since<sp/>0.3.0</highlight></codeline>
+<codeline lineno="116"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117" refid="a00086_1ga3795e9e43b613c5419e02d6c8862f1ed" refkind="member"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00086_1ga3795e9e43b613c5419e02d6c8862f1ed" kindref="member">otd_log_callback_set</ref>(<ref refid="a00258_1a04233bc35d37a1ee72b7b6f7d3677a49" kindref="member">otd_log_callback</ref><sp/>cb,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*cb_data)</highlight></codeline>
+<codeline lineno="118"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!cb)<sp/>{</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00062_1adfd45428ae0a51e6162ff442c97dbce7" kindref="member">otd_err</ref>(</highlight><highlight class="stringliteral">&quot;log:<sp/>%s:<sp/>cb<sp/>was<sp/>NULL&quot;</highlight><highlight class="normal">,<sp/>__func__);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebca0b8a159c5ce1e9d1e1d58384820a88d2" kindref="member">OTD_ERR_ARG</ref>;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Note:<sp/>&apos;cb_data&apos;<sp/>is<sp/>allowed<sp/>to<sp/>be<sp/>NULL.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>otd_log_cb<sp/>=<sp/>cb;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>otd_log_cb_data<sp/>=<sp/>cb_data;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcafcf78f6457d3099b0fc89415a3f9eaa5" kindref="member">OTD_OK</ref>;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="132"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="133"><highlight class="comment"><sp/>*<sp/>Get<sp/>the<sp/>libopentracedecode<sp/>log<sp/>callback<sp/>routine<sp/>and<sp/>callback<sp/>data.</highlight></codeline>
+<codeline lineno="134"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="135"><highlight class="comment"><sp/>*<sp/>@param[out]<sp/>cb<sp/>Pointer<sp/>to<sp/>a<sp/>function<sp/>pointer<sp/>to<sp/>receive<sp/>the<sp/>log<sp/>callback</highlight></codeline>
+<codeline lineno="136"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>function.<sp/>Optional,<sp/>can<sp/>be<sp/>NULL.</highlight></codeline>
+<codeline lineno="137"><highlight class="comment"><sp/>*<sp/>@param[out]<sp/>cb_data<sp/>Pointer<sp/>to<sp/>a<sp/>void<sp/>pointer<sp/>to<sp/>receive<sp/>the<sp/>log<sp/>callback&apos;s</highlight></codeline>
+<codeline lineno="138"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>additional<sp/>arguments.<sp/>Optional,<sp/>can<sp/>be<sp/>NULL.</highlight></codeline>
+<codeline lineno="139"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="140"><highlight class="comment"><sp/>*<sp/>@return<sp/>OTD_OK<sp/>upon<sp/>success.</highlight></codeline>
+<codeline lineno="141"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="142"><highlight class="comment"><sp/>*<sp/>@since<sp/>0.5.2</highlight></codeline>
+<codeline lineno="143"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="144" refid="a00086_1ga0747f5156b7f8988695016aa340c8657" refkind="member"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00086_1ga0747f5156b7f8988695016aa340c8657" kindref="member">otd_log_callback_get</ref>(<ref refid="a00258_1a04233bc35d37a1ee72b7b6f7d3677a49" kindref="member">otd_log_callback</ref><sp/>*cb,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>**cb_data)</highlight></codeline>
+<codeline lineno="145"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(cb)</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*cb<sp/>=<sp/>otd_log_cb;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(cb_data)</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*cb_data<sp/>=<sp/>otd_log_cb_data;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcafcf78f6457d3099b0fc89415a3f9eaa5" kindref="member">OTD_OK</ref>;</highlight></codeline>
+<codeline lineno="152"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="154"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="155"><highlight class="comment"><sp/>*<sp/>Set<sp/>the<sp/>libopentracedecode<sp/>log<sp/>callback<sp/>to<sp/>the<sp/>default<sp/>built-in<sp/>one.</highlight></codeline>
+<codeline lineno="156"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="157"><highlight class="comment"><sp/>*<sp/>Additionally,<sp/>the<sp/>internal<sp/>&apos;otd_log_cb_data&apos;<sp/>pointer<sp/>is<sp/>set<sp/>to<sp/>NULL.</highlight></codeline>
+<codeline lineno="158"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="159"><highlight class="comment"><sp/>*<sp/>@return<sp/>OTD_OK<sp/>upon<sp/>success,<sp/>a<sp/>(negative)<sp/>error<sp/>code<sp/>otherwise.</highlight></codeline>
+<codeline lineno="160"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="161"><highlight class="comment"><sp/>*<sp/>@since<sp/>0.1.0</highlight></codeline>
+<codeline lineno="162"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="163" refid="a00086_1ga9e086b71908360eae7ceec45e524d3a8" refkind="member"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00086_1ga9e086b71908360eae7ceec45e524d3a8" kindref="member">otd_log_callback_set_default</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="164"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="166"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>Note:<sp/>No<sp/>log<sp/>output<sp/>in<sp/>this<sp/>function,<sp/>as<sp/>it<sp/>should<sp/>safely<sp/>work</highlight></codeline>
+<codeline lineno="167"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>even<sp/>if<sp/>the<sp/>currently<sp/>set<sp/>log<sp/>callback<sp/>is<sp/>buggy/broken.</highlight></codeline>
+<codeline lineno="168"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>otd_log_cb<sp/>=<sp/>otd_logv;</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>otd_log_cb_data<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcafcf78f6457d3099b0fc89415a3f9eaa5" kindref="member">OTD_OK</ref>;</highlight></codeline>
+<codeline lineno="173"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>otd_logv(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*cb_data,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>loglevel,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*format,</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>va_list<sp/>args)</highlight></codeline>
+<codeline lineno="177"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>This<sp/>specific<sp/>log<sp/>callback<sp/>doesn&apos;t<sp/>need<sp/>the<sp/>void<sp/>pointer<sp/>data.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(void)cb_data;</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(void)loglevel;</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(fputs(</highlight><highlight class="stringliteral">&quot;srd:<sp/>&quot;</highlight><highlight class="normal">,<sp/>stderr)<sp/>&lt;<sp/>0</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>||<sp/>g_vfprintf(stderr,<sp/>format,<sp/>args)<sp/>&lt;<sp/>0</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>||<sp/>putc(</highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal">,<sp/>stderr)<sp/>&lt;<sp/>0)</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcad6e315777c65836ac7489ddb503aceab" kindref="member">OTD_ERR</ref>;</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fflush(stderr);</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcafcf78f6457d3099b0fc89415a3f9eaa5" kindref="member">OTD_OK</ref>;</highlight></codeline>
+<codeline lineno="191"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="193"><highlight class="comment">/**<sp/>@private<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><ref refid="a00258_1a3a90167f4b0b0cb829b5b15e0663af50" kindref="member">OTD_PRIV</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00062_1ab17d653a8298f3c1000819bb9203493c" kindref="member">otd_log</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>loglevel,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*format,<sp/>...)</highlight></codeline>
+<codeline lineno="195"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ret;</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>va_list<sp/>args;</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Only<sp/>output<sp/>messages<sp/>of<sp/>at<sp/>least<sp/>the<sp/>selected<sp/>loglevel(s).<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(loglevel<sp/>&gt;<sp/>cur_loglevel)</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcafcf78f6457d3099b0fc89415a3f9eaa5" kindref="member">OTD_OK</ref>;</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>va_start(args,<sp/>format);</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ret<sp/>=<sp/>otd_log_cb(otd_log_cb_data,<sp/>loglevel,<sp/>format,<sp/>args);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>va_end(args);</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ret;</highlight></codeline>
+<codeline lineno="208"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="210"><highlight class="comment">/**<sp/>@}<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/log.c"/>
+  </compounddef>
+</doxygen>

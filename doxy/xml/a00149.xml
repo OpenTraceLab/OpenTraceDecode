@@ -1,0 +1,291 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="a00149" kind="struct" language="C++" prot="public">
+    <compoundname>IRMP_PARAMETER</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="a00149_1a1303474e84c548d0c2f4939bd22bd71c" prot="public" static="no" mutable="no">
+        <type>uint_fast8_t</type>
+        <definition>uint_fast8_t IRMP_PARAMETER::protocol</definition>
+        <argsstring></argsstring>
+        <name>protocol</name>
+        <qualifiedname>IRMP_PARAMETER::protocol</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp.c" line="1144" column="21" bodyfile="irmp/irmp.c" bodystart="1144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="a00149_1ae908499f181e454c73f787dcdcd52f1b" prot="public" static="no" mutable="no">
+        <type>uint_fast8_t</type>
+        <definition>uint_fast8_t IRMP_PARAMETER::pulse_1_len_min</definition>
+        <argsstring></argsstring>
+        <name>pulse_1_len_min</name>
+        <qualifiedname>IRMP_PARAMETER::pulse_1_len_min</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp.c" line="1145" column="21" bodyfile="irmp/irmp.c" bodystart="1145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="a00149_1a281a35b3fed48d9e9e36dfe7cf8bd3f3" prot="public" static="no" mutable="no">
+        <type>uint_fast8_t</type>
+        <definition>uint_fast8_t IRMP_PARAMETER::pulse_1_len_max</definition>
+        <argsstring></argsstring>
+        <name>pulse_1_len_max</name>
+        <qualifiedname>IRMP_PARAMETER::pulse_1_len_max</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp.c" line="1146" column="21" bodyfile="irmp/irmp.c" bodystart="1146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="a00149_1a5090453bb462d7ed9591faa933558538" prot="public" static="no" mutable="no">
+        <type>uint_fast8_t</type>
+        <definition>uint_fast8_t IRMP_PARAMETER::pause_1_len_min</definition>
+        <argsstring></argsstring>
+        <name>pause_1_len_min</name>
+        <qualifiedname>IRMP_PARAMETER::pause_1_len_min</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp.c" line="1147" column="21" bodyfile="irmp/irmp.c" bodystart="1147" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="a00149_1ade8be49b96e2df729d93ec87a595544a" prot="public" static="no" mutable="no">
+        <type>uint_fast8_t</type>
+        <definition>uint_fast8_t IRMP_PARAMETER::pause_1_len_max</definition>
+        <argsstring></argsstring>
+        <name>pause_1_len_max</name>
+        <qualifiedname>IRMP_PARAMETER::pause_1_len_max</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp.c" line="1148" column="21" bodyfile="irmp/irmp.c" bodystart="1148" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="a00149_1a1d16018c51f4149bca8b46b4deed5c35" prot="public" static="no" mutable="no">
+        <type>uint_fast8_t</type>
+        <definition>uint_fast8_t IRMP_PARAMETER::pulse_0_len_min</definition>
+        <argsstring></argsstring>
+        <name>pulse_0_len_min</name>
+        <qualifiedname>IRMP_PARAMETER::pulse_0_len_min</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp.c" line="1149" column="21" bodyfile="irmp/irmp.c" bodystart="1149" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="a00149_1a6e2e768f2e54906e6e95c263e8afdc4f" prot="public" static="no" mutable="no">
+        <type>uint_fast8_t</type>
+        <definition>uint_fast8_t IRMP_PARAMETER::pulse_0_len_max</definition>
+        <argsstring></argsstring>
+        <name>pulse_0_len_max</name>
+        <qualifiedname>IRMP_PARAMETER::pulse_0_len_max</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp.c" line="1150" column="21" bodyfile="irmp/irmp.c" bodystart="1150" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="a00149_1adc7f7ede9a56aa8fc7e6ccf1906a635d" prot="public" static="no" mutable="no">
+        <type>uint_fast8_t</type>
+        <definition>uint_fast8_t IRMP_PARAMETER::pause_0_len_min</definition>
+        <argsstring></argsstring>
+        <name>pause_0_len_min</name>
+        <qualifiedname>IRMP_PARAMETER::pause_0_len_min</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp.c" line="1151" column="21" bodyfile="irmp/irmp.c" bodystart="1151" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="a00149_1a6fa4e60f3d2231ef54c0c56e1418716d" prot="public" static="no" mutable="no">
+        <type>uint_fast8_t</type>
+        <definition>uint_fast8_t IRMP_PARAMETER::pause_0_len_max</definition>
+        <argsstring></argsstring>
+        <name>pause_0_len_max</name>
+        <qualifiedname>IRMP_PARAMETER::pause_0_len_max</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp.c" line="1152" column="21" bodyfile="irmp/irmp.c" bodystart="1152" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="a00149_1a711e191b470cd080a880919ef2f05a4e" prot="public" static="no" mutable="no">
+        <type>uint_fast8_t</type>
+        <definition>uint_fast8_t IRMP_PARAMETER::address_offset</definition>
+        <argsstring></argsstring>
+        <name>address_offset</name>
+        <qualifiedname>IRMP_PARAMETER::address_offset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp.c" line="1153" column="21" bodyfile="irmp/irmp.c" bodystart="1153" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="a00149_1a6ce904cda0ee336e0d2bc4b45756f66a" prot="public" static="no" mutable="no">
+        <type>uint_fast8_t</type>
+        <definition>uint_fast8_t IRMP_PARAMETER::address_end</definition>
+        <argsstring></argsstring>
+        <name>address_end</name>
+        <qualifiedname>IRMP_PARAMETER::address_end</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp.c" line="1154" column="21" bodyfile="irmp/irmp.c" bodystart="1154" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="a00149_1a5d3fbc0ee3252a1bb2f3f3f8249a1c8c" prot="public" static="no" mutable="no">
+        <type>uint_fast8_t</type>
+        <definition>uint_fast8_t IRMP_PARAMETER::command_offset</definition>
+        <argsstring></argsstring>
+        <name>command_offset</name>
+        <qualifiedname>IRMP_PARAMETER::command_offset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp.c" line="1155" column="21" bodyfile="irmp/irmp.c" bodystart="1155" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="a00149_1aea18a5c9936a242da5326e0d34cb0738" prot="public" static="no" mutable="no">
+        <type>uint_fast8_t</type>
+        <definition>uint_fast8_t IRMP_PARAMETER::command_end</definition>
+        <argsstring></argsstring>
+        <name>command_end</name>
+        <qualifiedname>IRMP_PARAMETER::command_end</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp.c" line="1156" column="21" bodyfile="irmp/irmp.c" bodystart="1156" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="a00149_1a6be23c26db990d4733938b0e87c41034" prot="public" static="no" mutable="no">
+        <type>uint_fast8_t</type>
+        <definition>uint_fast8_t IRMP_PARAMETER::complete_len</definition>
+        <argsstring></argsstring>
+        <name>complete_len</name>
+        <qualifiedname>IRMP_PARAMETER::complete_len</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp.c" line="1157" column="21" bodyfile="irmp/irmp.c" bodystart="1157" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="a00149_1a36e753ef89c494d15bd21f72960456c0" prot="public" static="no" mutable="no">
+        <type>uint_fast8_t</type>
+        <definition>uint_fast8_t IRMP_PARAMETER::stop_bit</definition>
+        <argsstring></argsstring>
+        <name>stop_bit</name>
+        <qualifiedname>IRMP_PARAMETER::stop_bit</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp.c" line="1158" column="21" bodyfile="irmp/irmp.c" bodystart="1158" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="a00149_1a23f6bb5e374b3283aaaa184dafbef7b8" prot="public" static="no" mutable="no">
+        <type>uint_fast8_t</type>
+        <definition>uint_fast8_t IRMP_PARAMETER::lsb_first</definition>
+        <argsstring></argsstring>
+        <name>lsb_first</name>
+        <qualifiedname>IRMP_PARAMETER::lsb_first</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp.c" line="1159" column="21" bodyfile="irmp/irmp.c" bodystart="1159" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="a00149_1ae9f62b1c9facb5d8c264cc0f50fa9292" prot="public" static="no" mutable="no">
+        <type>uint_fast8_t</type>
+        <definition>uint_fast8_t IRMP_PARAMETER::flags</definition>
+        <argsstring></argsstring>
+        <name>flags</name>
+        <qualifiedname>IRMP_PARAMETER::flags</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp.c" line="1160" column="21" bodyfile="irmp/irmp.c" bodystart="1160" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>IRMP_PARAMETER</label>
+        <childnode refid="2" relation="usage">
+          <edgelabel>address_end</edgelabel>
+          <edgelabel>address_offset</edgelabel>
+          <edgelabel>command_end</edgelabel>
+          <edgelabel>command_offset</edgelabel>
+          <edgelabel>complete_len</edgelabel>
+          <edgelabel>flags</edgelabel>
+          <edgelabel>lsb_first</edgelabel>
+          <edgelabel>pause_0_len_max</edgelabel>
+          <edgelabel>pause_0_len_min</edgelabel>
+          <edgelabel>pause_1_len_max</edgelabel>
+          <edgelabel>...</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>uint_fast8_t</label>
+      </node>
+    </collaborationgraph>
+    <location file="irmp/irmp.c" line="1142" column="1" bodyfile="irmp/irmp.c" bodystart="1143" bodyend="1161"/>
+    <listofallmembers>
+      <member refid="a00149_1a6ce904cda0ee336e0d2bc4b45756f66a" prot="public" virt="non-virtual"><scope>IRMP_PARAMETER</scope><name>address_end</name></member>
+      <member refid="a00149_1a711e191b470cd080a880919ef2f05a4e" prot="public" virt="non-virtual"><scope>IRMP_PARAMETER</scope><name>address_offset</name></member>
+      <member refid="a00149_1aea18a5c9936a242da5326e0d34cb0738" prot="public" virt="non-virtual"><scope>IRMP_PARAMETER</scope><name>command_end</name></member>
+      <member refid="a00149_1a5d3fbc0ee3252a1bb2f3f3f8249a1c8c" prot="public" virt="non-virtual"><scope>IRMP_PARAMETER</scope><name>command_offset</name></member>
+      <member refid="a00149_1a6be23c26db990d4733938b0e87c41034" prot="public" virt="non-virtual"><scope>IRMP_PARAMETER</scope><name>complete_len</name></member>
+      <member refid="a00149_1ae9f62b1c9facb5d8c264cc0f50fa9292" prot="public" virt="non-virtual"><scope>IRMP_PARAMETER</scope><name>flags</name></member>
+      <member refid="a00149_1a23f6bb5e374b3283aaaa184dafbef7b8" prot="public" virt="non-virtual"><scope>IRMP_PARAMETER</scope><name>lsb_first</name></member>
+      <member refid="a00149_1a6fa4e60f3d2231ef54c0c56e1418716d" prot="public" virt="non-virtual"><scope>IRMP_PARAMETER</scope><name>pause_0_len_max</name></member>
+      <member refid="a00149_1adc7f7ede9a56aa8fc7e6ccf1906a635d" prot="public" virt="non-virtual"><scope>IRMP_PARAMETER</scope><name>pause_0_len_min</name></member>
+      <member refid="a00149_1ade8be49b96e2df729d93ec87a595544a" prot="public" virt="non-virtual"><scope>IRMP_PARAMETER</scope><name>pause_1_len_max</name></member>
+      <member refid="a00149_1a5090453bb462d7ed9591faa933558538" prot="public" virt="non-virtual"><scope>IRMP_PARAMETER</scope><name>pause_1_len_min</name></member>
+      <member refid="a00149_1a1303474e84c548d0c2f4939bd22bd71c" prot="public" virt="non-virtual"><scope>IRMP_PARAMETER</scope><name>protocol</name></member>
+      <member refid="a00149_1a6e2e768f2e54906e6e95c263e8afdc4f" prot="public" virt="non-virtual"><scope>IRMP_PARAMETER</scope><name>pulse_0_len_max</name></member>
+      <member refid="a00149_1a1d16018c51f4149bca8b46b4deed5c35" prot="public" virt="non-virtual"><scope>IRMP_PARAMETER</scope><name>pulse_0_len_min</name></member>
+      <member refid="a00149_1a281a35b3fed48d9e9e36dfe7cf8bd3f3" prot="public" virt="non-virtual"><scope>IRMP_PARAMETER</scope><name>pulse_1_len_max</name></member>
+      <member refid="a00149_1ae908499f181e454c73f787dcdcd52f1b" prot="public" virt="non-virtual"><scope>IRMP_PARAMETER</scope><name>pulse_1_len_min</name></member>
+      <member refid="a00149_1a36e753ef89c494d15bd21f72960456c0" prot="public" virt="non-virtual"><scope>IRMP_PARAMETER</scope><name>stop_bit</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,15 @@
+digraph "otd_inst_new"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [id="Node000001",label="otd_inst_new",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Create a new protocol decoder instance."];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="otd_decoder_get_by_id",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$a00083.html#gad7e0a74c1ce3f48fa47b1c3ce1255fdf",tooltip="Get the decoder with the specified ID."];
+  Node1 -> Node3 [id="edge2_Node000001_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="otd_inst_find_by_id",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$a00085.html#ga85fb36f5ae3affa7f4c89f129f51f637",tooltip="Find a decoder instance by its instance ID."];
+  Node1 -> Node4 [id="edge3_Node000001_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="otd_inst_option_set",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$a00085.html#ga465fa07a525a264e429dfbccb2abe3c6",tooltip="Set one or more options in a decoder instance."];
+}

@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_a7969cc9b81c176f13186ee12e7ad386" kind="dir">
+    <compoundname>include/opentracedecode</compoundname>
+    <innerfile refid="a00261">libopentracedecode.h</innerfile>
+    <innerfile refid="a00267">opentracedecode.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/opentracedecode/"/>
+  </compounddef>
+</doxygen>

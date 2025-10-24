@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="a00125" kind="struct" language="C++" prot="public">
+    <compoundname>otd_proto_data_annotation</compoundname>
+    <includes refid="a00258" local="no">libopentracedecode.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="a00125_1a5b4182bbec3950bbf9ad11f5c6ec984c" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int otd_proto_data_annotation::ann_class</definition>
+        <argsstring></argsstring>
+        <name>ann_class</name>
+        <qualifiedname>otd_proto_data_annotation::ann_class</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="327" column="5" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="327" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="a00125_1a708aef2a2cc853a69efeeb7ba38fbfb8" prot="public" static="no" mutable="no">
+        <type>char **</type>
+        <definition>char ** otd_proto_data_annotation::ann_text</definition>
+        <argsstring></argsstring>
+        <name>ann_text</name>
+        <qualifiedname>otd_proto_data_annotation::ann_text</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="328" column="6" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="328" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>char **</label>
+      </node>
+      <node id="2">
+        <label>int</label>
+      </node>
+      <node id="1">
+        <label>otd_proto_data_annotation</label>
+        <link refid="a00125"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>ann_class</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>ann_text</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="326" column="1" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="326" bodyend="329"/>
+    <listofallmembers>
+      <member refid="a00125_1a5b4182bbec3950bbf9ad11f5c6ec984c" prot="public" virt="non-virtual"><scope>otd_proto_data_annotation</scope><name>ann_class</name></member>
+      <member refid="a00125_1a708aef2a2cc853a69efeeb7ba38fbfb8" prot="public" virt="non-virtual"><scope>otd_proto_data_annotation</scope><name>ann_text</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

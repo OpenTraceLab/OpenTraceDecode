@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="a00256" kind="page">
+    <compoundname>md__r_e_a_d_m_e</compoundname>
+    <title>OpenTraceDecode</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>OpenTraceDecode is a fork of libsigrokdecode, providing a shared library for running protocol decoders on signal analysis data. This fork focuses on enhanced trace decoding capabilities and modern build systems.</para>
+<para><heading level="1">Versioning</heading>
+</para>
+<para>This project follows semantic versioning starting from version 0.1.0. The ABI (Application Binary Interface) is tied to the minor version number, meaning:</para>
+<para><itemizedlist>
+<listitem><para><bold>Major version</bold> (0.x.x): Breaking API/ABI changes</para>
+</listitem><listitem><para><bold>Minor version</bold> (x.1.x): ABI changes, new features <linebreak/>
+</para>
+</listitem><listitem><para><bold>Patch version</bold> (x.x.1): Bug fixes, no ABI changes</para>
+</listitem></itemizedlist>
+</para>
+<para>Current version: <bold>0.1.0</bold></para>
+<para><heading level="1">About</heading>
+</para>
+<para>OpenTraceDecode maintains the core functionality of libsigrokdecode while adding improvements for trace analysis workflows. The protocol decoders are written in Python and provide the foundation for analyzing various communication protocols.</para>
+<para><heading level="1">Building</heading>
+</para>
+<para>OpenTraceDecode uses Meson as its build system:</para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">meson<sp/>setup<sp/>builddir</highlight></codeline>
+<codeline><highlight class="normal">meson<sp/>compile<sp/>-C<sp/>builddir</highlight></codeline>
+<codeline><highlight class="normal">meson<sp/>install<sp/>-C<sp/>builddir</highlight></codeline>
+</programlisting></para>
+<para><heading level="2">Developer Options</heading>
+</para>
+<para>For development and debugging:</para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">#<sp/>Enable<sp/>LTO,<sp/>sanitizers,<sp/>and<sp/>unity<sp/>builds</highlight></codeline>
+<codeline><highlight class="normal">meson<sp/>setup<sp/>builddir<sp/>-Db_lto=true<sp/>-Db_sanitize=address,undefined<sp/>-Dunity=on</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>Custom<sp/>decoder<sp/>path<sp/>for<sp/>testing</highlight></codeline>
+<codeline><highlight class="normal">meson<sp/>setup<sp/>builddir<sp/>-Ddecoders_path=/path/to/custom/decoders</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>Build<sp/>Python<sp/>extension<sp/>modules</highlight></codeline>
+<codeline><highlight class="normal">meson<sp/>setup<sp/>builddir<sp/>-Dpython_shims=true</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>Static<sp/>library<sp/>build</highlight></codeline>
+<codeline><highlight class="normal">meson<sp/>setup<sp/>builddir<sp/>-Dbuild_static=true<sp/>-Dbuild_shared=false</highlight></codeline>
+</programlisting></para>
+<para><heading level="1">Requirements</heading>
+</para>
+<para><itemizedlist>
+<listitem><para>Meson &gt;= 0.60</para>
+</listitem><listitem><para>Python &gt;= 3.8</para>
+</listitem><listitem><para>libglib &gt;= 2.34</para>
+</listitem><listitem><para>pkg-config &gt;= 0.22</para>
+</listitem><listitem><para>gcc &gt;= 4.0 or clang</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="1">✅ Multi-Platform CI/CD Pipeline:</heading>
+</para>
+<para><heading level="2"><bold>Platforms Supported:</bold></heading>
+</para>
+<para>• <bold>Linux (Ubuntu):</bold> DEB and RPM packages via fpm • <bold>macOS:</bold> Native .pkg packages via pkgbuild • <bold>Windows:</bold> ZIP archives via MSYS2</para>
+<para><heading level="2"><bold>CI Features:</bold></heading>
+</para>
+<para>• <bold>Build &amp; Test:</bold> All platforms compile and run tests • <bold>Automatic Packaging:</bold> Only on git tags (releases) • <bold>Artifact Upload:</bold> Packages uploaded for download • <bold>Dependencies:</bold> Proper installation of build tools and libraries</para>
+<para><heading level="2"><bold>Package Contents:</bold></heading>
+</para>
+<para>• <bold>Libraries:</bold> libopentracedecode.so (shared), .a (static) • <bold>Headers:</bold> include/opentracedecode/*.h • <bold>pkg-config:</bold> .pc files for easy integration • <bold>Proper versioning:</bold> Uses git tag for package version</para>
+<para><heading level="2"><bold>Local Development Tools:</bold></heading>
+</para>
+<para>• <bold>build-packages.sh:</bold> Local package building (requires fpm) • <bold>prepare-release.sh:</bold> Version bumping and release prep • <bold>Staging verification:</bold> Install to dist/ directory</para>
+<para><heading level="2"><bold>Release Workflow:</bold></heading>
+</para>
+<para><orderedlist>
+<listitem><para>Run ./packaging/prepare-release.sh 1.0.0</para>
+</listitem><listitem><para>Commit and tag: git tag v1.0.0 &amp;&amp; git push <ndash/>tags</para>
+</listitem><listitem><para>GitHub Actions automatically builds packages for all platforms</para>
+</listitem><listitem><para>Download artifacts from GitHub Actions</para>
+</listitem></orderedlist>
+</para>
+<para><heading level="1">License</heading>
+</para>
+<para>OpenTraceDecode is licensed under the GNU General Public License (GPL), version 3 or later.</para>
+<para><heading level="1">Original Project</heading>
+</para>
+<para>This is a fork of libsigrokdecode from the sigrok project. The original project can be found at <ulink url="http://sigrok.org/wiki/Libsigrokdecode">http://sigrok.org/wiki/Libsigrokdecode</ulink> </para>
+    </detaileddescription>
+    <location file="README.md"/>
+  </compounddef>
+</doxygen>

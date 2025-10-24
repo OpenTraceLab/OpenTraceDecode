@@ -1,0 +1,190 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="a00276" kind="file" language="C++">
+    <compoundname>config.h</compoundname>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="a00276_1aca721b6ccddfc5814e2846fb4012d3aa" prot="public" static="no">
+        <name>CONF_HOST</name>
+        <initializer>&quot;linux-x86_64&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="builddir/config.h" line="8" column="9" bodyfile="builddir/config.h" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="a00276_1a693c2fe86c8ace0c706fa42efecc1b23" prot="public" static="no">
+        <name>HAVE_PYTHON</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="builddir/config.h" line="10" column="9" bodyfile="builddir/config.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="a00276_1a9d83ccb2dcdd0c840a7bf60ba24edd98" prot="public" static="no">
+        <name>OTD_LIB_VERSION_AGE</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="builddir/config.h" line="12" column="9" bodyfile="builddir/config.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="a00276_1aaf98080e3dcdb2f8193c1ce4ca9ca3c3" prot="public" static="no">
+        <name>OTD_LIB_VERSION_CURRENT</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="builddir/config.h" line="14" column="9" bodyfile="builddir/config.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="a00276_1a0e2a482c7f6bf4ddd2d60cd79375c4c5" prot="public" static="no">
+        <name>OTD_LIB_VERSION_REVISION</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="builddir/config.h" line="16" column="9" bodyfile="builddir/config.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="a00276_1a575097d427a201646adbbb589a6f770c" prot="public" static="no">
+        <name>OTD_LIB_VERSION_STRING</name>
+        <initializer>&quot;1:0:0&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="builddir/config.h" line="18" column="9" bodyfile="builddir/config.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="a00276_1aa4b4d1d0195f7887de84cd6aede7cec3" prot="public" static="no">
+        <name>OTD_PACKAGE_VERSION_MAJOR</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="builddir/config.h" line="20" column="9" bodyfile="builddir/config.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="a00276_1a163a02dec064a3a54f7f6779ba952ca5" prot="public" static="no">
+        <name>OTD_PACKAGE_VERSION_MICRO</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="builddir/config.h" line="22" column="9" bodyfile="builddir/config.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="a00276_1a1eeb8f45603a326c5c07281f4e9785c3" prot="public" static="no">
+        <name>OTD_PACKAGE_VERSION_MINOR</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="builddir/config.h" line="24" column="9" bodyfile="builddir/config.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="a00276_1ac06306b00b13a4fba1e354a28adc6887" prot="public" static="no">
+        <name>OTD_PACKAGE_VERSION_STRING</name>
+        <initializer>&quot;0.1.0&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="builddir/config.h" line="26" column="9" bodyfile="builddir/config.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="a00276_1a1c0439e4355794c09b64274849eb0279" prot="public" static="no">
+        <name>PACKAGE_NAME</name>
+        <initializer>&quot;opentracedecode&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="builddir/config.h" line="28" column="9" bodyfile="builddir/config.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="a00276_1af415af6bfede0e8d5453708afe68651c" prot="public" static="no">
+        <name>PACKAGE_TARNAME</name>
+        <initializer>&quot;opentracedecode&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="builddir/config.h" line="30" column="9" bodyfile="builddir/config.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="a00276_1aa326a05d5e30f9e9a4bb0b4469d5d0c0" prot="public" static="no">
+        <name>PACKAGE_VERSION</name>
+        <initializer>&quot;0.1.0&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="builddir/config.h" line="32" column="9" bodyfile="builddir/config.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Autogenerated<sp/>by<sp/>the<sp/>Meson<sp/>build<sp/>system.</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Do<sp/>not<sp/>edit,<sp/>your<sp/>changes<sp/>will<sp/>be<sp/>lost.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8" refid="a00276_1aca721b6ccddfc5814e2846fb4012d3aa" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONF_HOST<sp/>&quot;linux-x86_64&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="a00276_1a693c2fe86c8ace0c706fa42efecc1b23" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>HAVE_PYTHON</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="a00276_1a9d83ccb2dcdd0c840a7bf60ba24edd98" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>OTD_LIB_VERSION_AGE<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="a00276_1aaf98080e3dcdb2f8193c1ce4ca9ca3c3" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>OTD_LIB_VERSION_CURRENT<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="a00276_1a0e2a482c7f6bf4ddd2d60cd79375c4c5" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>OTD_LIB_VERSION_REVISION<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="a00276_1a575097d427a201646adbbb589a6f770c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>OTD_LIB_VERSION_STRING<sp/>&quot;1:0:0&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="a00276_1aa4b4d1d0195f7887de84cd6aede7cec3" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>OTD_PACKAGE_VERSION_MAJOR<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="a00276_1a163a02dec064a3a54f7f6779ba952ca5" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>OTD_PACKAGE_VERSION_MICRO<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="a00276_1a1eeb8f45603a326c5c07281f4e9785c3" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>OTD_PACKAGE_VERSION_MINOR<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="a00276_1ac06306b00b13a4fba1e354a28adc6887" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>OTD_PACKAGE_VERSION_STRING<sp/>&quot;0.1.0&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="a00276_1a1c0439e4355794c09b64274849eb0279" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PACKAGE_NAME<sp/>&quot;opentracedecode&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="a00276_1af415af6bfede0e8d5453708afe68651c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PACKAGE_TARNAME<sp/>&quot;opentracedecode&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="a00276_1aa326a05d5e30f9e9a4bb0b4469d5d0c0" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PACKAGE_VERSION<sp/>&quot;0.1.0&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="builddir/config.h"/>
+  </compounddef>
+</doxygen>

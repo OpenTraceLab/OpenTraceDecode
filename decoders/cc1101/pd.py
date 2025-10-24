@@ -1,7 +1,7 @@
 ##
 ## This file is part of the libopentracedecode project.
 ##
-## Copyright (C) 2019 Marco Geisler <m-sigrok@mageis.de>
+## Copyright (C) 2019 Marco Geisler <m-opentrace@mageis.de>
 ##
 ## This program is free software; you can redistribute it and/or modify
 ## it under the terms of the GNU General Public License as published by

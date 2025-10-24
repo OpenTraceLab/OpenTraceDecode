@@ -1,0 +1,504 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="a00088" kind="group">
+    <compoundname>grp_session</compoundname>
+    <title>Session handling</title>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="a00088_1ga35b50cd6acbef05e5756312b27002803" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref> int</type>
+        <definition>OTD_API int otd_session_new</definition>
+        <argsstring>(struct otd_session **sess)</argsstring>
+        <name>otd_session_new</name>
+        <param>
+          <type>struct <ref refid="a00165" kindref="compound">otd_session</ref> **</type>
+          <declname>sess</declname>
+        </param>
+        <briefdescription>
+<para>Create a decoding session. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>A session holds all decoder instances, their stack relationships and output callbacks.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sess</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer which will hold a pointer to a newly initialized session on return. Must not be NULL.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>OTD_OK upon success, a (negative) error code otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>0.3.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/session.c" line="61" column="13" bodyfile="src/session.c" bodystart="61" bodyend="76"/>
+        <references refid="a00062_1abe0db3bab3b85f46343afb04b24d59a2" compoundref="a00062" startline="115">otd_dbg</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebca0b8a159c5ce1e9d1e1d58384820a88d2" compoundref="a00258" startline="70">OTD_ERR_ARG</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcafcf78f6457d3099b0fc89415a3f9eaa5" compoundref="a00258" startline="67">OTD_OK</references>
+      </memberdef>
+      <memberdef kind="function" id="a00088_1gad004c3c733af11a5d262f9d12cd4e0fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref> int</type>
+        <definition>OTD_API int otd_session_start</definition>
+        <argsstring>(struct otd_session *sess)</argsstring>
+        <name>otd_session_start</name>
+        <param>
+          <type>struct <ref refid="a00165" kindref="compound">otd_session</ref> *</type>
+          <declname>sess</declname>
+        </param>
+        <briefdescription>
+<para>Start a decoding session. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Decoders, instances and stack must have been prepared beforehand, and all OTD_CONF parameters set.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sess</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The session to start. Must not be NULL.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>OTD_OK upon success, a (negative) error code otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>0.3.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/session.c" line="90" column="13" bodyfile="src/session.c" bodystart="90" bodyend="110"/>
+        <references refid="a00165_1a5e1296e48d6a16e2a5fe2a574e9d93cc" compoundref="a00062" startline="75">otd_session::di_list</references>
+        <references refid="a00062_1abe0db3bab3b85f46343afb04b24d59a2" compoundref="a00062" startline="115">otd_dbg</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebca0b8a159c5ce1e9d1e1d58384820a88d2" compoundref="a00258" startline="70">OTD_ERR_ARG</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcafcf78f6457d3099b0fc89415a3f9eaa5" compoundref="a00258" startline="67">OTD_OK</references>
+        <references refid="a00113_1a8f310ba6956102b88003d3e7a433f2ef" compoundref="a00258" startline="252">otd_decoder_inst::sess</references>
+        <references refid="a00165_1aa6b9b4c4d9005db087ef5e6b7feb3ea9" compoundref="a00062" startline="72">otd_session::session_id</references>
+      </memberdef>
+      <memberdef kind="function" id="a00088_1gab47598e1b6515ce7c220d133f94ea4a3" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>static int otd_inst_send_meta</definition>
+        <argsstring>(struct otd_decoder_inst *di, int key, GVariant *data)</argsstring>
+        <name>otd_inst_send_meta</name>
+        <param>
+          <type>struct <ref refid="a00113" kindref="compound">otd_decoder_inst</ref> *</type>
+          <declname>di</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>GVariant *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/session.c" line="112" column="12" bodyfile="src/session.c" bodystart="112" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="function" id="a00088_1ga1e23480b9872bddca2b1d502be2e27e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref> int</type>
+        <definition>OTD_API int otd_session_metadata_set</definition>
+        <argsstring>(struct otd_session *sess, int key, GVariant *data)</argsstring>
+        <name>otd_session_metadata_set</name>
+        <param>
+          <type>struct <ref refid="a00165" kindref="compound">otd_session</ref> *</type>
+          <declname>sess</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>GVariant *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Set a metadata configuration key in a session. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sess</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The session to configure. Must not be NULL. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The configuration key (OTD_CONF_*). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new value for the key, as a GVariant with GVariantType appropriate to that key. A floating reference can be passed in; its refcount will be sunk and unreferenced after use.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>OTD_OK upon success, a (negative) error code otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>0.3.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/session.c" line="159" column="13" bodyfile="src/session.c" bodystart="159" bodyend="202"/>
+        <references refid="a00165_1a5e1296e48d6a16e2a5fe2a574e9d93cc" compoundref="a00062" startline="75">otd_session::di_list</references>
+        <references refid="a00258_1a2aac880445616b2ec0e990bfbe339936a608b9787467bc97355a0038acd9beb86" compoundref="a00258" startline="141">OTD_CONF_SAMPLERATE</references>
+        <references refid="a00062_1abe0db3bab3b85f46343afb04b24d59a2" compoundref="a00062" startline="115">otd_dbg</references>
+        <references refid="a00062_1adfd45428ae0a51e6162ff442c97dbce7" compoundref="a00062" startline="118">otd_err</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebca0b8a159c5ce1e9d1e1d58384820a88d2" compoundref="a00258" startline="70">OTD_ERR_ARG</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcafcf78f6457d3099b0fc89415a3f9eaa5" compoundref="a00258" startline="67">OTD_OK</references>
+        <references refid="a00113_1a8f310ba6956102b88003d3e7a433f2ef" compoundref="a00258" startline="252">otd_decoder_inst::sess</references>
+        <references refid="a00165_1aa6b9b4c4d9005db087ef5e6b7feb3ea9" compoundref="a00062" startline="72">otd_session::session_id</references>
+      </memberdef>
+      <memberdef kind="function" id="a00088_1ga06f225c625d4bed27430fc0bf9940bca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref> int</type>
+        <definition>OTD_API int otd_session_send</definition>
+        <argsstring>(struct otd_session *sess, uint64_t abs_start_samplenum, uint64_t abs_end_samplenum, const uint8_t *inbuf, uint64_t inbuflen, uint64_t unitsize)</argsstring>
+        <name>otd_session_send</name>
+        <param>
+          <type>struct <ref refid="a00165" kindref="compound">otd_session</ref> *</type>
+          <declname>sess</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>abs_start_samplenum</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>abs_end_samplenum</declname>
+        </param>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>inbuf</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>inbuflen</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>unitsize</declname>
+        </param>
+        <briefdescription>
+<para>Send a chunk of logic sample data to a running decoder session. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If no channel map has been set up, the logic samples must be arranged in channel order, in the least amount of space possible. The default channel set consists of all required channels + all optional channels.</para>
+<para>The size of a sample in inbuf is &apos;unitsize&apos; bytes. If no channel map has been configured, it is the minimum number of bytes needed to store the default channels.</para>
+<para>The calls to this function must provide the samples that shall be used by the protocol decoder<itemizedlist>
+<listitem><para>in the correct order ([...]5, 6, 4, 7, 8[...] is a bug),</para>
+</listitem><listitem><para>starting from sample zero (2, 3, 4, 5, 6[...] is a bug),</para>
+</listitem><listitem><para>consecutively, with no gaps (0, 1, 2, 4, 5[...] is a bug).</para>
+</listitem></itemizedlist>
+</para>
+<para>The start- and end-sample numbers are absolute sample numbers (relative to the start of the whole capture/file/stream), i.e. they are not relative sample numbers within the chunk specified by &apos;inbuf&apos; and &apos;inbuflen&apos;.</para>
+<para>Correct example (4096 samples total, 4 chunks @ 1024 samples each): otd_session_send(s, 0,    1023, inbuf, 1024, 1); otd_session_send(s, 1024, 2047, inbuf, 1024, 1); otd_session_send(s, 2048, 3071, inbuf, 1024, 1); otd_session_send(s, 3072, 4095, inbuf, 1024, 1);</para>
+<para>The chunk size (&apos;inbuflen&apos;) can be arbitrary and can differ between calls.</para>
+<para>Correct example (4096 samples total, 7 chunks @ various samples each): otd_session_send(s, 0,    1023, inbuf, 1024, 1); otd_session_send(s, 1024, 1123, inbuf,  100, 1); otd_session_send(s, 1124, 1423, inbuf,  300, 1); otd_session_send(s, 1424, 1642, inbuf,  219, 1); otd_session_send(s, 1643, 2047, inbuf,  405, 1); otd_session_send(s, 2048, 3071, inbuf, 1024, 1); otd_session_send(s, 3072, 4095, inbuf, 1024, 1);</para>
+<para>INCORRECT example (4096 samples total, 4 chunks @ 1024 samples each, but the start- and end-samplenumbers are not absolute): otd_session_send(s, 0,    1023, inbuf, 1024, 1); otd_session_send(s, 0,    1023, inbuf, 1024, 1); otd_session_send(s, 0,    1023, inbuf, 1024, 1); otd_session_send(s, 0,    1023, inbuf, 1024, 1);</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sess</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The session to use. Must not be NULL. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>abs_start_samplenum</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The absolute starting sample number for the buffer&apos;s sample set, relative to the start of capture. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>abs_end_samplenum</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The absolute ending sample number for the buffer&apos;s sample set, relative to the start of capture. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inbuf</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to sample data. Must not be NULL. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inbuflen</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length in bytes of the buffer. Must be &gt; 0. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>unitsize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of bytes per sample. Must be &gt; 0.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>OTD_OK upon success, a (negative) error code otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>0.4.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/session.c" line="262" column="13" bodyfile="src/session.c" bodystart="262" bodyend="279"/>
+        <references refid="a00113_1a21041f21583e4260a07449dc1612a8ea" compoundref="a00258" startline="272">otd_decoder_inst::abs_end_samplenum</references>
+        <references refid="a00113_1acb8e6b509a2959427a0cce8645ddeb20" compoundref="a00258" startline="269">otd_decoder_inst::abs_start_samplenum</references>
+        <references refid="a00165_1a5e1296e48d6a16e2a5fe2a574e9d93cc" compoundref="a00062" startline="75">otd_session::di_list</references>
+        <references refid="a00113_1ac5e48df7922126d6bbce1364d3c94ffe" compoundref="a00258" startline="275">otd_decoder_inst::inbuf</references>
+        <references refid="a00113_1af5d715e676e52b289de4b9692ccd0d01" compoundref="a00258" startline="278">otd_decoder_inst::inbuflen</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebca0b8a159c5ce1e9d1e1d58384820a88d2" compoundref="a00258" startline="70">OTD_ERR_ARG</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcafcf78f6457d3099b0fc89415a3f9eaa5" compoundref="a00258" startline="67">OTD_OK</references>
+        <references refid="a00113_1a8f310ba6956102b88003d3e7a433f2ef" compoundref="a00258" startline="252">otd_decoder_inst::sess</references>
+      </memberdef>
+      <memberdef kind="function" id="a00088_1ga8654a21446400e6045097e22c28b1869" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref> int</type>
+        <definition>OTD_API int otd_session_send_eof</definition>
+        <argsstring>(struct otd_session *sess)</argsstring>
+        <name>otd_session_send_eof</name>
+        <param>
+          <type>struct <ref refid="a00165" kindref="compound">otd_session</ref> *</type>
+          <declname>sess</declname>
+        </param>
+        <briefdescription>
+<para>Communicate the end of the stream of sample data to the session. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">sess</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The session. Must not be NULL.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>OTD_OK upon success. A (negative) error code otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>0.6.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/session.c" line="290" column="13" bodyfile="src/session.c" bodystart="290" bodyend="305"/>
+        <references refid="a00165_1a5e1296e48d6a16e2a5fe2a574e9d93cc" compoundref="a00062" startline="75">otd_session::di_list</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebca0b8a159c5ce1e9d1e1d58384820a88d2" compoundref="a00258" startline="70">OTD_ERR_ARG</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcafcf78f6457d3099b0fc89415a3f9eaa5" compoundref="a00258" startline="67">OTD_OK</references>
+        <references refid="a00113_1a8f310ba6956102b88003d3e7a433f2ef" compoundref="a00258" startline="252">otd_decoder_inst::sess</references>
+      </memberdef>
+      <memberdef kind="function" id="a00088_1ga00a506b773898e40b801edb5efbcd2e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref> int</type>
+        <definition>OTD_API int otd_session_terminate_reset</definition>
+        <argsstring>(struct otd_session *sess)</argsstring>
+        <name>otd_session_terminate_reset</name>
+        <param>
+          <type>struct <ref refid="a00165" kindref="compound">otd_session</ref> *</type>
+          <declname>sess</declname>
+        </param>
+        <briefdescription>
+<para>Terminate currently executing decoders in a session, reset internal state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>All decoder instances have their .wait() method terminated, which shall terminate .decode() as well. Afterwards the decoders&apos; optional .reset() method gets executed.</para>
+<para>This routine allows callers to abort pending expensive operations, when they are no longer interested in the decoders&apos; results. Note that the decoder state is lost and aborted work cannot resume.</para>
+<para>This routine also allows callers to re-use previously created decoder stacks to process new input data which is not related to previously processed input data. This avoids the necessity to re-construct the decoder stack.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sess</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The session in which to terminate decoders. Must not be NULL.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>OTD_OK upon success, a (negative) error code otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>0.5.1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/session.c" line="329" column="13" bodyfile="src/session.c" bodystart="329" bodyend="344"/>
+        <references refid="a00165_1a5e1296e48d6a16e2a5fe2a574e9d93cc" compoundref="a00062" startline="75">otd_session::di_list</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebca0b8a159c5ce1e9d1e1d58384820a88d2" compoundref="a00258" startline="70">OTD_ERR_ARG</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcafcf78f6457d3099b0fc89415a3f9eaa5" compoundref="a00258" startline="67">OTD_OK</references>
+        <references refid="a00113_1a8f310ba6956102b88003d3e7a433f2ef" compoundref="a00258" startline="252">otd_decoder_inst::sess</references>
+      </memberdef>
+      <memberdef kind="function" id="a00088_1gaff3d623695f72762cc7120228d4bf2b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref> int</type>
+        <definition>OTD_API int otd_session_destroy</definition>
+        <argsstring>(struct otd_session *sess)</argsstring>
+        <name>otd_session_destroy</name>
+        <param>
+          <type>struct <ref refid="a00165" kindref="compound">otd_session</ref> *</type>
+          <declname>sess</declname>
+        </param>
+        <briefdescription>
+<para>Destroy a decoding session. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>All decoder instances and output callbacks are properly released.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sess</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The session to be destroyed. Must not be NULL.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>OTD_OK upon success, a (negative) error code otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>0.3.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/session.c" line="357" column="13" bodyfile="src/session.c" bodystart="357" bodyend="375"/>
+        <references refid="a00165_1a808087341485199fe1513a76497fa0a6" compoundref="a00062" startline="78">otd_session::callbacks</references>
+        <references refid="a00165_1a5e1296e48d6a16e2a5fe2a574e9d93cc" compoundref="a00062" startline="75">otd_session::di_list</references>
+        <references refid="a00062_1abe0db3bab3b85f46343afb04b24d59a2" compoundref="a00062" startline="115">otd_dbg</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebca0b8a159c5ce1e9d1e1d58384820a88d2" compoundref="a00258" startline="70">OTD_ERR_ARG</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcafcf78f6457d3099b0fc89415a3f9eaa5" compoundref="a00258" startline="67">OTD_OK</references>
+        <references refid="a00113_1a8f310ba6956102b88003d3e7a433f2ef" compoundref="a00258" startline="252">otd_decoder_inst::sess</references>
+        <references refid="a00165_1aa6b9b4c4d9005db087ef5e6b7feb3ea9" compoundref="a00062" startline="72">otd_session::session_id</references>
+      </memberdef>
+      <memberdef kind="function" id="a00088_1gac32b5d806af220243d84a95c7e655a00" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref> int</type>
+        <definition>OTD_API int otd_pd_output_callback_add</definition>
+        <argsstring>(struct otd_session *sess, int output_type, otd_pd_output_callback cb, void *cb_data)</argsstring>
+        <name>otd_pd_output_callback_add</name>
+        <param>
+          <type>struct <ref refid="a00165" kindref="compound">otd_session</ref> *</type>
+          <declname>sess</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>output_type</declname>
+        </param>
+        <param>
+          <type><ref refid="a00258_1a365ddc1ce1879a0f3e1b58555b3198b7" kindref="member">otd_pd_output_callback</ref></type>
+          <declname>cb</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>cb_data</declname>
+        </param>
+        <briefdescription>
+<para>Register/add a decoder output callback function. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The function will be called when a protocol decoder sends output back to the PD controller (except for Python objects, which only go up the stack).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sess</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The output session in which to register the callback. Must not be NULL. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>output_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The output type this callback will receive. Only one callback per output type can be registered. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cb</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The function to call. Must not be NULL. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cb_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Private data for the callback function. Can be NULL.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>0.3.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/session.c" line="393" column="13" bodyfile="src/session.c" bodystart="393" bodyend="411"/>
+        <references refid="a00165_1a808087341485199fe1513a76497fa0a6" compoundref="a00062" startline="78">otd_session::callbacks</references>
+        <references refid="a00137_1abafc61744ecdc1d64190587ebbb13f2f" compoundref="a00258" startline="346">otd_pd_callback::cb</references>
+        <references refid="a00137_1afdf5e41086287a8d3f9a154588e5de43" compoundref="a00258" startline="347">otd_pd_callback::cb_data</references>
+        <references refid="a00062_1abe0db3bab3b85f46343afb04b24d59a2" compoundref="a00062" startline="115">otd_dbg</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebca0b8a159c5ce1e9d1e1d58384820a88d2" compoundref="a00258" startline="70">OTD_ERR_ARG</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcafcf78f6457d3099b0fc89415a3f9eaa5" compoundref="a00258" startline="67">OTD_OK</references>
+        <references refid="a00137_1a709db7bad3db08a885de0200909ea285" compoundref="a00258" startline="345">otd_pd_callback::output_type</references>
+        <references refid="a00062_1a32836f40cd48533652e96ed567b4c6c5" compoundref="a00080" startline="34" endline="46">output_type_name</references>
+      </memberdef>
+      <memberdef kind="function" id="a00088_1ga140539817e0ea7b3be6e63df92545d3c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1a3a90167f4b0b0cb829b5b15e0663af50" kindref="member">OTD_PRIV</ref> struct <ref refid="a00137" kindref="compound">otd_pd_callback</ref> *</type>
+        <definition>OTD_PRIV struct otd_pd_callback * otd_pd_output_callback_find</definition>
+        <argsstring>(struct otd_session *sess, int output_type)</argsstring>
+        <name>otd_pd_output_callback_find</name>
+        <param>
+          <type>struct <ref refid="a00165" kindref="compound">otd_session</ref> *</type>
+          <declname>sess</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>output_type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/session.c" line="414" column="31" bodyfile="src/session.c" bodystart="414" bodyend="433"/>
+        <references refid="a00165_1a808087341485199fe1513a76497fa0a6" compoundref="a00062" startline="78">otd_session::callbacks</references>
+        <references refid="a00137_1a709db7bad3db08a885de0200909ea285" compoundref="a00258" startline="345">otd_pd_callback::output_type</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Starting and handling decoding sessions. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

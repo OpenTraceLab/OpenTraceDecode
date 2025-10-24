@@ -25,7 +25,7 @@ import opentracedecode as otd
 # location at the top of the source, to raise awareness and to simplify
 # review and adjustment. The tolerance is an arbitrary choice, available
 # literature does not mention any. The inter-frame timeout is not a part
-# of the protocol, but an implementation detail of this sigrok decoder.
+# of the protocol, but an implementation detail of this opentrace decoder.
 _TIME_TOL  =  8     # tolerance, in percent
 _TIME_IDLE = 20.0   # inter-frame timeout, in ms
 _TIME_LC   = 13.5   # leader code, in ms

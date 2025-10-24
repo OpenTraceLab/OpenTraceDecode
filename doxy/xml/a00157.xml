@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="a00157" kind="struct" language="C++" prot="public">
+    <compoundname>otd_term</compoundname>
+    <includes refid="a00062" local="no">libopentracedecode-internal.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="a00157_1af451dc8e1d6e9b43e3c777daf7b3e52b" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int otd_term::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>otd_term::type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libopentracedecode-internal.h" line="53" column="5" bodyfile="src/libopentracedecode-internal.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="a00157_1a3444f62e20ff604453335a4c5989d664" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int otd_term::channel</definition>
+        <argsstring></argsstring>
+        <name>channel</name>
+        <qualifiedname>otd_term::channel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libopentracedecode-internal.h" line="54" column="5" bodyfile="src/libopentracedecode-internal.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="a00157_1a265c433d35229d32f6a8b9d54bb954c4" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t otd_term::num_samples_to_skip</definition>
+        <argsstring></argsstring>
+        <name>num_samples_to_skip</name>
+        <qualifiedname>otd_term::num_samples_to_skip</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libopentracedecode-internal.h" line="55" column="10" bodyfile="src/libopentracedecode-internal.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="a00157_1a9e6b3919f45e9078174345beb03885cc" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t otd_term::num_samples_already_skipped</definition>
+        <argsstring></argsstring>
+        <name>num_samples_already_skipped</name>
+        <qualifiedname>otd_term::num_samples_already_skipped</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libopentracedecode-internal.h" line="56" column="10" bodyfile="src/libopentracedecode-internal.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>int</label>
+      </node>
+      <node id="1">
+        <label>otd_term</label>
+        <link refid="a00157"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>channel</edgelabel>
+          <edgelabel>type</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>num_samples_already_skipped</edgelabel>
+          <edgelabel>num_samples_to_skip</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>uint64_t</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/libopentracedecode-internal.h" line="52" column="1" bodyfile="src/libopentracedecode-internal.h" bodystart="52" bodyend="57"/>
+    <listofallmembers>
+      <member refid="a00157_1a3444f62e20ff604453335a4c5989d664" prot="public" virt="non-virtual"><scope>otd_term</scope><name>channel</name></member>
+      <member refid="a00157_1a9e6b3919f45e9078174345beb03885cc" prot="public" virt="non-virtual"><scope>otd_term</scope><name>num_samples_already_skipped</name></member>
+      <member refid="a00157_1a265c433d35229d32f6a8b9d54bb954c4" prot="public" virt="non-virtual"><scope>otd_term</scope><name>num_samples_to_skip</name></member>
+      <member refid="a00157_1af451dc8e1d6e9b43e3c777daf7b3e52b" prot="public" virt="non-virtual"><scope>otd_term</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

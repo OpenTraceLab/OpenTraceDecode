@@ -1,7 +1,7 @@
 ##
 ## This file is part of the libopentracedecode project.
 ##
-## Copyright (C) 2015 Petteri Aimonen <jpa@sigrok.mail.kapsi.fi>
+## Copyright (C) 2015 Petteri Aimonen <jpa@opentrace.mail.kapsi.fi>
 ##
 ## This program is free software; you can redistribute it and/or modify
 ## it under the terms of the GNU General Public License as published by

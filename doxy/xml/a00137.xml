@@ -1,0 +1,245 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="a00137" kind="struct" language="C++" prot="public">
+    <compoundname>otd_pd_callback</compoundname>
+    <includes refid="a00258" local="no">libopentracedecode.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="a00137_1a709db7bad3db08a885de0200909ea285" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int otd_pd_callback::output_type</definition>
+        <argsstring></argsstring>
+        <name>output_type</name>
+        <qualifiedname>otd_pd_callback::output_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="345" column="5" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="345" bodyend="-1"/>
+        <referencedby refid="a00088_1gac32b5d806af220243d84a95c7e655a00" compoundref="a00068" startline="393" endline="411">otd_pd_output_callback_add</referencedby>
+        <referencedby refid="a00088_1ga140539817e0ea7b3be6e63df92545d3c" compoundref="a00068" startline="414" endline="433">otd_pd_output_callback_find</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00137_1abafc61744ecdc1d64190587ebbb13f2f" prot="public" static="no" mutable="no">
+        <type><ref refid="a00261_1a365ddc1ce1879a0f3e1b58555b3198b7" kindref="member">otd_pd_output_callback</ref></type>
+        <definition>otd_pd_output_callback otd_pd_callback::cb</definition>
+        <argsstring></argsstring>
+        <name>cb</name>
+        <qualifiedname>otd_pd_callback::cb</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="346" column="24" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="346" bodyend="-1"/>
+        <referencedby refid="a00088_1gac32b5d806af220243d84a95c7e655a00" compoundref="a00068" startline="393" endline="411">otd_pd_output_callback_add</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00137_1afdf5e41086287a8d3f9a154588e5de43" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void * otd_pd_callback::cb_data</definition>
+        <argsstring></argsstring>
+        <name>cb_data</name>
+        <qualifiedname>otd_pd_callback::cb_data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="347" column="6" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="347" bodyend="-1"/>
+        <referencedby refid="a00088_1gac32b5d806af220243d84a95c7e655a00" compoundref="a00068" startline="393" endline="411">otd_pd_output_callback_add</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="13">
+        <label>GArray *</label>
+      </node>
+      <node id="16">
+        <label>GCond</label>
+      </node>
+      <node id="17">
+        <label>GMutex</label>
+      </node>
+      <node id="9">
+        <label>GSList *</label>
+      </node>
+      <node id="14">
+        <label>GThread *</label>
+      </node>
+      <node id="8">
+        <label>char *</label>
+      </node>
+      <node id="18">
+        <label>const GVariantType *</label>
+      </node>
+      <node id="15">
+        <label>gboolean</label>
+      </node>
+      <node id="2">
+        <label>int</label>
+      </node>
+      <node id="7">
+        <label>otd_decoder</label>
+        <link refid="a00093"/>
+        <childnode refid="8" relation="usage">
+          <edgelabel>desc</edgelabel>
+          <edgelabel>id</edgelabel>
+          <edgelabel>license</edgelabel>
+          <edgelabel>longname</edgelabel>
+          <edgelabel>name</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>annotation_rows</edgelabel>
+          <edgelabel>annotations</edgelabel>
+          <edgelabel>binary</edgelabel>
+          <edgelabel>channels</edgelabel>
+          <edgelabel>inputs</edgelabel>
+          <edgelabel>logic_output_channels</edgelabel>
+          <edgelabel>opt_channels</edgelabel>
+          <edgelabel>options</edgelabel>
+          <edgelabel>outputs</edgelabel>
+          <edgelabel>tags</edgelabel>
+          <edgelabel>...</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>py_dec</edgelabel>
+          <edgelabel>py_mod</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>otd_decoder_inst</label>
+        <link refid="a00113"/>
+        <childnode refid="7" relation="usage">
+          <edgelabel>decoder</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>sess</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>py_inst</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>inst_id</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>condition_list</edgelabel>
+          <edgelabel>next_di</edgelabel>
+          <edgelabel>pd_output</edgelabel>
+        </childnode>
+        <childnode refid="2" relation="usage">
+          <edgelabel>data_unitsize</edgelabel>
+          <edgelabel>dec_channelmap</edgelabel>
+          <edgelabel>dec_num_channels</edgelabel>
+          <edgelabel>decoder_state</edgelabel>
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>channel_samples</edgelabel>
+          <edgelabel>inbuf</edgelabel>
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>match_array</edgelabel>
+          <edgelabel>old_pins_array</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>abs_cur_samplenum</edgelabel>
+          <edgelabel>abs_end_samplenum</edgelabel>
+          <edgelabel>abs_start_samplenum</edgelabel>
+          <edgelabel>inbuflen</edgelabel>
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>thread_handle</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>communicate_eof</edgelabel>
+          <edgelabel>got_new_samples</edgelabel>
+          <edgelabel>handled_all_samples</edgelabel>
+          <edgelabel>want_wait_terminate</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>got_new_samples_cond</edgelabel>
+          <edgelabel>handled_all_samples_cond</edgelabel>
+        </childnode>
+        <childnode refid="17" relation="usage">
+          <edgelabel>data_mutex</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>otd_pd_callback</label>
+        <link refid="a00137"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>output_type</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>cb</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>cb_data</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>otd_pd_output</label>
+        <link refid="a00117"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>output_type</edgelabel>
+          <edgelabel>pdo_id</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>di</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>meta_descr</edgelabel>
+          <edgelabel>meta_name</edgelabel>
+          <edgelabel>proto_id</edgelabel>
+        </childnode>
+        <childnode refid="18" relation="usage">
+          <edgelabel>meta_type</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>otd_proto_data</label>
+        <link refid="a00121"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>end_sample</edgelabel>
+          <edgelabel>start_sample</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>pdo</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>data</edgelabel>
+        </childnode>
+      </node>
+      <node id="11">
+        <label>otd_session</label>
+        <link refid="a00165"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>session_id</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>callbacks</edgelabel>
+          <edgelabel>di_list</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>uint64_t</label>
+      </node>
+      <node id="12">
+        <label>uint8_t</label>
+      </node>
+      <node id="10">
+        <label>void *</label>
+      </node>
+    </collaborationgraph>
+    <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="344" column="1" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="344" bodyend="348"/>
+    <listofallmembers>
+      <member refid="a00137_1abafc61744ecdc1d64190587ebbb13f2f" prot="public" virt="non-virtual"><scope>otd_pd_callback</scope><name>cb</name></member>
+      <member refid="a00137_1afdf5e41086287a8d3f9a154588e5de43" prot="public" virt="non-virtual"><scope>otd_pd_callback</scope><name>cb_data</name></member>
+      <member refid="a00137_1a709db7bad3db08a885de0200909ea285" prot="public" virt="non-virtual"><scope>otd_pd_callback</scope><name>output_type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

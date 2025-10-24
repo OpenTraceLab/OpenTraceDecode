@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_2f2f07113472dcd8437d82e8a1feeacd" kind="dir">
+    <compoundname>build-pkg/dist/usr</compoundname>
+    <innerdir refid="dir_542b6855ba527d81db3cb2464a46073a">build-pkg/dist/usr/include</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="build-pkg/dist/usr/"/>
+  </compounddef>
+</doxygen>

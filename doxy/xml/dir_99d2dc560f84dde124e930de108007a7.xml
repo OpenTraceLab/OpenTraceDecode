@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_99d2dc560f84dde124e930de108007a7" kind="dir">
+    <compoundname>builddir</compoundname>
+    <innerdir refid="dir_80c3527ec3cf0f3483e12c0fcf6ceee3">builddir/meson-private</innerdir>
+    <innerfile refid="a00276">config.h</innerfile>
+    <innerfile refid="a00294">version.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="builddir/"/>
+  </compounddef>
+</doxygen>

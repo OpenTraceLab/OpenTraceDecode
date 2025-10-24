@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="a00101" kind="struct" language="C++" prot="public">
+    <compoundname>otd_decoder_option</compoundname>
+    <includes refid="a00258" local="no">libopentracedecode.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="a00101_1a74411014f7bc54784d79052d777ce456" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char * otd_decoder_option::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>otd_decoder_option::id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="233" column="6" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="233" bodyend="-1"/>
+        <referencedby refid="a00085_1ga465fa07a525a264e429dfbccb2abe3c6" compoundref="a00050" startline="92" endline="207">otd_inst_option_set</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00101_1accad375b6c04f52ff4e46ae2df331fbe" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char * otd_decoder_option::desc</definition>
+        <argsstring></argsstring>
+        <name>desc</name>
+        <qualifiedname>otd_decoder_option::desc</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="234" column="6" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="234" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="a00101_1a36eed8e337e813943cada4d7f74b7ea7" prot="public" static="no" mutable="no">
+        <type>GVariant *</type>
+        <definition>GVariant * otd_decoder_option::def</definition>
+        <argsstring></argsstring>
+        <name>def</name>
+        <qualifiedname>otd_decoder_option::def</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="235" column="10" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="235" bodyend="-1"/>
+        <referencedby refid="a00085_1ga465fa07a525a264e429dfbccb2abe3c6" compoundref="a00050" startline="92" endline="207">otd_inst_option_set</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00101_1a1870efedbe48c47f52048d77fbb9000c" prot="public" static="no" mutable="no">
+        <type>GSList *</type>
+        <definition>GSList * otd_decoder_option::values</definition>
+        <argsstring></argsstring>
+        <name>values</name>
+        <qualifiedname>otd_decoder_option::values</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="236" column="8" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="236" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="4">
+        <label>GSList *</label>
+      </node>
+      <node id="3">
+        <label>GVariant *</label>
+      </node>
+      <node id="2">
+        <label>char *</label>
+      </node>
+      <node id="1">
+        <label>otd_decoder_option</label>
+        <link refid="a00101"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>desc</edgelabel>
+          <edgelabel>id</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>def</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>values</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="232" column="1" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="232" bodyend="237"/>
+    <listofallmembers>
+      <member refid="a00101_1a36eed8e337e813943cada4d7f74b7ea7" prot="public" virt="non-virtual"><scope>otd_decoder_option</scope><name>def</name></member>
+      <member refid="a00101_1accad375b6c04f52ff4e46ae2df331fbe" prot="public" virt="non-virtual"><scope>otd_decoder_option</scope><name>desc</name></member>
+      <member refid="a00101_1a74411014f7bc54784d79052d777ce456" prot="public" virt="non-virtual"><scope>otd_decoder_option</scope><name>id</name></member>
+      <member refid="a00101_1a1870efedbe48c47f52048d77fbb9000c" prot="public" virt="non-virtual"><scope>otd_decoder_option</scope><name>values</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

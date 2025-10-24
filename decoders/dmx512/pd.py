@@ -1,7 +1,7 @@
 ##
 ## This file is part of the libopentracedecode project.
 ##
-## Copyright (C) 2016 Fabian J. Stumpf <sigrok@fabianstumpf.de>
+## Copyright (C) 2016 Fabian J. Stumpf <opentrace@fabianstumpf.de>
 ## Copyright (C) 2019-2020 Gerhard Sittig <gerhard.sittig@gmx.net>
 ##
 ## This program is free software; you can redistribute it and/or modify

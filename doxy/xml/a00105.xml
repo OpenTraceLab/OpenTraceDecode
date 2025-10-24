@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="a00105" kind="struct" language="C++" prot="public">
+    <compoundname>otd_decoder_annotation_row</compoundname>
+    <includes refid="a00258" local="no">libopentracedecode.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="a00105_1a309469b3e4637d00309567f4e9b19c5f" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char * otd_decoder_annotation_row::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>otd_decoder_annotation_row::id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="240" column="6" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="240" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="a00105_1a9635599910150662bfbc431d813b785f" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char * otd_decoder_annotation_row::desc</definition>
+        <argsstring></argsstring>
+        <name>desc</name>
+        <qualifiedname>otd_decoder_annotation_row::desc</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="241" column="6" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="241" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="a00105_1af21e156fc6d3ab6deee2234e26f3c859" prot="public" static="no" mutable="no">
+        <type>GSList *</type>
+        <definition>GSList * otd_decoder_annotation_row::ann_classes</definition>
+        <argsstring></argsstring>
+        <name>ann_classes</name>
+        <qualifiedname>otd_decoder_annotation_row::ann_classes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="242" column="8" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="242" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>GSList *</label>
+      </node>
+      <node id="2">
+        <label>char *</label>
+      </node>
+      <node id="1">
+        <label>otd_decoder_annotation_row</label>
+        <link refid="a00105"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>desc</edgelabel>
+          <edgelabel>id</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>ann_classes</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="239" column="1" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="239" bodyend="243"/>
+    <listofallmembers>
+      <member refid="a00105_1af21e156fc6d3ab6deee2234e26f3c859" prot="public" virt="non-virtual"><scope>otd_decoder_annotation_row</scope><name>ann_classes</name></member>
+      <member refid="a00105_1a9635599910150662bfbc431d813b785f" prot="public" virt="non-virtual"><scope>otd_decoder_annotation_row</scope><name>desc</name></member>
+      <member refid="a00105_1a309469b3e4637d00309567f4e9b19c5f" prot="public" virt="non-virtual"><scope>otd_decoder_annotation_row</scope><name>id</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,11 @@
+digraph "otd_inst_option_set"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [id="Node000001",label="otd_inst_option_set",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Set one or more options in a decoder instance."];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="otd_inst_new",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$a00085.html#ga93239c3c924c6f71393cdcf619ecf67b",tooltip="Create a new protocol decoder instance."];
+}

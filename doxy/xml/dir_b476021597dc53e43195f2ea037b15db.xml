@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_b476021597dc53e43195f2ea037b15db" kind="dir">
+    <compoundname>irmp</compoundname>
+    <innerfile refid="a00032">irmp-main-sharedlib.c</innerfile>
+    <innerfile refid="a00014">irmp-main-sharedlib.h</innerfile>
+    <innerfile refid="a00023">irmp.c</innerfile>
+    <innerfile refid="a00026">irmp.h</innerfile>
+    <innerfile refid="a00020">irmpconfig.h</innerfile>
+    <innerfile refid="a00017">irmpprotocols.h</innerfile>
+    <innerfile refid="a00029">irmpsystem.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="irmp/"/>
+  </compounddef>
+</doxygen>

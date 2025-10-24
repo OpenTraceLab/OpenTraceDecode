@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="a00169" kind="struct" language="C++" prot="public">
+    <compoundname>otd_Decoder</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/type_decoder.c" line="29" column="1" bodyfile="src/type_decoder.c" bodystart="29" bodyend="31"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,537 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="a00014" kind="file" language="C++">
+    <compoundname>irmp-main-sharedlib.h</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includedby refid="a00032" local="yes">irmp/irmp-main-sharedlib.c</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>irmp/irmp-main-sharedlib.h</label>
+        <link refid="a00014"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+      <node id="3">
+        <label>stdlib.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>irmp/irmp-main-sharedlib.c</label>
+        <link refid="a00032"/>
+      </node>
+      <node id="1">
+        <label>irmp/irmp-main-sharedlib.h</label>
+        <link refid="a00014"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="a00145" prot="public">irmp_result_data</innerclass>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="a00014_1a01119fe469aa7f8cb34e640b418882f4" prot="public" static="no">
+        <name>IRMP_DLLEXPORT</name>
+        <initializer>__attribute__((visibility(&quot;default&quot;)))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp-main-sharedlib.h" line="29" column="16" bodyfile="irmp/irmp-main-sharedlib.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="a00014_1ad2453ccc3bcdd0d183b4f306879fccab" prot="public" static="no">
+        <name>WITH_IRMP_DETECT_BUFFER</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp-main-sharedlib.h" line="34" column="9" bodyfile="irmp/irmp-main-sharedlib.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="a00014_1a2d5e150423fd21ceda41f26d900aef71" prot="public" static="no">
+        <name>IRMP_DATA_FLAG_REPETITION</name>
+        <initializer>(1 &lt;&lt; 0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp-main-sharedlib.h" line="92" column="9" bodyfile="irmp/irmp-main-sharedlib.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="a00014_1a1447718c6d780309056cb414f5a5f723" prot="public" static="no">
+        <name>IRMP_DATA_FLAG_RELEASE</name>
+        <initializer>(1 &lt;&lt; 1)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp-main-sharedlib.h" line="93" column="9" bodyfile="irmp/irmp-main-sharedlib.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="a00014_1abe797143e705d1fe11bb4a36b8c85f53" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00014_1a01119fe469aa7f8cb34e640b418882f4" kindref="member">IRMP_DLLEXPORT</ref> struct irmp_instance *</type>
+        <definition>IRMP_DLLEXPORT struct irmp_instance * irmp_instance_alloc</definition>
+        <argsstring>(void)</argsstring>
+        <name>irmp_instance_alloc</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Allocate a decoder instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Reference to the allocated instance state. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp-main-sharedlib.h" line="46" column="35" bodyfile="irmp/irmp-main-sharedlib.c" bodystart="136" bodyend="150" declfile="irmp/irmp-main-sharedlib.h" declline="46" declcolumn="35"/>
+      </memberdef>
+      <memberdef kind="function" id="a00014_1a81279b457b7ec58c8028b82bbb96561d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00014_1a01119fe469aa7f8cb34e640b418882f4" kindref="member">IRMP_DLLEXPORT</ref> void</type>
+        <definition>IRMP_DLLEXPORT void irmp_instance_free</definition>
+        <argsstring>(struct irmp_instance *state)</argsstring>
+        <name>irmp_instance_free</name>
+        <param>
+          <type>struct irmp_instance *</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+<para>Release a decoder instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reference to the instance&apos;s state. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp-main-sharedlib.h" line="53" column="21" bodyfile="irmp/irmp-main-sharedlib.c" bodystart="152" bodyend="161" declfile="irmp/irmp-main-sharedlib.h" declline="53" declcolumn="21"/>
+      </memberdef>
+      <memberdef kind="function" id="a00014_1a1dd9da25ff840710fd83ff23cc033e7d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00014_1a01119fe469aa7f8cb34e640b418882f4" kindref="member">IRMP_DLLEXPORT</ref> size_t</type>
+        <definition>IRMP_DLLEXPORT size_t irmp_instance_id</definition>
+        <argsstring>(struct irmp_instance *state)</argsstring>
+        <name>irmp_instance_id</name>
+        <param>
+          <type>struct irmp_instance *</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+<para>Get the client ID of an IRMP decoder core instance. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp-main-sharedlib.h" line="58" column="23" bodyfile="irmp/irmp-main-sharedlib.c" bodystart="163" bodyend="169" declfile="irmp/irmp-main-sharedlib.h" declline="58" declcolumn="23"/>
+      </memberdef>
+      <memberdef kind="function" id="a00014_1abffd90f0217c7252ebcaa7ba33424cb1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00014_1a01119fe469aa7f8cb34e640b418882f4" kindref="member">IRMP_DLLEXPORT</ref> int</type>
+        <definition>IRMP_DLLEXPORT int irmp_instance_lock</definition>
+        <argsstring>(struct irmp_instance *state, int wait)</argsstring>
+        <name>irmp_instance_lock</name>
+        <param>
+          <type>struct irmp_instance *</type>
+          <declname>state</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>wait</declname>
+        </param>
+        <briefdescription>
+<para>Acquire a decoder instance&apos;s lock. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reference to the instance&apos;s state. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">wait</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether to block until the lock is acquired.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 upon success, non-zero upon failure </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp-main-sharedlib.h" line="68" column="20" bodyfile="irmp/irmp-main-sharedlib.c" bodystart="171" bodyend="195" declfile="irmp/irmp-main-sharedlib.h" declline="68" declcolumn="20"/>
+      </memberdef>
+      <memberdef kind="function" id="a00014_1afdb8c7eb854ea49aa36b237ad696d8c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00014_1a01119fe469aa7f8cb34e640b418882f4" kindref="member">IRMP_DLLEXPORT</ref> void</type>
+        <definition>IRMP_DLLEXPORT void irmp_instance_unlock</definition>
+        <argsstring>(struct irmp_instance *state)</argsstring>
+        <name>irmp_instance_unlock</name>
+        <param>
+          <type>struct irmp_instance *</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+<para>Release a decoder instance&apos;s lock. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reference to the instance&apos;s state.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 upon success, non-zero upon failure </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp-main-sharedlib.h" line="77" column="21" bodyfile="irmp/irmp-main-sharedlib.c" bodystart="197" bodyend="206" declfile="irmp/irmp-main-sharedlib.h" declline="77" declcolumn="21"/>
+      </memberdef>
+      <memberdef kind="function" id="a00014_1abae4f71e81bcf67e6c37ca5d9574e5e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00014_1a01119fe469aa7f8cb34e640b418882f4" kindref="member">IRMP_DLLEXPORT</ref> uint32_t</type>
+        <definition>IRMP_DLLEXPORT uint32_t irmp_get_sample_rate</definition>
+        <argsstring>(void)</argsstring>
+        <name>irmp_get_sample_rate</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Query the IRMP library&apos;s configured sample rate. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The internally used sample rate is a compile time option. Any data that is provided at runtime needs to match this rate, or detection will fail. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp-main-sharedlib.h" line="102" column="25" bodyfile="irmp/irmp-main-sharedlib.c" bodystart="210" bodyend="213" declfile="irmp/irmp-main-sharedlib.h" declline="102" declcolumn="25"/>
+      </memberdef>
+      <memberdef kind="function" id="a00014_1a1714d353d5990b6829fbc90ca10dd590" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00014_1a01119fe469aa7f8cb34e640b418882f4" kindref="member">IRMP_DLLEXPORT</ref> void</type>
+        <definition>IRMP_DLLEXPORT void irmp_reset_state</definition>
+        <argsstring>(void)</argsstring>
+        <name>irmp_reset_state</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Reset internal decoder state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This must be called before data processing starts. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp-main-sharedlib.h" line="109" column="21" bodyfile="irmp/irmp-main-sharedlib.c" bodystart="215" bodyend="249" declfile="irmp/irmp-main-sharedlib.h" declline="109" declcolumn="21"/>
+        <references refid="a00023_1a5c852e4e82ee5f0bbe8197c342d95654" compoundref="a00023" startline="2412" endline="2660">irmp_get_data</references>
+        <references refid="a00023_1a9e0db284613c707007a5a254851aa6cf" compoundref="a00023" startline="2990" endline="5541">irmp_ISR</references>
+      </memberdef>
+      <memberdef kind="function" id="a00014_1a0683401e72fd7792df71336408a5afca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00014_1a01119fe469aa7f8cb34e640b418882f4" kindref="member">IRMP_DLLEXPORT</ref> int</type>
+        <definition>IRMP_DLLEXPORT int irmp_add_one_sample</definition>
+        <argsstring>(int sample)</argsstring>
+        <name>irmp_add_one_sample</name>
+        <param>
+          <type>int</type>
+          <declname>sample</declname>
+        </param>
+        <briefdescription>
+<para>Feed an individual sample to the detector. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>See <ref refid="a00032_1ac51614b600a56e7d401ddd1d0a16cb35" kindref="member">irmp_get_result_data()</ref> for result retrieval when detection of an IR frame completes. Make sure <ref refid="a00032_1a1714d353d5990b6829fbc90ca10dd590" kindref="member">irmp_reset_state()</ref> was called before providing the first sample.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">sample</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The pin value to feed to the detector.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Non-zero when an IR frame was detected. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp-main-sharedlib.h" line="122" column="20" bodyfile="irmp/irmp-main-sharedlib.c" bodystart="251" bodyend="259" declfile="irmp/irmp-main-sharedlib.h" declline="122" declcolumn="20"/>
+        <references refid="a00023_1a9e0db284613c707007a5a254851aa6cf" compoundref="a00023" startline="2990" endline="5541">irmp_ISR</references>
+      </memberdef>
+      <memberdef kind="function" id="a00014_1ac51614b600a56e7d401ddd1d0a16cb35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00014_1a01119fe469aa7f8cb34e640b418882f4" kindref="member">IRMP_DLLEXPORT</ref> int</type>
+        <definition>IRMP_DLLEXPORT int irmp_get_result_data</definition>
+        <argsstring>(struct irmp_result_data *data)</argsstring>
+        <name>irmp_get_result_data</name>
+        <param>
+          <type>struct <ref refid="a00145" kindref="compound">irmp_result_data</ref> *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Query result data after detection succeeded. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The caller provided result buffer.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Non-zero if data was available, zero otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp-main-sharedlib.h" line="145" column="20" bodyfile="irmp/irmp-main-sharedlib.c" bodystart="261" bodyend="276" declfile="irmp/irmp-main-sharedlib.h" declline="145" declcolumn="20"/>
+        <references refid="a00145_1a59eda9a871b4e0b3ceb28b6b8e8e3b86" compoundref="a00014" startline="85">irmp_result_data::address</references>
+        <references refid="a00153_1ae9656b053d430d1a6ace5758f37de68d" compoundref="a00029" startline="218">IRMP_PACKED_STRUCT::address</references>
+        <references refid="a00145_1a6bf9523a9cf83421d244540de7c9d3ad" compoundref="a00014" startline="86">irmp_result_data::command</references>
+        <references refid="a00153_1a83e1167cf7fdc8ee8c8041569742ce0b" compoundref="a00029" startline="219">IRMP_PACKED_STRUCT::command</references>
+        <references refid="a00145_1ab39f932299942202fab9e24130e0b2a1" compoundref="a00014" startline="89">irmp_result_data::end_sample</references>
+        <references refid="a00145_1ab0ae80e8dbb3d91242d095399e66b143" compoundref="a00014" startline="87">irmp_result_data::flags</references>
+        <references refid="a00153_1aae1a997ffb4508485cfe5abef37b8fcd" compoundref="a00029" startline="220">IRMP_PACKED_STRUCT::flags</references>
+        <references refid="a00023_1a5c852e4e82ee5f0bbe8197c342d95654" compoundref="a00023" startline="2412" endline="2660">irmp_get_data</references>
+        <references refid="a00032_1a46ec5c979b2c97c4e1dc4140c6731caa" compoundref="a00032" startline="294" endline="304">irmp_get_protocol_name</references>
+        <references refid="a00145_1a3d20bd393772b4a6a38c82c88159a600" compoundref="a00014" startline="83">irmp_result_data::protocol</references>
+        <references refid="a00153_1a615ebaf2e093d3d53bae40dbee631689" compoundref="a00029" startline="217">IRMP_PACKED_STRUCT::protocol</references>
+        <references refid="a00145_1a4485ea87ed60d4c2409776d01ad4fd92" compoundref="a00014" startline="84">irmp_result_data::protocol_name</references>
+        <references refid="a00145_1aaf474ecaf3d25cdc845f398ca96143be" compoundref="a00014" startline="88">irmp_result_data::start_sample</references>
+      </memberdef>
+      <memberdef kind="function" id="a00014_1a46ec5c979b2c97c4e1dc4140c6731caa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00014_1a01119fe469aa7f8cb34e640b418882f4" kindref="member">IRMP_DLLEXPORT</ref> const char *</type>
+        <definition>IRMP_DLLEXPORT const char * irmp_get_protocol_name</definition>
+        <argsstring>(uint32_t protocol)</argsstring>
+        <name>irmp_get_protocol_name</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>protocol</declname>
+        </param>
+        <briefdescription>
+<para>Resolve the protocol identifer to the protocol&apos;s name. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">protocol</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The numerical identifier.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A pointer to the string literal, or NULL in case of failure. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp-main-sharedlib.h" line="154" column="27" bodyfile="irmp/irmp-main-sharedlib.c" bodystart="294" bodyend="304" declfile="irmp/irmp-main-sharedlib.h" declline="154" declcolumn="27"/>
+        <references refid="a00032_1a6242a25f9d996f0cc4f4cdb911218b75" compoundref="a00032" startline="102">ARRAY_SIZE</references>
+        <references refid="a00145_1a3d20bd393772b4a6a38c82c88159a600" compoundref="a00014" startline="83">irmp_result_data::protocol</references>
+        <referencedby refid="a00032_1ac51614b600a56e7d401ddd1d0a16cb35" compoundref="a00032" startline="261" endline="276">irmp_get_result_data</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>irmp-main-sharedlib.h</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2009-2019<sp/>Frank<sp/>Meyer<sp/>-<sp/>frank(at)fli4l.de</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2009-2019<sp/>René Staffen<sp/>-<sp/>r.staffen(at)gmx.de</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2020-2021<sp/>Gerhard<sp/>Sittig<sp/>&lt;gerhard.sittig@gmx.net&gt;</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>IRMP_SHAREDLIB_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>IRMP_SHAREDLIB_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Export<sp/>the<sp/>public<sp/>API<sp/>routines.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>IRMP_DLLEXPORT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>if<sp/>defined<sp/>WIN32<sp/>&amp;&amp;<sp/>defined<sp/>_MSC_VER</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/><sp/>define<sp/>IRMP_DLLEXPORT<sp/>__declspec(dllexport)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="a00014_1a01119fe469aa7f8cb34e640b418882f4" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/><sp/>define<sp/>IRMP_DLLEXPORT<sp/>__attribute__((visibility(&quot;default&quot;)))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Part<sp/>of<sp/>the<sp/>library<sp/>API<sp/>is<sp/>optional.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="a00014_1ad2453ccc3bcdd0d183b4f306879fccab" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WITH_IRMP_DETECT_BUFFER<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="36"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="37"><highlight class="comment"><sp/>*<sp/>@brief<sp/>State<sp/>container<sp/>for<sp/>a<sp/>decoder<sp/>core<sp/>instance.<sp/>Opaque<sp/>to<sp/>clients.</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">irmp_instance;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="41"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Allocate<sp/>a<sp/>decoder<sp/>instance.</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/>*<sp/>@returns<sp/>Reference<sp/>to<sp/>the<sp/>allocated<sp/>instance<sp/>state.</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><ref refid="a00014_1a01119fe469aa7f8cb34e640b418882f4" kindref="member">IRMP_DLLEXPORT</ref><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">irmp_instance<sp/>*<ref refid="a00014_1abe797143e705d1fe11bb4a36b8c85f53" kindref="member">irmp_instance_alloc</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="48"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Release<sp/>a<sp/>decoder<sp/>instance.</highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="51"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>state<sp/>Reference<sp/>to<sp/>the<sp/>instance&apos;s<sp/>state.</highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><ref refid="a00014_1a01119fe469aa7f8cb34e640b418882f4" kindref="member">IRMP_DLLEXPORT</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="a00014_1a81279b457b7ec58c8028b82bbb96561d" kindref="member">irmp_instance_free</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/>irmp_instance<sp/>*state);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="55"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="56"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Get<sp/>the<sp/>client<sp/>ID<sp/>of<sp/>an<sp/>IRMP<sp/>decoder<sp/>core<sp/>instance.</highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><ref refid="a00014_1a01119fe469aa7f8cb34e640b418882f4" kindref="member">IRMP_DLLEXPORT</ref><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="a00014_1a1dd9da25ff840710fd83ff23cc033e7d" kindref="member">irmp_instance_id</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/>irmp_instance<sp/>*state);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="60"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="61"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Acquire<sp/>a<sp/>decoder<sp/>instance&apos;s<sp/>lock.</highlight></codeline>
+<codeline lineno="62"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="63"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>state<sp/>Reference<sp/>to<sp/>the<sp/>instance&apos;s<sp/>state.</highlight></codeline>
+<codeline lineno="64"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>wait<sp/>Whether<sp/>to<sp/>block<sp/>until<sp/>the<sp/>lock<sp/>is<sp/>acquired.</highlight></codeline>
+<codeline lineno="65"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/>*<sp/>@returns<sp/>0<sp/>upon<sp/>success,<sp/>non-zero<sp/>upon<sp/>failure</highlight></codeline>
+<codeline lineno="67"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><ref refid="a00014_1a01119fe469aa7f8cb34e640b418882f4" kindref="member">IRMP_DLLEXPORT</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00014_1abffd90f0217c7252ebcaa7ba33424cb1" kindref="member">irmp_instance_lock</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/>irmp_instance<sp/>*state,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>wait);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="70"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="71"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Release<sp/>a<sp/>decoder<sp/>instance&apos;s<sp/>lock.</highlight></codeline>
+<codeline lineno="72"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>state<sp/>Reference<sp/>to<sp/>the<sp/>instance&apos;s<sp/>state.</highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="75"><highlight class="comment"><sp/>*<sp/>@returns<sp/>0<sp/>upon<sp/>success,<sp/>non-zero<sp/>upon<sp/>failure</highlight></codeline>
+<codeline lineno="76"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><ref refid="a00014_1a01119fe469aa7f8cb34e640b418882f4" kindref="member">IRMP_DLLEXPORT</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="a00014_1afdb8c7eb854ea49aa36b237ad696d8c9" kindref="member">irmp_instance_unlock</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/>irmp_instance<sp/>*state);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="79"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="80"><highlight class="comment"><sp/>*<sp/>@brief<sp/>IR<sp/>decoder<sp/>result<sp/>data<sp/>at<sp/>the<sp/>library&apos;s<sp/>public<sp/>API.</highlight></codeline>
+<codeline lineno="81"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82" refid="a00145" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="a00145" kindref="compound">irmp_result_data</ref><sp/>{</highlight></codeline>
+<codeline lineno="83" refid="a00145_1a3d20bd393772b4a6a38c82c88159a600" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><ref refid="a00145_1a3d20bd393772b4a6a38c82c88159a600" kindref="member">protocol</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**!&lt;<sp/>protocol,<sp/>e.g.<sp/>NEC_PROTOCOL<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84" refid="a00145_1a4485ea87ed60d4c2409776d01ad4fd92" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="a00145_1a4485ea87ed60d4c2409776d01ad4fd92" kindref="member">protocol_name</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**!&lt;<sp/>name<sp/>of<sp/>the<sp/>protocol<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85" refid="a00145_1a59eda9a871b4e0b3ceb28b6b8e8e3b86" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><ref refid="a00145_1a59eda9a871b4e0b3ceb28b6b8e8e3b86" kindref="member">address</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**!&lt;<sp/>address<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86" refid="a00145_1a6bf9523a9cf83421d244540de7c9d3ad" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><ref refid="a00145_1a6bf9523a9cf83421d244540de7c9d3ad" kindref="member">command</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**!&lt;<sp/>command<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87" refid="a00145_1ab0ae80e8dbb3d91242d095399e66b143" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><ref refid="a00145_1ab0ae80e8dbb3d91242d095399e66b143" kindref="member">flags</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**!&lt;<sp/>flags<sp/>currently<sp/>only<sp/>repetition<sp/>(bit<sp/>0)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88" refid="a00145_1aaf474ecaf3d25cdc845f398ca96143be" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><ref refid="a00145_1aaf474ecaf3d25cdc845f398ca96143be" kindref="member">start_sample</ref>;<sp/><sp/></highlight><highlight class="comment">/**!&lt;<sp/>the<sp/>sampleindex<sp/>there<sp/>the<sp/>detected<sp/>command<sp/>started<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89" refid="a00145_1ab39f932299942202fab9e24130e0b2a1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><ref refid="a00145_1ab39f932299942202fab9e24130e0b2a1" kindref="member">end_sample</ref>;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**!&lt;<sp/>the<sp/>sampleindex<sp/>there<sp/>the<sp/>detected<sp/>command<sp/>ended<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92" refid="a00014_1a2d5e150423fd21ceda41f26d900aef71" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>IRMP_DATA_FLAG_REPETITION<sp/><sp/><sp/><sp/><sp/><sp/><sp/>(1<sp/>&lt;&lt;<sp/>0)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93" refid="a00014_1a1447718c6d780309056cb414f5a5f723" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>IRMP_DATA_FLAG_RELEASE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(1<sp/>&lt;&lt;<sp/>1)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="95"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="96"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Query<sp/>the<sp/>IRMP<sp/>library&apos;s<sp/>configured<sp/>sample<sp/>rate.</highlight></codeline>
+<codeline lineno="97"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="98"><highlight class="comment"><sp/>*<sp/>The<sp/>internally<sp/>used<sp/>sample<sp/>rate<sp/>is<sp/>a<sp/>compile<sp/>time<sp/>option.<sp/>Any<sp/>data</highlight></codeline>
+<codeline lineno="99"><highlight class="comment"><sp/>*<sp/>that<sp/>is<sp/>provided<sp/>at<sp/>runtime<sp/>needs<sp/>to<sp/>match<sp/>this<sp/>rate,<sp/>or<sp/>detection</highlight></codeline>
+<codeline lineno="100"><highlight class="comment"><sp/>*<sp/>will<sp/>fail.</highlight></codeline>
+<codeline lineno="101"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><ref refid="a00014_1a01119fe469aa7f8cb34e640b418882f4" kindref="member">IRMP_DLLEXPORT</ref><sp/>uint32_t<sp/><ref refid="a00014_1abae4f71e81bcf67e6c37ca5d9574e5e5" kindref="member">irmp_get_sample_rate</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="104"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="105"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Reset<sp/>internal<sp/>decoder<sp/>state.</highlight></codeline>
+<codeline lineno="106"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="107"><highlight class="comment"><sp/>*<sp/>This<sp/>must<sp/>be<sp/>called<sp/>before<sp/>data<sp/>processing<sp/>starts.</highlight></codeline>
+<codeline lineno="108"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><ref refid="a00014_1a01119fe469aa7f8cb34e640b418882f4" kindref="member">IRMP_DLLEXPORT</ref><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="a00014_1a1714d353d5990b6829fbc90ca10dd590" kindref="member">irmp_reset_state</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="111"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="112"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Feed<sp/>an<sp/>individual<sp/>sample<sp/>to<sp/>the<sp/>detector.</highlight></codeline>
+<codeline lineno="113"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="114"><highlight class="comment"><sp/>*<sp/>See<sp/>@ref<sp/>irmp_get_result_data()<sp/>for<sp/>result<sp/>retrieval<sp/>when<sp/>detection</highlight></codeline>
+<codeline lineno="115"><highlight class="comment"><sp/>*<sp/>of<sp/>an<sp/>IR<sp/>frame<sp/>completes.<sp/>Make<sp/>sure<sp/>@ref<sp/>irmp_reset_state()<sp/>was</highlight></codeline>
+<codeline lineno="116"><highlight class="comment"><sp/>*<sp/>called<sp/>before<sp/>providing<sp/>the<sp/>first<sp/>sample.</highlight></codeline>
+<codeline lineno="117"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="118"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>sample<sp/>The<sp/>pin<sp/>value<sp/>to<sp/>feed<sp/>to<sp/>the<sp/>detector.</highlight></codeline>
+<codeline lineno="119"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="120"><highlight class="comment"><sp/>*<sp/>@returns<sp/>Non-zero<sp/>when<sp/>an<sp/>IR<sp/>frame<sp/>was<sp/>detected.</highlight></codeline>
+<codeline lineno="121"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><ref refid="a00014_1a01119fe469aa7f8cb34e640b418882f4" kindref="member">IRMP_DLLEXPORT</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00014_1a0683401e72fd7792df71336408a5afca" kindref="member">irmp_add_one_sample</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sample);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>WITH_IRMP_DETECT_BUFFER</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="125"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="126"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Process<sp/>the<sp/>given<sp/>buffer<sp/>until<sp/>an<sp/>IR<sp/>frame<sp/>is<sp/>found.</highlight></codeline>
+<codeline lineno="127"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="128"><highlight class="comment"><sp/>*<sp/>Stops<sp/>at<sp/>the<sp/>first<sp/>detected<sp/>IR<sp/>frame,<sp/>and<sp/>returns<sp/>its<sp/>data.<sp/>Subsequent</highlight></codeline>
+<codeline lineno="129"><highlight class="comment"><sp/>*<sp/>calls<sp/>resume<sp/>processing<sp/>at<sp/>the<sp/>previously<sp/>stopped<sp/>position.<sp/>Make<sp/>sure</highlight></codeline>
+<codeline lineno="130"><highlight class="comment"><sp/>*<sp/>@ref<sp/>irmp_reset_state()<sp/>was<sp/>called<sp/>before<sp/>the<sp/>first<sp/>detect<sp/>call.</highlight></codeline>
+<codeline lineno="131"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="132"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>buf<sp/>Pointer<sp/>to<sp/>the<sp/>data<sp/>buffer.</highlight></codeline>
+<codeline lineno="133"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>len<sp/>Number<sp/>of<sp/>samples<sp/>in<sp/>the<sp/>Buffer.</highlight></codeline>
+<codeline lineno="134"><highlight class="comment"><sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><ref refid="a00014_1a01119fe469aa7f8cb34e640b418882f4" kindref="member">IRMP_DLLEXPORT</ref><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="a00145" kindref="compound">irmp_result_data</ref><sp/>irmp_detect_buffer(const<sp/>uint8_t<sp/>*buf,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>len);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="138"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="139"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Query<sp/>result<sp/>data<sp/>after<sp/>detection<sp/>succeeded.</highlight></codeline>
+<codeline lineno="140"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="141"><highlight class="comment"><sp/>*<sp/>@param[out]<sp/>data<sp/>The<sp/>caller<sp/>provided<sp/>result<sp/>buffer.</highlight></codeline>
+<codeline lineno="142"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="143"><highlight class="comment"><sp/>*<sp/>@returns<sp/>Non-zero<sp/>if<sp/>data<sp/>was<sp/>available,<sp/>zero<sp/>otherwise.</highlight></codeline>
+<codeline lineno="144"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><ref refid="a00014_1a01119fe469aa7f8cb34e640b418882f4" kindref="member">IRMP_DLLEXPORT</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00014_1ac51614b600a56e7d401ddd1d0a16cb35" kindref="member">irmp_get_result_data</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="a00145" kindref="compound">irmp_result_data</ref><sp/>*data);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="147"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="148"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Resolve<sp/>the<sp/>protocol<sp/>identifer<sp/>to<sp/>the<sp/>protocol&apos;s<sp/>name.</highlight></codeline>
+<codeline lineno="149"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="150"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>protocol<sp/>The<sp/>numerical<sp/>identifier.</highlight></codeline>
+<codeline lineno="151"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="152"><highlight class="comment"><sp/>*<sp/>@returns<sp/>A<sp/>pointer<sp/>to<sp/>the<sp/>string<sp/>literal,<sp/>or<sp/>#NULL<sp/>in<sp/>case<sp/>of<sp/>failure.</highlight></codeline>
+<codeline lineno="153"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><ref refid="a00014_1a01119fe469aa7f8cb34e640b418882f4" kindref="member">IRMP_DLLEXPORT</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="a00014_1a46ec5c979b2c97c4e1dc4140c6731caa" kindref="member">irmp_get_protocol_name</ref>(uint32_t<sp/><ref refid="a00145_1a3d20bd393772b4a6a38c82c88159a600" kindref="member">protocol</ref>);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="irmp/irmp-main-sharedlib.h"/>
+  </compounddef>
+</doxygen>

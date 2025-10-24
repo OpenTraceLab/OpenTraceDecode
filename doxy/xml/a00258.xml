@@ -1,0 +1,820 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="a00258" kind="file" language="C++">
+    <compoundname>libopentracedecode.h</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes local="no">glib.h</includes>
+    <includes local="yes">version.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h</label>
+        <link refid="a00258"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>glib.h</label>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+      <node id="4">
+        <label>version.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="a00093" prot="public">otd_decoder</innerclass>
+    <innerclass refid="a00097" prot="public">otd_channel</innerclass>
+    <innerclass refid="a00101" prot="public">otd_decoder_option</innerclass>
+    <innerclass refid="a00105" prot="public">otd_decoder_annotation_row</innerclass>
+    <innerclass refid="a00109" prot="public">otd_decoder_logic_output_channel</innerclass>
+    <innerclass refid="a00113" prot="public">otd_decoder_inst</innerclass>
+    <innerclass refid="a00117" prot="public">otd_pd_output</innerclass>
+    <innerclass refid="a00121" prot="public">otd_proto_data</innerclass>
+    <innerclass refid="a00125" prot="public">otd_proto_data_annotation</innerclass>
+    <innerclass refid="a00129" prot="public">otd_proto_data_binary</innerclass>
+    <innerclass refid="a00133" prot="public">otd_proto_data_logic</innerclass>
+    <innerclass refid="a00137" prot="public">otd_pd_callback</innerclass>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="a00258_1ab6fe8fd245a46558f9f1858611a03522" prot="public" static="no">
+        <name>OTD_API</name>
+        <initializer>__attribute__((visibility(&quot;default&quot;)))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="116" column="12" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="a00258_1a3a90167f4b0b0cb829b5b15e0663af50" prot="public" static="no">
+        <name>OTD_PRIV</name>
+        <initializer>__attribute__((visibility(&quot;hidden&quot;)))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="123" column="12" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="a00258_1a375ed93b6afe588cc8c67b21318e7ebc" prot="public" static="no" strong="no">
+        <type></type>
+        <name>otd_error_code</name>
+        <enumvalue id="a00258_1a375ed93b6afe588cc8c67b21318e7ebcafcf78f6457d3099b0fc89415a3f9eaa5" prot="public">
+          <name>OTD_OK</name>
+          <initializer>=  0</initializer>
+          <briefdescription>
+<para>No error. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="a00258_1a375ed93b6afe588cc8c67b21318e7ebcad6e315777c65836ac7489ddb503aceab" prot="public">
+          <name>OTD_ERR</name>
+          <initializer>= -1</initializer>
+          <briefdescription>
+<para>Generic/unspecified error. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="a00258_1a375ed93b6afe588cc8c67b21318e7ebcabe3955617912cc0e8c0bd3f5e6f62bf7" prot="public">
+          <name>OTD_ERR_MALLOC</name>
+          <initializer>= -2</initializer>
+          <briefdescription>
+<para>Malloc/calloc/realloc error. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="a00258_1a375ed93b6afe588cc8c67b21318e7ebca0b8a159c5ce1e9d1e1d58384820a88d2" prot="public">
+          <name>OTD_ERR_ARG</name>
+          <initializer>= -3</initializer>
+          <briefdescription>
+<para>Function argument error. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="a00258_1a375ed93b6afe588cc8c67b21318e7ebca8d46e8ae400f743d60497fb6d99d4391" prot="public">
+          <name>OTD_ERR_BUG</name>
+          <initializer>= -4</initializer>
+          <briefdescription>
+<para>Errors hinting at internal bugs. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="a00258_1a375ed93b6afe588cc8c67b21318e7ebcaaecfc1f18b22e996112bec32462cb5d5" prot="public">
+          <name>OTD_ERR_PYTHON</name>
+          <initializer>= -5</initializer>
+          <briefdescription>
+<para>Python C API error. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="a00258_1a375ed93b6afe588cc8c67b21318e7ebca0b29f3edc3901606d0cbefa87d49ba20" prot="public">
+          <name>OTD_ERR_DECODERS_DIR</name>
+          <initializer>= -6</initializer>
+          <briefdescription>
+<para>Protocol decoder path invalid. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="a00258_1a375ed93b6afe588cc8c67b21318e7ebca87817509949d26cfd8918eb87b8a4eaa" prot="public">
+          <name>OTD_ERR_TERM_REQ</name>
+          <initializer>= -7</initializer>
+          <briefdescription>
+<para>Termination requested. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Status/error codes returned by libopentracedecode functions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="66" column="1" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="66" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="enum" id="a00258_1aee80ec82069aab48dfe49df7c1e58b9a" prot="public" static="no" strong="no">
+        <type></type>
+        <name>otd_loglevel</name>
+        <enumvalue id="a00258_1aee80ec82069aab48dfe49df7c1e58b9aa183cff4e9715f7dc66d20cf98a895076" prot="public">
+          <name>OTD_LOG_NONE</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+<para>Output no messages at all. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="a00258_1aee80ec82069aab48dfe49df7c1e58b9aaa2835fe74f67cfd14919a140c1bc2e33" prot="public">
+          <name>OTD_LOG_ERR</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+<para>Output error messages. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="a00258_1aee80ec82069aab48dfe49df7c1e58b9aac1b03ffc8f788454fae8c8e8066cba4d" prot="public">
+          <name>OTD_LOG_WARN</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+<para>Output warnings. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="a00258_1aee80ec82069aab48dfe49df7c1e58b9aae4579c3bd1274dfbf8e6fe772c75aa09" prot="public">
+          <name>OTD_LOG_INFO</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+<para>Output informational messages. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="a00258_1aee80ec82069aab48dfe49df7c1e58b9aa5b5f8932b106fd73676b1a1b647e38a2" prot="public">
+          <name>OTD_LOG_DBG</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+<para>Output debug messages. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="a00258_1aee80ec82069aab48dfe49df7c1e58b9aa15fdea0c29121fd82c4b5c830b80b84e" prot="public">
+          <name>OTD_LOG_SPEW</name>
+          <initializer>= 5</initializer>
+          <briefdescription>
+<para>Output very noisy debug messages. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="83" column="1" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="83" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="enum" id="a00258_1a44388b3e4ce610efcd4ee3c9d9c2da2d" prot="public" static="no" strong="no">
+        <type></type>
+        <name>otd_output_type</name>
+        <enumvalue id="a00258_1a44388b3e4ce610efcd4ee3c9d9c2da2daae1f4f3c95d8d9aae78f63327847274b" prot="public">
+          <name>OTD_OUTPUT_ANN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="a00258_1a44388b3e4ce610efcd4ee3c9d9c2da2da4363601f92e85bba9a8f76a4ac6757ea" prot="public">
+          <name>OTD_OUTPUT_PYTHON</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="a00258_1a44388b3e4ce610efcd4ee3c9d9c2da2dae9a8b982c0f77f81f80ecea2b61d9697" prot="public">
+          <name>OTD_OUTPUT_BINARY</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="a00258_1a44388b3e4ce610efcd4ee3c9d9c2da2daa1c49bfb55f9940f79f42c52b20c4689" prot="public">
+          <name>OTD_OUTPUT_LOGIC</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="a00258_1a44388b3e4ce610efcd4ee3c9d9c2da2dae610de52e15b25d64039ea58f961aeef" prot="public">
+          <name>OTD_OUTPUT_META</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="132" column="1" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="132" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="enum" id="a00258_1a2aac880445616b2ec0e990bfbe339936" prot="public" static="no" strong="no">
+        <type></type>
+        <name>otd_configkey</name>
+        <enumvalue id="a00258_1a2aac880445616b2ec0e990bfbe339936a608b9787467bc97355a0038acd9beb86" prot="public">
+          <name>OTD_CONF_SAMPLERATE</name>
+          <initializer>= 10000</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="140" column="1" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="140" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="enum" id="a00258_1ac09b256ebff4fc424b1390c6c396a593" prot="public" static="no" strong="no">
+        <type></type>
+        <name>otd_initial_pin</name>
+        <enumvalue id="a00258_1ac09b256ebff4fc424b1390c6c396a593ac9560c31014e6cc9efc6e1976044da68" prot="public">
+          <name>OTD_INITIAL_PIN_LOW</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="a00258_1ac09b256ebff4fc424b1390c6c396a593aaec5c199150089f754dea5f12a1d0b0f" prot="public">
+          <name>OTD_INITIAL_PIN_HIGH</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="a00258_1ac09b256ebff4fc424b1390c6c396a593a3f1c60f56c59061c7c9d11784b5a8815" prot="public">
+          <name>OTD_INITIAL_PIN_SAME_AS_SAMPLE0</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="211" column="1" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="211" bodyend="215"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="a00258_1a365ddc1ce1879a0f3e1b58555b3198b7" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* otd_pd_output_callback) (struct otd_proto_data *pdata, void *cb_data)</definition>
+        <argsstring>)(struct otd_proto_data *pdata, void *cb_data)</argsstring>
+        <name>otd_pd_output_callback</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="341" column="9" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="341" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="a00258_1a04233bc35d37a1ee72b7b6f7d3677a49" prot="public" static="no">
+        <type>int(*</type>
+        <definition>typedef int(* otd_log_callback) (void *cb_data, int loglevel, const char *format, va_list args)</definition>
+        <argsstring>)(void *cb_data, int loglevel, const char *format, va_list args)</argsstring>
+        <name>otd_log_callback</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="393" column="9" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="393" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <member refid="a00087_1ga67fdfc4ec132b22cec05a0e7bc1ddd84" kind="function"><name>otd_init</name></member>
+      <member refid="a00087_1ga69b20ec5173c2ad80d51b54727b6b07e" kind="function"><name>otd_exit</name></member>
+      <member refid="a00087_1ga3360236fc45072044f24ba1ef274cf0b" kind="function"><name>otd_searchpaths_get</name></member>
+      <member refid="a00088_1ga35b50cd6acbef05e5756312b27002803" kind="function"><name>otd_session_new</name></member>
+      <member refid="a00088_1gad004c3c733af11a5d262f9d12cd4e0fe" kind="function"><name>otd_session_start</name></member>
+      <member refid="a00088_1ga1e23480b9872bddca2b1d502be2e27e0" kind="function"><name>otd_session_metadata_set</name></member>
+      <member refid="a00088_1ga06f225c625d4bed27430fc0bf9940bca" kind="function"><name>otd_session_send</name></member>
+      <member refid="a00088_1ga8654a21446400e6045097e22c28b1869" kind="function"><name>otd_session_send_eof</name></member>
+      <member refid="a00088_1ga00a506b773898e40b801edb5efbcd2e2" kind="function"><name>otd_session_terminate_reset</name></member>
+      <member refid="a00088_1gaff3d623695f72762cc7120228d4bf2b3" kind="function"><name>otd_session_destroy</name></member>
+      <member refid="a00088_1gac32b5d806af220243d84a95c7e655a00" kind="function"><name>otd_pd_output_callback_add</name></member>
+      <member refid="a00083_1gaee447626b718c4de27e703452cba60ad" kind="function"><name>otd_decoder_list</name></member>
+      <member refid="a00083_1gad7e0a74c1ce3f48fa47b1c3ce1255fdf" kind="function"><name>otd_decoder_get_by_id</name></member>
+      <member refid="a00083_1ga11b3869f9e65db787ad73c5c4ebddd2f" kind="function"><name>otd_decoder_load</name></member>
+      <member refid="a00083_1ga70c50e6acd942b4b3aedbc141c3cbf14" kind="function"><name>otd_decoder_doc_get</name></member>
+      <member refid="a00083_1gaa64090de5103a8b6c8a335777d7f0e12" kind="function"><name>otd_decoder_unload</name></member>
+      <member refid="a00083_1ga103f6990d60b3d0686c6d5b55316f5da" kind="function"><name>otd_decoder_load_all</name></member>
+      <member refid="a00083_1ga9552e97b41e89c206aa96aec52ee41e9" kind="function"><name>otd_decoder_unload_all</name></member>
+      <member refid="a00085_1ga465fa07a525a264e429dfbccb2abe3c6" kind="function"><name>otd_inst_option_set</name></member>
+      <member refid="a00085_1gab5a386924fc4ab4a61f0f3b3e7eef0f1" kind="function"><name>otd_inst_channel_set_all</name></member>
+      <member refid="a00085_1ga93239c3c924c6f71393cdcf619ecf67b" kind="function"><name>otd_inst_new</name></member>
+      <member refid="a00085_1ga2d145b7c48e57509dc22988ad0c36a02" kind="function"><name>otd_inst_stack</name></member>
+      <member refid="a00085_1ga85fb36f5ae3affa7f4c89f129f51f637" kind="function"><name>otd_inst_find_by_id</name></member>
+      <member refid="a00085_1ga51c30e41b8b99bc6076bea9bf999303a" kind="function"><name>otd_inst_initial_pins_set_all</name></member>
+      <member refid="a00086_1gae1ea4ba8e876c58351a757407042153b" kind="function"><name>otd_log_loglevel_set</name></member>
+      <member refid="a00086_1ga427dae404bfb3222201fd2915a8ed1f9" kind="function"><name>otd_log_loglevel_get</name></member>
+      <member refid="a00086_1ga0747f5156b7f8988695016aa340c8657" kind="function"><name>otd_log_callback_get</name></member>
+      <member refid="a00086_1ga3795e9e43b613c5419e02d6c8862f1ed" kind="function"><name>otd_log_callback_set</name></member>
+      <member refid="a00086_1ga9e086b71908360eae7ceec45e524d3a8" kind="function"><name>otd_log_callback_set_default</name></member>
+      <member refid="a00084_1ga42a47a76a7c470c86e8a5c283fb0d99f" kind="function"><name>otd_strerror</name></member>
+      <member refid="a00084_1gac90d2f44b06fbfa856f87f7c20c3e2cd" kind="function"><name>otd_strerror_name</name></member>
+      <member refid="a00089_1gaca88af05a0e9d37fcc81f7a05f25ff4f" kind="function"><name>otd_package_version_major_get</name></member>
+      <member refid="a00089_1ga2b514e5c517481dce7060a3a074690e2" kind="function"><name>otd_package_version_minor_get</name></member>
+      <member refid="a00089_1gadec565dc41c4c937a543a6ea3bd94a79" kind="function"><name>otd_package_version_micro_get</name></member>
+      <member refid="a00089_1ga543544071fe659c4e8830a0adf736dd5" kind="function"><name>otd_package_version_string_get</name></member>
+      <member refid="a00089_1gaf70e82cfdb2e6a95a21d24a4ef46843c" kind="function"><name>otd_lib_version_current_get</name></member>
+      <member refid="a00089_1ga59aa4e73fccfdea8aa405fefc84d3891" kind="function"><name>otd_lib_version_revision_get</name></member>
+      <member refid="a00089_1gafeecad1d9783acb153cc0e6f69f5f98d" kind="function"><name>otd_lib_version_age_get</name></member>
+      <member refid="a00089_1gad586aa40dd763ea132c87dd5adebfe28" kind="function"><name>otd_lib_version_string_get</name></member>
+      <member refid="a00089_1gab8b1b7100e1b1a4cfe20ba5607320e35" kind="function"><name>otd_buildinfo_libs_get</name></member>
+      <member refid="a00089_1ga198f95837dba3e3116765bc9f9756a8b" kind="function"><name>otd_buildinfo_host_get</name></member>
+    </sectiondef>
+    <briefdescription>
+<para>The public libopentracedecode header file to be used by frontends. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This is the only file that libopentracedecode users (frontends) are supposed to use and include. There are other header files which get installed with libopentracedecode, but those are not meant to be used directly by frontends.</para>
+<para>The correct way to get/use the libopentracedecode API functions is:</para>
+<para><programlisting filename=".c"><codeline><highlight class="preprocessor">#include<sp/>&lt;libopentracedecode/libopentracedecode.h&gt;</highlight></codeline>
+</programlisting> </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>This<sp/>file<sp/>is<sp/>part<sp/>of<sp/>the<sp/>libopentracedecode<sp/>project.</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(C)<sp/>2010<sp/>Uwe<sp/>Hermann<sp/>&lt;uwe@hermann-uwe.de&gt;</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(C)<sp/>2012<sp/>Bert<sp/>Vermeulen<sp/>&lt;bert@biot.com&gt;</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/>This<sp/>program<sp/>is<sp/>distributed<sp/>in<sp/>the<sp/>hope<sp/>that<sp/>it<sp/>will<sp/>be<sp/>useful,</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>but<sp/>WITHOUT<sp/>ANY<sp/>WARRANTY;<sp/>without<sp/>even<sp/>the<sp/>implied<sp/>warranty<sp/>of</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/>MERCHANTABILITY<sp/>or<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE.<sp/><sp/>See<sp/>the</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>for<sp/>more<sp/>details.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>You<sp/>should<sp/>have<sp/>received<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>along<sp/>with<sp/>this<sp/>program;<sp/>if<sp/>not,<sp/>see<sp/>&lt;http://www.gnu.org/licenses/&gt;.</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>OPENTRACEDECODE_LIBOPENTRACEDECODE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>OPENTRACEDECODE_LIBOPENTRACEDECODE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;glib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="a00165" kindref="compound">otd_session</ref>;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="33"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*<sp/>@file</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*<sp/>The<sp/>public<sp/>libopentracedecode<sp/>header<sp/>file<sp/>to<sp/>be<sp/>used<sp/>by<sp/>frontends.</highlight></codeline>
+<codeline lineno="37"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/>*<sp/>This<sp/>is<sp/>the<sp/>only<sp/>file<sp/>that<sp/>libopentracedecode<sp/>users<sp/>(frontends)<sp/>are<sp/>supposed</highlight></codeline>
+<codeline lineno="39"><highlight class="comment"><sp/>*<sp/>to<sp/>use<sp/>and<sp/>include.<sp/>There<sp/>are<sp/>other<sp/>header<sp/>files<sp/>which<sp/>get<sp/>installed<sp/>with</highlight></codeline>
+<codeline lineno="40"><highlight class="comment"><sp/>*<sp/>libopentracedecode,<sp/>but<sp/>those<sp/>are<sp/>not<sp/>meant<sp/>to<sp/>be<sp/>used<sp/>directly<sp/>by<sp/>frontends.</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/>*<sp/>The<sp/>correct<sp/>way<sp/>to<sp/>get/use<sp/>the<sp/>libopentracedecode<sp/>API<sp/>functions<sp/>is:</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/>*<sp/>@code{.c}</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*<sp/><sp/><sp/>#include<sp/>&lt;libopentracedecode/libopentracedecode.h&gt;</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*<sp/>@endcode</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/>*<sp/>All<sp/>possible<sp/>return<sp/>codes<sp/>of<sp/>libopentracedecode<sp/>functions<sp/>must<sp/>be<sp/>listed<sp/>here.</highlight></codeline>
+<codeline lineno="51"><highlight class="comment"><sp/>*<sp/>Functions<sp/>should<sp/>never<sp/>return<sp/>hardcoded<sp/>numbers<sp/>as<sp/>status,<sp/>but<sp/>rather</highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/>*<sp/>use<sp/>these<sp/>enum<sp/>values.<sp/>All<sp/>error<sp/>codes<sp/>are<sp/>negative<sp/>numbers.</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/>*<sp/>The<sp/>error<sp/>codes<sp/>are<sp/>globally<sp/>unique<sp/>in<sp/>libopentracedecode,<sp/>i.e.<sp/>if<sp/>one<sp/>of<sp/>the</highlight></codeline>
+<codeline lineno="55"><highlight class="comment"><sp/>*<sp/>libopentracedecode<sp/>functions<sp/>returns<sp/>a<sp/>&quot;malloc<sp/>error&quot;<sp/>it<sp/>must<sp/>be<sp/>exactly<sp/>the</highlight></codeline>
+<codeline lineno="56"><highlight class="comment"><sp/>*<sp/>same<sp/>return<sp/>value<sp/>as<sp/>used<sp/>by<sp/>all<sp/>other<sp/>functions<sp/>to<sp/>indicate<sp/>&quot;malloc<sp/>error&quot;.</highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/>*<sp/>There<sp/>must<sp/>be<sp/>no<sp/>functions<sp/>which<sp/>indicate<sp/>two<sp/>different<sp/>errors<sp/>via<sp/>the</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/>*<sp/>same<sp/>return<sp/>code.</highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="60"><highlight class="comment"><sp/>*<sp/>Also,<sp/>for<sp/>compatibility<sp/>reasons,<sp/>no<sp/>defined<sp/>return<sp/>codes<sp/>are<sp/>ever<sp/>removed</highlight></codeline>
+<codeline lineno="61"><highlight class="comment"><sp/>*<sp/>or<sp/>reused<sp/>for<sp/>different<sp/>errors<sp/>later.<sp/>You<sp/>can<sp/>only<sp/>add<sp/>new<sp/>entries<sp/>and</highlight></codeline>
+<codeline lineno="62"><highlight class="comment"><sp/>*<sp/>return<sp/>codes,<sp/>but<sp/>never<sp/>remove<sp/>or<sp/>redefine<sp/>existing<sp/>ones.</highlight></codeline>
+<codeline lineno="63"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="65"><highlight class="comment">/**<sp/>Status/error<sp/>codes<sp/>returned<sp/>by<sp/>libopentracedecode<sp/>functions.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66" refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebc" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebc" kindref="member">otd_error_code</ref><sp/>{</highlight></codeline>
+<codeline lineno="67" refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcafcf78f6457d3099b0fc89415a3f9eaa5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcafcf78f6457d3099b0fc89415a3f9eaa5" kindref="member">OTD_OK</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><sp/>0,<sp/></highlight><highlight class="comment">/**&lt;<sp/>No<sp/>error<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68" refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcad6e315777c65836ac7489ddb503aceab" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcad6e315777c65836ac7489ddb503aceab" kindref="member">OTD_ERR</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>-1,<sp/></highlight><highlight class="comment">/**&lt;<sp/>Generic/unspecified<sp/>error<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69" refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcabe3955617912cc0e8c0bd3f5e6f62bf7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcabe3955617912cc0e8c0bd3f5e6f62bf7" kindref="member">OTD_ERR_MALLOC</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>-2,<sp/></highlight><highlight class="comment">/**&lt;<sp/>Malloc/calloc/realloc<sp/>error<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70" refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebca0b8a159c5ce1e9d1e1d58384820a88d2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebca0b8a159c5ce1e9d1e1d58384820a88d2" kindref="member">OTD_ERR_ARG</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>-3,<sp/></highlight><highlight class="comment">/**&lt;<sp/>Function<sp/>argument<sp/>error<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71" refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebca8d46e8ae400f743d60497fb6d99d4391" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebca8d46e8ae400f743d60497fb6d99d4391" kindref="member">OTD_ERR_BUG</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>-4,<sp/></highlight><highlight class="comment">/**&lt;<sp/>Errors<sp/>hinting<sp/>at<sp/>internal<sp/>bugs<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72" refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcaaecfc1f18b22e996112bec32462cb5d5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcaaecfc1f18b22e996112bec32462cb5d5" kindref="member">OTD_ERR_PYTHON</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>-5,<sp/></highlight><highlight class="comment">/**&lt;<sp/>Python<sp/>C<sp/>API<sp/>error<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73" refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebca0b29f3edc3901606d0cbefa87d49ba20" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebca0b29f3edc3901606d0cbefa87d49ba20" kindref="member">OTD_ERR_DECODERS_DIR</ref><sp/>=<sp/>-6,<sp/></highlight><highlight class="comment">/**&lt;<sp/>Protocol<sp/>decoder<sp/>path<sp/>invalid<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74" refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebca87817509949d26cfd8918eb87b8a4eaa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebca87817509949d26cfd8918eb87b8a4eaa" kindref="member">OTD_ERR_TERM_REQ</ref><sp/><sp/><sp/><sp/><sp/>=<sp/>-7,<sp/></highlight><highlight class="comment">/**&lt;<sp/>Termination<sp/>requested<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="77"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>Note:<sp/>When<sp/>adding<sp/>entries<sp/>here,<sp/>don&apos;t<sp/>forget<sp/>to<sp/>also<sp/>update<sp/>the</highlight></codeline>
+<codeline lineno="78"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>otd_strerror()<sp/>and<sp/>otd_strerror_name()<sp/>functions<sp/>in<sp/>error.c.</highlight></codeline>
+<codeline lineno="79"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>libopentracedecode<sp/>loglevels.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83" refid="a00258_1aee80ec82069aab48dfe49df7c1e58b9a" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="a00258_1aee80ec82069aab48dfe49df7c1e58b9a" kindref="member">otd_loglevel</ref><sp/>{</highlight></codeline>
+<codeline lineno="84" refid="a00258_1aee80ec82069aab48dfe49df7c1e58b9aa183cff4e9715f7dc66d20cf98a895076" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00258_1aee80ec82069aab48dfe49df7c1e58b9aa183cff4e9715f7dc66d20cf98a895076" kindref="member">OTD_LOG_NONE</ref><sp/>=<sp/>0,<sp/></highlight><highlight class="comment">/**&lt;<sp/>Output<sp/>no<sp/>messages<sp/>at<sp/>all.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85" refid="a00258_1aee80ec82069aab48dfe49df7c1e58b9aaa2835fe74f67cfd14919a140c1bc2e33" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00258_1aee80ec82069aab48dfe49df7c1e58b9aaa2835fe74f67cfd14919a140c1bc2e33" kindref="member">OTD_LOG_ERR</ref><sp/><sp/>=<sp/>1,<sp/></highlight><highlight class="comment">/**&lt;<sp/>Output<sp/>error<sp/>messages.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86" refid="a00258_1aee80ec82069aab48dfe49df7c1e58b9aac1b03ffc8f788454fae8c8e8066cba4d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00258_1aee80ec82069aab48dfe49df7c1e58b9aac1b03ffc8f788454fae8c8e8066cba4d" kindref="member">OTD_LOG_WARN</ref><sp/>=<sp/>2,<sp/></highlight><highlight class="comment">/**&lt;<sp/>Output<sp/>warnings.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87" refid="a00258_1aee80ec82069aab48dfe49df7c1e58b9aae4579c3bd1274dfbf8e6fe772c75aa09" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00258_1aee80ec82069aab48dfe49df7c1e58b9aae4579c3bd1274dfbf8e6fe772c75aa09" kindref="member">OTD_LOG_INFO</ref><sp/>=<sp/>3,<sp/></highlight><highlight class="comment">/**&lt;<sp/>Output<sp/>informational<sp/>messages.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88" refid="a00258_1aee80ec82069aab48dfe49df7c1e58b9aa5b5f8932b106fd73676b1a1b647e38a2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00258_1aee80ec82069aab48dfe49df7c1e58b9aa5b5f8932b106fd73676b1a1b647e38a2" kindref="member">OTD_LOG_DBG</ref><sp/><sp/>=<sp/>4,<sp/></highlight><highlight class="comment">/**&lt;<sp/>Output<sp/>debug<sp/>messages.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89" refid="a00258_1aee80ec82069aab48dfe49df7c1e58b9aa15fdea0c29121fd82c4b5c830b80b84e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00258_1aee80ec82069aab48dfe49df7c1e58b9aa15fdea0c29121fd82c4b5c830b80b84e" kindref="member">OTD_LOG_SPEW</ref><sp/>=<sp/>5,<sp/></highlight><highlight class="comment">/**&lt;<sp/>Output<sp/>very<sp/>noisy<sp/>debug<sp/>messages.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="93"><highlight class="comment"><sp/>*<sp/>Use<sp/>OTD_API<sp/>to<sp/>mark<sp/>public<sp/>API<sp/>symbols,<sp/>and<sp/>OTD_PRIV<sp/>for<sp/>private<sp/>symbols.</highlight></codeline>
+<codeline lineno="94"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="95"><highlight class="comment"><sp/>*<sp/>Variables<sp/>and<sp/>functions<sp/>marked<sp/>&apos;static&apos;<sp/>are<sp/>private<sp/>already<sp/>and<sp/>don&apos;t</highlight></codeline>
+<codeline lineno="96"><highlight class="comment"><sp/>*<sp/>need<sp/>OTD_PRIV.<sp/>However,<sp/>functions<sp/>which<sp/>are<sp/>not<sp/>static<sp/>(because<sp/>they<sp/>need</highlight></codeline>
+<codeline lineno="97"><highlight class="comment"><sp/>*<sp/>to<sp/>be<sp/>used<sp/>in<sp/>other<sp/>libopentracedecode-internal<sp/>files)<sp/>but<sp/>are<sp/>also<sp/>not</highlight></codeline>
+<codeline lineno="98"><highlight class="comment"><sp/>*<sp/>meant<sp/>to<sp/>be<sp/>part<sp/>of<sp/>the<sp/>public<sp/>libopentracedecode<sp/>API,<sp/>must<sp/>use<sp/>OTD_PRIV.</highlight></codeline>
+<codeline lineno="99"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="100"><highlight class="comment"><sp/>*<sp/>This<sp/>uses<sp/>the<sp/>&apos;visibility&apos;<sp/>feature<sp/>of<sp/>gcc<sp/>(requires<sp/>gcc<sp/>&gt;=<sp/>4.0).</highlight></codeline>
+<codeline lineno="101"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="102"><highlight class="comment"><sp/>*<sp/>This<sp/>feature<sp/>is<sp/>not<sp/>available<sp/>on<sp/>MinGW/Windows,<sp/>as<sp/>it<sp/>is<sp/>a<sp/>feature<sp/>of</highlight></codeline>
+<codeline lineno="103"><highlight class="comment"><sp/>*<sp/>ELF<sp/>files<sp/>and<sp/>MinGW/Windows<sp/>uses<sp/>PE<sp/>files.</highlight></codeline>
+<codeline lineno="104"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="105"><highlight class="comment"><sp/>*<sp/>Details:<sp/>http://gcc.gnu.org/wiki/Visibility</highlight></codeline>
+<codeline lineno="106"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Marks<sp/>public<sp/>libopentracedecode<sp/>API<sp/>symbols.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined<sp/>_WIN32</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>if<sp/>defined<sp/>DLL_EXPORT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/><sp/>define<sp/>OTD_API<sp/>__declspec(dllexport)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/><sp/>define<sp/>OTD_API<sp/>extern</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116" refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>OTD_API<sp/>__attribute__((visibility(&quot;default&quot;)))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Marks<sp/>private,<sp/>non-public<sp/>libopentracedecode<sp/>symbols<sp/>(not<sp/>part<sp/>of<sp/>the<sp/>API).<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined<sp/>_WIN32</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>OTD_PRIV<sp/></highlight><highlight class="comment">/*<sp/>EMPTY<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123" refid="a00258_1a3a90167f4b0b0cb829b5b15e0663af50" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>OTD_PRIV<sp/>__attribute__((visibility(&quot;hidden&quot;)))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="127"><highlight class="comment"><sp/>*<sp/>When<sp/>adding<sp/>an<sp/>output<sp/>type,<sp/>don&apos;t<sp/>forget<sp/>to...</highlight></codeline>
+<codeline lineno="128"><highlight class="comment"><sp/>*<sp/><sp/><sp/>-<sp/>expose<sp/>it<sp/>to<sp/>PDs<sp/>in<sp/>module_sigrokdecode.c:PyInit_sigrokdecode()</highlight></codeline>
+<codeline lineno="129"><highlight class="comment"><sp/>*<sp/><sp/><sp/>-<sp/>add<sp/>a<sp/>check<sp/>in<sp/>type_decoder.c:Decoder_put()</highlight></codeline>
+<codeline lineno="130"><highlight class="comment"><sp/>*<sp/><sp/><sp/>-<sp/>add<sp/>a<sp/>debug<sp/>string<sp/>in<sp/>type_decoder.c:output_type_name()</highlight></codeline>
+<codeline lineno="131"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132" refid="a00258_1a44388b3e4ce610efcd4ee3c9d9c2da2d" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="a00258_1a44388b3e4ce610efcd4ee3c9d9c2da2d" kindref="member">otd_output_type</ref><sp/>{</highlight></codeline>
+<codeline lineno="133" refid="a00258_1a44388b3e4ce610efcd4ee3c9d9c2da2daae1f4f3c95d8d9aae78f63327847274b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00258_1a44388b3e4ce610efcd4ee3c9d9c2da2daae1f4f3c95d8d9aae78f63327847274b" kindref="member">OTD_OUTPUT_ANN</ref>,</highlight></codeline>
+<codeline lineno="134" refid="a00258_1a44388b3e4ce610efcd4ee3c9d9c2da2da4363601f92e85bba9a8f76a4ac6757ea" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00258_1a44388b3e4ce610efcd4ee3c9d9c2da2da4363601f92e85bba9a8f76a4ac6757ea" kindref="member">OTD_OUTPUT_PYTHON</ref>,</highlight></codeline>
+<codeline lineno="135" refid="a00258_1a44388b3e4ce610efcd4ee3c9d9c2da2dae9a8b982c0f77f81f80ecea2b61d9697" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00258_1a44388b3e4ce610efcd4ee3c9d9c2da2dae9a8b982c0f77f81f80ecea2b61d9697" kindref="member">OTD_OUTPUT_BINARY</ref>,</highlight></codeline>
+<codeline lineno="136" refid="a00258_1a44388b3e4ce610efcd4ee3c9d9c2da2daa1c49bfb55f9940f79f42c52b20c4689" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00258_1a44388b3e4ce610efcd4ee3c9d9c2da2daa1c49bfb55f9940f79f42c52b20c4689" kindref="member">OTD_OUTPUT_LOGIC</ref>,</highlight></codeline>
+<codeline lineno="137" refid="a00258_1a44388b3e4ce610efcd4ee3c9d9c2da2dae610de52e15b25d64039ea58f961aeef" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00258_1a44388b3e4ce610efcd4ee3c9d9c2da2dae610de52e15b25d64039ea58f961aeef" kindref="member">OTD_OUTPUT_META</ref>,</highlight></codeline>
+<codeline lineno="138"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140" refid="a00258_1a2aac880445616b2ec0e990bfbe339936" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="a00258_1a2aac880445616b2ec0e990bfbe339936" kindref="member">otd_configkey</ref><sp/>{</highlight></codeline>
+<codeline lineno="141" refid="a00258_1a2aac880445616b2ec0e990bfbe339936a608b9787467bc97355a0038acd9beb86" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00258_1a2aac880445616b2ec0e990bfbe339936a608b9787467bc97355a0038acd9beb86" kindref="member">OTD_CONF_SAMPLERATE</ref><sp/>=<sp/>10000,</highlight></codeline>
+<codeline lineno="142"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144" refid="a00093" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="a00093" kindref="compound">otd_decoder</ref><sp/>{</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="145"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**<sp/>The<sp/>decoder<sp/>ID.<sp/>Must<sp/>be<sp/>non-NULL<sp/>and<sp/>unique<sp/>for<sp/>all<sp/>decoders.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146" refid="a00093_1a4acdfe2e78e3241194ce047b822141f4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="a00093_1a4acdfe2e78e3241194ce047b822141f4" kindref="member">id</ref>;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="148"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**<sp/>The<sp/>(short)<sp/>decoder<sp/>name.<sp/>Must<sp/>be<sp/>non-NULL.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149" refid="a00093_1ad71875a3a5881d5693711ff6042c029d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="a00093_1ad71875a3a5881d5693711ff6042c029d" kindref="member">name</ref>;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="151"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**<sp/>The<sp/>(long)<sp/>decoder<sp/>name.<sp/>Must<sp/>be<sp/>non-NULL.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152" refid="a00093_1aaae1cb02c0fcd27725fe6120dfddee38" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="a00093_1aaae1cb02c0fcd27725fe6120dfddee38" kindref="member">longname</ref>;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="154"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**<sp/>A<sp/>(short,<sp/>one-line)<sp/>description<sp/>of<sp/>the<sp/>decoder.<sp/>Must<sp/>be<sp/>non-NULL.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155" refid="a00093_1a2fb86e512865e93b363b9b6eb05ba0d2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="a00093_1a2fb86e512865e93b363b9b6eb05ba0d2" kindref="member">desc</ref>;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="157"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="158"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>The<sp/>license<sp/>of<sp/>the<sp/>decoder.<sp/>Valid<sp/>values:<sp/>&quot;gplv2+&quot;,<sp/>&quot;gplv3+&quot;.</highlight></codeline>
+<codeline lineno="159"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>Other<sp/>values<sp/>are<sp/>currently<sp/>not<sp/>allowed.<sp/>Must<sp/>be<sp/>non-NULL.</highlight></codeline>
+<codeline lineno="160"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161" refid="a00093_1ae6161034fe5ad90282d39e1aed98a8c3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="a00093_1ae6161034fe5ad90282d39e1aed98a8c3" kindref="member">license</ref>;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="163"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**<sp/>List<sp/>of<sp/>possible<sp/>decoder<sp/>input<sp/>IDs.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164" refid="a00093_1ad01765fdc44199b5a2d5f8aa873e7fc3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GSList<sp/>*<ref refid="a00093_1ad01765fdc44199b5a2d5f8aa873e7fc3" kindref="member">inputs</ref>;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="166"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**<sp/>List<sp/>of<sp/>possible<sp/>decoder<sp/>output<sp/>IDs.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167" refid="a00093_1a06a1704295b5bd7b49fa6951069011d2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GSList<sp/>*<ref refid="a00093_1a06a1704295b5bd7b49fa6951069011d2" kindref="member">outputs</ref>;</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="169"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**<sp/>List<sp/>of<sp/>tags<sp/>associated<sp/>with<sp/>this<sp/>decoder.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170" refid="a00093_1a36dbafdfb2ea3476504f64ab38c5c906" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GSList<sp/>*<ref refid="a00093_1a36dbafdfb2ea3476504f64ab38c5c906" kindref="member">tags</ref>;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="172"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**<sp/>List<sp/>of<sp/>channels<sp/>required<sp/>by<sp/>this<sp/>decoder.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="173" refid="a00093_1a791a5fc555163f0e750fc8270c5dd33a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GSList<sp/>*<ref refid="a00093_1a791a5fc555163f0e750fc8270c5dd33a" kindref="member">channels</ref>;</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="175"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**<sp/>List<sp/>of<sp/>optional<sp/>channels<sp/>for<sp/>this<sp/>decoder.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="176" refid="a00093_1a00aa7b406a328a493b154c5af2f0db55" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GSList<sp/>*<ref refid="a00093_1a00aa7b406a328a493b154c5af2f0db55" kindref="member">opt_channels</ref>;</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="178"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="179"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>List<sp/>of<sp/>annotation<sp/>classes.<sp/>Each<sp/>list<sp/>item<sp/>is<sp/>a<sp/>GSList<sp/>itself,<sp/>with</highlight></codeline>
+<codeline lineno="180"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>two<sp/>NUL-terminated<sp/>strings:<sp/>name<sp/>and<sp/>description.</highlight></codeline>
+<codeline lineno="181"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="182" refid="a00093_1a954903cd8fc70507645b86518b4ec859" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GSList<sp/>*<ref refid="a00093_1a954903cd8fc70507645b86518b4ec859" kindref="member">annotations</ref>;</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="184"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="185"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>List<sp/>of<sp/>annotation<sp/>rows<sp/>(row<sp/>items:<sp/>id,<sp/>description,<sp/>and<sp/>a<sp/>list</highlight></codeline>
+<codeline lineno="186"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>of<sp/>annotation<sp/>classes<sp/>belonging<sp/>to<sp/>this<sp/>row).</highlight></codeline>
+<codeline lineno="187"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="188" refid="a00093_1a2da05c76f45b19401516a3f1b2233cae" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GSList<sp/>*<ref refid="a00093_1a2da05c76f45b19401516a3f1b2233cae" kindref="member">annotation_rows</ref>;</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="190"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="191"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>List<sp/>of<sp/>binary<sp/>classes.<sp/>Each<sp/>list<sp/>item<sp/>is<sp/>a<sp/>GSList<sp/>itself,<sp/>with</highlight></codeline>
+<codeline lineno="192"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>two<sp/>NUL-terminated<sp/>strings:<sp/>name<sp/>and<sp/>description.</highlight></codeline>
+<codeline lineno="193"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="194" refid="a00093_1aff759e252ba8a96a667929d9a1f5e115" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GSList<sp/>*<ref refid="a00093_1aff759e252ba8a96a667929d9a1f5e115" kindref="member">binary</ref>;</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="196"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="197"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>List<sp/>of<sp/>logic<sp/>output<sp/>channels<sp/>(item:<sp/>id,<sp/>description).</highlight></codeline>
+<codeline lineno="198"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="199" refid="a00093_1aff2c0530f7a02a3e27fe77d8f68e7a88" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GSList<sp/>*<ref refid="a00093_1aff2c0530f7a02a3e27fe77d8f68e7a88" kindref="member">logic_output_channels</ref>;</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="201"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**<sp/>List<sp/>of<sp/>decoder<sp/>options.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="202" refid="a00093_1a771ab5da20cee67b943cfe74da1302f1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GSList<sp/>*<ref refid="a00093_1a771ab5da20cee67b943cfe74da1302f1" kindref="member">options</ref>;</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="204"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**<sp/>Python<sp/>module.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="205" refid="a00093_1a47e999081c25f323a9917d11b4583bb9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<ref refid="a00093_1a47e999081c25f323a9917d11b4583bb9" kindref="member">py_mod</ref>;</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="207"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**<sp/>sigrokdecode.Decoder<sp/>class.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="208" refid="a00093_1a3594f95387546b72c7b6a7d5a09c3de8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<ref refid="a00093_1a3594f95387546b72c7b6a7d5a09c3de8" kindref="member">py_dec</ref>;</highlight></codeline>
+<codeline lineno="209"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight></codeline>
+<codeline lineno="211" refid="a00258_1ac09b256ebff4fc424b1390c6c396a593" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="a00258_1ac09b256ebff4fc424b1390c6c396a593" kindref="member">otd_initial_pin</ref><sp/>{</highlight></codeline>
+<codeline lineno="212" refid="a00258_1ac09b256ebff4fc424b1390c6c396a593ac9560c31014e6cc9efc6e1976044da68" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00258_1ac09b256ebff4fc424b1390c6c396a593ac9560c31014e6cc9efc6e1976044da68" kindref="member">OTD_INITIAL_PIN_LOW</ref>,</highlight></codeline>
+<codeline lineno="213" refid="a00258_1ac09b256ebff4fc424b1390c6c396a593aaec5c199150089f754dea5f12a1d0b0f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00258_1ac09b256ebff4fc424b1390c6c396a593aaec5c199150089f754dea5f12a1d0b0f" kindref="member">OTD_INITIAL_PIN_HIGH</ref>,</highlight></codeline>
+<codeline lineno="214" refid="a00258_1ac09b256ebff4fc424b1390c6c396a593a3f1c60f56c59061c7c9d11784b5a8815" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00258_1ac09b256ebff4fc424b1390c6c396a593a3f1c60f56c59061c7c9d11784b5a8815" kindref="member">OTD_INITIAL_PIN_SAME_AS_SAMPLE0</ref>,</highlight></codeline>
+<codeline lineno="215"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="217"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="218"><highlight class="comment"><sp/>*<sp/>Structure<sp/>which<sp/>contains<sp/>information<sp/>about<sp/>one<sp/>protocol<sp/>decoder<sp/>channel.</highlight></codeline>
+<codeline lineno="219"><highlight class="comment"><sp/>*<sp/>For<sp/>example,<sp/>I2C<sp/>has<sp/>two<sp/>channels,<sp/>SDA<sp/>and<sp/>SCL.</highlight></codeline>
+<codeline lineno="220"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="221" refid="a00097" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="a00097" kindref="compound">otd_channel</ref><sp/>{</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="222"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**<sp/>The<sp/>ID<sp/>of<sp/>the<sp/>channel.<sp/>Must<sp/>be<sp/>non-NULL.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="223" refid="a00097_1a33b5433c4425cbd3fb83f396752db1d4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="a00097_1a33b5433c4425cbd3fb83f396752db1d4" kindref="member">id</ref>;</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="224"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**<sp/>The<sp/>name<sp/>of<sp/>the<sp/>channel.<sp/>Must<sp/>not<sp/>be<sp/>NULL.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="225" refid="a00097_1aa810392451f9448f07c06d7b1d6f5da0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="a00097_1aa810392451f9448f07c06d7b1d6f5da0" kindref="member">name</ref>;</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="226"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**<sp/>The<sp/>description<sp/>of<sp/>the<sp/>channel.<sp/>Must<sp/>not<sp/>be<sp/>NULL.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="227" refid="a00097_1ac928e32777af920921db3b95f0d2a0b8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="a00097_1ac928e32777af920921db3b95f0d2a0b8" kindref="member">desc</ref>;</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="228"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**<sp/>The<sp/>index<sp/>of<sp/>the<sp/>channel,<sp/>i.e.<sp/>its<sp/>order<sp/>in<sp/>the<sp/>list<sp/>of<sp/>channels.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="229" refid="a00097_1a805a57b9d8c7f3045c5bebbc90be5ef8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00097_1a805a57b9d8c7f3045c5bebbc90be5ef8" kindref="member">order</ref>;</highlight></codeline>
+<codeline lineno="230"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight></codeline>
+<codeline lineno="232" refid="a00101" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="a00101" kindref="compound">otd_decoder_option</ref><sp/>{</highlight></codeline>
+<codeline lineno="233" refid="a00101_1a74411014f7bc54784d79052d777ce456" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="a00101_1a74411014f7bc54784d79052d777ce456" kindref="member">id</ref>;</highlight></codeline>
+<codeline lineno="234" refid="a00101_1accad375b6c04f52ff4e46ae2df331fbe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="a00101_1accad375b6c04f52ff4e46ae2df331fbe" kindref="member">desc</ref>;</highlight></codeline>
+<codeline lineno="235" refid="a00101_1a36eed8e337e813943cada4d7f74b7ea7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GVariant<sp/>*<ref refid="a00101_1a36eed8e337e813943cada4d7f74b7ea7" kindref="member">def</ref>;</highlight></codeline>
+<codeline lineno="236" refid="a00101_1a1870efedbe48c47f52048d77fbb9000c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GSList<sp/>*<ref refid="a00101_1a1870efedbe48c47f52048d77fbb9000c" kindref="member">values</ref>;</highlight></codeline>
+<codeline lineno="237"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"></highlight></codeline>
+<codeline lineno="239" refid="a00105" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="a00105" kindref="compound">otd_decoder_annotation_row</ref><sp/>{</highlight></codeline>
+<codeline lineno="240" refid="a00105_1a309469b3e4637d00309567f4e9b19c5f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="a00105_1a309469b3e4637d00309567f4e9b19c5f" kindref="member">id</ref>;</highlight></codeline>
+<codeline lineno="241" refid="a00105_1a9635599910150662bfbc431d813b785f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="a00105_1a9635599910150662bfbc431d813b785f" kindref="member">desc</ref>;</highlight></codeline>
+<codeline lineno="242" refid="a00105_1af21e156fc6d3ab6deee2234e26f3c859" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GSList<sp/>*<ref refid="a00105_1af21e156fc6d3ab6deee2234e26f3c859" kindref="member">ann_classes</ref>;</highlight></codeline>
+<codeline lineno="243"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"></highlight></codeline>
+<codeline lineno="245" refid="a00109" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="a00109" kindref="compound">otd_decoder_logic_output_channel</ref><sp/>{</highlight></codeline>
+<codeline lineno="246" refid="a00109_1a36ea80664eea66fb837342b32ededbd1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="a00109_1a36ea80664eea66fb837342b32ededbd1" kindref="member">id</ref>;</highlight></codeline>
+<codeline lineno="247" refid="a00109_1a927462f334c8dd6ea5970602fa6c41ad" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="a00109_1a927462f334c8dd6ea5970602fa6c41ad" kindref="member">desc</ref>;</highlight></codeline>
+<codeline lineno="248"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"></highlight></codeline>
+<codeline lineno="250" refid="a00113" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="a00113" kindref="compound">otd_decoder_inst</ref><sp/>{</highlight></codeline>
+<codeline lineno="251" refid="a00113_1a3f7cddd503846ba899d5f46fbdff36b6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="a00093" kindref="compound">otd_decoder</ref><sp/>*<ref refid="a00113_1a3f7cddd503846ba899d5f46fbdff36b6" kindref="member">decoder</ref>;</highlight></codeline>
+<codeline lineno="252" refid="a00113_1a8f310ba6956102b88003d3e7a433f2ef" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="a00165" kindref="compound">otd_session</ref><sp/>*<ref refid="a00113_1a8f310ba6956102b88003d3e7a433f2ef" kindref="member">sess</ref>;</highlight></codeline>
+<codeline lineno="253" refid="a00113_1a81ec9ee5165f12f9079683bcf57cf4cd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<ref refid="a00113_1a81ec9ee5165f12f9079683bcf57cf4cd" kindref="member">py_inst</ref>;</highlight></codeline>
+<codeline lineno="254" refid="a00113_1abde64b952bdf7918589230fe1b6cd124" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="a00113_1abde64b952bdf7918589230fe1b6cd124" kindref="member">inst_id</ref>;</highlight></codeline>
+<codeline lineno="255" refid="a00113_1a26a270791d5d906dd7e771a9a92843c9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GSList<sp/>*<ref refid="a00113_1a26a270791d5d906dd7e771a9a92843c9" kindref="member">pd_output</ref>;</highlight></codeline>
+<codeline lineno="256" refid="a00113_1ae5ade9bfe37f0f19cb4873264a0770ac" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00113_1ae5ade9bfe37f0f19cb4873264a0770ac" kindref="member">dec_num_channels</ref>;</highlight></codeline>
+<codeline lineno="257" refid="a00113_1a70113106efa4f1a7e3c08fc1a94c52b3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*<ref refid="a00113_1a70113106efa4f1a7e3c08fc1a94c52b3" kindref="member">dec_channelmap</ref>;</highlight></codeline>
+<codeline lineno="258" refid="a00113_1a2fbe8e3d4014000dc83066c064c573e5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00113_1a2fbe8e3d4014000dc83066c064c573e5" kindref="member">data_unitsize</ref>;</highlight></codeline>
+<codeline lineno="259" refid="a00113_1ac5df4ad4c63cdada014c2fc86f74accb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/>*<ref refid="a00113_1ac5df4ad4c63cdada014c2fc86f74accb" kindref="member">channel_samples</ref>;</highlight></codeline>
+<codeline lineno="260" refid="a00113_1a0513a08c7294e76850febc56ba372187" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GSList<sp/>*<ref refid="a00113_1a0513a08c7294e76850febc56ba372187" kindref="member">next_di</ref>;</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="262"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**<sp/>List<sp/>of<sp/>conditions<sp/>a<sp/>PD<sp/>wants<sp/>to<sp/>wait<sp/>for.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="263" refid="a00113_1a14f2d86acd8cce0b3562f6eac77a8135" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GSList<sp/>*<ref refid="a00113_1a14f2d86acd8cce0b3562f6eac77a8135" kindref="member">condition_list</ref>;</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="265"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**<sp/>Array<sp/>of<sp/>booleans<sp/>denoting<sp/>which<sp/>conditions<sp/>matched.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="266" refid="a00113_1abfda650553b54d3d44fdf10fa501dc3a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GArray<sp/>*<ref refid="a00113_1abfda650553b54d3d44fdf10fa501dc3a" kindref="member">match_array</ref>;</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="268"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**<sp/>Absolute<sp/>start<sp/>sample<sp/>number.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="269" refid="a00113_1acb8e6b509a2959427a0cce8645ddeb20" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="a00113_1acb8e6b509a2959427a0cce8645ddeb20" kindref="member">abs_start_samplenum</ref>;</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="271"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**<sp/>Absolute<sp/>end<sp/>sample<sp/>number.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="272" refid="a00113_1a21041f21583e4260a07449dc1612a8ea" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="a00113_1a21041f21583e4260a07449dc1612a8ea" kindref="member">abs_end_samplenum</ref>;</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="274"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**<sp/>Pointer<sp/>to<sp/>the<sp/>buffer/chunk<sp/>of<sp/>input<sp/>samples.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="275" refid="a00113_1ac5e48df7922126d6bbce1364d3c94ffe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/>*<ref refid="a00113_1ac5e48df7922126d6bbce1364d3c94ffe" kindref="member">inbuf</ref>;</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="277"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**<sp/>Length<sp/>(in<sp/>bytes)<sp/>of<sp/>the<sp/>input<sp/>sample<sp/>buffer.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="278" refid="a00113_1af5d715e676e52b289de4b9692ccd0d01" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="a00113_1af5d715e676e52b289de4b9692ccd0d01" kindref="member">inbuflen</ref>;</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="280"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**<sp/>Absolute<sp/>current<sp/>samplenumber.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="281" refid="a00113_1aa5f6bb4a9f66843b74866b5697f888ca" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="a00113_1aa5f6bb4a9f66843b74866b5697f888ca" kindref="member">abs_cur_samplenum</ref>;</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="283"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**<sp/>Array<sp/>of<sp/>&quot;old&quot;<sp/>(previous<sp/>sample)<sp/>pin<sp/>values.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="284" refid="a00113_1aa1c3320e468b9dc8c8c72ecf8317995e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GArray<sp/>*<ref refid="a00113_1aa1c3320e468b9dc8c8c72ecf8317995e" kindref="member">old_pins_array</ref>;</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="286"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**<sp/>Handle<sp/>for<sp/>this<sp/>PD<sp/>stack&apos;s<sp/>worker<sp/>thread.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="287" refid="a00113_1a8f0d222a1ee6d9293e05b8d8b8417938" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GThread<sp/>*<ref refid="a00113_1a8f0d222a1ee6d9293e05b8d8b8417938" kindref="member">thread_handle</ref>;</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="289"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**<sp/>Indicates<sp/>whether<sp/>new<sp/>samples<sp/>are<sp/>available<sp/>for<sp/>processing.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="290" refid="a00113_1a045375c6886c8508d2057ceb402bd246" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gboolean<sp/><ref refid="a00113_1a045375c6886c8508d2057ceb402bd246" kindref="member">got_new_samples</ref>;</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="292"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**<sp/>Indicates<sp/>whether<sp/>the<sp/>worker<sp/>thread<sp/>has<sp/>handled<sp/>all<sp/>samples.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="293" refid="a00113_1a974ca6038f2782e28aa9273073db7b7f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gboolean<sp/><ref refid="a00113_1a974ca6038f2782e28aa9273073db7b7f" kindref="member">handled_all_samples</ref>;</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="295"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**<sp/>Requests<sp/>termination<sp/>of<sp/>wait()<sp/>and<sp/>decode().<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="296" refid="a00113_1a7f0afc17aaf2b3dad6885c2636e5d2cb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gboolean<sp/><ref refid="a00113_1a7f0afc17aaf2b3dad6885c2636e5d2cb" kindref="member">want_wait_terminate</ref>;</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="298"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**<sp/>Requests<sp/>that<sp/>.wait()<sp/>terminates<sp/>a<sp/>Python<sp/>iteration.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="299" refid="a00113_1af4d0628e6d7341c9cd64fb2c7f58798b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gboolean<sp/><ref refid="a00113_1af4d0628e6d7341c9cd64fb2c7f58798b" kindref="member">communicate_eof</ref>;</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="301"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**<sp/>Indicates<sp/>the<sp/>current<sp/>state<sp/>of<sp/>the<sp/>decoder<sp/>stack.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="302" refid="a00113_1a9b5ac5ebbf789c6c00537460a20d9068" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00113_1a9b5ac5ebbf789c6c00537460a20d9068" kindref="member">decoder_state</ref>;</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"></highlight></codeline>
+<codeline lineno="304" refid="a00113_1aa6330fb8d39f3192cb6cf3ec63ceac19" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GCond<sp/><ref refid="a00113_1aa6330fb8d39f3192cb6cf3ec63ceac19" kindref="member">got_new_samples_cond</ref>;</highlight></codeline>
+<codeline lineno="305" refid="a00113_1a369833301696288db4a2201f44dc4c3e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GCond<sp/><ref refid="a00113_1a369833301696288db4a2201f44dc4c3e" kindref="member">handled_all_samples_cond</ref>;</highlight></codeline>
+<codeline lineno="306" refid="a00113_1a0b14c71c1990b9d61c3d557b25dc96b4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GMutex<sp/><ref refid="a00113_1a0b14c71c1990b9d61c3d557b25dc96b4" kindref="member">data_mutex</ref>;</highlight></codeline>
+<codeline lineno="307"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"></highlight></codeline>
+<codeline lineno="309" refid="a00117" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="a00117" kindref="compound">otd_pd_output</ref><sp/>{</highlight></codeline>
+<codeline lineno="310" refid="a00117_1af81b2abd5de86d24c60dde95bac23059" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00117_1af81b2abd5de86d24c60dde95bac23059" kindref="member">pdo_id</ref>;</highlight></codeline>
+<codeline lineno="311" refid="a00117_1a620f88dad4a874d0d402569ccd0d075b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00117_1a620f88dad4a874d0d402569ccd0d075b" kindref="member">output_type</ref>;</highlight></codeline>
+<codeline lineno="312" refid="a00117_1a5b8cc909c968fde6aa508c203dd68b29" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="a00113" kindref="compound">otd_decoder_inst</ref><sp/>*<ref refid="a00117_1a5b8cc909c968fde6aa508c203dd68b29" kindref="member">di</ref>;</highlight></codeline>
+<codeline lineno="313" refid="a00117_1abd149710bf6058bd5721294cd80ba543" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="a00117_1abd149710bf6058bd5721294cd80ba543" kindref="member">proto_id</ref>;</highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Only<sp/>used<sp/>for<sp/>OUTPUT_META.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="315" refid="a00117_1a03e4f0f029e1f21a9e1b8cb9f0b0b41d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>GVariantType<sp/>*<ref refid="a00117_1a03e4f0f029e1f21a9e1b8cb9f0b0b41d" kindref="member">meta_type</ref>;</highlight></codeline>
+<codeline lineno="316" refid="a00117_1a7d22814be62ef67c99d55c49c83d28b4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="a00117_1a7d22814be62ef67c99d55c49c83d28b4" kindref="member">meta_name</ref>;</highlight></codeline>
+<codeline lineno="317" refid="a00117_1a587dd76fa4ce52312d026b69074ec0f5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="a00117_1a587dd76fa4ce52312d026b69074ec0f5" kindref="member">meta_descr</ref>;</highlight></codeline>
+<codeline lineno="318"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"></highlight></codeline>
+<codeline lineno="320" refid="a00121" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="a00121" kindref="compound">otd_proto_data</ref><sp/>{</highlight></codeline>
+<codeline lineno="321" refid="a00121_1ade6ffbe939e54a453d7874b76d5c02f2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="a00121_1ade6ffbe939e54a453d7874b76d5c02f2" kindref="member">start_sample</ref>;</highlight></codeline>
+<codeline lineno="322" refid="a00121_1aec5560fb1ff92563b7387556f20a48b7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="a00121_1aec5560fb1ff92563b7387556f20a48b7" kindref="member">end_sample</ref>;</highlight></codeline>
+<codeline lineno="323" refid="a00121_1a28c39d4182b8716c55549822559a561c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="a00117" kindref="compound">otd_pd_output</ref><sp/>*<ref refid="a00121_1a28c39d4182b8716c55549822559a561c" kindref="member">pdo</ref>;</highlight></codeline>
+<codeline lineno="324" refid="a00121_1a8b96fc5bce291995ea6b2cc47cefc174" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<ref refid="a00121_1a8b96fc5bce291995ea6b2cc47cefc174" kindref="member">data</ref>;</highlight></codeline>
+<codeline lineno="325"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="326" refid="a00125" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="a00125" kindref="compound">otd_proto_data_annotation</ref><sp/>{</highlight></codeline>
+<codeline lineno="327" refid="a00125_1a5b4182bbec3950bbf9ad11f5c6ec984c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00125_1a5b4182bbec3950bbf9ad11f5c6ec984c" kindref="member">ann_class</ref>;<sp/></highlight><highlight class="comment">/*<sp/>Index<sp/>into<sp/>&quot;struct<sp/>otd_decoder&quot;-&gt;annotations.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="328" refid="a00125_1a708aef2a2cc853a69efeeb7ba38fbfb8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**<ref refid="a00125_1a708aef2a2cc853a69efeeb7ba38fbfb8" kindref="member">ann_text</ref>;</highlight></codeline>
+<codeline lineno="329"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="330" refid="a00129" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="a00129" kindref="compound">otd_proto_data_binary</ref><sp/>{</highlight></codeline>
+<codeline lineno="331" refid="a00129_1a2ef1c5f82c6675d0ae0fbec75d76ec00" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00129_1a2ef1c5f82c6675d0ae0fbec75d76ec00" kindref="member">bin_class</ref>;<sp/></highlight><highlight class="comment">/*<sp/>Index<sp/>into<sp/>&quot;struct<sp/>otd_decoder&quot;-&gt;binary.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="332" refid="a00129_1a560824dc8e1b8a158f33c9b48409e161" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="a00129_1a560824dc8e1b8a158f33c9b48409e161" kindref="member">size</ref>;</highlight></codeline>
+<codeline lineno="333" refid="a00129_1aae4589e82ffd01ba2bee00af7159a396" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/>*<ref refid="a00129_1aae4589e82ffd01ba2bee00af7159a396" kindref="member">data</ref>;</highlight></codeline>
+<codeline lineno="334"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="335" refid="a00133" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="a00133" kindref="compound">otd_proto_data_logic</ref><sp/>{</highlight></codeline>
+<codeline lineno="336" refid="a00133_1a04bf3fd3b3c4162efcd72414df15bbe0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00133_1a04bf3fd3b3c4162efcd72414df15bbe0" kindref="member">logic_group</ref>;</highlight></codeline>
+<codeline lineno="337" refid="a00133_1aaf9fbd38d002f505de66dfc67a44b565" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="a00133_1aaf9fbd38d002f505de66dfc67a44b565" kindref="member">repeat_count</ref>;<sp/></highlight><highlight class="comment">/*<sp/>Number<sp/>of<sp/>times<sp/>the<sp/>value<sp/>in<sp/>data<sp/>was<sp/>repeated.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="338" refid="a00133_1a192b4fc500555ad69d684ab0ac916a41" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/>*<ref refid="a00133_1a192b4fc500555ad69d684ab0ac916a41" kindref="member">data</ref>;<sp/></highlight><highlight class="comment">/*<sp/>Bitfield<sp/>containing<sp/>the<sp/>states<sp/>of<sp/>the<sp/>logic<sp/>outputs<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="339"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="340"><highlight class="normal"></highlight></codeline>
+<codeline lineno="341" refid="a00258_1a365ddc1ce1879a0f3e1b58555b3198b7" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*<ref refid="a00258_1a365ddc1ce1879a0f3e1b58555b3198b7" kindref="member">otd_pd_output_callback</ref>)(</highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="a00121" kindref="compound">otd_proto_data</ref><sp/>*pdata,</highlight></codeline>
+<codeline lineno="342"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*cb_data);</highlight></codeline>
+<codeline lineno="343"><highlight class="normal"></highlight></codeline>
+<codeline lineno="344" refid="a00137" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="a00137" kindref="compound">otd_pd_callback</ref><sp/>{</highlight></codeline>
+<codeline lineno="345" refid="a00137_1a709db7bad3db08a885de0200909ea285" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00137_1a709db7bad3db08a885de0200909ea285" kindref="member">output_type</ref>;</highlight></codeline>
+<codeline lineno="346" refid="a00137_1abafc61744ecdc1d64190587ebbb13f2f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00261_1a365ddc1ce1879a0f3e1b58555b3198b7" kindref="member">otd_pd_output_callback</ref><sp/><ref refid="a00137_1abafc61744ecdc1d64190587ebbb13f2f" kindref="member">cb</ref>;</highlight></codeline>
+<codeline lineno="347" refid="a00137_1afdf5e41086287a8d3f9a154588e5de43" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<ref refid="a00137_1afdf5e41086287a8d3f9a154588e5de43" kindref="member">cb_data</ref>;</highlight></codeline>
+<codeline lineno="348"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="349"><highlight class="normal"></highlight></codeline>
+<codeline lineno="350"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>srd.c<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="351"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00087_1ga67fdfc4ec132b22cec05a0e7bc1ddd84" kindref="member">otd_init</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*path);</highlight></codeline>
+<codeline lineno="352"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00087_1ga69b20ec5173c2ad80d51b54727b6b07e" kindref="member">otd_exit</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="353"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/>GSList<sp/>*<ref refid="a00087_1ga3360236fc45072044f24ba1ef274cf0b" kindref="member">otd_searchpaths_get</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="354"><highlight class="normal"></highlight></codeline>
+<codeline lineno="355"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>session.c<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="356"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00088_1ga35b50cd6acbef05e5756312b27002803" kindref="member">otd_session_new</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="a00165" kindref="compound">otd_session</ref><sp/>**sess);</highlight></codeline>
+<codeline lineno="357"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00088_1gad004c3c733af11a5d262f9d12cd4e0fe" kindref="member">otd_session_start</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="a00165" kindref="compound">otd_session</ref><sp/>*sess);</highlight></codeline>
+<codeline lineno="358"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00088_1ga1e23480b9872bddca2b1d502be2e27e0" kindref="member">otd_session_metadata_set</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="a00165" kindref="compound">otd_session</ref><sp/>*sess,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>key,</highlight></codeline>
+<codeline lineno="359"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GVariant<sp/>*data);</highlight></codeline>
+<codeline lineno="360"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00088_1ga06f225c625d4bed27430fc0bf9940bca" kindref="member">otd_session_send</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="a00165" kindref="compound">otd_session</ref><sp/>*sess,</highlight></codeline>
+<codeline lineno="361"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/>abs_start_samplenum,<sp/>uint64_t<sp/>abs_end_samplenum,</highlight></codeline>
+<codeline lineno="362"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/>*inbuf,<sp/>uint64_t<sp/>inbuflen,<sp/>uint64_t<sp/>unitsize);</highlight></codeline>
+<codeline lineno="363"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00088_1ga8654a21446400e6045097e22c28b1869" kindref="member">otd_session_send_eof</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="a00165" kindref="compound">otd_session</ref><sp/>*sess);</highlight></codeline>
+<codeline lineno="364"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00088_1ga00a506b773898e40b801edb5efbcd2e2" kindref="member">otd_session_terminate_reset</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="a00165" kindref="compound">otd_session</ref><sp/>*sess);</highlight></codeline>
+<codeline lineno="365"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00088_1gaff3d623695f72762cc7120228d4bf2b3" kindref="member">otd_session_destroy</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="a00165" kindref="compound">otd_session</ref><sp/>*sess);</highlight></codeline>
+<codeline lineno="366"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00088_1gac32b5d806af220243d84a95c7e655a00" kindref="member">otd_pd_output_callback_add</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="a00165" kindref="compound">otd_session</ref><sp/>*sess,</highlight></codeline>
+<codeline lineno="367"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>output_type,<sp/><ref refid="a00258_1a365ddc1ce1879a0f3e1b58555b3198b7" kindref="member">otd_pd_output_callback</ref><sp/>cb,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*cb_data);</highlight></codeline>
+<codeline lineno="368"><highlight class="normal"></highlight></codeline>
+<codeline lineno="369"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>decoder.c<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="370"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>GSList<sp/>*<ref refid="a00083_1gaee447626b718c4de27e703452cba60ad" kindref="member">otd_decoder_list</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="371"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="a00093" kindref="compound">otd_decoder</ref><sp/>*<ref refid="a00083_1gad7e0a74c1ce3f48fa47b1c3ce1255fdf" kindref="member">otd_decoder_get_by_id</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="372"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00083_1ga11b3869f9e65db787ad73c5c4ebddd2f" kindref="member">otd_decoder_load</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="a00093_1ad71875a3a5881d5693711ff6042c029d" kindref="member">name</ref>);</highlight></codeline>
+<codeline lineno="373"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="a00083_1ga70c50e6acd942b4b3aedbc141c3cbf14" kindref="member">otd_decoder_doc_get</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="a00093" kindref="compound">otd_decoder</ref><sp/>*dec);</highlight></codeline>
+<codeline lineno="374"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00083_1gaa64090de5103a8b6c8a335777d7f0e12" kindref="member">otd_decoder_unload</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="a00093" kindref="compound">otd_decoder</ref><sp/>*dec);</highlight></codeline>
+<codeline lineno="375"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00083_1ga103f6990d60b3d0686c6d5b55316f5da" kindref="member">otd_decoder_load_all</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="376"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00083_1ga9552e97b41e89c206aa96aec52ee41e9" kindref="member">otd_decoder_unload_all</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="377"><highlight class="normal"></highlight></codeline>
+<codeline lineno="378"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>instance.c<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="379"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00085_1ga465fa07a525a264e429dfbccb2abe3c6" kindref="member">otd_inst_option_set</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="a00113" kindref="compound">otd_decoder_inst</ref><sp/>*di,</highlight></codeline>
+<codeline lineno="380"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GHashTable<sp/>*<ref refid="a00093_1a771ab5da20cee67b943cfe74da1302f1" kindref="member">options</ref>);</highlight></codeline>
+<codeline lineno="381"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00085_1gab5a386924fc4ab4a61f0f3b3e7eef0f1" kindref="member">otd_inst_channel_set_all</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="a00113" kindref="compound">otd_decoder_inst</ref><sp/>*di,</highlight></codeline>
+<codeline lineno="382"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GHashTable<sp/>*<ref refid="a00093_1a791a5fc555163f0e750fc8270c5dd33a" kindref="member">channels</ref>);</highlight></codeline>
+<codeline lineno="383"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="a00113" kindref="compound">otd_decoder_inst</ref><sp/>*<ref refid="a00085_1ga93239c3c924c6f71393cdcf619ecf67b" kindref="member">otd_inst_new</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="a00165" kindref="compound">otd_session</ref><sp/>*<ref refid="a00113_1a8f310ba6956102b88003d3e7a433f2ef" kindref="member">sess</ref>,</highlight></codeline>
+<codeline lineno="384"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/>GHashTable<sp/>*options);</highlight></codeline>
+<codeline lineno="385"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00085_1ga2d145b7c48e57509dc22988ad0c36a02" kindref="member">otd_inst_stack</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="a00165" kindref="compound">otd_session</ref><sp/>*<ref refid="a00113_1a8f310ba6956102b88003d3e7a433f2ef" kindref="member">sess</ref>,</highlight></codeline>
+<codeline lineno="386"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="a00113" kindref="compound">otd_decoder_inst</ref><sp/>*di_from,<sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="a00113" kindref="compound">otd_decoder_inst</ref><sp/>*di_to);</highlight></codeline>
+<codeline lineno="387"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="a00113" kindref="compound">otd_decoder_inst</ref><sp/>*<ref refid="a00085_1ga85fb36f5ae3affa7f4c89f129f51f637" kindref="member">otd_inst_find_by_id</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="a00165" kindref="compound">otd_session</ref><sp/>*<ref refid="a00113_1a8f310ba6956102b88003d3e7a433f2ef" kindref="member">sess</ref>,</highlight></codeline>
+<codeline lineno="388"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="a00113_1abde64b952bdf7918589230fe1b6cd124" kindref="member">inst_id</ref>);</highlight></codeline>
+<codeline lineno="389"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00085_1ga51c30e41b8b99bc6076bea9bf999303a" kindref="member">otd_inst_initial_pins_set_all</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="a00113" kindref="compound">otd_decoder_inst</ref><sp/>*di,</highlight></codeline>
+<codeline lineno="390"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GArray<sp/>*initial_pins);</highlight></codeline>
+<codeline lineno="391"><highlight class="normal"></highlight></codeline>
+<codeline lineno="392"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>log.c<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="393" refid="a00258_1a04233bc35d37a1ee72b7b6f7d3677a49" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>int<sp/>(*<ref refid="a00258_1a04233bc35d37a1ee72b7b6f7d3677a49" kindref="member">otd_log_callback</ref>)(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*cb_data,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>loglevel,</highlight></codeline>
+<codeline lineno="394"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*format,<sp/>va_list<sp/>args);</highlight></codeline>
+<codeline lineno="395"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00086_1gae1ea4ba8e876c58351a757407042153b" kindref="member">otd_log_loglevel_set</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>loglevel);</highlight></codeline>
+<codeline lineno="396"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00086_1ga427dae404bfb3222201fd2915a8ed1f9" kindref="member">otd_log_loglevel_get</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="397"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00086_1ga0747f5156b7f8988695016aa340c8657" kindref="member">otd_log_callback_get</ref>(<ref refid="a00258_1a04233bc35d37a1ee72b7b6f7d3677a49" kindref="member">otd_log_callback</ref><sp/>*cb,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>**cb_data);</highlight></codeline>
+<codeline lineno="398"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00086_1ga3795e9e43b613c5419e02d6c8862f1ed" kindref="member">otd_log_callback_set</ref>(<ref refid="a00258_1a04233bc35d37a1ee72b7b6f7d3677a49" kindref="member">otd_log_callback</ref><sp/>cb,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*cb_data);</highlight></codeline>
+<codeline lineno="399"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00086_1ga9e086b71908360eae7ceec45e524d3a8" kindref="member">otd_log_callback_set_default</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="400"><highlight class="normal"></highlight></codeline>
+<codeline lineno="401"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>error.c<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="402"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="a00084_1ga42a47a76a7c470c86e8a5c283fb0d99f" kindref="member">otd_strerror</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>error_code);</highlight></codeline>
+<codeline lineno="403"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="a00084_1gac90d2f44b06fbfa856f87f7c20c3e2cd" kindref="member">otd_strerror_name</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>error_code);</highlight></codeline>
+<codeline lineno="404"><highlight class="normal"></highlight></codeline>
+<codeline lineno="405"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>version.c<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="406"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00089_1gaca88af05a0e9d37fcc81f7a05f25ff4f" kindref="member">otd_package_version_major_get</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="407"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00089_1ga2b514e5c517481dce7060a3a074690e2" kindref="member">otd_package_version_minor_get</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="408"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00089_1gadec565dc41c4c937a543a6ea3bd94a79" kindref="member">otd_package_version_micro_get</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="409"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="a00089_1ga543544071fe659c4e8830a0adf736dd5" kindref="member">otd_package_version_string_get</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="410"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00089_1gaf70e82cfdb2e6a95a21d24a4ef46843c" kindref="member">otd_lib_version_current_get</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="411"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00089_1ga59aa4e73fccfdea8aa405fefc84d3891" kindref="member">otd_lib_version_revision_get</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="412"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="a00089_1gafeecad1d9783acb153cc0e6f69f5f98d" kindref="member">otd_lib_version_age_get</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="413"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="a00089_1gad586aa40dd763ea132c87dd5adebfe28" kindref="member">otd_lib_version_string_get</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="414"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/>GSList<sp/>*<ref refid="a00089_1gab8b1b7100e1b1a4cfe20ba5607320e35" kindref="member">otd_buildinfo_libs_get</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="415"><highlight class="normal"><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="a00089_1ga198f95837dba3e3116765bc9f9756a8b" kindref="member">otd_buildinfo_host_get</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="416"><highlight class="normal"></highlight></codeline>
+<codeline lineno="417"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;version.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="418"><highlight class="normal"></highlight></codeline>
+<codeline lineno="419"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="420"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="421"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="422"><highlight class="normal"></highlight></codeline>
+<codeline lineno="423"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h"/>
+  </compounddef>
+</doxygen>

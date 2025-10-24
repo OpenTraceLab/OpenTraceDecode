@@ -1,0 +1,655 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="a00083" kind="group">
+    <compoundname>grp_decoder</compoundname>
+    <title>Protocol decoders</title>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="a00083_1gaea5e05fd54515a2831cef482458fb8a1" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>gboolean</type>
+        <definition>static gboolean otd_check_init</definition>
+        <argsstring>(void)</argsstring>
+        <name>otd_check_init</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/decoder.c" line="57" column="17" bodyfile="src/decoder.c" bodystart="57" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="a00083_1gaee447626b718c4de27e703452cba60ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref> const GSList *</type>
+        <definition>OTD_API const GSList * otd_decoder_list</definition>
+        <argsstring>(void)</argsstring>
+        <name>otd_decoder_list</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Returns the list of loaded protocol decoders. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is a GSList of pointers to struct <ref refid="a00093" kindref="compound">otd_decoder</ref> items.</para>
+<para><simplesect kind="return"><para>List of decoders, NULL if none are supported or loaded.</para>
+</simplesect>
+<simplesect kind="since"><para>0.2.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/decoder.c" line="75" column="22" bodyfile="src/decoder.c" bodystart="75" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="a00083_1gad7e0a74c1ce3f48fa47b1c3ce1255fdf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref> struct <ref refid="a00093" kindref="compound">otd_decoder</ref> *</type>
+        <definition>OTD_API struct otd_decoder * otd_decoder_get_by_id</definition>
+        <argsstring>(const char *id)</argsstring>
+        <name>otd_decoder_get_by_id</name>
+        <param>
+          <type>const char *</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Get the decoder with the specified ID. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ID string of the decoder to return.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The decoder with the specified ID, or NULL if not found.</para>
+</simplesect>
+<simplesect kind="since"><para>0.1.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/decoder.c" line="89" column="26" bodyfile="src/decoder.c" bodystart="89" bodyend="101"/>
+        <references refid="a00093_1a4acdfe2e78e3241194ce047b822141f4" compoundref="a00258" startline="146">otd_decoder::id</references>
+        <referencedby refid="a00085_1ga93239c3c924c6f71393cdcf619ecf67b" compoundref="a00050" startline="336" endline="447">otd_inst_new</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="a00083_1ga31dd40407c47f752890944dc32bd892e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void channel_free</definition>
+        <argsstring>(void *data)</argsstring>
+        <name>channel_free</name>
+        <param>
+          <type>void *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/decoder.c" line="103" column="13" bodyfile="src/decoder.c" bodystart="103" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="a00083_1ga2e44da5fe83929dffdd96c619de40a8b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void variant_free</definition>
+        <argsstring>(void *data)</argsstring>
+        <name>variant_free</name>
+        <param>
+          <type>void *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/decoder.c" line="116" column="13" bodyfile="src/decoder.c" bodystart="116" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="a00083_1ga54bfb243a349bc00425ce70f73a4ff61" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void annotation_row_free</definition>
+        <argsstring>(void *data)</argsstring>
+        <name>annotation_row_free</name>
+        <param>
+          <type>void *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/decoder.c" line="126" column="13" bodyfile="src/decoder.c" bodystart="126" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="function" id="a00083_1ga411518ab9440a7de6f654f08961841dc" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void logic_output_channel_free</definition>
+        <argsstring>(void *data)</argsstring>
+        <name>logic_output_channel_free</name>
+        <param>
+          <type>void *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/decoder.c" line="139" column="13" bodyfile="src/decoder.c" bodystart="139" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="function" id="a00083_1ga3460018b19e82aa8338ccc5321636331" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void decoder_option_free</definition>
+        <argsstring>(void *data)</argsstring>
+        <name>decoder_option_free</name>
+        <param>
+          <type>void *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/decoder.c" line="151" column="13" bodyfile="src/decoder.c" bodystart="151" bodyend="163"/>
+      </memberdef>
+      <memberdef kind="function" id="a00083_1gaf1209cf6213a2bd98c165513ffdf3ae4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void decoder_free</definition>
+        <argsstring>(struct otd_decoder *dec)</argsstring>
+        <name>decoder_free</name>
+        <param>
+          <type>struct <ref refid="a00093" kindref="compound">otd_decoder</ref> *</type>
+          <declname>dec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/decoder.c" line="165" column="13" bodyfile="src/decoder.c" bodystart="165" bodyend="194"/>
+      </memberdef>
+      <memberdef kind="function" id="a00083_1gaefd10f8e1c39e2a8828a3721662396bd" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>static int get_channels</definition>
+        <argsstring>(const struct otd_decoder *d, const char *attr, GSList **out_pdchl, int offset)</argsstring>
+        <name>get_channels</name>
+        <param>
+          <type>const struct <ref refid="a00093" kindref="compound">otd_decoder</ref> *</type>
+          <declname>d</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>attr</declname>
+        </param>
+        <param>
+          <type>GSList **</type>
+          <declname>out_pdchl</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>offset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/decoder.c" line="196" column="12" bodyfile="src/decoder.c" bodystart="196" bodyend="267"/>
+      </memberdef>
+      <memberdef kind="function" id="a00083_1ga01f9f17b569981ff99acadfd6db6e833" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>static int get_options</definition>
+        <argsstring>(struct otd_decoder *d)</argsstring>
+        <name>get_options</name>
+        <param>
+          <type>struct <ref refid="a00093" kindref="compound">otd_decoder</ref> *</type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/decoder.c" line="269" column="12" bodyfile="src/decoder.c" bodystart="269" bodyend="393"/>
+      </memberdef>
+      <memberdef kind="function" id="a00083_1ga59fb8edfd2eafe8b6ae6b7fcd3e31f6e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>static int get_annotations</definition>
+        <argsstring>(struct otd_decoder *dec, size_t *ret_count)</argsstring>
+        <name>get_annotations</name>
+        <param>
+          <type>struct <ref refid="a00093" kindref="compound">otd_decoder</ref> *</type>
+          <declname>dec</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>ret_count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/decoder.c" line="396" column="12" bodyfile="src/decoder.c" bodystart="396" bodyend="459"/>
+      </memberdef>
+      <memberdef kind="function" id="a00083_1ga180fbaba6ceeb8269316061048c94421" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>static int get_annotation_rows</definition>
+        <argsstring>(struct otd_decoder *dec, size_t cls_count)</argsstring>
+        <name>get_annotation_rows</name>
+        <param>
+          <type>struct <ref refid="a00093" kindref="compound">otd_decoder</ref> *</type>
+          <declname>dec</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>cls_count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/decoder.c" line="462" column="12" bodyfile="src/decoder.c" bodystart="462" bodyend="569"/>
+      </memberdef>
+      <memberdef kind="function" id="a00083_1ga545a388401e9770a4f7054408a30b20e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>static int get_binary_classes</definition>
+        <argsstring>(struct otd_decoder *dec)</argsstring>
+        <name>get_binary_classes</name>
+        <param>
+          <type>struct <ref refid="a00093" kindref="compound">otd_decoder</ref> *</type>
+          <declname>dec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/decoder.c" line="572" column="12" bodyfile="src/decoder.c" bodystart="572" bodyend="633"/>
+      </memberdef>
+      <memberdef kind="function" id="a00083_1ga8d99ddad52f65936d6b000f41872a8f1" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>static int get_logic_output_channels</definition>
+        <argsstring>(struct otd_decoder *dec)</argsstring>
+        <name>get_logic_output_channels</name>
+        <param>
+          <type>struct <ref refid="a00093" kindref="compound">otd_decoder</ref> *</type>
+          <declname>dec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/decoder.c" line="636" column="12" bodyfile="src/decoder.c" bodystart="636" bodyend="706"/>
+      </memberdef>
+      <memberdef kind="function" id="a00083_1gaa99c4a8d620dacfa44b0058378f56f16" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>static int check_method</definition>
+        <argsstring>(PyObject *py_dec, const char *mod_name, const char *method_name)</argsstring>
+        <name>check_method</name>
+        <param>
+          <type>PyObject *</type>
+          <declname>py_dec</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>mod_name</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>method_name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/decoder.c" line="709" column="12" bodyfile="src/decoder.c" bodystart="709" bodyend="738"/>
+      </memberdef>
+      <memberdef kind="function" id="a00083_1ga5afcd8374bf693062436b716e60662a2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1a3a90167f4b0b0cb829b5b15e0663af50" kindref="member">OTD_PRIV</ref> long</type>
+        <definition>OTD_PRIV long otd_decoder_apiver</definition>
+        <argsstring>(const struct otd_decoder *d)</argsstring>
+        <name>otd_decoder_apiver</name>
+        <param>
+          <type>const struct <ref refid="a00093" kindref="compound">otd_decoder</ref> *</type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+<para>Get the API version of the specified decoder. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>d</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The decoder to use. Must not be NULL.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The API version of the decoder, or 0 upon errors. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/decoder.c" line="749" column="15" bodyfile="src/decoder.c" bodystart="749" bodyend="768"/>
+        <references refid="a00093_1a3594f95387546b72c7b6a7d5a09c3de8" compoundref="a00258" startline="208">otd_decoder::py_dec</references>
+      </memberdef>
+      <memberdef kind="function" id="a00083_1gaed39ebda2fbd33f77c078419db3ad55e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>gboolean</type>
+        <definition>static gboolean contains_duplicates</definition>
+        <argsstring>(GSList *list)</argsstring>
+        <name>contains_duplicates</name>
+        <param>
+          <type>GSList *</type>
+          <declname>list</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/decoder.c" line="770" column="17" bodyfile="src/decoder.c" bodystart="770" bodyend="779"/>
+      </memberdef>
+      <memberdef kind="function" id="a00083_1ga418f65da21633b506a9356f7781af228" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>gboolean</type>
+        <definition>static gboolean contains_duplicate_ids</definition>
+        <argsstring>(GSList *list1, GSList *list2)</argsstring>
+        <name>contains_duplicate_ids</name>
+        <param>
+          <type>GSList *</type>
+          <declname>list1</declname>
+        </param>
+        <param>
+          <type>GSList *</type>
+          <declname>list2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/decoder.c" line="781" column="17" bodyfile="src/decoder.c" bodystart="781" bodyend="798"/>
+      </memberdef>
+      <memberdef kind="function" id="a00083_1ga814f7718da65489015b0df830962dd21" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>gboolean</type>
+        <definition>static gboolean contains_duplicate_row_ids</definition>
+        <argsstring>(GSList *list1, GSList *list2)</argsstring>
+        <name>contains_duplicate_row_ids</name>
+        <param>
+          <type>GSList *</type>
+          <declname>list1</declname>
+        </param>
+        <param>
+          <type>GSList *</type>
+          <declname>list2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/decoder.c" line="800" column="17" bodyfile="src/decoder.c" bodystart="800" bodyend="815"/>
+      </memberdef>
+      <memberdef kind="function" id="a00083_1ga11b3869f9e65db787ad73c5c4ebddd2f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref> int</type>
+        <definition>OTD_API int otd_decoder_load</definition>
+        <argsstring>(const char *module_name)</argsstring>
+        <name>otd_decoder_load</name>
+        <param>
+          <type>const char *</type>
+          <declname>module_name</declname>
+        </param>
+        <briefdescription>
+<para>Load a protocol decoder module into the embedded Python interpreter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>module_name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The module name to be loaded.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>OTD_OK upon success, a (negative) error code otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>0.1.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/decoder.c" line="826" column="13" bodyfile="src/decoder.c" bodystart="826" bodyend="1074"/>
+        <references refid="a00093_1a2da05c76f45b19401516a3f1b2233cae" compoundref="a00258" startline="188">otd_decoder::annotation_rows</references>
+        <references refid="a00093_1a954903cd8fc70507645b86518b4ec859" compoundref="a00258" startline="182">otd_decoder::annotations</references>
+        <references refid="a00093_1aff759e252ba8a96a667929d9a1f5e115" compoundref="a00258" startline="194">otd_decoder::binary</references>
+        <references refid="a00093_1a791a5fc555163f0e750fc8270c5dd33a" compoundref="a00258" startline="173">otd_decoder::channels</references>
+        <references refid="a00093_1a2fb86e512865e93b363b9b6eb05ba0d2" compoundref="a00258" startline="155">otd_decoder::desc</references>
+        <references refid="a00093_1a4acdfe2e78e3241194ce047b822141f4" compoundref="a00258" startline="146">otd_decoder::id</references>
+        <references refid="a00093_1ad01765fdc44199b5a2d5f8aa873e7fc3" compoundref="a00258" startline="164">otd_decoder::inputs</references>
+        <references refid="a00093_1ae6161034fe5ad90282d39e1aed98a8c3" compoundref="a00258" startline="161">otd_decoder::license</references>
+        <references refid="a00093_1aaae1cb02c0fcd27725fe6120dfddee38" compoundref="a00258" startline="152">otd_decoder::longname</references>
+        <references refid="a00093_1ad71875a3a5881d5693711ff6042c029d" compoundref="a00258" startline="149">otd_decoder::name</references>
+        <references refid="a00093_1a00aa7b406a328a493b154c5af2f0db55" compoundref="a00258" startline="176">otd_decoder::opt_channels</references>
+        <references refid="a00093_1a771ab5da20cee67b943cfe74da1302f1" compoundref="a00258" startline="202">otd_decoder::options</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcad6e315777c65836ac7489ddb503aceab" compoundref="a00258" startline="68">OTD_ERR</references>
+        <references refid="a00062_1adfd45428ae0a51e6162ff442c97dbce7" compoundref="a00062" startline="118">otd_err</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebca0b8a159c5ce1e9d1e1d58384820a88d2" compoundref="a00258" startline="70">OTD_ERR_ARG</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcaaecfc1f18b22e996112bec32462cb5d5" compoundref="a00258" startline="72">OTD_ERR_PYTHON</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcafcf78f6457d3099b0fc89415a3f9eaa5" compoundref="a00258" startline="67">OTD_OK</references>
+        <references refid="a00093_1a06a1704295b5bd7b49fa6951069011d2" compoundref="a00258" startline="167">otd_decoder::outputs</references>
+        <references refid="a00062_1a70c9b66cac4582972cabd780fa8196ca" compoundref="a00047" startline="70" endline="99">py_attr_as_str</references>
+        <references refid="a00062_1a4adcc9f4d9248274355fe43b0b002371" compoundref="a00047" startline="115" endline="161">py_attr_as_strlist</references>
+        <references refid="a00093_1a3594f95387546b72c7b6a7d5a09c3de8" compoundref="a00258" startline="208">otd_decoder::py_dec</references>
+        <references refid="a00062_1a753884db4a1ce35a8792d39305e298b5" compoundref="a00047" startline="36" endline="55">py_import_by_name</references>
+        <references refid="a00093_1a47e999081c25f323a9917d11b4583bb9" compoundref="a00258" startline="205">otd_decoder::py_mod</references>
+        <references refid="a00093_1a36dbafdfb2ea3476504f64ab38c5c906" compoundref="a00258" startline="170">otd_decoder::tags</references>
+      </memberdef>
+      <memberdef kind="function" id="a00083_1ga70c50e6acd942b4b3aedbc141c3cbf14" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref> char *</type>
+        <definition>OTD_API char * otd_decoder_doc_get</definition>
+        <argsstring>(const struct otd_decoder *dec)</argsstring>
+        <name>otd_decoder_doc_get</name>
+        <param>
+          <type>const struct <ref refid="a00093" kindref="compound">otd_decoder</ref> *</type>
+          <declname>dec</declname>
+        </param>
+        <briefdescription>
+<para>Return a protocol decoder&apos;s docstring. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dec</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The loaded protocol decoder. Must not be NULL.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A newly allocated buffer containing the protocol decoder&apos;s documentation. The caller is responsible for free&apos;ing the buffer.</para>
+</simplesect>
+<simplesect kind="since"><para>0.1.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/decoder.c" line="1086" column="14" bodyfile="src/decoder.c" bodystart="1086" bodyend="1121"/>
+        <references refid="a00093_1a47e999081c25f323a9917d11b4583bb9" compoundref="a00258" startline="205">otd_decoder::py_mod</references>
+        <references refid="a00062_1a030a8367513df3651da4ff852a73b2aa" compoundref="a00047" startline="357" endline="386">py_str_as_str</references>
+      </memberdef>
+      <memberdef kind="function" id="a00083_1gaa64090de5103a8b6c8a335777d7f0e12" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref> int</type>
+        <definition>OTD_API int otd_decoder_unload</definition>
+        <argsstring>(struct otd_decoder *dec)</argsstring>
+        <name>otd_decoder_unload</name>
+        <param>
+          <type>struct <ref refid="a00093" kindref="compound">otd_decoder</ref> *</type>
+          <declname>dec</declname>
+        </param>
+        <briefdescription>
+<para>Unload the specified protocol decoder. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dec</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The struct <ref refid="a00093" kindref="compound">otd_decoder</ref> to be unloaded.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>OTD_OK upon success, a (negative) error code otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>0.1.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/decoder.c" line="1132" column="13" bodyfile="src/decoder.c" bodystart="1132" bodyend="1160"/>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcad6e315777c65836ac7489ddb503aceab" compoundref="a00258" startline="68">OTD_ERR</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebca0b8a159c5ce1e9d1e1d58384820a88d2" compoundref="a00258" startline="70">OTD_ERR_ARG</references>
+        <references refid="a00085_1ga5a5ccf21d80fa12706ba83cffa3de267" compoundref="a00050" startline="1450" endline="1456">otd_inst_free_all</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcafcf78f6457d3099b0fc89415a3f9eaa5" compoundref="a00258" startline="67">OTD_OK</references>
+      </memberdef>
+      <memberdef kind="function" id="a00083_1ga6a8f3544e3e030d29b7cacf044b3fe75" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void otd_decoder_load_all_zip_path</definition>
+        <argsstring>(char *zip_path)</argsstring>
+        <name>otd_decoder_load_all_zip_path</name>
+        <param>
+          <type>char *</type>
+          <declname>zip_path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/decoder.c" line="1162" column="13" bodyfile="src/decoder.c" bodystart="1162" bodyend="1244"/>
+      </memberdef>
+      <memberdef kind="function" id="a00083_1gadbd32c380b11e9063de91c19fa57d6f0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void otd_decoder_load_all_path</definition>
+        <argsstring>(char *path)</argsstring>
+        <name>otd_decoder_load_all_path</name>
+        <param>
+          <type>char *</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/decoder.c" line="1246" column="13" bodyfile="src/decoder.c" bodystart="1246" bodyend="1267"/>
+      </memberdef>
+      <memberdef kind="function" id="a00083_1ga103f6990d60b3d0686c6d5b55316f5da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref> int</type>
+        <definition>OTD_API int otd_decoder_load_all</definition>
+        <argsstring>(void)</argsstring>
+        <name>otd_decoder_load_all</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Load all installed protocol decoders. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>OTD_OK upon success, a (negative) error code otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>0.1.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/decoder.c" line="1276" column="13" bodyfile="src/decoder.c" bodystart="1276" bodyend="1287"/>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcad6e315777c65836ac7489ddb503aceab" compoundref="a00258" startline="68">OTD_ERR</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcafcf78f6457d3099b0fc89415a3f9eaa5" compoundref="a00258" startline="67">OTD_OK</references>
+      </memberdef>
+      <memberdef kind="function" id="a00083_1ga931c1fc9e5cdf6b031c2ae44e75c3fd0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void otd_decoder_unload_cb</definition>
+        <argsstring>(void *arg, void *ignored)</argsstring>
+        <name>otd_decoder_unload_cb</name>
+        <param>
+          <type>void *</type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>ignored</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/decoder.c" line="1289" column="13" bodyfile="src/decoder.c" bodystart="1289" bodyend="1294"/>
+      </memberdef>
+      <memberdef kind="function" id="a00083_1ga9552e97b41e89c206aa96aec52ee41e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref> int</type>
+        <definition>OTD_API int otd_decoder_unload_all</definition>
+        <argsstring>(void)</argsstring>
+        <name>otd_decoder_unload_all</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Unload all loaded protocol decoders. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>OTD_OK upon success, a (negative) error code otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>0.1.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/decoder.c" line="1303" column="13" bodyfile="src/decoder.c" bodystart="1303" bodyend="1310"/>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcafcf78f6457d3099b0fc89415a3f9eaa5" compoundref="a00258" startline="67">OTD_OK</references>
+        <referencedby refid="a00087_1ga69b20ec5173c2ad80d51b54727b6b07e" compoundref="a00053" startline="344" endline="371">otd_exit</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Handling protocol decoders. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

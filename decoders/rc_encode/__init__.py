@@ -33,7 +33,7 @@ and HS1527 is also present.
 The decoder can additionaly decoding the Maplin L95AR remote control and will
 turn the received signal into which button was pressed and what the address
 code DIP switches are set to.
-Please contact the sigrok team if you want decoding for further remote
+Please contact the opentrace team if you want decoding for further remote
 controls to be added.
 '''
 

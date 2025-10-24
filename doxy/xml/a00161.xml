@@ -1,0 +1,260 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="a00161" kind="struct" language="C++" prot="public">
+    <compoundname>otd_logic</compoundname>
+    <includes refid="a00062" local="no">libopentracedecode-internal.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="a00161_1a4310f067460ffaf0e8e3bcd4be1bada9" prot="public" static="no" mutable="no">
+        <type>PyObject_HEAD struct <ref refid="a00113" kindref="compound">otd_decoder_inst</ref> *</type>
+        <definition>PyObject_HEAD struct otd_decoder_inst* otd_logic::di</definition>
+        <argsstring></argsstring>
+        <name>di</name>
+        <qualifiedname>otd_logic::di</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libopentracedecode-internal.h" line="63" column="23" bodyfile="src/libopentracedecode-internal.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="a00161_1adfb934cf013ccf6af32c949e96f36eb8" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t otd_logic::abs_start_samplenum</definition>
+        <argsstring></argsstring>
+        <name>abs_start_samplenum</name>
+        <qualifiedname>otd_logic::abs_start_samplenum</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libopentracedecode-internal.h" line="64" column="10" bodyfile="src/libopentracedecode-internal.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="a00161_1ac2c5a80a8d84186f67e8e9a5b2c94079" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int otd_logic::itercnt</definition>
+        <argsstring></argsstring>
+        <name>itercnt</name>
+        <qualifiedname>otd_logic::itercnt</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libopentracedecode-internal.h" line="65" column="14" bodyfile="src/libopentracedecode-internal.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="a00161_1ab66574ead2acb38776682f7ac587405d" prot="public" static="no" mutable="no">
+        <type>uint8_t *</type>
+        <definition>uint8_t* otd_logic::inbuf</definition>
+        <argsstring></argsstring>
+        <name>inbuf</name>
+        <qualifiedname>otd_logic::inbuf</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libopentracedecode-internal.h" line="66" column="9" bodyfile="src/libopentracedecode-internal.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="a00161_1a9d0086a9fb1bd338473b814c548455e9" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t otd_logic::inbuflen</definition>
+        <argsstring></argsstring>
+        <name>inbuflen</name>
+        <qualifiedname>otd_logic::inbuflen</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libopentracedecode-internal.h" line="67" column="10" bodyfile="src/libopentracedecode-internal.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="a00161_1a6103fda8a3a1512d6af835306acb1478" prot="public" static="no" mutable="no">
+        <type>PyObject *</type>
+        <definition>PyObject* otd_logic::sample</definition>
+        <argsstring></argsstring>
+        <name>sample</name>
+        <qualifiedname>otd_logic::sample</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libopentracedecode-internal.h" line="68" column="10" bodyfile="src/libopentracedecode-internal.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="10">
+        <label>GArray *</label>
+      </node>
+      <node id="14">
+        <label>GCond</label>
+      </node>
+      <node id="15">
+        <label>GMutex</label>
+      </node>
+      <node id="5">
+        <label>GSList *</label>
+      </node>
+      <node id="12">
+        <label>GThread *</label>
+      </node>
+      <node id="16">
+        <label>PyObject *</label>
+      </node>
+      <node id="4">
+        <label>char *</label>
+      </node>
+      <node id="13">
+        <label>gboolean</label>
+      </node>
+      <node id="8">
+        <label>int</label>
+      </node>
+      <node id="3">
+        <label>otd_decoder</label>
+        <link refid="a00093"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>desc</edgelabel>
+          <edgelabel>id</edgelabel>
+          <edgelabel>license</edgelabel>
+          <edgelabel>longname</edgelabel>
+          <edgelabel>name</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>annotation_rows</edgelabel>
+          <edgelabel>annotations</edgelabel>
+          <edgelabel>binary</edgelabel>
+          <edgelabel>channels</edgelabel>
+          <edgelabel>inputs</edgelabel>
+          <edgelabel>logic_output_channels</edgelabel>
+          <edgelabel>opt_channels</edgelabel>
+          <edgelabel>options</edgelabel>
+          <edgelabel>outputs</edgelabel>
+          <edgelabel>tags</edgelabel>
+          <edgelabel>...</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>py_dec</edgelabel>
+          <edgelabel>py_mod</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>otd_decoder_inst</label>
+        <link refid="a00113"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>decoder</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>sess</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>py_inst</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>inst_id</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>condition_list</edgelabel>
+          <edgelabel>next_di</edgelabel>
+          <edgelabel>pd_output</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>data_unitsize</edgelabel>
+          <edgelabel>dec_channelmap</edgelabel>
+          <edgelabel>dec_num_channels</edgelabel>
+          <edgelabel>decoder_state</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>channel_samples</edgelabel>
+          <edgelabel>inbuf</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>match_array</edgelabel>
+          <edgelabel>old_pins_array</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>abs_cur_samplenum</edgelabel>
+          <edgelabel>abs_end_samplenum</edgelabel>
+          <edgelabel>abs_start_samplenum</edgelabel>
+          <edgelabel>inbuflen</edgelabel>
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>thread_handle</edgelabel>
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>communicate_eof</edgelabel>
+          <edgelabel>got_new_samples</edgelabel>
+          <edgelabel>handled_all_samples</edgelabel>
+          <edgelabel>want_wait_terminate</edgelabel>
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>got_new_samples_cond</edgelabel>
+          <edgelabel>handled_all_samples_cond</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>data_mutex</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>otd_logic</label>
+        <link refid="a00161"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>di</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>abs_start_samplenum</edgelabel>
+          <edgelabel>inbuflen</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>itercnt</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>inbuf</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>sample</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>otd_session</label>
+        <link refid="a00165"/>
+        <childnode refid="8" relation="usage">
+          <edgelabel>session_id</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>callbacks</edgelabel>
+          <edgelabel>di_list</edgelabel>
+        </childnode>
+      </node>
+      <node id="11">
+        <label>uint64_t</label>
+      </node>
+      <node id="9">
+        <label>uint8_t</label>
+      </node>
+      <node id="6">
+        <label>void *</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/libopentracedecode-internal.h" line="61" column="1" bodyfile="src/libopentracedecode-internal.h" bodystart="61" bodyend="69"/>
+    <listofallmembers>
+      <member refid="a00161_1adfb934cf013ccf6af32c949e96f36eb8" prot="public" virt="non-virtual"><scope>otd_logic</scope><name>abs_start_samplenum</name></member>
+      <member refid="a00161_1a4310f067460ffaf0e8e3bcd4be1bada9" prot="public" virt="non-virtual"><scope>otd_logic</scope><name>di</name></member>
+      <member refid="a00161_1ab66574ead2acb38776682f7ac587405d" prot="public" virt="non-virtual"><scope>otd_logic</scope><name>inbuf</name></member>
+      <member refid="a00161_1a9d0086a9fb1bd338473b814c548455e9" prot="public" virt="non-virtual"><scope>otd_logic</scope><name>inbuflen</name></member>
+      <member refid="a00161_1ac2c5a80a8d84186f67e8e9a5b2c94079" prot="public" virt="non-virtual"><scope>otd_logic</scope><name>itercnt</name></member>
+      <member refid="a00161_1a6103fda8a3a1512d6af835306acb1478" prot="public" virt="non-virtual"><scope>otd_logic</scope><name>sample</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

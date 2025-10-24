@@ -1,0 +1,234 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="a00089" kind="group">
+    <compoundname>grp_versions</compoundname>
+    <title>Versions</title>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="a00089_1gaca88af05a0e9d37fcc81f7a05f25ff4f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref> int</type>
+        <definition>OTD_API int otd_package_version_major_get</definition>
+        <argsstring>(void)</argsstring>
+        <name>otd_package_version_major_get</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Get the major libopentracedecode package version number. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The major package version number.</para>
+</simplesect>
+<simplesect kind="since"><para>0.1.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/version.c" line="58" column="13" bodyfile="src/version.c" bodystart="58" bodyend="61"/>
+        <references refid="a00270_1aa4b4d1d0195f7887de84cd6aede7cec3" compoundref="a00270" startline="20">OTD_PACKAGE_VERSION_MAJOR</references>
+      </memberdef>
+      <memberdef kind="function" id="a00089_1ga2b514e5c517481dce7060a3a074690e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref> int</type>
+        <definition>OTD_API int otd_package_version_minor_get</definition>
+        <argsstring>(void)</argsstring>
+        <name>otd_package_version_minor_get</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Get the minor libopentracedecode package version number. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The minor package version number.</para>
+</simplesect>
+<simplesect kind="since"><para>0.1.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/version.c" line="70" column="13" bodyfile="src/version.c" bodystart="70" bodyend="73"/>
+        <references refid="a00270_1a1eeb8f45603a326c5c07281f4e9785c3" compoundref="a00270" startline="24">OTD_PACKAGE_VERSION_MINOR</references>
+      </memberdef>
+      <memberdef kind="function" id="a00089_1gadec565dc41c4c937a543a6ea3bd94a79" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref> int</type>
+        <definition>OTD_API int otd_package_version_micro_get</definition>
+        <argsstring>(void)</argsstring>
+        <name>otd_package_version_micro_get</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Get the micro libopentracedecode package version number. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The micro package version number.</para>
+</simplesect>
+<simplesect kind="since"><para>0.1.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/version.c" line="82" column="13" bodyfile="src/version.c" bodystart="82" bodyend="85"/>
+        <references refid="a00270_1a163a02dec064a3a54f7f6779ba952ca5" compoundref="a00270" startline="22">OTD_PACKAGE_VERSION_MICRO</references>
+      </memberdef>
+      <memberdef kind="function" id="a00089_1ga543544071fe659c4e8830a0adf736dd5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref> const char *</type>
+        <definition>OTD_API const char * otd_package_version_string_get</definition>
+        <argsstring>(void)</argsstring>
+        <name>otd_package_version_string_get</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Get the libopentracedecode package version number as a string. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The package version number string. The returned string is static and thus should NOT be free&apos;d by the caller.</para>
+</simplesect>
+<simplesect kind="since"><para>0.1.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/version.c" line="95" column="20" bodyfile="src/version.c" bodystart="95" bodyend="98"/>
+        <references refid="a00270_1ac06306b00b13a4fba1e354a28adc6887" compoundref="a00270" startline="26">OTD_PACKAGE_VERSION_STRING</references>
+      </memberdef>
+      <memberdef kind="function" id="a00089_1gaf70e82cfdb2e6a95a21d24a4ef46843c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref> int</type>
+        <definition>OTD_API int otd_lib_version_current_get</definition>
+        <argsstring>(void)</argsstring>
+        <name>otd_lib_version_current_get</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Get the &quot;current&quot; part of the libopentracedecode library version number. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The &quot;current&quot; library version number.</para>
+</simplesect>
+<simplesect kind="since"><para>0.1.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/version.c" line="107" column="13" bodyfile="src/version.c" bodystart="107" bodyend="110"/>
+        <references refid="a00270_1aaf98080e3dcdb2f8193c1ce4ca9ca3c3" compoundref="a00270" startline="14">OTD_LIB_VERSION_CURRENT</references>
+      </memberdef>
+      <memberdef kind="function" id="a00089_1ga59aa4e73fccfdea8aa405fefc84d3891" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref> int</type>
+        <definition>OTD_API int otd_lib_version_revision_get</definition>
+        <argsstring>(void)</argsstring>
+        <name>otd_lib_version_revision_get</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Get the &quot;revision&quot; part of the libopentracedecode library version number. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The &quot;revision&quot; library version number.</para>
+</simplesect>
+<simplesect kind="since"><para>0.1.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/version.c" line="119" column="13" bodyfile="src/version.c" bodystart="119" bodyend="122"/>
+        <references refid="a00270_1a0e2a482c7f6bf4ddd2d60cd79375c4c5" compoundref="a00270" startline="16">OTD_LIB_VERSION_REVISION</references>
+      </memberdef>
+      <memberdef kind="function" id="a00089_1gafeecad1d9783acb153cc0e6f69f5f98d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref> int</type>
+        <definition>OTD_API int otd_lib_version_age_get</definition>
+        <argsstring>(void)</argsstring>
+        <name>otd_lib_version_age_get</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Get the &quot;age&quot; part of the libopentracedecode library version number. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The &quot;age&quot; library version number.</para>
+</simplesect>
+<simplesect kind="since"><para>0.1.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/version.c" line="131" column="13" bodyfile="src/version.c" bodystart="131" bodyend="134"/>
+        <references refid="a00270_1a9d83ccb2dcdd0c840a7bf60ba24edd98" compoundref="a00270" startline="12">OTD_LIB_VERSION_AGE</references>
+      </memberdef>
+      <memberdef kind="function" id="a00089_1gad586aa40dd763ea132c87dd5adebfe28" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref> const char *</type>
+        <definition>OTD_API const char * otd_lib_version_string_get</definition>
+        <argsstring>(void)</argsstring>
+        <name>otd_lib_version_string_get</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Get the libopentracedecode library version number as a string. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The library version number string. The returned string is static and thus should NOT be free&apos;d by the caller.</para>
+</simplesect>
+<simplesect kind="since"><para>0.1.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/version.c" line="144" column="20" bodyfile="src/version.c" bodystart="144" bodyend="147"/>
+        <references refid="a00270_1a575097d427a201646adbbb589a6f770c" compoundref="a00270" startline="18">OTD_LIB_VERSION_STRING</references>
+      </memberdef>
+      <memberdef kind="function" id="a00089_1gab8b1b7100e1b1a4cfe20ba5607320e35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref> GSList *</type>
+        <definition>OTD_API GSList * otd_buildinfo_libs_get</definition>
+        <argsstring>(void)</argsstring>
+        <name>otd_buildinfo_libs_get</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/version.c" line="149" column="16" bodyfile="src/version.c" bodystart="149" bodyend="166"/>
+      </memberdef>
+      <memberdef kind="function" id="a00089_1ga198f95837dba3e3116765bc9f9756a8b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref> char *</type>
+        <definition>OTD_API char * otd_buildinfo_host_get</definition>
+        <argsstring>(void)</argsstring>
+        <name>otd_buildinfo_host_get</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/version.c" line="168" column="14" bodyfile="src/version.c" bodystart="168" bodyend="177"/>
+        <references refid="a00270_1aca721b6ccddfc5814e2846fb4012d3aa" compoundref="a00270" startline="8">CONF_HOST</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Version number querying functions, definitions, and macros. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This set of API calls returns two different version numbers related to libopentracedecode. The &quot;package version&quot; is the release version number of the libopentracedecode tarball in the usual &quot;major.minor.micro&quot; format, e.g. &quot;0.1.0&quot;.</para>
+<para>The &quot;library version&quot; is independent of that; it is the libtool version number in the &quot;current:revision:age&quot; format, e.g. &quot;2:0:0&quot;. See <ulink url="http://www.gnu.org/software/libtool/manual/libtool.html#Libtool-versioning">http://www.gnu.org/software/libtool/manual/libtool.html#Libtool-versioning</ulink> for details.</para>
+<para>Both version numbers (and/or individual components of them) can be retrieved via the API calls at runtime, and/or they can be checked at compile/preprocessor time using the respective macros. </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

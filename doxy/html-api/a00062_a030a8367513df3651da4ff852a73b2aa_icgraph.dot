@@ -1,0 +1,30 @@
+digraph "py_str_as_str"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [id="Node000001",label="py_str_as_str",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Get the value of a Python unicode string object, returned as a newly allocated char *."];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="otd_decoder_doc_get",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$a00083.html#ga70c50e6acd942b4b3aedbc141c3cbf14",tooltip="Return a protocol decoder's docstring."];
+  Node1 -> Node3 [id="edge2_Node000001_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="py_attr_as_str",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$a00047.html#a70c9b66cac4582972cabd780fa8196ca",tooltip="Get the value of a Python object's attribute, returned as a newly allocated char *."];
+  Node3 -> Node4 [id="edge3_Node000003_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="otd_decoder_load",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$a00083.html#ga11b3869f9e65db787ad73c5c4ebddd2f",tooltip="Load a protocol decoder module into the embedded Python interpreter."];
+  Node3 -> Node3 [id="edge4_Node000003_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node5 [id="edge5_Node000001_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="py_dictitem_as_str",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$a00047.html#a8ff6a75b56b4b1efa7cf3b7a0bde3b70",tooltip="Get the value of a Python dictionary item, returned as a newly allocated char *."];
+  Node5 -> Node5 [id="edge6_Node000005_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node6 [id="edge7_Node000001_Node000006",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="py_listitem_as_str",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$a00047.html#af44148d9e53fcd3fa49df1268cc3ab46",tooltip="Get the value of a Python list item, returned as a newly allocated char *."];
+  Node6 -> Node7 [id="edge8_Node000006_Node000007",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node7 [id="Node000007",label="py_attr_as_strlist",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$a00047.html#a4adcc9f4d9248274355fe43b0b002371",tooltip="Get the value of a Python object's attribute, returned as a newly allocated GSList of char *."];
+  Node7 -> Node4 [id="edge9_Node000007_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node7 -> Node7 [id="edge10_Node000007_Node000007",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node6 -> Node6 [id="edge11_Node000006_Node000006",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node8 [id="edge12_Node000001_Node000008",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node8 [id="Node000008",label="py_pydictitem_as_str",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$a00047.html#ac5d5f089827945cee17bb3c1e3014d99",tooltip="Get the value of a Python dictionary item, returned as a newly allocated char *."];
+  Node8 -> Node8 [id="edge13_Node000008_Node000008",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node1 [id="edge14_Node000001_Node000001",dir="back",color="steelblue1",style="solid",tooltip=" "];
+}

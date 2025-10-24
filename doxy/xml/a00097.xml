@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="a00097" kind="struct" language="C++" prot="public">
+    <compoundname>otd_channel</compoundname>
+    <includes refid="a00258" local="no">libopentracedecode.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="a00097_1a33b5433c4425cbd3fb83f396752db1d4" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char * otd_channel::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>otd_channel::id</qualifiedname>
+        <briefdescription>
+<para>The ID of the channel. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Must be non-NULL. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="223" column="6" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="223" bodyend="-1"/>
+        <referencedby refid="a00085_1gab5a386924fc4ab4a61f0f3b3e7eef0f1" compoundref="a00050" startline="231" endline="320">otd_inst_channel_set_all</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00097_1aa810392451f9448f07c06d7b1d6f5da0" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char * otd_channel::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <qualifiedname>otd_channel::name</qualifiedname>
+        <briefdescription>
+<para>The name of the channel. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Must not be NULL. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="225" column="6" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="225" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="a00097_1ac928e32777af920921db3b95f0d2a0b8" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char * otd_channel::desc</definition>
+        <argsstring></argsstring>
+        <name>desc</name>
+        <qualifiedname>otd_channel::desc</qualifiedname>
+        <briefdescription>
+<para>The description of the channel. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Must not be NULL. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="227" column="6" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="227" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="a00097_1a805a57b9d8c7f3045c5bebbc90be5ef8" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int otd_channel::order</definition>
+        <argsstring></argsstring>
+        <name>order</name>
+        <qualifiedname>otd_channel::order</qualifiedname>
+        <briefdescription>
+<para>The index of the channel, i.e. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>its order in the list of channels. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="229" column="5" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="229" bodyend="-1"/>
+        <referencedby refid="a00085_1gab5a386924fc4ab4a61f0f3b3e7eef0f1" compoundref="a00050" startline="231" endline="320">otd_inst_channel_set_all</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Structure which contains information about one protocol decoder channel. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>For example, I2C has two channels, SDA and SCL. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>char *</label>
+      </node>
+      <node id="3">
+        <label>int</label>
+      </node>
+      <node id="1">
+        <label>otd_channel</label>
+        <link refid="a00097"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>desc</edgelabel>
+          <edgelabel>id</edgelabel>
+          <edgelabel>name</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>order</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="221" column="1" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="221" bodyend="230"/>
+    <listofallmembers>
+      <member refid="a00097_1ac928e32777af920921db3b95f0d2a0b8" prot="public" virt="non-virtual"><scope>otd_channel</scope><name>desc</name></member>
+      <member refid="a00097_1a33b5433c4425cbd3fb83f396752db1d4" prot="public" virt="non-virtual"><scope>otd_channel</scope><name>id</name></member>
+      <member refid="a00097_1aa810392451f9448f07c06d7b1d6f5da0" prot="public" virt="non-virtual"><scope>otd_channel</scope><name>name</name></member>
+      <member refid="a00097_1a805a57b9d8c7f3045c5bebbc90be5ef8" prot="public" virt="non-virtual"><scope>otd_channel</scope><name>order</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

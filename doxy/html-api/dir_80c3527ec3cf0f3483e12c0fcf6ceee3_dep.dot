@@ -1,0 +1,12 @@
+digraph "builddir/meson-private"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  compound=true
+  subgraph clusterdir_99d2dc560f84dde124e930de108007a7 {
+    graph [ bgcolor="#edf0f7", pencolor="grey25", label="builddir", fontname=Helvetica,fontsize=10 style="filled,dashed", URL="dir_99d2dc560f84dde124e930de108007a7.html",tooltip=""]
+  dir_80c3527ec3cf0f3483e12c0fcf6ceee3 [label="meson-private", fillcolor="#edf0f7", color="grey25", style="filled,bold", URL="dir_80c3527ec3cf0f3483e12c0fcf6ceee3.html",tooltip=""];
+  }
+}

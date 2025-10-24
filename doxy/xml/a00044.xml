@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="a00044" kind="file" language="Markdown">
+    <compoundname>CONTRIBUTING.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>Contributing<sp/>to<sp/>OpenTraceDecode</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Thank<sp/>you<sp/>for<sp/>your<sp/>interest<sp/>in<sp/>contributing<sp/>to<sp/>OpenTraceDecode!</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Building</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">OpenTraceDecode<sp/>uses<sp/>Meson<sp/>as<sp/>its<sp/>build<sp/>system:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">meson<sp/>setup<sp/>builddir</highlight></codeline>
+<codeline><highlight class="normal">meson<sp/>compile<sp/>-C<sp/>builddir</highlight></codeline>
+<codeline><highlight class="normal">meson<sp/>test<sp/>-C<sp/>builddir<sp/><sp/>#<sp/>Run<sp/>tests</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Development<sp/>Guidelines</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Follow<sp/>existing<sp/>code<sp/>style<sp/>and<sp/>conventions</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Write<sp/>tests<sp/>for<sp/>new<sp/>functionality</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Update<sp/>documentation<sp/>as<sp/>needed</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Protocol<sp/>decoders<sp/>should<sp/>be<sp/>written<sp/>in<sp/>Python</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>C<sp/>API<sp/>changes<sp/>require<sp/>careful<sp/>consideration<sp/>for<sp/>backward<sp/>compatibility</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Submitting<sp/>Changes</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>Fork<sp/>the<sp/>repository</highlight></codeline>
+<codeline><highlight class="normal">2.<sp/>Create<sp/>a<sp/>feature<sp/>branch</highlight></codeline>
+<codeline><highlight class="normal">3.<sp/>Make<sp/>your<sp/>changes<sp/>with<sp/>appropriate<sp/>tests</highlight></codeline>
+<codeline><highlight class="normal">4.<sp/>Submit<sp/>a<sp/>pull<sp/>request<sp/>with<sp/>a<sp/>clear<sp/>description</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Reporting<sp/>Issues</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Please<sp/>use<sp/>GitHub<sp/>issues<sp/>to<sp/>report<sp/>bugs<sp/>or<sp/>request<sp/>features.<sp/>Include:</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Clear<sp/>description<sp/>of<sp/>the<sp/>issue</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Steps<sp/>to<sp/>reproduce</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Expected<sp/>vs<sp/>actual<sp/>behavior</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>System<sp/>information<sp/>(OS,<sp/>Python<sp/>version,<sp/>etc.)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Protocol<sp/>Decoder<sp/>Development</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">When<sp/>adding<sp/>new<sp/>protocol<sp/>decoders:</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Follow<sp/>the<sp/>existing<sp/>decoder<sp/>structure</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Include<sp/>comprehensive<sp/>test<sp/>cases</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Document<sp/>the<sp/>protocol<sp/>and<sp/>decoder<sp/>usage</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Ensure<sp/>compatibility<sp/>with<sp/>the<sp/>current<sp/>API</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Code<sp/>of<sp/>Conduct</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Please<sp/>follow<sp/>our<sp/>Code<sp/>of<sp/>Conduct<sp/>in<sp/>all<sp/>interactions.</highlight></codeline>
+    </programlisting>
+    <location file="CONTRIBUTING.md"/>
+  </compounddef>
+</doxygen>

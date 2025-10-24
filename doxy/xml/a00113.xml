@@ -1,0 +1,662 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="a00113" kind="struct" language="C++" prot="public">
+    <compoundname>otd_decoder_inst</compoundname>
+    <includes refid="a00258" local="no">libopentracedecode.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="a00113_1a3f7cddd503846ba899d5f46fbdff36b6" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="a00093" kindref="compound">otd_decoder</ref> *</type>
+        <definition>struct otd_decoder * otd_decoder_inst::decoder</definition>
+        <argsstring></argsstring>
+        <name>decoder</name>
+        <qualifiedname>otd_decoder_inst::decoder</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="251" column="18" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="251" bodyend="-1"/>
+        <referencedby refid="a00085_1gab5a386924fc4ab4a61f0f3b3e7eef0f1" compoundref="a00050" startline="231" endline="320">otd_inst_channel_set_all</referencedby>
+        <referencedby refid="a00085_1ga93239c3c924c6f71393cdcf619ecf67b" compoundref="a00050" startline="336" endline="447">otd_inst_new</referencedby>
+        <referencedby refid="a00085_1ga465fa07a525a264e429dfbccb2abe3c6" compoundref="a00050" startline="92" endline="207">otd_inst_option_set</referencedby>
+        <referencedby refid="a00085_1ga2d145b7c48e57509dc22988ad0c36a02" compoundref="a00050" startline="521" endline="565">otd_inst_stack</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00113_1a8f310ba6956102b88003d3e7a433f2ef" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="a00165" kindref="compound">otd_session</ref> *</type>
+        <definition>struct otd_session * otd_decoder_inst::sess</definition>
+        <argsstring></argsstring>
+        <name>sess</name>
+        <qualifiedname>otd_decoder_inst::sess</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="252" column="18" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="252" bodyend="-1"/>
+        <referencedby refid="a00085_1ga85fb36f5ae3affa7f4c89f129f51f637" compoundref="a00050" startline="613" endline="630">otd_inst_find_by_id</referencedby>
+        <referencedby refid="a00085_1ga93239c3c924c6f71393cdcf619ecf67b" compoundref="a00050" startline="336" endline="447">otd_inst_new</referencedby>
+        <referencedby refid="a00085_1ga2d145b7c48e57509dc22988ad0c36a02" compoundref="a00050" startline="521" endline="565">otd_inst_stack</referencedby>
+        <referencedby refid="a00088_1gaff3d623695f72762cc7120228d4bf2b3" compoundref="a00068" startline="357" endline="375">otd_session_destroy</referencedby>
+        <referencedby refid="a00088_1ga1e23480b9872bddca2b1d502be2e27e0" compoundref="a00068" startline="159" endline="202">otd_session_metadata_set</referencedby>
+        <referencedby refid="a00088_1ga06f225c625d4bed27430fc0bf9940bca" compoundref="a00068" startline="262" endline="279">otd_session_send</referencedby>
+        <referencedby refid="a00088_1ga8654a21446400e6045097e22c28b1869" compoundref="a00068" startline="290" endline="305">otd_session_send_eof</referencedby>
+        <referencedby refid="a00088_1gad004c3c733af11a5d262f9d12cd4e0fe" compoundref="a00068" startline="90" endline="110">otd_session_start</referencedby>
+        <referencedby refid="a00088_1ga00a506b773898e40b801edb5efbcd2e2" compoundref="a00068" startline="329" endline="344">otd_session_terminate_reset</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00113_1a81ec9ee5165f12f9079683bcf57cf4cd" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void * otd_decoder_inst::py_inst</definition>
+        <argsstring></argsstring>
+        <name>py_inst</name>
+        <qualifiedname>otd_decoder_inst::py_inst</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="253" column="6" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="253" bodyend="-1"/>
+        <referencedby refid="a00085_1ga8fb9318bbcbde31049c29877e75034ec" compoundref="a00050" startline="1269" endline="1295">otd_inst_flush</referencedby>
+        <referencedby refid="a00085_1ga754b863cb710a4fdeecef5d70c8ee689" compoundref="a00050" startline="1420" endline="1447">otd_inst_free</referencedby>
+        <referencedby refid="a00085_1ga93239c3c924c6f71393cdcf619ecf67b" compoundref="a00050" startline="336" endline="447">otd_inst_new</referencedby>
+        <referencedby refid="a00085_1ga465fa07a525a264e429dfbccb2abe3c6" compoundref="a00050" startline="92" endline="207">otd_inst_option_set</referencedby>
+        <referencedby refid="a00085_1ga21cc0890d564bc0c72ee93bae8dbd773" compoundref="a00050" startline="682" endline="721">otd_inst_start</referencedby>
+        <referencedby refid="a00085_1ga3a256fb72531757070ae05bac39bcb1c" compoundref="a00050" startline="1373" endline="1417">otd_inst_terminate_reset</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00113_1abde64b952bdf7918589230fe1b6cd124" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char * otd_decoder_inst::inst_id</definition>
+        <argsstring></argsstring>
+        <name>inst_id</name>
+        <qualifiedname>otd_decoder_inst::inst_id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="254" column="6" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="254" bodyend="-1"/>
+        <referencedby refid="a00085_1gab5a386924fc4ab4a61f0f3b3e7eef0f1" compoundref="a00050" startline="231" endline="320">otd_inst_channel_set_all</referencedby>
+        <referencedby refid="a00085_1ga16bc8c1ec4cbfaa9a3341af1a485cbf5" compoundref="a00050" startline="1185" endline="1257">otd_inst_decode</referencedby>
+        <referencedby refid="a00085_1ga85fb36f5ae3affa7f4c89f129f51f637" compoundref="a00050" startline="613" endline="630">otd_inst_find_by_id</referencedby>
+        <referencedby refid="a00085_1ga8fb9318bbcbde31049c29877e75034ec" compoundref="a00050" startline="1269" endline="1295">otd_inst_flush</referencedby>
+        <referencedby refid="a00085_1ga754b863cb710a4fdeecef5d70c8ee689" compoundref="a00050" startline="1420" endline="1447">otd_inst_free</referencedby>
+        <referencedby refid="a00085_1ga93239c3c924c6f71393cdcf619ecf67b" compoundref="a00050" startline="336" endline="447">otd_inst_new</referencedby>
+        <referencedby refid="a00085_1ga465fa07a525a264e429dfbccb2abe3c6" compoundref="a00050" startline="92" endline="207">otd_inst_option_set</referencedby>
+        <referencedby refid="a00085_1ga59a9e52ee0d4444adf57fcf63ba508b2" compoundref="a00050" startline="1306" endline="1353">otd_inst_send_eof</referencedby>
+        <referencedby refid="a00085_1ga2d145b7c48e57509dc22988ad0c36a02" compoundref="a00050" startline="521" endline="565">otd_inst_stack</referencedby>
+        <referencedby refid="a00085_1ga21cc0890d564bc0c72ee93bae8dbd773" compoundref="a00050" startline="682" endline="721">otd_inst_start</referencedby>
+        <referencedby refid="a00085_1ga3a256fb72531757070ae05bac39bcb1c" compoundref="a00050" startline="1373" endline="1417">otd_inst_terminate_reset</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00113_1a26a270791d5d906dd7e771a9a92843c9" prot="public" static="no" mutable="no">
+        <type>GSList *</type>
+        <definition>GSList * otd_decoder_inst::pd_output</definition>
+        <argsstring></argsstring>
+        <name>pd_output</name>
+        <qualifiedname>otd_decoder_inst::pd_output</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="255" column="8" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="255" bodyend="-1"/>
+        <referencedby refid="a00085_1ga754b863cb710a4fdeecef5d70c8ee689" compoundref="a00050" startline="1420" endline="1447">otd_inst_free</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00113_1ae5ade9bfe37f0f19cb4873264a0770ac" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int otd_decoder_inst::dec_num_channels</definition>
+        <argsstring></argsstring>
+        <name>dec_num_channels</name>
+        <qualifiedname>otd_decoder_inst::dec_num_channels</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="256" column="5" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="256" bodyend="-1"/>
+        <referencedby refid="a00085_1gab5a386924fc4ab4a61f0f3b3e7eef0f1" compoundref="a00050" startline="231" endline="320">otd_inst_channel_set_all</referencedby>
+        <referencedby refid="a00085_1ga51c30e41b8b99bc6076bea9bf999303a" compoundref="a00050" startline="640" endline="679">otd_inst_initial_pins_set_all</referencedby>
+        <referencedby refid="a00085_1ga93239c3c924c6f71393cdcf619ecf67b" compoundref="a00050" startline="336" endline="447">otd_inst_new</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00113_1a70113106efa4f1a7e3c08fc1a94c52b3" prot="public" static="no" mutable="no">
+        <type>int *</type>
+        <definition>int * otd_decoder_inst::dec_channelmap</definition>
+        <argsstring></argsstring>
+        <name>dec_channelmap</name>
+        <qualifiedname>otd_decoder_inst::dec_channelmap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="257" column="5" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="257" bodyend="-1"/>
+        <referencedby refid="a00085_1gab5a386924fc4ab4a61f0f3b3e7eef0f1" compoundref="a00050" startline="231" endline="320">otd_inst_channel_set_all</referencedby>
+        <referencedby refid="a00085_1ga754b863cb710a4fdeecef5d70c8ee689" compoundref="a00050" startline="1420" endline="1447">otd_inst_free</referencedby>
+        <referencedby refid="a00085_1ga93239c3c924c6f71393cdcf619ecf67b" compoundref="a00050" startline="336" endline="447">otd_inst_new</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00113_1a2fbe8e3d4014000dc83066c064c573e5" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int otd_decoder_inst::data_unitsize</definition>
+        <argsstring></argsstring>
+        <name>data_unitsize</name>
+        <qualifiedname>otd_decoder_inst::data_unitsize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="258" column="5" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="258" bodyend="-1"/>
+        <referencedby refid="a00085_1ga16bc8c1ec4cbfaa9a3341af1a485cbf5" compoundref="a00050" startline="1185" endline="1257">otd_inst_decode</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00113_1ac5df4ad4c63cdada014c2fc86f74accb" prot="public" static="no" mutable="no">
+        <type>uint8_t *</type>
+        <definition>uint8_t * otd_decoder_inst::channel_samples</definition>
+        <argsstring></argsstring>
+        <name>channel_samples</name>
+        <qualifiedname>otd_decoder_inst::channel_samples</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="259" column="9" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="259" bodyend="-1"/>
+        <referencedby refid="a00085_1ga754b863cb710a4fdeecef5d70c8ee689" compoundref="a00050" startline="1420" endline="1447">otd_inst_free</referencedby>
+        <referencedby refid="a00085_1ga93239c3c924c6f71393cdcf619ecf67b" compoundref="a00050" startline="336" endline="447">otd_inst_new</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00113_1a0513a08c7294e76850febc56ba372187" prot="public" static="no" mutable="no">
+        <type>GSList *</type>
+        <definition>GSList * otd_decoder_inst::next_di</definition>
+        <argsstring></argsstring>
+        <name>next_di</name>
+        <qualifiedname>otd_decoder_inst::next_di</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="260" column="8" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="260" bodyend="-1"/>
+        <referencedby refid="a00085_1ga8fb9318bbcbde31049c29877e75034ec" compoundref="a00050" startline="1269" endline="1295">otd_inst_flush</referencedby>
+        <referencedby refid="a00085_1ga754b863cb710a4fdeecef5d70c8ee689" compoundref="a00050" startline="1420" endline="1447">otd_inst_free</referencedby>
+        <referencedby refid="a00085_1ga59a9e52ee0d4444adf57fcf63ba508b2" compoundref="a00050" startline="1306" endline="1353">otd_inst_send_eof</referencedby>
+        <referencedby refid="a00085_1ga2d145b7c48e57509dc22988ad0c36a02" compoundref="a00050" startline="521" endline="565">otd_inst_stack</referencedby>
+        <referencedby refid="a00085_1ga21cc0890d564bc0c72ee93bae8dbd773" compoundref="a00050" startline="682" endline="721">otd_inst_start</referencedby>
+        <referencedby refid="a00085_1ga3a256fb72531757070ae05bac39bcb1c" compoundref="a00050" startline="1373" endline="1417">otd_inst_terminate_reset</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00113_1a14f2d86acd8cce0b3562f6eac77a8135" prot="public" static="no" mutable="no">
+        <type>GSList *</type>
+        <definition>GSList * otd_decoder_inst::condition_list</definition>
+        <argsstring></argsstring>
+        <name>condition_list</name>
+        <qualifiedname>otd_decoder_inst::condition_list</qualifiedname>
+        <briefdescription>
+<para>List of conditions a PD wants to wait for. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="263" column="8" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="263" bodyend="-1"/>
+        <referencedby refid="a00085_1ga5a47265f727fbb1ec521a564d8f957d3" compoundref="a00050" startline="793" endline="808">condition_list_free</referencedby>
+        <referencedby refid="a00085_1ga93239c3c924c6f71393cdcf619ecf67b" compoundref="a00050" startline="336" endline="447">otd_inst_new</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00113_1abfda650553b54d3d44fdf10fa501dc3a" prot="public" static="no" mutable="no">
+        <type>GArray *</type>
+        <definition>GArray * otd_decoder_inst::match_array</definition>
+        <argsstring></argsstring>
+        <name>match_array</name>
+        <qualifiedname>otd_decoder_inst::match_array</qualifiedname>
+        <briefdescription>
+<para>Array of booleans denoting which conditions matched. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="266" column="8" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="266" bodyend="-1"/>
+        <referencedby refid="a00085_1ga4f385e5a752a33a538c128cb7335ff20" compoundref="a00050" startline="783" endline="790">match_array_free</referencedby>
+        <referencedby refid="a00085_1ga93239c3c924c6f71393cdcf619ecf67b" compoundref="a00050" startline="336" endline="447">otd_inst_new</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00113_1acb8e6b509a2959427a0cce8645ddeb20" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t otd_decoder_inst::abs_start_samplenum</definition>
+        <argsstring></argsstring>
+        <name>abs_start_samplenum</name>
+        <qualifiedname>otd_decoder_inst::abs_start_samplenum</qualifiedname>
+        <briefdescription>
+<para>Absolute start sample number. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="269" column="10" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="269" bodyend="-1"/>
+        <referencedby refid="a00085_1ga16bc8c1ec4cbfaa9a3341af1a485cbf5" compoundref="a00050" startline="1185" endline="1257">otd_inst_decode</referencedby>
+        <referencedby refid="a00085_1ga93239c3c924c6f71393cdcf619ecf67b" compoundref="a00050" startline="336" endline="447">otd_inst_new</referencedby>
+        <referencedby refid="a00088_1ga06f225c625d4bed27430fc0bf9940bca" compoundref="a00068" startline="262" endline="279">otd_session_send</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00113_1a21041f21583e4260a07449dc1612a8ea" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t otd_decoder_inst::abs_end_samplenum</definition>
+        <argsstring></argsstring>
+        <name>abs_end_samplenum</name>
+        <qualifiedname>otd_decoder_inst::abs_end_samplenum</qualifiedname>
+        <briefdescription>
+<para>Absolute end sample number. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="272" column="10" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="272" bodyend="-1"/>
+        <referencedby refid="a00085_1ga16bc8c1ec4cbfaa9a3341af1a485cbf5" compoundref="a00050" startline="1185" endline="1257">otd_inst_decode</referencedby>
+        <referencedby refid="a00085_1ga93239c3c924c6f71393cdcf619ecf67b" compoundref="a00050" startline="336" endline="447">otd_inst_new</referencedby>
+        <referencedby refid="a00088_1ga06f225c625d4bed27430fc0bf9940bca" compoundref="a00068" startline="262" endline="279">otd_session_send</referencedby>
+        <referencedby refid="a00085_1ga6640c1503a8f6d1deaf87c344cf90225" compoundref="a00050" startline="997" endline="1028">process_samples_until_condition_match</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00113_1ac5e48df7922126d6bbce1364d3c94ffe" prot="public" static="no" mutable="no">
+        <type>const uint8_t *</type>
+        <definition>const uint8_t * otd_decoder_inst::inbuf</definition>
+        <argsstring></argsstring>
+        <name>inbuf</name>
+        <qualifiedname>otd_decoder_inst::inbuf</qualifiedname>
+        <briefdescription>
+<para>Pointer to the buffer/chunk of input samples. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="275" column="15" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="275" bodyend="-1"/>
+        <referencedby refid="a00085_1ga16bc8c1ec4cbfaa9a3341af1a485cbf5" compoundref="a00050" startline="1185" endline="1257">otd_inst_decode</referencedby>
+        <referencedby refid="a00085_1ga93239c3c924c6f71393cdcf619ecf67b" compoundref="a00050" startline="336" endline="447">otd_inst_new</referencedby>
+        <referencedby refid="a00085_1ga59a9e52ee0d4444adf57fcf63ba508b2" compoundref="a00050" startline="1306" endline="1353">otd_inst_send_eof</referencedby>
+        <referencedby refid="a00088_1ga06f225c625d4bed27430fc0bf9940bca" compoundref="a00068" startline="262" endline="279">otd_session_send</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00113_1af5d715e676e52b289de4b9692ccd0d01" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t otd_decoder_inst::inbuflen</definition>
+        <argsstring></argsstring>
+        <name>inbuflen</name>
+        <qualifiedname>otd_decoder_inst::inbuflen</qualifiedname>
+        <briefdescription>
+<para>Length (in bytes) of the input sample buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="278" column="10" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="278" bodyend="-1"/>
+        <referencedby refid="a00085_1ga16bc8c1ec4cbfaa9a3341af1a485cbf5" compoundref="a00050" startline="1185" endline="1257">otd_inst_decode</referencedby>
+        <referencedby refid="a00085_1ga93239c3c924c6f71393cdcf619ecf67b" compoundref="a00050" startline="336" endline="447">otd_inst_new</referencedby>
+        <referencedby refid="a00085_1ga59a9e52ee0d4444adf57fcf63ba508b2" compoundref="a00050" startline="1306" endline="1353">otd_inst_send_eof</referencedby>
+        <referencedby refid="a00088_1ga06f225c625d4bed27430fc0bf9940bca" compoundref="a00068" startline="262" endline="279">otd_session_send</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00113_1aa5f6bb4a9f66843b74866b5697f888ca" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t otd_decoder_inst::abs_cur_samplenum</definition>
+        <argsstring></argsstring>
+        <name>abs_cur_samplenum</name>
+        <qualifiedname>otd_decoder_inst::abs_cur_samplenum</qualifiedname>
+        <briefdescription>
+<para>Absolute current samplenumber. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="281" column="10" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="281" bodyend="-1"/>
+        <referencedby refid="a00085_1ga16bc8c1ec4cbfaa9a3341af1a485cbf5" compoundref="a00050" startline="1185" endline="1257">otd_inst_decode</referencedby>
+        <referencedby refid="a00085_1ga93239c3c924c6f71393cdcf619ecf67b" compoundref="a00050" startline="336" endline="447">otd_inst_new</referencedby>
+        <referencedby refid="a00085_1ga6640c1503a8f6d1deaf87c344cf90225" compoundref="a00050" startline="997" endline="1028">process_samples_until_condition_match</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00113_1aa1c3320e468b9dc8c8c72ecf8317995e" prot="public" static="no" mutable="no">
+        <type>GArray *</type>
+        <definition>GArray * otd_decoder_inst::old_pins_array</definition>
+        <argsstring></argsstring>
+        <name>old_pins_array</name>
+        <qualifiedname>otd_decoder_inst::old_pins_array</qualifiedname>
+        <briefdescription>
+<para>Array of &quot;old&quot; (previous sample) pin values. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="284" column="8" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="284" bodyend="-1"/>
+        <referencedby refid="a00085_1ga51c30e41b8b99bc6076bea9bf999303a" compoundref="a00050" startline="640" endline="679">otd_inst_initial_pins_set_all</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00113_1a8f0d222a1ee6d9293e05b8d8b8417938" prot="public" static="no" mutable="no">
+        <type>GThread *</type>
+        <definition>GThread * otd_decoder_inst::thread_handle</definition>
+        <argsstring></argsstring>
+        <name>thread_handle</name>
+        <qualifiedname>otd_decoder_inst::thread_handle</qualifiedname>
+        <briefdescription>
+<para>Handle for this PD stack&apos;s worker thread. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="287" column="9" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="287" bodyend="-1"/>
+        <referencedby refid="a00085_1ga16bc8c1ec4cbfaa9a3341af1a485cbf5" compoundref="a00050" startline="1185" endline="1257">otd_inst_decode</referencedby>
+        <referencedby refid="a00085_1ga93239c3c924c6f71393cdcf619ecf67b" compoundref="a00050" startline="336" endline="447">otd_inst_new</referencedby>
+        <referencedby refid="a00085_1ga59a9e52ee0d4444adf57fcf63ba508b2" compoundref="a00050" startline="1306" endline="1353">otd_inst_send_eof</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00113_1a045375c6886c8508d2057ceb402bd246" prot="public" static="no" mutable="no">
+        <type>gboolean</type>
+        <definition>gboolean otd_decoder_inst::got_new_samples</definition>
+        <argsstring></argsstring>
+        <name>got_new_samples</name>
+        <qualifiedname>otd_decoder_inst::got_new_samples</qualifiedname>
+        <briefdescription>
+<para>Indicates whether new samples are available for processing. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="290" column="10" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="290" bodyend="-1"/>
+        <referencedby refid="a00085_1ga16bc8c1ec4cbfaa9a3341af1a485cbf5" compoundref="a00050" startline="1185" endline="1257">otd_inst_decode</referencedby>
+        <referencedby refid="a00085_1ga93239c3c924c6f71393cdcf619ecf67b" compoundref="a00050" startline="336" endline="447">otd_inst_new</referencedby>
+        <referencedby refid="a00085_1ga59a9e52ee0d4444adf57fcf63ba508b2" compoundref="a00050" startline="1306" endline="1353">otd_inst_send_eof</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00113_1a974ca6038f2782e28aa9273073db7b7f" prot="public" static="no" mutable="no">
+        <type>gboolean</type>
+        <definition>gboolean otd_decoder_inst::handled_all_samples</definition>
+        <argsstring></argsstring>
+        <name>handled_all_samples</name>
+        <qualifiedname>otd_decoder_inst::handled_all_samples</qualifiedname>
+        <briefdescription>
+<para>Indicates whether the worker thread has handled all samples. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="293" column="10" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="293" bodyend="-1"/>
+        <referencedby refid="a00085_1ga16bc8c1ec4cbfaa9a3341af1a485cbf5" compoundref="a00050" startline="1185" endline="1257">otd_inst_decode</referencedby>
+        <referencedby refid="a00085_1ga93239c3c924c6f71393cdcf619ecf67b" compoundref="a00050" startline="336" endline="447">otd_inst_new</referencedby>
+        <referencedby refid="a00085_1ga59a9e52ee0d4444adf57fcf63ba508b2" compoundref="a00050" startline="1306" endline="1353">otd_inst_send_eof</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00113_1a7f0afc17aaf2b3dad6885c2636e5d2cb" prot="public" static="no" mutable="no">
+        <type>gboolean</type>
+        <definition>gboolean otd_decoder_inst::want_wait_terminate</definition>
+        <argsstring></argsstring>
+        <name>want_wait_terminate</name>
+        <qualifiedname>otd_decoder_inst::want_wait_terminate</qualifiedname>
+        <briefdescription>
+<para>Requests termination of wait() and decode(). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="296" column="10" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="296" bodyend="-1"/>
+        <referencedby refid="a00085_1ga16bc8c1ec4cbfaa9a3341af1a485cbf5" compoundref="a00050" startline="1185" endline="1257">otd_inst_decode</referencedby>
+        <referencedby refid="a00085_1ga93239c3c924c6f71393cdcf619ecf67b" compoundref="a00050" startline="336" endline="447">otd_inst_new</referencedby>
+        <referencedby refid="a00085_1ga59a9e52ee0d4444adf57fcf63ba508b2" compoundref="a00050" startline="1306" endline="1353">otd_inst_send_eof</referencedby>
+        <referencedby refid="a00085_1ga6640c1503a8f6d1deaf87c344cf90225" compoundref="a00050" startline="997" endline="1028">process_samples_until_condition_match</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00113_1af4d0628e6d7341c9cd64fb2c7f58798b" prot="public" static="no" mutable="no">
+        <type>gboolean</type>
+        <definition>gboolean otd_decoder_inst::communicate_eof</definition>
+        <argsstring></argsstring>
+        <name>communicate_eof</name>
+        <qualifiedname>otd_decoder_inst::communicate_eof</qualifiedname>
+        <briefdescription>
+<para>Requests that .wait() terminates a Python iteration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="299" column="10" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="299" bodyend="-1"/>
+        <referencedby refid="a00085_1ga93239c3c924c6f71393cdcf619ecf67b" compoundref="a00050" startline="336" endline="447">otd_inst_new</referencedby>
+        <referencedby refid="a00085_1ga59a9e52ee0d4444adf57fcf63ba508b2" compoundref="a00050" startline="1306" endline="1353">otd_inst_send_eof</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00113_1a9b5ac5ebbf789c6c00537460a20d9068" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int otd_decoder_inst::decoder_state</definition>
+        <argsstring></argsstring>
+        <name>decoder_state</name>
+        <qualifiedname>otd_decoder_inst::decoder_state</qualifiedname>
+        <briefdescription>
+<para>Indicates the current state of the decoder stack. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="302" column="5" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="302" bodyend="-1"/>
+        <referencedby refid="a00085_1ga8fb9318bbcbde31049c29877e75034ec" compoundref="a00050" startline="1269" endline="1295">otd_inst_flush</referencedby>
+        <referencedby refid="a00085_1ga93239c3c924c6f71393cdcf619ecf67b" compoundref="a00050" startline="336" endline="447">otd_inst_new</referencedby>
+        <referencedby refid="a00085_1ga3a256fb72531757070ae05bac39bcb1c" compoundref="a00050" startline="1373" endline="1417">otd_inst_terminate_reset</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00113_1aa6330fb8d39f3192cb6cf3ec63ceac19" prot="public" static="no" mutable="no">
+        <type>GCond</type>
+        <definition>GCond otd_decoder_inst::got_new_samples_cond</definition>
+        <argsstring></argsstring>
+        <name>got_new_samples_cond</name>
+        <qualifiedname>otd_decoder_inst::got_new_samples_cond</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="304" column="7" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="304" bodyend="-1"/>
+        <referencedby refid="a00085_1ga16bc8c1ec4cbfaa9a3341af1a485cbf5" compoundref="a00050" startline="1185" endline="1257">otd_inst_decode</referencedby>
+        <referencedby refid="a00085_1ga93239c3c924c6f71393cdcf619ecf67b" compoundref="a00050" startline="336" endline="447">otd_inst_new</referencedby>
+        <referencedby refid="a00085_1ga59a9e52ee0d4444adf57fcf63ba508b2" compoundref="a00050" startline="1306" endline="1353">otd_inst_send_eof</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00113_1a369833301696288db4a2201f44dc4c3e" prot="public" static="no" mutable="no">
+        <type>GCond</type>
+        <definition>GCond otd_decoder_inst::handled_all_samples_cond</definition>
+        <argsstring></argsstring>
+        <name>handled_all_samples_cond</name>
+        <qualifiedname>otd_decoder_inst::handled_all_samples_cond</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="305" column="7" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="305" bodyend="-1"/>
+        <referencedby refid="a00085_1ga16bc8c1ec4cbfaa9a3341af1a485cbf5" compoundref="a00050" startline="1185" endline="1257">otd_inst_decode</referencedby>
+        <referencedby refid="a00085_1ga93239c3c924c6f71393cdcf619ecf67b" compoundref="a00050" startline="336" endline="447">otd_inst_new</referencedby>
+        <referencedby refid="a00085_1ga59a9e52ee0d4444adf57fcf63ba508b2" compoundref="a00050" startline="1306" endline="1353">otd_inst_send_eof</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00113_1a0b14c71c1990b9d61c3d557b25dc96b4" prot="public" static="no" mutable="no">
+        <type>GMutex</type>
+        <definition>GMutex otd_decoder_inst::data_mutex</definition>
+        <argsstring></argsstring>
+        <name>data_mutex</name>
+        <qualifiedname>otd_decoder_inst::data_mutex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="306" column="8" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="306" bodyend="-1"/>
+        <referencedby refid="a00085_1ga16bc8c1ec4cbfaa9a3341af1a485cbf5" compoundref="a00050" startline="1185" endline="1257">otd_inst_decode</referencedby>
+        <referencedby refid="a00085_1ga93239c3c924c6f71393cdcf619ecf67b" compoundref="a00050" startline="336" endline="447">otd_inst_new</referencedby>
+        <referencedby refid="a00085_1ga59a9e52ee0d4444adf57fcf63ba508b2" compoundref="a00050" startline="1306" endline="1353">otd_inst_send_eof</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="9">
+        <label>GArray *</label>
+      </node>
+      <node id="13">
+        <label>GCond</label>
+      </node>
+      <node id="14">
+        <label>GMutex</label>
+      </node>
+      <node id="4">
+        <label>GSList *</label>
+      </node>
+      <node id="11">
+        <label>GThread *</label>
+      </node>
+      <node id="3">
+        <label>char *</label>
+      </node>
+      <node id="12">
+        <label>gboolean</label>
+      </node>
+      <node id="7">
+        <label>int</label>
+      </node>
+      <node id="2">
+        <label>otd_decoder</label>
+        <link refid="a00093"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>desc</edgelabel>
+          <edgelabel>id</edgelabel>
+          <edgelabel>license</edgelabel>
+          <edgelabel>longname</edgelabel>
+          <edgelabel>name</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>annotation_rows</edgelabel>
+          <edgelabel>annotations</edgelabel>
+          <edgelabel>binary</edgelabel>
+          <edgelabel>channels</edgelabel>
+          <edgelabel>inputs</edgelabel>
+          <edgelabel>logic_output_channels</edgelabel>
+          <edgelabel>opt_channels</edgelabel>
+          <edgelabel>options</edgelabel>
+          <edgelabel>outputs</edgelabel>
+          <edgelabel>tags</edgelabel>
+          <edgelabel>...</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>py_dec</edgelabel>
+          <edgelabel>py_mod</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>otd_decoder_inst</label>
+        <link refid="a00113"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>decoder</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>sess</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>py_inst</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>inst_id</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>condition_list</edgelabel>
+          <edgelabel>next_di</edgelabel>
+          <edgelabel>pd_output</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>data_unitsize</edgelabel>
+          <edgelabel>dec_channelmap</edgelabel>
+          <edgelabel>dec_num_channels</edgelabel>
+          <edgelabel>decoder_state</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>channel_samples</edgelabel>
+          <edgelabel>inbuf</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>match_array</edgelabel>
+          <edgelabel>old_pins_array</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>abs_cur_samplenum</edgelabel>
+          <edgelabel>abs_end_samplenum</edgelabel>
+          <edgelabel>abs_start_samplenum</edgelabel>
+          <edgelabel>inbuflen</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>thread_handle</edgelabel>
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>communicate_eof</edgelabel>
+          <edgelabel>got_new_samples</edgelabel>
+          <edgelabel>handled_all_samples</edgelabel>
+          <edgelabel>want_wait_terminate</edgelabel>
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>got_new_samples_cond</edgelabel>
+          <edgelabel>handled_all_samples_cond</edgelabel>
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>data_mutex</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>otd_session</label>
+        <link refid="a00165"/>
+        <childnode refid="7" relation="usage">
+          <edgelabel>session_id</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>callbacks</edgelabel>
+          <edgelabel>di_list</edgelabel>
+        </childnode>
+      </node>
+      <node id="10">
+        <label>uint64_t</label>
+      </node>
+      <node id="8">
+        <label>uint8_t</label>
+      </node>
+      <node id="5">
+        <label>void *</label>
+      </node>
+    </collaborationgraph>
+    <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="250" column="1" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="250" bodyend="307"/>
+    <listofallmembers>
+      <member refid="a00113_1aa5f6bb4a9f66843b74866b5697f888ca" prot="public" virt="non-virtual"><scope>otd_decoder_inst</scope><name>abs_cur_samplenum</name></member>
+      <member refid="a00113_1a21041f21583e4260a07449dc1612a8ea" prot="public" virt="non-virtual"><scope>otd_decoder_inst</scope><name>abs_end_samplenum</name></member>
+      <member refid="a00113_1acb8e6b509a2959427a0cce8645ddeb20" prot="public" virt="non-virtual"><scope>otd_decoder_inst</scope><name>abs_start_samplenum</name></member>
+      <member refid="a00113_1ac5df4ad4c63cdada014c2fc86f74accb" prot="public" virt="non-virtual"><scope>otd_decoder_inst</scope><name>channel_samples</name></member>
+      <member refid="a00113_1af4d0628e6d7341c9cd64fb2c7f58798b" prot="public" virt="non-virtual"><scope>otd_decoder_inst</scope><name>communicate_eof</name></member>
+      <member refid="a00113_1a14f2d86acd8cce0b3562f6eac77a8135" prot="public" virt="non-virtual"><scope>otd_decoder_inst</scope><name>condition_list</name></member>
+      <member refid="a00113_1a0b14c71c1990b9d61c3d557b25dc96b4" prot="public" virt="non-virtual"><scope>otd_decoder_inst</scope><name>data_mutex</name></member>
+      <member refid="a00113_1a2fbe8e3d4014000dc83066c064c573e5" prot="public" virt="non-virtual"><scope>otd_decoder_inst</scope><name>data_unitsize</name></member>
+      <member refid="a00113_1a70113106efa4f1a7e3c08fc1a94c52b3" prot="public" virt="non-virtual"><scope>otd_decoder_inst</scope><name>dec_channelmap</name></member>
+      <member refid="a00113_1ae5ade9bfe37f0f19cb4873264a0770ac" prot="public" virt="non-virtual"><scope>otd_decoder_inst</scope><name>dec_num_channels</name></member>
+      <member refid="a00113_1a3f7cddd503846ba899d5f46fbdff36b6" prot="public" virt="non-virtual"><scope>otd_decoder_inst</scope><name>decoder</name></member>
+      <member refid="a00113_1a9b5ac5ebbf789c6c00537460a20d9068" prot="public" virt="non-virtual"><scope>otd_decoder_inst</scope><name>decoder_state</name></member>
+      <member refid="a00113_1a045375c6886c8508d2057ceb402bd246" prot="public" virt="non-virtual"><scope>otd_decoder_inst</scope><name>got_new_samples</name></member>
+      <member refid="a00113_1aa6330fb8d39f3192cb6cf3ec63ceac19" prot="public" virt="non-virtual"><scope>otd_decoder_inst</scope><name>got_new_samples_cond</name></member>
+      <member refid="a00113_1a974ca6038f2782e28aa9273073db7b7f" prot="public" virt="non-virtual"><scope>otd_decoder_inst</scope><name>handled_all_samples</name></member>
+      <member refid="a00113_1a369833301696288db4a2201f44dc4c3e" prot="public" virt="non-virtual"><scope>otd_decoder_inst</scope><name>handled_all_samples_cond</name></member>
+      <member refid="a00113_1ac5e48df7922126d6bbce1364d3c94ffe" prot="public" virt="non-virtual"><scope>otd_decoder_inst</scope><name>inbuf</name></member>
+      <member refid="a00113_1af5d715e676e52b289de4b9692ccd0d01" prot="public" virt="non-virtual"><scope>otd_decoder_inst</scope><name>inbuflen</name></member>
+      <member refid="a00113_1abde64b952bdf7918589230fe1b6cd124" prot="public" virt="non-virtual"><scope>otd_decoder_inst</scope><name>inst_id</name></member>
+      <member refid="a00113_1abfda650553b54d3d44fdf10fa501dc3a" prot="public" virt="non-virtual"><scope>otd_decoder_inst</scope><name>match_array</name></member>
+      <member refid="a00113_1a0513a08c7294e76850febc56ba372187" prot="public" virt="non-virtual"><scope>otd_decoder_inst</scope><name>next_di</name></member>
+      <member refid="a00113_1aa1c3320e468b9dc8c8c72ecf8317995e" prot="public" virt="non-virtual"><scope>otd_decoder_inst</scope><name>old_pins_array</name></member>
+      <member refid="a00113_1a26a270791d5d906dd7e771a9a92843c9" prot="public" virt="non-virtual"><scope>otd_decoder_inst</scope><name>pd_output</name></member>
+      <member refid="a00113_1a81ec9ee5165f12f9079683bcf57cf4cd" prot="public" virt="non-virtual"><scope>otd_decoder_inst</scope><name>py_inst</name></member>
+      <member refid="a00113_1a8f310ba6956102b88003d3e7a433f2ef" prot="public" virt="non-virtual"><scope>otd_decoder_inst</scope><name>sess</name></member>
+      <member refid="a00113_1a8f0d222a1ee6d9293e05b8d8b8417938" prot="public" virt="non-virtual"><scope>otd_decoder_inst</scope><name>thread_handle</name></member>
+      <member refid="a00113_1a7f0afc17aaf2b3dad6885c2636e5d2cb" prot="public" virt="non-virtual"><scope>otd_decoder_inst</scope><name>want_wait_terminate</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,840 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="a00026" kind="file" language="C++">
+    <compoundname>irmp.h</compoundname>
+    <includes refid="a00020" local="yes">irmpconfig.h</includes>
+    <includes refid="a00029" local="yes">irmpsystem.h</includes>
+    <includes refid="a00017" local="yes">irmpprotocols.h</includes>
+    <includedby refid="a00032" local="yes">irmp/irmp-main-sharedlib.c</includedby>
+    <includedby refid="a00023" local="yes">irmp/irmp.c</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>irmp/irmp.h</label>
+        <link refid="a00026"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>irmpconfig.h</label>
+        <link refid="a00020"/>
+      </node>
+      <node id="11">
+        <label>irmpprotocols.h</label>
+        <link refid="a00017"/>
+      </node>
+      <node id="3">
+        <label>irmpsystem.h</label>
+        <link refid="a00029"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>avr/interrupt.h</label>
+      </node>
+      <node id="7">
+        <label>avr/io.h</label>
+      </node>
+      <node id="9">
+        <label>avr/pgmspace.h</label>
+      </node>
+      <node id="5">
+        <label>stdint.h</label>
+      </node>
+      <node id="6">
+        <label>stdio.h</label>
+      </node>
+      <node id="4">
+        <label>string.h</label>
+      </node>
+      <node id="8">
+        <label>util/delay.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>irmp/irmp-main-sharedlib.c</label>
+        <link refid="a00032"/>
+      </node>
+      <node id="3">
+        <label>irmp/irmp.c</label>
+        <link refid="a00023"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>irmp/irmp.h</label>
+        <link refid="a00026"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="a00026_1a110941f61c24f2c092714b7302f55f0b" prot="public" static="no">
+        <name>IRMPCONFIG_STAGE1_H</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp.h" line="17" column="11" bodyfile="irmp/irmp.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="a00026_1ade009cd2e094dd93ce1ee6947db31591" prot="public" static="no">
+        <name>IRMPCONFIG_STAGE2_H</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp.h" line="25" column="11" bodyfile="irmp/irmp.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="a00026_1a89f151e3dbf33edabd0051cbcf6a93a9" prot="public" static="no">
+        <name>IRMP_FLAG_REPETITION</name>
+        <initializer>0x01</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp.h" line="288" column="9" bodyfile="irmp/irmp.h" bodystart="288" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="a00026_1aa8e4e3d0f822ea466e1e56ebeedebf78" prot="public" static="no" extern="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void irmp_init</definition>
+        <argsstring>(void)</argsstring>
+        <name>irmp_init</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp.h" line="295" column="41" declfile="irmp/irmp.h" declline="295" declcolumn="41"/>
+      </memberdef>
+      <memberdef kind="function" id="a00026_1a08ade62c8fd4c37697492cde32137c84" prot="public" static="no" extern="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint_fast8_t</type>
+        <definition>uint_fast8_t irmp_get_data</definition>
+        <argsstring>(IRMP_DATA *)</argsstring>
+        <name>irmp_get_data</name>
+        <param>
+          <type><ref refid="a00029_1a04f62e7d2de1f398100bddbf512298e9" kindref="member">IRMP_DATA</ref> *</type>
+          <declname>irmp_data_p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp.h" line="296" column="41" bodyfile="irmp/irmp.c" bodystart="2412" bodyend="2660" declfile="irmp/irmp.h" declline="296" declcolumn="41"/>
+        <references refid="a00153_1ae9656b053d430d1a6ace5758f37de68d" compoundref="a00029" startline="218">IRMP_PACKED_STRUCT::address</references>
+        <references refid="a00023_1a8eaca6f2740d115e36a4f4f376b1eedb" compoundref="a00023" startline="623">ANALYZE_PRINTF</references>
+        <references refid="a00153_1a83e1167cf7fdc8ee8c8041569742ce0b" compoundref="a00029" startline="219">IRMP_PACKED_STRUCT::command</references>
+        <references refid="a00029_1aa93f0eb578d23995850d61f7d61c55c1" compoundref="a00029" startline="194">FALSE</references>
+        <references refid="a00153_1aae1a997ffb4508485cfe5abef37b8fcd" compoundref="a00029" startline="220">IRMP_PACKED_STRUCT::flags</references>
+        <references refid="a00017_1a4da16e195886432cce50f91d366a275e" compoundref="a00017" startline="37">IRMP_APPLE_PROTOCOL</references>
+        <references refid="a00017_1acce6a8777b93d71531ec69b83ecb9e9c" compoundref="a00017" startline="57">IRMP_BOSE_PROTOCOL</references>
+        <references refid="a00017_1af8ddf6f7cd137827ed65f057fe57c381" compoundref="a00017" startline="50">IRMP_IR60_PROTOCOL</references>
+        <references refid="a00017_1a7b935e1f0281baababe1417681ccb9d2" compoundref="a00017" startline="51">IRMP_KATHREIN_PROTOCOL</references>
+        <references refid="a00017_1ad2e291bf74f97fab7e3fd6db71c94f4f" compoundref="a00017" startline="55">IRMP_LEGO_PROTOCOL</references>
+        <references refid="a00017_1a32d5c9134b3ca64bb833f87d0b985452" compoundref="a00017" startline="68">IRMP_MERLIN_PROTOCOL</references>
+        <references refid="a00017_1a75e0407fdf61c7cc0d40e56b8408f460" compoundref="a00017" startline="81">IRMP_METZ_PROTOCOL</references>
+        <references refid="a00017_1a538438c78894921bfcdeb4a410e781ce" compoundref="a00017" startline="28">IRMP_NEC_PROTOCOL</references>
+        <references refid="a00017_1a1b481c2b0e7b7e90d362cb8e960d47ba" compoundref="a00017" startline="52">IRMP_NETBOX_PROTOCOL</references>
+        <references refid="a00017_1a957de826d3bc959cf1427bf983b0c4ba" compoundref="a00017" startline="82">IRMP_ONKYO_PROTOCOL</references>
+        <references refid="a00017_1a47a2e29e97dc1d22376f92b1dffc1302" compoundref="a00017" startline="33">IRMP_RC5_PROTOCOL</references>
+        <references refid="a00017_1a0bdb052d48db1ff802677b8150f6173c" compoundref="a00017" startline="45">IRMP_RCCAR_PROTOCOL</references>
+        <references refid="a00017_1a4c35befc2225598aee47cdd1a9f64254" compoundref="a00017" startline="49">IRMP_RUWIDO_PROTOCOL</references>
+        <references refid="a00017_1a8754ac19652ef94cac605f755ff8106f" compoundref="a00017" startline="71">IRMP_S100_PROTOCOL</references>
+        <references refid="a00017_1aeba138e4b1ce70f905be60df60c2bd08" compoundref="a00017" startline="67">IRMP_SAMSUNG48_PROTOCOL</references>
+        <references refid="a00017_1ad1f375cf7dd38c099f00ab39588f4a29" compoundref="a00017" startline="29">IRMP_SAMSUNG_PROTOCOL</references>
+        <references refid="a00017_1afd7ad0576834b93caeb80e9b77a0d354" compoundref="a00017" startline="43">IRMP_SIEMENS_PROTOCOL</references>
+        <references refid="a00017_1ab30676e871ec021c9d285a6106921fb2" compoundref="a00017" startline="26">IRMP_UNKNOWN_PROTOCOL</references>
+        <references refid="a00017_1a51d6da8e154b4cfcccd629046f72db5e" compoundref="a00017" startline="76">IRMP_VINCENT_PROTOCOL</references>
+        <references refid="a00153_1a615ebaf2e093d3d53bae40dbee631689" compoundref="a00029" startline="217">IRMP_PACKED_STRUCT::protocol</references>
+        <references refid="a00029_1aa8cecfc5c5c054d2875c03e77b7be15d" compoundref="a00029" startline="193">TRUE</references>
+        <referencedby refid="a00032_1ac51614b600a56e7d401ddd1d0a16cb35" compoundref="a00032" startline="261" endline="276">irmp_get_result_data</referencedby>
+        <referencedby refid="a00032_1a1714d353d5990b6829fbc90ca10dd590" compoundref="a00032" startline="215" endline="249">irmp_reset_state</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="a00026_1a9e0db284613c707007a5a254851aa6cf" prot="public" static="no" extern="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint_fast8_t</type>
+        <definition>uint_fast8_t irmp_ISR</definition>
+        <argsstring>(void)</argsstring>
+        <name>irmp_ISR</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp.h" line="297" column="41" bodyfile="irmp/irmp.c" bodystart="2990" bodyend="5541" declfile="irmp/irmp.h" declline="297" declcolumn="41"/>
+        <references refid="a00023_1a6799f389f0195dc0d4bb971d29e6dd9a" compoundref="a00023" startline="498">A1TVBOX_START_BIT_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1a81b98406560ed044fb0ccef12acd2e8f" compoundref="a00023" startline="497">A1TVBOX_START_BIT_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1a7fe0323ae6b928e4d41ca28f8d98b2f3" compoundref="a00023" startline="496">A1TVBOX_START_BIT_PULSE_LEN_MAX</references>
+        <references refid="a00023_1a60772133c1e7a8273d1906128801ac16" compoundref="a00023" startline="495">A1TVBOX_START_BIT_PULSE_LEN_MIN</references>
+        <references refid="a00023_1ac93c024bc12dbdfd6430c65aa77c609b" compoundref="a00023" startline="583">ACP24_START_BIT_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1a036ea4401f4a044b55b965b19316e7e1" compoundref="a00023" startline="582">ACP24_START_BIT_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1a5112f140b7c995d9e65254f194179e39" compoundref="a00023" startline="581">ACP24_START_BIT_PULSE_LEN_MAX</references>
+        <references refid="a00023_1a8bc686c5d0c847cd5df4532446343c17" compoundref="a00023" startline="580">ACP24_START_BIT_PULSE_LEN_MIN</references>
+        <references refid="a00023_1aaf3d880e0fa16617b2205eb77ef80a66" compoundref="a00023" startline="625">ANALYZE_NEWLINE</references>
+        <references refid="a00023_1ad77832abfe89be47fc2fa6951572fb97" compoundref="a00023" startline="624">ANALYZE_ONLY_NORMAL_PRINTF</references>
+        <references refid="a00023_1a223ea3173a35210a42871f8b8085cb81" compoundref="a00023" startline="622">ANALYZE_ONLY_NORMAL_PUTCHAR</references>
+        <references refid="a00023_1a8eaca6f2740d115e36a4f4f376b1eedb" compoundref="a00023" startline="623">ANALYZE_PRINTF</references>
+        <references refid="a00023_1a39bd4a1508ecb651af22424f9d2d0d3c" compoundref="a00023" startline="621">ANALYZE_PUTCHAR</references>
+        <references refid="a00023_1a8cb932e09a266dbfe2520912b2abefbe" compoundref="a00023" startline="618">AUTO_FRAME_REPETITION_LEN</references>
+        <references refid="a00023_1ae1429466ef498a7747ba2521c4ada50d" compoundref="a00023" startline="352">BANG_OLUFSEN_R_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1a12f4f73d3694203aca0ffd4421795c5a" compoundref="a00023" startline="351">BANG_OLUFSEN_R_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1ac617fb4ba9d3f0d78c3dfe81f56183d2" compoundref="a00023" startline="332">BANG_OLUFSEN_START_BIT1_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1aae27cdd420c23bd94b3aabaa3cc9e7ed" compoundref="a00023" startline="331">BANG_OLUFSEN_START_BIT1_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1a2e559901d59300bcd8f30e04fb509d2f" compoundref="a00023" startline="330">BANG_OLUFSEN_START_BIT1_PULSE_LEN_MAX</references>
+        <references refid="a00023_1a57816a05d0a612947b6d021a376cd315" compoundref="a00023" startline="329">BANG_OLUFSEN_START_BIT1_PULSE_LEN_MIN</references>
+        <references refid="a00023_1a3202a38c0ec48051f08861862b9f5974" compoundref="a00023" startline="336">BANG_OLUFSEN_START_BIT2_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1a8d1091db90200f2731f7b231a1715d6a" compoundref="a00023" startline="335">BANG_OLUFSEN_START_BIT2_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1a982547016c7e8fe61d44f690d2a42212" compoundref="a00023" startline="334">BANG_OLUFSEN_START_BIT2_PULSE_LEN_MAX</references>
+        <references refid="a00023_1aa501283c775867e3115ccf9235777083" compoundref="a00023" startline="333">BANG_OLUFSEN_START_BIT2_PULSE_LEN_MIN</references>
+        <references refid="a00023_1a25096b9e7c48fcf4359f6dfdcaa0de8d" compoundref="a00023" startline="340">BANG_OLUFSEN_START_BIT3_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1a3de5cf0db619e7ff4aa746674537b5dc" compoundref="a00023" startline="339">BANG_OLUFSEN_START_BIT3_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1a1a6cadc1ff0e255a759f536a60f18fea" compoundref="a00023" startline="338">BANG_OLUFSEN_START_BIT3_PULSE_LEN_MAX</references>
+        <references refid="a00023_1a0bd1a270ad97b0e6457ada049559abf3" compoundref="a00023" startline="337">BANG_OLUFSEN_START_BIT3_PULSE_LEN_MIN</references>
+        <references refid="a00023_1a62f02d940c48b790e6bd8787357a8d27" compoundref="a00023" startline="344">BANG_OLUFSEN_START_BIT4_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1a432bd97f134f3932187f1d6667d4b8ff" compoundref="a00023" startline="343">BANG_OLUFSEN_START_BIT4_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1ae0e476457b3056c5210b01d384db8105" compoundref="a00023" startline="342">BANG_OLUFSEN_START_BIT4_PULSE_LEN_MAX</references>
+        <references refid="a00023_1a52a5aa5f5d2bfbe4c6cbc87f233db900" compoundref="a00023" startline="341">BANG_OLUFSEN_START_BIT4_PULSE_LEN_MIN</references>
+        <references refid="a00023_1a2bcc06d3174b87b936955ae48138f042" compoundref="a00023" startline="486">BOSE_START_BIT_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1a29ecce059e63111beaf2f42ab67ec0da" compoundref="a00023" startline="485">BOSE_START_BIT_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1aff645c38d68fe4e55ba06948911ad864" compoundref="a00023" startline="484">BOSE_START_BIT_PULSE_LEN_MAX</references>
+        <references refid="a00023_1ac44317d6e9c13b0c51b7815b621237b7" compoundref="a00023" startline="483">BOSE_START_BIT_PULSE_LEN_MIN</references>
+        <references refid="a00023_1ae10fdbc5bf41fad29707735cf7d0f210" compoundref="a00023" startline="258">DENON_0_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1a0b46f345f8c3dba45cfca460d1752d15" compoundref="a00023" startline="257">DENON_0_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1a1953e0f6186899625e645b4368a63486" compoundref="a00023" startline="255">DENON_1_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1ac80583492c5ea65649c61cc255342172" compoundref="a00023" startline="254">DENON_1_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1a5aa9acd95bba9080b238577ed9a98e6e" compoundref="a00023" startline="259">DENON_AUTO_REPETITION_PAUSE_LEN</references>
+        <references refid="a00023_1a75c3063831a8879066e5644bc481a015" compoundref="a00023" startline="253">DENON_PULSE_LEN_MAX</references>
+        <references refid="a00023_1a01d8238a2618778817917d54d2a91277" compoundref="a00023" startline="252">DENON_PULSE_LEN_MIN</references>
+        <references refid="a00029_1aa93f0eb578d23995850d61f7d61c55c1" compoundref="a00029" startline="194">FALSE</references>
+        <references refid="a00023_1a91634a80dccf22e23fd76ff5f9bf512e" compoundref="a00023" startline="313">FAN_0_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1a8320eeadf036178d14cf999a99cb8f27" compoundref="a00023" startline="309">FAN_1_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1ac4f843f377337601bff9865b5613f962" compoundref="a00023" startline="307">FAN_1_PULSE_LEN_MIN</references>
+        <references refid="a00017_1a39fcad1e8d8c3f1566d5d75c32aecff3" compoundref="a00017" startline="516">FAN_COMPLETE_DATA_LEN</references>
+        <references refid="a00023_1acd0e9401b8b5999482d1c965627b8751" compoundref="a00023" startline="306">FAN_START_BIT_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1a67f7795ad4759ae42f104659bd4ceb82" compoundref="a00023" startline="305">FAN_START_BIT_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1a62fd522d68a9872c9cc367ace5775412" compoundref="a00023" startline="304">FAN_START_BIT_PULSE_LEN_MAX</references>
+        <references refid="a00023_1aca18bf5a90e762a4d4a8b30432fea16a" compoundref="a00023" startline="303">FAN_START_BIT_PULSE_LEN_MIN</references>
+        <references refid="a00023_1a1c5d0ae7dab234ffb20631bc14bc3018" compoundref="a00023" startline="386">FDC_0_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1a0291a5bff951badafa76a08fc3e4b448" compoundref="a00023" startline="384">FDC_0_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1aca40cc87f87271fcbf79eb7b34041c76" compoundref="a00023" startline="380">FDC_1_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1a4bf3fe07f1e7e30a9a83e25ad39997ac" compoundref="a00023" startline="379">FDC_1_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1ab81340d1ee3b0ee36007e4b50fa11ab2" compoundref="a00023" startline="378">FDC_PULSE_LEN_MAX</references>
+        <references refid="a00023_1aa40cf12d0f684716a93c80ac4e69d494" compoundref="a00023" startline="377">FDC_PULSE_LEN_MIN</references>
+        <references refid="a00023_1a41ee036d34607ec32090fade0850ddc8" compoundref="a00023" startline="376">FDC_START_BIT_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1a3dba02eea6ee381a07e0afa86b990a66" compoundref="a00023" startline="375">FDC_START_BIT_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1ae6c5d9298f16cb59f27c0afc8fb4ba6d" compoundref="a00023" startline="374">FDC_START_BIT_PULSE_LEN_MAX</references>
+        <references refid="a00023_1abd4227d640ffd18fe7e474fc222308d2" compoundref="a00023" startline="373">FDC_START_BIT_PULSE_LEN_MIN</references>
+        <references refid="a00023_1aafbc0274e906b69067dabb4be2ec7dfc" compoundref="a00023" startline="475">GREE_START_BIT_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1a1826820532e6e4fc9d3d4dbaa4e11132" compoundref="a00023" startline="474">GREE_START_BIT_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1ad7bb22e3c1ca49d92c94e4464d72e47e" compoundref="a00023" startline="473">GREE_START_BIT_PULSE_LEN_MAX</references>
+        <references refid="a00023_1a881793c806d4d76f2abc1df3c69d87f8" compoundref="a00023" startline="472">GREE_START_BIT_PULSE_LEN_MIN</references>
+        <references refid="a00017_1a48e0595844f0599aca6cc69559c2199c" compoundref="a00017" startline="587">GRUNDIG_COMPLETE_DATA_LEN</references>
+        <references refid="a00023_1a51c4de9b2a72e3b9e68fc5977df632e3" compoundref="a00023" startline="362">GRUNDIG_NOKIA_IR60_PRE_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1ad8db229d453d10c9293bfac074548afa" compoundref="a00023" startline="361">GRUNDIG_NOKIA_IR60_PRE_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1aad9cc705a334d6e7acc4411bb625c374" compoundref="a00023" startline="358">GRUNDIG_NOKIA_IR60_START_BIT_LEN_MAX</references>
+        <references refid="a00023_1a37541057569870f9d67c1b17ff99a796" compoundref="a00023" startline="357">GRUNDIG_NOKIA_IR60_START_BIT_LEN_MIN</references>
+        <references refid="a00023_1a71b71204fb4bf60b3d9c535918c879ff" compoundref="a00023" startline="2319">input</references>
+        <references refid="a00017_1acb94be4a645547676020507e37ae1ea4" compoundref="a00017" startline="605">IR60_ADDRESS_LEN</references>
+        <references refid="a00017_1aeb7f35b4af6807b4b94b5e22a231e50e" compoundref="a00017" startline="604">IR60_ADDRESS_OFFSET</references>
+        <references refid="a00017_1a303fd47d77be58317ab1868002c620ef" compoundref="a00017" startline="607">IR60_COMMAND_LEN</references>
+        <references refid="a00017_1a4a081cd747fa3d91a76623b7f7d7e6a2" compoundref="a00017" startline="606">IR60_COMMAND_OFFSET</references>
+        <references refid="a00017_1abc37954ec96911201c3174f854d92527" compoundref="a00017" startline="608">IR60_COMPLETE_DATA_LEN</references>
+        <references refid="a00023_1a62b3e79eeb45cef87aeea3757f59e649" compoundref="a00023" startline="356">IR60_TIMEOUT_LEN</references>
+        <references refid="a00023_1a4aedfe3095f798a90022235666b0d926" compoundref="a00023" startline="464">IRMP16_START_BIT_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1a746cefdc9f7b50c8a2730b6fd887b659" compoundref="a00023" startline="463">IRMP16_START_BIT_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1a754cf8decb07e80de158755b6ac5d0ad" compoundref="a00023" startline="462">IRMP16_START_BIT_PULSE_LEN_MAX</references>
+        <references refid="a00023_1a47b1e133abb3f930ba3227cdb1eb9c65" compoundref="a00023" startline="461">IRMP16_START_BIT_PULSE_LEN_MIN</references>
+        <references refid="a00017_1a4c87babd0558f97919a2e81e4aadf085" compoundref="a00017" startline="40">IRMP_BANG_OLUFSEN_PROTOCOL</references>
+        <references refid="a00017_1a41445315ba6d810cd097df493d49f430" compoundref="a00017" startline="34">IRMP_DENON_PROTOCOL</references>
+        <references refid="a00017_1ab21d7978f7b4159df071487e9c30c75b" compoundref="a00017" startline="70">IRMP_FAN_PROTOCOL</references>
+        <references refid="a00017_1a8265c0c20d476484b1bceadfaea14245" compoundref="a00017" startline="44">IRMP_FDC_PROTOCOL</references>
+        <references refid="a00026_1a89f151e3dbf33edabd0051cbcf6a93a9" compoundref="a00026" startline="288">IRMP_FLAG_REPETITION</references>
+        <references refid="a00017_1ab2454dcc4def89472010174a10fb66cf" compoundref="a00017" startline="41">IRMP_GRUNDIG_PROTOCOL</references>
+        <references refid="a00017_1af8ddf6f7cd137827ed65f057fe57c381" compoundref="a00017" startline="50">IRMP_IR60_PROTOCOL</references>
+        <references refid="a00017_1a50c31625618bf9b902cd0511d22644df" compoundref="a00017" startline="46">IRMP_JVC_PROTOCOL</references>
+        <references refid="a00017_1a87a78d1c12681839db20d8e1825879f8" compoundref="a00017" startline="31">IRMP_KASEIKYO_PROTOCOL</references>
+        <references refid="a00017_1a7b935e1f0281baababe1417681ccb9d2" compoundref="a00017" startline="51">IRMP_KATHREIN_PROTOCOL</references>
+        <references refid="a00023_1aafea1097286d4de4b0fca401ace802d3" compoundref="a00023" startline="58">IRMP_KEY_REPETITION_LEN</references>
+        <references refid="a00017_1aa17436816b98748285cdcf8f0f7186d9" compoundref="a00017" startline="66">IRMP_LGAIR_PROTOCOL</references>
+        <references refid="a00023_1aee5c75f0f5c8a1c525a61162450a095e" compoundref="a00023" startline="1139">irmp_log</references>
+        <references refid="a00017_1a7e1f0e07c8314b9b3fa6bf4cd7321ae6" compoundref="a00017" startline="30">IRMP_MATSUSHITA_PROTOCOL</references>
+        <references refid="a00017_1a32d5c9134b3ca64bb833f87d0b985452" compoundref="a00017" startline="68">IRMP_MERLIN_PROTOCOL</references>
+        <references refid="a00017_1abe0561b09808f97a8f27d028c462bcec" compoundref="a00017" startline="75">IRMP_MITSU_HEAVY_PROTOCOL</references>
+        <references refid="a00017_1a9898561cb1523bbbbcd3cd7f7ee8da26" compoundref="a00017" startline="54">IRMP_NEC42_PROTOCOL</references>
+        <references refid="a00017_1a538438c78894921bfcdeb4a410e781ce" compoundref="a00017" startline="28">IRMP_NEC_PROTOCOL</references>
+        <references refid="a00017_1a1b481c2b0e7b7e90d362cb8e960d47ba" compoundref="a00017" startline="52">IRMP_NETBOX_PROTOCOL</references>
+        <references refid="a00017_1a69f1cb9c9cdeb81219aba8126819c498" compoundref="a00017" startline="42">IRMP_NOKIA_PROTOCOL</references>
+        <references refid="a00017_1a70a29355105a985e8d10232638ef14f6" compoundref="a00017" startline="39">IRMP_NUBERT_PROTOCOL</references>
+        <references refid="a00017_1a6e60e1bcd1945b097fe0e5138ec23c10" compoundref="a00017" startline="59">IRMP_ORTEK_PROTOCOL</references>
+        <references refid="a00017_1a161b2fd8b60aee37f44b0a16642cdd78" compoundref="a00017" startline="116">IRMP_PARAM_FLAG_1ST_PULSE_IS_1</references>
+        <references refid="a00017_1ab2ad8a0c5e2168f121f987b4ce1d9c7f" compoundref="a00017" startline="115">IRMP_PARAM_FLAG_IS_MANCHESTER</references>
+        <references refid="a00017_1a00e82bda2cdd09d30c983a906c69db2a" compoundref="a00017" startline="117">IRMP_PARAM_FLAG_IS_SERIAL</references>
+        <references refid="a00017_1a47a2e29e97dc1d22376f92b1dffc1302" compoundref="a00017" startline="33">IRMP_RC5_PROTOCOL</references>
+        <references refid="a00017_1afbdbfec4390cceb64646d9a4eeee33e8" compoundref="a00017" startline="35">IRMP_RC6_PROTOCOL</references>
+        <references refid="a00017_1a0a1e7eb7bf5e285ee93c8daac6001440" compoundref="a00017" startline="47">IRMP_RC6A_PROTOCOL</references>
+        <references refid="a00017_1a0bdb052d48db1ff802677b8150f6173c" compoundref="a00017" startline="45">IRMP_RCCAR_PROTOCOL</references>
+        <references refid="a00017_1a264e22dec0c7ebd10d0b18178db95b5b" compoundref="a00017" startline="80">IRMP_RCII_PROTOCOL</references>
+        <references refid="a00017_1adebef412ed4616cab91f55920ea54a92" compoundref="a00017" startline="64">IRMP_RCMM12_PROTOCOL</references>
+        <references refid="a00017_1a51327a4d783def2fbf4693008ce95d42" compoundref="a00017" startline="63">IRMP_RCMM24_PROTOCOL</references>
+        <references refid="a00017_1a8eabbab55b1a7a930bffe3079038a6b2" compoundref="a00017" startline="62">IRMP_RCMM32_PROTOCOL</references>
+        <references refid="a00017_1a53868d36effbbd092bf1642788c2b493" compoundref="a00017" startline="61">IRMP_ROOMBA_PROTOCOL</references>
+        <references refid="a00017_1a4c35befc2225598aee47cdd1a9f64254" compoundref="a00017" startline="49">IRMP_RUWIDO_PROTOCOL</references>
+        <references refid="a00017_1a8754ac19652ef94cac605f755ff8106f" compoundref="a00017" startline="71">IRMP_S100_PROTOCOL</references>
+        <references refid="a00017_1a936f6fdad9b8ccc2358c57da11e3f420" compoundref="a00017" startline="36">IRMP_SAMSUNG32_PROTOCOL</references>
+        <references refid="a00017_1aeba138e4b1ce70f905be60df60c2bd08" compoundref="a00017" startline="67">IRMP_SAMSUNG48_PROTOCOL</references>
+        <references refid="a00017_1ad1f375cf7dd38c099f00ab39588f4a29" compoundref="a00017" startline="29">IRMP_SAMSUNG_PROTOCOL</references>
+        <references refid="a00017_1afd7ad0576834b93caeb80e9b77a0d354" compoundref="a00017" startline="43">IRMP_SIEMENS_PROTOCOL</references>
+        <references refid="a00017_1a5319f1c7072c5e99b2237707e69595b2" compoundref="a00017" startline="27">IRMP_SIRCS_PROTOCOL</references>
+        <references refid="a00017_1ab8b494f0d59b15fc626e609747e1d598" compoundref="a00017" startline="65">IRMP_SPEAKER_PROTOCOL</references>
+        <references refid="a00023_1a93eaedd5ec73a68435108ba61da88770" compoundref="a00023" startline="49">IRMP_SUPPORT_MANCHESTER</references>
+        <references refid="a00023_1a752d1aa42b9c6835fd11bcc2f072c4e7" compoundref="a00023" startline="55">IRMP_SUPPORT_SERIAL</references>
+        <references refid="a00017_1a883533eb6e51050d20b3d796be6254a0" compoundref="a00017" startline="73">IRMP_TECHNICS_PROTOCOL</references>
+        <references refid="a00017_1aabfbcf15cfe568538d5908cf53c62a08" compoundref="a00017" startline="56">IRMP_THOMSON_PROTOCOL</references>
+        <references refid="a00017_1a00e663f94bc0d952839bd71fb9d9aaf7" compoundref="a00017" startline="109">IRMP_TIMEOUT_LEN</references>
+        <references refid="a00023_1a369d3371a47bf682c597e9596fe55934" compoundref="a00023" startline="402">JVC_REPEAT_START_BIT_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1a023b97d16267732dd007ed4325949b28" compoundref="a00023" startline="401">JVC_REPEAT_START_BIT_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1aac316999233dbcc1cdaaef95dce22a29" compoundref="a00023" startline="400">JVC_START_BIT_PULSE_LEN_MAX</references>
+        <references refid="a00023_1af16077a18d397d07d42c283b57629e3a" compoundref="a00023" startline="399">JVC_START_BIT_PULSE_LEN_MIN</references>
+        <references refid="a00017_1a090ef1e81704bb3ba6d49fb244ab5ca3" compoundref="a00017" startline="690">JVC_START_BIT_PULSE_TIME</references>
+        <references refid="a00023_1a4e5d0158f5f9069e13dce5575cbc37ee" compoundref="a00023" startline="167">KASEIKYO_START_BIT_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1a8b55ce85134de2aa1d82e386996e998e" compoundref="a00023" startline="166">KASEIKYO_START_BIT_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1a02b156b9c4ea06b826a40f4e8177b21c" compoundref="a00023" startline="165">KASEIKYO_START_BIT_PULSE_LEN_MAX</references>
+        <references refid="a00023_1a6e70485a0f35439e056a31f009268fdf" compoundref="a00023" startline="164">KASEIKYO_START_BIT_PULSE_LEN_MIN</references>
+        <references refid="a00023_1af681b5c853ca26de4da2bb68d3a00d72" compoundref="a00023" startline="431">KATHREIN_1_PULSE_LEN_MAX</references>
+        <references refid="a00023_1a9e00d56a68182be46f2e46619f551893" compoundref="a00023" startline="430">KATHREIN_1_PULSE_LEN_MIN</references>
+        <references refid="a00023_1a63fc0af809be3579d3db871acb4132e3" compoundref="a00023" startline="429">KATHREIN_START_BIT_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1a64aed623bdb2a5d38f10b8775c248e62" compoundref="a00023" startline="428">KATHREIN_START_BIT_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1a763ecbd5490dea0a6980a982ea9a1f78" compoundref="a00023" startline="427">KATHREIN_START_BIT_PULSE_LEN_MAX</references>
+        <references refid="a00023_1a910be0e5c94ffb54c503ff9ca463628a" compoundref="a00023" startline="426">KATHREIN_START_BIT_PULSE_LEN_MIN</references>
+        <references refid="a00023_1abc27f6f7ab2e56d19b9b55e22fa64012" compoundref="a00023" startline="439">KATHREIN_SYNC_BIT_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1a45d436963ff38361b509b7fc2679dbe9" compoundref="a00023" startline="438">KATHREIN_SYNC_BIT_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1a153b7d42ec0cd84042e3d601af7c480a" compoundref="a00023" startline="453">LEGO_START_BIT_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1a2c635aed2fe0565fec400046b59c2f3f" compoundref="a00023" startline="452">LEGO_START_BIT_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1a7491cec943e2d68a683b03d86f36e111" compoundref="a00023" startline="451">LEGO_START_BIT_PULSE_LEN_MAX</references>
+        <references refid="a00023_1ab1be6b87a1e12c87a7bddd1e3339d0c4" compoundref="a00023" startline="450">LEGO_START_BIT_PULSE_LEN_MIN</references>
+        <references refid="a00023_1a08f866e643787f77c35d780f416d081f" compoundref="a00023" startline="156">MATSUSHITA_START_BIT_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1a4071a5bc86aec3c7eb79d821a86eff75" compoundref="a00023" startline="155">MATSUSHITA_START_BIT_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1a1a23f2e35f53dbfb480d4256ab549ce0" compoundref="a00023" startline="154">MATSUSHITA_START_BIT_PULSE_LEN_MAX</references>
+        <references refid="a00023_1a26b7bf821c6edf8c44f568674ebba6d3" compoundref="a00023" startline="153">MATSUSHITA_START_BIT_PULSE_LEN_MIN</references>
+        <references refid="a00023_1a799389b837c99dc29d45eacb302081fe" compoundref="a00023" startline="511">MERLIN_BIT_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1a1c8f7ac016ee6e1f5290861e42ca155c" compoundref="a00023" startline="507">MERLIN_START_BIT_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1aff6f723e4a443588c0601747bd94e7b9" compoundref="a00023" startline="506">MERLIN_START_BIT_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1adae270ffb43ffb074adca34966226605" compoundref="a00023" startline="505">MERLIN_START_BIT_PULSE_LEN_MAX</references>
+        <references refid="a00023_1a12863775457830d954ef51e18d04e8c1" compoundref="a00023" startline="504">MERLIN_START_BIT_PULSE_LEN_MIN</references>
+        <references refid="a00023_1a10497f5e39fd63293465dd47bda52860" compoundref="a00023" startline="594">METZ_START_BIT_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1aaeeda8e06419852155807450d81a78c1" compoundref="a00023" startline="593">METZ_START_BIT_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1ae983da403a1ec7fb54e134cd4eb4c3c3" compoundref="a00023" startline="592">METZ_START_BIT_PULSE_LEN_MAX</references>
+        <references refid="a00023_1af3a43cd596bc2e56acee01ac912184f5" compoundref="a00023" startline="591">METZ_START_BIT_PULSE_LEN_MIN</references>
+        <references refid="a00023_1a867afbcdacbc9ab1fb3ba7cd770ad3b1" compoundref="a00023" startline="178">MITSU_HEAVY_START_BIT_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1a8deccee4383ac90dfebcd4c4da35c446" compoundref="a00023" startline="177">MITSU_HEAVY_START_BIT_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1afd36da871201ff81140e883bf24498d7" compoundref="a00023" startline="176">MITSU_HEAVY_START_BIT_PULSE_LEN_MAX</references>
+        <references refid="a00023_1a69d970bf221beb2f64cf8641117ce539" compoundref="a00023" startline="175">MITSU_HEAVY_START_BIT_PULSE_LEN_MIN</references>
+        <references refid="a00023_1a4e93e51f253deaca9669cdfc63afe6e1" compoundref="a00023" startline="122">NEC_0_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1a8480d0ee350f33cc3ab0addf22bba9e2" compoundref="a00023" startline="121">NEC_0_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1aae2067b9aef36966a859c485f3a82e66" compoundref="a00023" startline="128">NEC_FRAME_REPEAT_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1a1c54e9f5562c2b669dccdb54189ac94e" compoundref="a00023" startline="116">NEC_REPEAT_START_BIT_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1ad074ce8a800dc494bb6e265d29226423" compoundref="a00023" startline="115">NEC_REPEAT_START_BIT_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1a5cf7892be6fa105d4fd1b82198cdca55" compoundref="a00023" startline="114">NEC_START_BIT_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1a17d91aaab69757ff0269bf3240c2ce70" compoundref="a00023" startline="113">NEC_START_BIT_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1a922a22cf270d211e897f25823c5b831f" compoundref="a00023" startline="112">NEC_START_BIT_PULSE_LEN_MAX</references>
+        <references refid="a00023_1a219b06eb2f4cc0e02dd8563c004e1fe2" compoundref="a00023" startline="111">NEC_START_BIT_PULSE_LEN_MIN</references>
+        <references refid="a00017_1a5738e7a834fe37f2537ad1a890b6f2ce" compoundref="a00017" startline="762">NETBOX_COMPLETE_DATA_LEN</references>
+        <references refid="a00023_1a850682f2b34cdeaca711243abf27c946" compoundref="a00023" startline="445">NETBOX_PULSE_LEN</references>
+        <references refid="a00023_1a8fb13fbd23fd4f089cddda9106c4586c" compoundref="a00023" startline="444">NETBOX_START_BIT_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1aa75da728e0b12837248edaad6ac5c2a6" compoundref="a00023" startline="443">NETBOX_START_BIT_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1a9a7e0539cba32cc6f86ec9b0ca5bae94" compoundref="a00023" startline="442">NETBOX_START_BIT_PULSE_LEN_MAX</references>
+        <references refid="a00023_1a037ebbef8a049aa2a023ea5286a15457" compoundref="a00023" startline="441">NETBOX_START_BIT_PULSE_LEN_MIN</references>
+        <references refid="a00023_1a0f59fe77a084bdaf5e53398d6eeca608" compoundref="a00023" startline="415">NIKON_START_BIT_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1a7c7e9eebfc28d981c18844f885cea780" compoundref="a00023" startline="414">NIKON_START_BIT_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1a269783d8baacc42d19a41c2b9ae6ca0f" compoundref="a00023" startline="413">NIKON_START_BIT_PULSE_LEN_MAX</references>
+        <references refid="a00023_1ae300849243297c79f567702bb1e9c750" compoundref="a00023" startline="412">NIKON_START_BIT_PULSE_LEN_MIN</references>
+        <references refid="a00017_1aa67774e916186439f0a8bfecfcc20a58" compoundref="a00017" startline="592">NOKIA_ADDRESS_LEN</references>
+        <references refid="a00017_1ae24a787b0d50882003d302a9d7095e87" compoundref="a00017" startline="591">NOKIA_ADDRESS_OFFSET</references>
+        <references refid="a00017_1a194787bec0258f91bfe4e2da26df1e6c" compoundref="a00017" startline="594">NOKIA_COMMAND_LEN</references>
+        <references refid="a00017_1a0ad0130006c4e18c62626babee0365ad" compoundref="a00017" startline="593">NOKIA_COMMAND_OFFSET</references>
+        <references refid="a00023_1a66eaab88a5ba36ca9f683b4707ec3fbb" compoundref="a00023" startline="293">NUBERT_START_BIT_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1afdac06671074eaa6f3934948f899ad06" compoundref="a00023" startline="292">NUBERT_START_BIT_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1a762878044107363d2e5dddd997fef236" compoundref="a00023" startline="291">NUBERT_START_BIT_PULSE_LEN_MAX</references>
+        <references refid="a00023_1ade4987106182c2c32b97d265d73ed57a" compoundref="a00023" startline="290">NUBERT_START_BIT_PULSE_LEN_MIN</references>
+        <references refid="a00023_1a1b7c3c0b46dbc4f0d6899a9b2f1b77a7" compoundref="a00023" startline="516">ORTEK_START_BIT_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1a2eb059dfa347687e8ac558012710be53" compoundref="a00023" startline="515">ORTEK_START_BIT_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1a3ecc79ce4928964b8e53b1bb4fdd012e" compoundref="a00023" startline="514">ORTEK_START_BIT_PULSE_LEN_MAX</references>
+        <references refid="a00023_1a124fbb4e7c99e5da92763c0686de7ff9" compoundref="a00023" startline="513">ORTEK_START_BIT_PULSE_LEN_MIN</references>
+        <references refid="a00023_1a3a75db61cd979b14453d04f8b7203508" compoundref="a00023" startline="200">PANASONIC_START_BIT_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1a155de6c5088e51a0c20d993988b791e1" compoundref="a00023" startline="199">PANASONIC_START_BIT_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1aede1fc0a55f404c5edf031d0afaa64fb" compoundref="a00023" startline="198">PANASONIC_START_BIT_PULSE_LEN_MAX</references>
+        <references refid="a00023_1a27410e7c8ebc690c63ff1582c8a1ad29" compoundref="a00023" startline="197">PANASONIC_START_BIT_PULSE_LEN_MIN</references>
+        <references refid="a00023_1a0f14ecde490c3c7c1a226a9cdb748b17" compoundref="a00023" startline="644">PARITY_CHECK_FAILED</references>
+        <references refid="a00023_1af8ab2b7adbf945daa3c90da3f49da1a2" compoundref="a00023" startline="568">PENTAX_START_BIT_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1a23e15e5f3db908f939d9fa73a4ca176c" compoundref="a00023" startline="567">PENTAX_START_BIT_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1add9217fff433c81dddcc8ecec14dcf79" compoundref="a00023" startline="566">PENTAX_START_BIT_PULSE_LEN_MAX</references>
+        <references refid="a00023_1a73b8c8683a268569bdf61a34c9ceb411" compoundref="a00023" startline="565">PENTAX_START_BIT_PULSE_LEN_MIN</references>
+        <references refid="a00023_1af404f36fad2056ac603d762c5f3c93f1" compoundref="a00023" startline="606">RADIO1_START_BIT_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1a941a439c3e98f245323b22f94d9cff5c" compoundref="a00023" startline="605">RADIO1_START_BIT_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1af70c09f9aa9c96640d23024083171ce5" compoundref="a00023" startline="604">RADIO1_START_BIT_PULSE_LEN_MAX</references>
+        <references refid="a00023_1af7508a6e36fac66c5f8254a5d529e80a" compoundref="a00023" startline="603">RADIO1_START_BIT_PULSE_LEN_MIN</references>
+        <references refid="a00023_1a5f14894347469f184f12ca20a16859cf" compoundref="a00023" startline="224">RC5_START_BIT_LEN_MAX</references>
+        <references refid="a00023_1ae5a3265903632d4dc7ab870119d2a188" compoundref="a00023" startline="223">RC5_START_BIT_LEN_MIN</references>
+        <references refid="a00017_1af841b01c68f418c7dcb3fdfdd5eeaffb" compoundref="a00017" startline="449">RC6_COMPLETE_DATA_LEN_LONG</references>
+        <references refid="a00023_1a25dce1ffeb4698ac105bcb43472dfb1e" compoundref="a00023" startline="271">RC6_START_BIT_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1a6051416aafc1714c36e1b16b504884aa" compoundref="a00023" startline="270">RC6_START_BIT_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1a12c1e8bbcb1f6f8878416646e2041d21" compoundref="a00023" startline="269">RC6_START_BIT_PULSE_LEN_MAX</references>
+        <references refid="a00023_1a51c1ca0353115bea369e58537a563355" compoundref="a00023" startline="268">RC6_START_BIT_PULSE_LEN_MIN</references>
+        <references refid="a00023_1a923bb293244807a0e802ceb95706d70b" compoundref="a00023" startline="273">RC6_TOGGLE_BIT_LEN_MAX</references>
+        <references refid="a00023_1af15af5941b2c5c8ba50ac643163b54d3" compoundref="a00023" startline="272">RC6_TOGGLE_BIT_LEN_MIN</references>
+        <references refid="a00023_1a016af4904f58d76948cce820ea5d4ce7" compoundref="a00023" startline="397">RCCAR_0_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1a20d04ce18955652a0ce13eb2e3d539f4" compoundref="a00023" startline="396">RCCAR_0_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1a9d6d9480388b4c96f0698d7527049fd0" compoundref="a00023" startline="395">RCCAR_1_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1a1f03d85f67721f08fccae58d3333db1b" compoundref="a00023" startline="394">RCCAR_1_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1a61ef8ee9a3aab178c90c8b9abd8c219c" compoundref="a00023" startline="393">RCCAR_PULSE_LEN_MAX</references>
+        <references refid="a00023_1adc63a63969f26042363b034b1b96c212" compoundref="a00023" startline="392">RCCAR_PULSE_LEN_MIN</references>
+        <references refid="a00023_1a7d5220ec9af0c102f0e59433e2cbcddc" compoundref="a00023" startline="391">RCCAR_START_BIT_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1ae94e7ba346a8eaa3be3bb0568ec09f81" compoundref="a00023" startline="390">RCCAR_START_BIT_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1ac55bbb2e8efca04e88692e353644daba" compoundref="a00023" startline="389">RCCAR_START_BIT_PULSE_LEN_MAX</references>
+        <references refid="a00023_1adcc4eea02453dfbd0f683352e7f88116" compoundref="a00023" startline="388">RCCAR_START_BIT_PULSE_LEN_MIN</references>
+        <references refid="a00023_1a77dffa20f08dd2dc82064f74de22e72b" compoundref="a00023" startline="238">RCII_BIT_LEN</references>
+        <references refid="a00023_1ae4ee117e3a901da0542f28c762c6cad7" compoundref="a00023" startline="233">RCII_START_BIT_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1ada37949459409928d95629fd073ec19d" compoundref="a00023" startline="232">RCII_START_BIT_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1a6f439ade93e30ba059f1b8993f9e8e15" compoundref="a00023" startline="231">RCII_START_BIT_PULSE_LEN_MAX</references>
+        <references refid="a00023_1a190ede6ff4eee88e2e1084d72b20f56f" compoundref="a00023" startline="230">RCII_START_BIT_PULSE_LEN_MIN</references>
+        <references refid="a00023_1ae63ca763f770fc5378ab79e578b6e514" compoundref="a00023" startline="559">RCMM32_BIT_01_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1a5a2b531a9781cefa8e001df9516a5b07" compoundref="a00023" startline="558">RCMM32_BIT_01_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1a72b2d4ada1e240265ce6966065140ad4" compoundref="a00023" startline="561">RCMM32_BIT_10_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1a79e36f8875952c5ea87386d84c54c708" compoundref="a00023" startline="560">RCMM32_BIT_10_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1afab80e292f72e32ad9abb8c30a3c1e73" compoundref="a00023" startline="563">RCMM32_BIT_11_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1ab6bd48fd8ff889a92d302450a89cf7c2" compoundref="a00023" startline="562">RCMM32_BIT_11_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1a58b6a918b82fa05cd7641dde3e1024d8" compoundref="a00023" startline="553">RCMM32_START_BIT_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1aaf1494446ee08c72fba1e427234ba95c" compoundref="a00023" startline="552">RCMM32_START_BIT_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1ad4986254a39ffd0c0902f80d08c7ba00" compoundref="a00023" startline="551">RCMM32_START_BIT_PULSE_LEN_MAX</references>
+        <references refid="a00023_1a8a1062811e0eb2fe64dd339278c77f69" compoundref="a00023" startline="550">RCMM32_START_BIT_PULSE_LEN_MIN</references>
+        <references refid="a00023_1a557c98a3435bbe0e30daa6c90d65790f" compoundref="a00023" startline="211">RECS80_START_BIT_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1aca48b10246543239dd2c62a24a7a7e09" compoundref="a00023" startline="210">RECS80_START_BIT_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1ae3891969b1b21aa00063f0fd277d94a2" compoundref="a00023" startline="209">RECS80_START_BIT_PULSE_LEN_MAX</references>
+        <references refid="a00023_1af053677d56e710f78b0547f407df3d5f" compoundref="a00023" startline="208">RECS80_START_BIT_PULSE_LEN_MIN</references>
+        <references refid="a00023_1a1d62a925bbc1ec6ea5159da6a4f73f53" compoundref="a00023" startline="282">RECS80EXT_START_BIT_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1a6bb0257685c99d3f35968454260e4c06" compoundref="a00023" startline="281">RECS80EXT_START_BIT_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1a6b93378276a078dd0534fff67f0272c8" compoundref="a00023" startline="280">RECS80EXT_START_BIT_PULSE_LEN_MAX</references>
+        <references refid="a00023_1a70ea877c3c67330f672347afdac3ab4a" compoundref="a00023" startline="279">RECS80EXT_START_BIT_PULSE_LEN_MIN</references>
+        <references refid="a00023_1a744ad7d75f6e4901242fdb0e40ddbc98" compoundref="a00023" startline="544">ROOMBA_0_PAUSE_LEN</references>
+        <references refid="a00023_1aca6e0dbedce60d5a7224f1f53b114c30" compoundref="a00023" startline="546">ROOMBA_0_PULSE_LEN_MAX</references>
+        <references refid="a00023_1a1e11d175a9442289e1eea4617dabc3e0" compoundref="a00023" startline="545">ROOMBA_0_PULSE_LEN_MIN</references>
+        <references refid="a00023_1a0b0c784746c389237679b5998471e98e" compoundref="a00023" startline="539">ROOMBA_1_PAUSE_LEN_EXACT</references>
+        <references refid="a00023_1ab909b4fdfeae179b100e1f0a426d85b3" compoundref="a00023" startline="541">ROOMBA_1_PULSE_LEN_MAX</references>
+        <references refid="a00023_1aaf82390b0831d6b5f912eadedf134b09" compoundref="a00023" startline="540">ROOMBA_1_PULSE_LEN_MIN</references>
+        <references refid="a00017_1a08e9f925e826fe6009ceb1220d005256" compoundref="a00017" startline="922">ROOMBA_COMPLETE_DATA_LEN</references>
+        <references refid="a00023_1a6b4b4d15831af76155f96c72f3b0f9b5" compoundref="a00023" startline="538">ROOMBA_START_BIT_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1afe1eac5edcc963117f68e9cd515c88b9" compoundref="a00023" startline="537">ROOMBA_START_BIT_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1abe43404bddf210382062238db1c7172f" compoundref="a00023" startline="536">ROOMBA_START_BIT_PULSE_LEN_MAX</references>
+        <references refid="a00023_1a0c701c735e9e99d0c4c5a2c60fc7a29c" compoundref="a00023" startline="535">ROOMBA_START_BIT_PULSE_LEN_MIN</references>
+        <references refid="a00017_1a411d27d379a2c8d8948d07a6640c413d" compoundref="a00017" startline="640">RUWIDO_COMPLETE_DATA_LEN</references>
+        <references refid="a00023_1a17cb9d33e6008a247159d24dff1481e6" compoundref="a00023" startline="246">S100_START_BIT_LEN_MAX</references>
+        <references refid="a00023_1a7fa9e5f2185cc09538e73360eb2772eb" compoundref="a00023" startline="245">S100_START_BIT_LEN_MIN</references>
+        <references refid="a00017_1a2ed6f5058609cb95d5308c48013dfc22" compoundref="a00017" startline="202">SAMSUNG32_COMMAND_LEN</references>
+        <references refid="a00017_1a6cb34b729ce265fb6921c811335ace32" compoundref="a00017" startline="201">SAMSUNG32_COMMAND_OFFSET</references>
+        <references refid="a00017_1a52901f59b1823962dc25aa4c717a1ff0" compoundref="a00017" startline="203">SAMSUNG32_COMPLETE_DATA_LEN</references>
+        <references refid="a00017_1a34896f837d602da8985aa0f93608bdff" compoundref="a00017" startline="209">SAMSUNG48_COMMAND_LEN</references>
+        <references refid="a00017_1ae9b1817c297c6bb723f4da514d16b279" compoundref="a00017" startline="208">SAMSUNG48_COMMAND_OFFSET</references>
+        <references refid="a00017_1a214c018fe7119edc7ea6f6120b9cbe47" compoundref="a00017" startline="210">SAMSUNG48_COMPLETE_DATA_LEN</references>
+        <references refid="a00023_1abd538f34e4152b6bd9b5c10a8632ba0b" compoundref="a00023" startline="138">SAMSUNG_1_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1a236dcc78a89a5283873f6c8703cb53d0" compoundref="a00023" startline="137">SAMSUNG_1_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1a417ffddcdf9fb968a9284bb7fce5f514" compoundref="a00023" startline="136">SAMSUNG_PULSE_LEN_MAX</references>
+        <references refid="a00023_1a62e93d81c4d91688d084747dbdfff76b" compoundref="a00023" startline="135">SAMSUNG_PULSE_LEN_MIN</references>
+        <references refid="a00023_1a4b9ad15b11334474ffe9790d8d4db44f" compoundref="a00023" startline="134">SAMSUNG_START_BIT_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1a74c5f39494e1b8016da8e8a7c51259e0" compoundref="a00023" startline="133">SAMSUNG_START_BIT_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1a146afe573e878a0a5a8ded4f0e023db5" compoundref="a00023" startline="132">SAMSUNG_START_BIT_PULSE_LEN_MAX</references>
+        <references refid="a00023_1acd642fc332efc5e122d90786b76a25f2" compoundref="a00023" startline="131">SAMSUNG_START_BIT_PULSE_LEN_MIN</references>
+        <references refid="a00023_1a7c2de09d000e1bf13e7fa4c99d600ac2" compoundref="a00023" startline="145">SAMSUNGAH_START_BIT_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1a0a24889e3fbd58e9c222385aee14e24f" compoundref="a00023" startline="144">SAMSUNGAH_START_BIT_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1af112dcaa8d61d83cb215eb18959c6a8f" compoundref="a00023" startline="143">SAMSUNGAH_START_BIT_PULSE_LEN_MAX</references>
+        <references refid="a00023_1a77228f024d3869dc9287458af1b54b64" compoundref="a00023" startline="142">SAMSUNGAH_START_BIT_PULSE_LEN_MIN</references>
+        <references refid="a00017_1a0da1764fe092c9822419894ae702d93d" compoundref="a00017" startline="643">SIEMENS_ADDRESS_LEN</references>
+        <references refid="a00017_1ae2953e68fe2f4e252fd9648735f9b542" compoundref="a00017" startline="642">SIEMENS_ADDRESS_OFFSET</references>
+        <references refid="a00017_1a097bb09474f4b6e6b4d6cd7b8d4b4fcf" compoundref="a00017" startline="645">SIEMENS_COMMAND_LEN</references>
+        <references refid="a00017_1a625cad24086139bab33f7070e7d41791" compoundref="a00017" startline="644">SIEMENS_COMMAND_OFFSET</references>
+        <references refid="a00023_1a8229962dc48577f6ca4907047097495f" compoundref="a00023" startline="367">SIEMENS_OR_RUWIDO_START_BIT_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1a3f03096147d6835cee7887a98d0599c6" compoundref="a00023" startline="366">SIEMENS_OR_RUWIDO_START_BIT_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1a66c077425b21ad2d4910151907af6fe3" compoundref="a00023" startline="365">SIEMENS_OR_RUWIDO_START_BIT_PULSE_LEN_MAX</references>
+        <references refid="a00023_1aa3f065877c4215e66f7ebba227f59b80" compoundref="a00023" startline="364">SIEMENS_OR_RUWIDO_START_BIT_PULSE_LEN_MIN</references>
+        <references refid="a00017_1aae0b03d727a9023abae5d7bb826a7d74" compoundref="a00017" startline="135">SIRCS_MINIMUM_DATA_LEN</references>
+        <references refid="a00023_1a8498c8cc4c9daf656ea0953805835b4b" compoundref="a00023" startline="109">SIRCS_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1a7ad2b7ce0c172a1c40a1156fed2b7c3f" compoundref="a00023" startline="102">SIRCS_START_BIT_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1ad826e13c14f6974e0cae601fea9a7660" compoundref="a00023" startline="98">SIRCS_START_BIT_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1a404a170614802c1e37f514bb8decc710" compoundref="a00023" startline="97">SIRCS_START_BIT_PULSE_LEN_MAX</references>
+        <references refid="a00023_1a7dd0cf7ec9a1bcf2fb41dc41f66b2428" compoundref="a00023" startline="96">SIRCS_START_BIT_PULSE_LEN_MIN</references>
+        <references refid="a00023_1ae4190d90b5df1f79d125f7364335f443" compoundref="a00023" startline="319">SPEAKER_START_BIT_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1a24ee7084eece30be2c4ea12942d4f9f1" compoundref="a00023" startline="318">SPEAKER_START_BIT_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1ae7526d33c1ee06bcdddd6910d23c79af" compoundref="a00023" startline="317">SPEAKER_START_BIT_PULSE_LEN_MAX</references>
+        <references refid="a00023_1aaa56e20ad2884457b0cf78075069e438" compoundref="a00023" startline="316">SPEAKER_START_BIT_PULSE_LEN_MIN</references>
+        <references refid="a00023_1a489b515d3d5c95ea330200dec4eeb598" compoundref="a00023" startline="525">TELEFUNKEN_START_BIT_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1abd9612e9c5ab2215e0897aaf66cf2172" compoundref="a00023" startline="524">TELEFUNKEN_START_BIT_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1ace163c4c68e6a77bb9ad158cf1ea3309" compoundref="a00023" startline="523">TELEFUNKEN_START_BIT_PULSE_LEN_MAX</references>
+        <references refid="a00023_1a751d2f0b1c13fedb28c5f9f1749fef8b" compoundref="a00023" startline="522">TELEFUNKEN_START_BIT_PULSE_LEN_MIN</references>
+        <references refid="a00023_1a876fe057ab64ce22e88bd298fa427b76" compoundref="a00023" startline="266">THOMSON_0_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1afcc1211ca0656d6b6c5c7e70fb5f64a6" compoundref="a00023" startline="265">THOMSON_0_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1a7e77a1ba15d850e919d2ff4a152c3980" compoundref="a00023" startline="264">THOMSON_1_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1acf7b408bd2abe44e3b0150436d803561" compoundref="a00023" startline="263">THOMSON_1_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1a3cac0e47b1140d9c14228831be821429" compoundref="a00023" startline="262">THOMSON_PULSE_LEN_MAX</references>
+        <references refid="a00023_1a5daada8a90540b9256ab739f0aacd0d8" compoundref="a00023" startline="261">THOMSON_PULSE_LEN_MIN</references>
+        <references refid="a00029_1aa8cecfc5c5c054d2875c03e77b7be15d" compoundref="a00029" startline="193">TRUE</references>
+        <references refid="a00023_1a5731bbbce38aeea3fba35d0651c01a8a" compoundref="a00023" startline="189">VINCENT_START_BIT_PAUSE_LEN_MAX</references>
+        <references refid="a00023_1ae9c34e64da485fd84d744198e7db1447" compoundref="a00023" startline="188">VINCENT_START_BIT_PAUSE_LEN_MIN</references>
+        <references refid="a00023_1aa412955b17a7e93d5b3999bffeb20cd5" compoundref="a00023" startline="187">VINCENT_START_BIT_PULSE_LEN_MAX</references>
+        <references refid="a00023_1aac3d83140bc440d95bfe165a6476a7b2" compoundref="a00023" startline="186">VINCENT_START_BIT_PULSE_LEN_MIN</references>
+        <referencedby refid="a00032_1a0683401e72fd7792df71336408a5afca" compoundref="a00032" startline="251" endline="259">irmp_add_one_sample</referencedby>
+        <referencedby refid="a00032_1a1714d353d5990b6829fbc90ca10dd590" compoundref="a00032" startline="215" endline="249">irmp_reset_state</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*---------------------------------------------------------------------------------------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>irmp.h</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2009-2019<sp/>Frank<sp/>Meyer<sp/>-<sp/>frank(at)fli4l.de</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*---------------------------------------------------------------------------------------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>_IRMP_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_IRMP_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>IRMP_USE_AS_LIB</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="a00026_1a110941f61c24f2c092714b7302f55f0b" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMPCONFIG_STAGE1_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>include<sp/>&quot;<ref refid="a00020" kindref="compound">irmpconfig.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>undef<sp/>IRMPCONFIG_STAGE1_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="a00029" kindref="compound">irmpsystem.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>IRMP_USE_AS_LIB</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="a00026_1ade009cd2e094dd93ce1ee6947db31591" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMPCONFIG_STAGE2_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>include<sp/>&quot;<ref refid="a00020" kindref="compound">irmpconfig.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>undef<sp/>IRMPCONFIG_STAGE2_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined<sp/>(__AVR_XMEGA__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>_CONCAT(a,b)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>a##b</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>CONCAT(a,b)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_CONCAT(a,b)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_PORT_PRE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CONCAT(PORT,<sp/>IRMP_PORT_LETTER)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_DDR_PRE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CONCAT(PORT,<sp/>IRMP_PORT_LETTER)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_PIN_PRE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CONCAT(PORT,<sp/>IRMP_PORT_LETTER)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_PORT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>IRMP_PORT_PRE.OUT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_DDR<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>IRMP_DDR_PRE.DIR</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_PIN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>IRMP_PIN_PRE.IN</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_BIT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>IRMP_BIT_NUMBER</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>input(x)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((x)<sp/>&amp;<sp/>(1<sp/>&lt;&lt;<sp/>IRMP_BIT))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined<sp/>(ATMEL_AVR)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>_CONCAT(a,b)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>a##b</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>CONCAT(a,b)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_CONCAT(a,b)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_PORT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CONCAT(PORT,<sp/>IRMP_PORT_LETTER)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_DDR<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CONCAT(DDR,<sp/>IRMP_PORT_LETTER)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_PIN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CONCAT(PIN,<sp/>IRMP_PORT_LETTER)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_BIT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>IRMP_BIT_NUMBER</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>input(x)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((x)<sp/>&amp;<sp/>(1<sp/>&lt;&lt;<sp/>IRMP_BIT))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined<sp/>(PIC_C18)<sp/>||<sp/>defined<sp/>(PIC_CCS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>input(x)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(x)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined<sp/>(ARM_STM32)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>_CONCAT(a,b)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>a##b</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>CONCAT(a,b)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_CONCAT(a,b)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_PORT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CONCAT(GPIO,<sp/>IRMP_PORT_LETTER)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>if<sp/>defined<sp/>(ARM_STM32L1XX)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/><sp/>define<sp/>IRMP_PORT_RCC<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CONCAT(RCC_AHBPeriph_GPIO,<sp/>IRMP_PORT_LETTER)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>elif<sp/>defined<sp/>(ARM_STM32F10X)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/><sp/>define<sp/>IRMP_PORT_RCC<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CONCAT(RCC_APB2Periph_GPIO,<sp/>IRMP_PORT_LETTER)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>elif<sp/>defined<sp/>(ARM_STM32F4XX)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/><sp/>define<sp/>IRMP_PORT_RCC<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CONCAT(RCC_AHB1Periph_GPIO,<sp/>IRMP_PORT_LETTER)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_BIT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CONCAT(GPIO_Pin_,<sp/>IRMP_BIT_NUMBER)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_PIN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>IRMP_PORT<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>for<sp/>use<sp/>with<sp/>input(x)<sp/>below</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>input(x)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(GPIO_ReadInputDataBit(x,<sp/>IRMP_BIT))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>ifndef<sp/>USE_STDPERIPH_DRIVER</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/><sp/>warning<sp/>The<sp/>STM32<sp/>port<sp/>of<sp/>IRMP<sp/>uses<sp/>the<sp/>ST<sp/>standard<sp/>peripheral<sp/>drivers<sp/>which<sp/>are<sp/>not<sp/>enabled<sp/>in<sp/>your<sp/>build<sp/>configuration.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined<sp/>(ARM_STM32_HAL)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_BIT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>IRMP_BIT_NUMBER</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_PIN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>IRMP_BIT_NUMBER<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>for<sp/>use<sp/>with<sp/>input(x)<sp/>below</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>input(x)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>HAL_GPIO_ReadPin(IRMP_PORT_LETTER,<sp/>x)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined<sp/>(STELLARIS_ARM_CORTEX_M4)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>_CONCAT(a,b)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>a##b</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>CONCAT(a,b)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_CONCAT(a,b)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_PORT_PERIPH<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CONCAT(SYSCTL_PERIPH_GPIO,<sp/>IRMP_PORT_LETTER)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_PORT_BASE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CONCAT(GPIO_PORT,<sp/>CONCAT(IRMP_PORT_LETTER,<sp/>_BASE))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_PORT_PIN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CONCAT(GPIO_PIN_,<sp/>IRMP_BIT_NUMBER)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_PIN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>IRMP_PORT_PIN</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>input(x)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((uint8_t)(ROM_GPIOPinRead(IRMP_PORT_BASE,<sp/>IRMP_PORT_PIN)))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>sei()<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>IntMasterEnable()</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(__SDCC_stm8)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>_CONCAT(a,b)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>a##b</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>CONCAT(a,b)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_CONCAT(a,b)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_GPIO_STRUCT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CONCAT(GPIO,<sp/>IRMP_PORT_LETTER)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_BIT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>IRMP_BIT_NUMBER</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>input(x)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((x)<sp/>&amp;<sp/>(1<sp/>&lt;&lt;<sp/>IRMP_BIT))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined<sp/>(TEENSY_ARM_CORTEX_M4)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>input(x)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((uint8_t)(digitalReadFast(x)))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(__xtensa__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_BIT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>IRMP_BIT_NUMBER</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>input(x)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GPIO_INPUT_GET(IRMP_BIT_NUMBER)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(_CHIBIOS_HAL_)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>input(x)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>palReadLine(x)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>IRMP_USE_IDLE_CALL<sp/>==<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>irmp_idle(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>user<sp/>has<sp/>to<sp/>provide<sp/>an<sp/>implementation<sp/>of<sp/>the<sp/>irmp_idle()<sp/>function<sp/>and<sp/>link<sp/>it</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>IRMP_SUPPORT_TECHNICS_PROTOCOL<sp/>==<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>undef<sp/>IRMP_SUPPORT_MATSUSHITA_PROTOCOL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_SUPPORT_MATSUSHITA_PROTOCOL<sp/><sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>IRMP_32_BIT<sp/>==<sp/>0<sp/>&amp;&amp;<sp/>IRMP_SUPPORT_MERLIN_PROTOCOL<sp/>==<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>undef<sp/>IRMP_SUPPORT_MERLIN_PROTOCOL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>warning<sp/>MERLIN<sp/>protocol<sp/>disabled,<sp/>IRMP_32_BIT=1<sp/>needed</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>IRMP_SUPPORT_DENON_PROTOCOL<sp/>==<sp/>1<sp/>&amp;&amp;<sp/>IRMP_SUPPORT_RUWIDO_PROTOCOL<sp/>==<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>warning<sp/>DENON<sp/>protocol<sp/>conflicts<sp/>wih<sp/>RUWIDO,<sp/>please<sp/>enable<sp/>only<sp/>one<sp/>of<sp/>both<sp/>protocols</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>warning<sp/>RUWIDO<sp/>protocol<sp/>disabled</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>undef<sp/>IRMP_SUPPORT_RUWIDO_PROTOCOL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_SUPPORT_RUWIDO_PROTOCOL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>IRMP_SUPPORT_KASEIKYO_PROTOCOL<sp/>==<sp/>1<sp/>&amp;&amp;<sp/>IRMP_SUPPORT_PANASONIC_PROTOCOL<sp/>==<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>warning<sp/>KASEIKYO<sp/>protocol<sp/>conflicts<sp/>wih<sp/>PANASONIC,<sp/>please<sp/>enable<sp/>only<sp/>one<sp/>of<sp/>both<sp/>protocols</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>warning<sp/>PANASONIC<sp/>protocol<sp/>disabled</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>undef<sp/>IRMP_SUPPORT_PANASONIC_PROTOCOL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_SUPPORT_PANASONIC_PROTOCOL<sp/><sp/><sp/><sp/><sp/><sp/><sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>IRMP_SUPPORT_DENON_PROTOCOL<sp/>==<sp/>1<sp/>&amp;&amp;<sp/>IRMP_SUPPORT_ACP24_PROTOCOL<sp/>==<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>warning<sp/>DENON<sp/>protocol<sp/>conflicts<sp/>wih<sp/>ACP24,<sp/>please<sp/>enable<sp/>only<sp/>one<sp/>of<sp/>both<sp/>protocols</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>warning<sp/>ACP24<sp/>protocol<sp/>disabled</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>undef<sp/>IRMP_SUPPORT_ACP24_PROTOCOL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_SUPPORT_ACP24_PROTOCOL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>IRMP_SUPPORT_RC6_PROTOCOL<sp/>==<sp/>1<sp/>&amp;&amp;<sp/>IRMP_SUPPORT_ROOMBA_PROTOCOL<sp/>==<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>warning<sp/>RC6<sp/>protocol<sp/>conflicts<sp/>wih<sp/>ROOMBA,<sp/>please<sp/>enable<sp/>only<sp/>one<sp/>of<sp/>both<sp/>protocols</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>warning<sp/>ROOMBA<sp/>protocol<sp/>disabled</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>undef<sp/>IRMP_SUPPORT_ROOMBA_PROTOCOL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_SUPPORT_ROOMBA_PROTOCOL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>IRMP_SUPPORT_PANASONIC_PROTOCOL<sp/>==<sp/>1<sp/>&amp;&amp;<sp/>IRMP_SUPPORT_MITSU_HEAVY_PROTOCOL<sp/>==<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>warning<sp/>PANASONIC<sp/>protocol<sp/>conflicts<sp/>wih<sp/>MITSU_HEAVY,<sp/>please<sp/>enable<sp/>only<sp/>one<sp/>of<sp/>both<sp/>protocols</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>warning<sp/>MITSU_HEAVY<sp/>protocol<sp/>disabled</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>undef<sp/>IRMP_SUPPORT_MITSU_HEAVY_PROTOCOL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_SUPPORT_MITSU_HEAVY_PROTOCOL<sp/><sp/><sp/><sp/><sp/><sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>IRMP_SUPPORT_RC5_PROTOCOL<sp/>==<sp/>1<sp/>&amp;&amp;<sp/>IRMP_SUPPORT_ORTEK_PROTOCOL<sp/>==<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>warning<sp/>RC5<sp/>protocol<sp/>conflicts<sp/>wih<sp/>ORTEK,<sp/>please<sp/>enable<sp/>only<sp/>one<sp/>of<sp/>both<sp/>protocols</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>warning<sp/>ORTEK<sp/>protocol<sp/>disabled</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>undef<sp/>IRMP_SUPPORT_ORTEK_PROTOCOL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_SUPPORT_ORTEK_PROTOCOL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>IRMP_SUPPORT_RC5_PROTOCOL<sp/>==<sp/>1<sp/>&amp;&amp;<sp/>IRMP_SUPPORT_S100_PROTOCOL<sp/>==<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>warning<sp/>RC5<sp/>protocol<sp/>conflicts<sp/>wih<sp/>S100,<sp/>please<sp/>enable<sp/>only<sp/>one<sp/>of<sp/>both<sp/>protocols</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>warning<sp/>S100<sp/>protocol<sp/>disabled</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>undef<sp/>IRMP_SUPPORT_S100_PROTOCOL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_SUPPORT_S100_PROTOCOL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>IRMP_SUPPORT_NUBERT_PROTOCOL<sp/>==<sp/>1<sp/>&amp;&amp;<sp/>IRMP_SUPPORT_FAN_PROTOCOL<sp/>==<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>warning<sp/>NUBERT<sp/>protocol<sp/>conflicts<sp/>wih<sp/>FAN,<sp/>please<sp/>enable<sp/>only<sp/>one<sp/>of<sp/>both<sp/>protocols</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>warning<sp/>FAN<sp/>protocol<sp/>disabled</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>undef<sp/>IRMP_SUPPORT_FAN_PROTOCOL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_SUPPORT_FAN_PROTOCOL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>IRMP_SUPPORT_FDC_PROTOCOL<sp/>==<sp/>1<sp/>&amp;&amp;<sp/>IRMP_SUPPORT_ORTEK_PROTOCOL<sp/>==<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>warning<sp/>FDC<sp/>protocol<sp/>conflicts<sp/>wih<sp/>ORTEK,<sp/>please<sp/>enable<sp/>only<sp/>one<sp/>of<sp/>both<sp/>protocols</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>warning<sp/>ORTEK<sp/>protocol<sp/>disabled</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>undef<sp/>IRMP_SUPPORT_ORTEK_PROTOCOL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_SUPPORT_ORTEK_PROTOCOL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>IRMP_SUPPORT_ORTEK_PROTOCOL<sp/>==<sp/>1<sp/>&amp;&amp;<sp/>IRMP_SUPPORT_NETBOX_PROTOCOL<sp/>==<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>warning<sp/>ORTEK<sp/>protocol<sp/>conflicts<sp/>wih<sp/>NETBOX,<sp/>please<sp/>enable<sp/>only<sp/>one<sp/>of<sp/>both<sp/>protocols</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>warning<sp/>NETBOX<sp/>protocol<sp/>disabled</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>undef<sp/>IRMP_SUPPORT_NETBOX_PROTOCOL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_SUPPORT_NETBOX_PROTOCOL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>IRMP_SUPPORT_GRUNDIG_PROTOCOL<sp/>==<sp/>1<sp/>&amp;&amp;<sp/>IRMP_SUPPORT_RCII_PROTOCOL<sp/>==<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>warning<sp/>GRUNDIG<sp/>protocol<sp/>conflicts<sp/>wih<sp/>RCII,<sp/>please<sp/>enable<sp/>only<sp/>one<sp/>of<sp/>both<sp/>protocols</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>warning<sp/>RCII<sp/>protocol<sp/>disabled</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>undef<sp/>IRMP_SUPPORT_RCII_PROTOCOL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_SUPPORT_RCII_PROTOCOL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>IRMP_SUPPORT_NOKIA_PROTOCOL<sp/>==<sp/>1<sp/>&amp;&amp;<sp/>IRMP_SUPPORT_RCII_PROTOCOL<sp/>==<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>warning<sp/>NOKIA<sp/>protocol<sp/>conflicts<sp/>wih<sp/>RCII,<sp/>please<sp/>enable<sp/>only<sp/>one<sp/>of<sp/>both<sp/>protocols</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>warning<sp/>RCII<sp/>protocol<sp/>disabled</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>undef<sp/>IRMP_SUPPORT_RCII_PROTOCOL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_SUPPORT_RCII_PROTOCOL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>IRMP_SUPPORT_SIEMENS_PROTOCOL<sp/>==<sp/>1<sp/>&amp;&amp;<sp/>F_INTERRUPTS<sp/>&lt;<sp/>15000</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>warning<sp/>F_INTERRUPTS<sp/>too<sp/>low,<sp/>SIEMENS<sp/>protocol<sp/>disabled<sp/>(should<sp/>be<sp/>at<sp/>least<sp/>15000)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>undef<sp/>IRMP_SUPPORT_SIEMENS_PROTOCOL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_SUPPORT_SIEMENS_PROTOCOL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>IRMP_SUPPORT_RUWIDO_PROTOCOL<sp/>==<sp/>1<sp/>&amp;&amp;<sp/>F_INTERRUPTS<sp/>&lt;<sp/>15000</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>warning<sp/>F_INTERRUPTS<sp/>too<sp/>low,<sp/>RUWIDO<sp/>protocol<sp/>disabled<sp/>(should<sp/>be<sp/>at<sp/>least<sp/>15000)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>undef<sp/>IRMP_SUPPORT_RUWIDO_PROTOCOL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_SUPPORT_RUWIDO_PROTOCOL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>IRMP_SUPPORT_RECS80_PROTOCOL<sp/>==<sp/>1<sp/>&amp;&amp;<sp/>F_INTERRUPTS<sp/>&lt;<sp/>15000</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>warning<sp/>F_INTERRUPTS<sp/>too<sp/>low,<sp/>RECS80<sp/>protocol<sp/>disabled<sp/>(should<sp/>be<sp/>at<sp/>least<sp/>15000)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>undef<sp/>IRMP_SUPPORT_RECS80_PROTOCOL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_SUPPORT_RECS80_PROTOCOL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>IRMP_SUPPORT_RECS80EXT_PROTOCOL<sp/>==<sp/>1<sp/>&amp;&amp;<sp/>F_INTERRUPTS<sp/>&lt;<sp/>15000</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>warning<sp/>F_INTERRUPTS<sp/>too<sp/>low,<sp/>RECS80EXT<sp/>protocol<sp/>disabled<sp/>(should<sp/>be<sp/>at<sp/>least<sp/>15000)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>undef<sp/>IRMP_SUPPORT_RECS80EXT_PROTOCOL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_SUPPORT_RECS80EXT_PROTOCOL<sp/><sp/><sp/><sp/><sp/><sp/><sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="227"><highlight class="normal"></highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>IRMP_SUPPORT_LEGO_PROTOCOL<sp/>==<sp/>1<sp/>&amp;&amp;<sp/>F_INTERRUPTS<sp/>&lt;<sp/>20000</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>warning<sp/>F_INTERRUPTS<sp/>too<sp/>low,<sp/>LEGO<sp/>protocol<sp/>disabled<sp/>(should<sp/>be<sp/>at<sp/>least<sp/>20000)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>undef<sp/>IRMP_SUPPORT_LEGO_PROTOCOL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_SUPPORT_LEGO_PROTOCOL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="232"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight></codeline>
+<codeline lineno="234"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>IRMP_SUPPORT_SAMSUNG48_PROTOCOL<sp/>==<sp/>1<sp/>&amp;&amp;<sp/>IRMP_SUPPORT_SAMSUNG_PROTOCOL<sp/>==<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="235"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>warning<sp/>SAMSUNG48<sp/>protocol<sp/>needs<sp/>also<sp/>SAMSUNG<sp/>protocol,<sp/>SAMSUNG<sp/>protocol<sp/>enabled</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="236"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>undef<sp/>IRMP_SUPPORT_SAMSUNG_PROTOCOL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="237"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_SUPPORT_SAMSUNG_PROTOCOL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="239"><highlight class="normal"></highlight></codeline>
+<codeline lineno="240"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>IRMP_SUPPORT_JVC_PROTOCOL<sp/>==<sp/>1<sp/>&amp;&amp;<sp/>IRMP_SUPPORT_NEC_PROTOCOL<sp/>==<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="241"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>warning<sp/>JVC<sp/>protocol<sp/>needs<sp/>also<sp/>NEC<sp/>protocol,<sp/>NEC<sp/>protocol<sp/>enabled</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="242"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>undef<sp/>IRMP_SUPPORT_NEC_PROTOCOL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="243"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_SUPPORT_NEC_PROTOCOL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="244"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="245"><highlight class="normal"></highlight></codeline>
+<codeline lineno="246"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>IRMP_SUPPORT_NEC16_PROTOCOL<sp/>==<sp/>1<sp/>&amp;&amp;<sp/>IRMP_SUPPORT_NEC_PROTOCOL<sp/>==<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>warning<sp/>NEC16<sp/>protocol<sp/>needs<sp/>also<sp/>NEC<sp/>protocol,<sp/>NEC<sp/>protocol<sp/>enabled</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="248"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>undef<sp/>IRMP_SUPPORT_NEC_PROTOCOL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="249"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_SUPPORT_NEC_PROTOCOL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="250"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="251"><highlight class="normal"></highlight></codeline>
+<codeline lineno="252"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>IRMP_SUPPORT_NEC42_PROTOCOL<sp/>==<sp/>1<sp/>&amp;&amp;<sp/>IRMP_SUPPORT_NEC_PROTOCOL<sp/>==<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="253"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>warning<sp/>NEC42<sp/>protocol<sp/>needs<sp/>also<sp/>NEC<sp/>protocol,<sp/>NEC<sp/>protocol<sp/>enabled</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="254"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>undef<sp/>IRMP_SUPPORT_NEC_PROTOCOL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="255"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_SUPPORT_NEC_PROTOCOL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="256"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="257"><highlight class="normal"></highlight></codeline>
+<codeline lineno="258"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>IRMP_SUPPORT_LGAIR_PROTOCOL<sp/>==<sp/>1<sp/>&amp;&amp;<sp/>IRMP_SUPPORT_NEC_PROTOCOL<sp/>==<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="259"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>warning<sp/>LGAIR<sp/>protocol<sp/>needs<sp/>also<sp/>NEC<sp/>protocol,<sp/>NEC<sp/>protocol<sp/>enabled</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="260"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>undef<sp/>IRMP_SUPPORT_NEC_PROTOCOL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="261"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_SUPPORT_NEC_PROTOCOL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="262"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="263"><highlight class="normal"></highlight></codeline>
+<codeline lineno="264"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>IRMP_SUPPORT_RCMM_PROTOCOL<sp/>==<sp/>1<sp/>&amp;&amp;<sp/>F_INTERRUPTS<sp/>&lt;<sp/>20000</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="265"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>warning<sp/>F_INTERRUPTS<sp/>too<sp/>low,<sp/>RCMM<sp/>protocol<sp/>disabled<sp/>(should<sp/>be<sp/>at<sp/>least<sp/>20000)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="266"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>undef<sp/>IRMP_SUPPORT_RCMM_PROTOCOL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="267"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_SUPPORT_RCMM_PROTOCOL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="268"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="269"><highlight class="normal"></highlight></codeline>
+<codeline lineno="270"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>IRMP_SUPPORT_PENTAX_PROTOCOL<sp/>==<sp/>1<sp/>&amp;&amp;<sp/>F_INTERRUPTS<sp/>&gt;<sp/>16000</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="271"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>warning<sp/>F_INTERRUPTS<sp/>too<sp/>high,<sp/>PENTAX<sp/>protocol<sp/>disabled<sp/>(should<sp/>be<sp/>max<sp/>16000)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="272"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>undef<sp/>IRMP_SUPPORT_PENTAX_PROTOCOL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="273"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_SUPPORT_PENTAX_PROTOCOL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="274"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="275"><highlight class="normal"></highlight></codeline>
+<codeline lineno="276"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>IRMP_SUPPORT_GREE_PROTOCOL<sp/>==<sp/>1<sp/>&amp;&amp;<sp/>F_INTERRUPTS<sp/>&gt;<sp/>16000</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="277"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>warning<sp/>F_INTERRUPTS<sp/>too<sp/>high,<sp/>GREE<sp/>protocol<sp/>disabled<sp/>(should<sp/>be<sp/>max<sp/>16000)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="278"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>undef<sp/>IRMP_SUPPORT_GREE_PROTOCOL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="279"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>IRMP_SUPPORT_GREE_PROTOCOL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="280"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="281"><highlight class="normal"></highlight></codeline>
+<codeline lineno="282"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>F_INTERRUPTS<sp/>&gt;<sp/>20000</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="283"><highlight class="normal"></highlight><highlight class="preprocessor">#error<sp/>F_INTERRUPTS<sp/>too<sp/>high<sp/>(should<sp/>be<sp/>not<sp/>greater<sp/>than<sp/>20000)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="284"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="285"><highlight class="normal"></highlight></codeline>
+<codeline lineno="286"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="a00017" kindref="compound">irmpprotocols.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="287"><highlight class="normal"></highlight></codeline>
+<codeline lineno="288" refid="a00026_1a89f151e3dbf33edabd0051cbcf6a93a9" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>IRMP_FLAG_REPETITION<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x01</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="289"><highlight class="normal"></highlight></codeline>
+<codeline lineno="290"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="291"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="292"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="294"><highlight class="normal"></highlight></codeline>
+<codeline lineno="295" refid="a00026_1aa8e4e3d0f822ea466e1e56ebeedebf78" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00026_1aa8e4e3d0f822ea466e1e56ebeedebf78" kindref="member">irmp_init</ref><sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>uint_fast8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00026_1a08ade62c8fd4c37697492cde32137c84" kindref="member">irmp_get_data</ref><sp/>(<ref refid="a00153" kindref="compound">IRMP_DATA</ref><sp/>*);</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>uint_fast8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00026_1a9e0db284613c707007a5a254851aa6cf" kindref="member">irmp_ISR</ref><sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"></highlight></codeline>
+<codeline lineno="299"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>IRMP_PROTOCOL_NAMES<sp/>==<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="300"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>irmp_protocol_names[<ref refid="a00017_1aa2278515f654bfd627b7c470266449ba" kindref="member">IRMP_N_PROTOCOLS</ref><sp/>+<sp/>1]<sp/>PROGMEM;</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="302"><highlight class="normal"></highlight></codeline>
+<codeline lineno="303"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>IRMP_USE_CALLBACK<sp/>==<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="304"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>irmp_set_callback_ptr<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>(*cb)(uint_fast8_t));</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>IRMP_USE_CALLBACK<sp/>==<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="306"><highlight class="normal"></highlight></codeline>
+<codeline lineno="307"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="308"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="310"><highlight class="normal"></highlight></codeline>
+<codeline lineno="311"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>_IRMP_H_<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="irmp/irmp.h"/>
+  </compounddef>
+</doxygen>

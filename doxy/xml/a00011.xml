@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="a00011" kind="file" language="Markdown">
+    <compoundname>CODE_OF_CONDUCT.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>Code<sp/>of<sp/>Conduct</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Our<sp/>Pledge</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">We<sp/>as<sp/>members,<sp/>contributors,<sp/>and<sp/>leaders<sp/>pledge<sp/>to<sp/>make<sp/>participation<sp/>in<sp/>our<sp/>community<sp/>a<sp/>harassment-free<sp/>experience<sp/>for<sp/>everyone,<sp/>regardless<sp/>of<sp/>age,<sp/>body<sp/>size,<sp/>visible<sp/>or<sp/>invisible<sp/>disability,<sp/>ethnicity,<sp/>sex<sp/>characteristics,<sp/>gender<sp/>identity<sp/>and<sp/>expression,<sp/>level<sp/>of<sp/>experience,<sp/>education,<sp/>socio-economic<sp/>status,<sp/>nationality,<sp/>personal<sp/>appearance,<sp/>race,<sp/>caste,<sp/>color,<sp/>religion,<sp/>or<sp/>sexual<sp/>identity<sp/>and<sp/>orientation.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Our<sp/>Standards</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Examples<sp/>of<sp/>behavior<sp/>that<sp/>contributes<sp/>to<sp/>a<sp/>positive<sp/>environment:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>Demonstrating<sp/>empathy<sp/>and<sp/>kindness<sp/>toward<sp/>other<sp/>people</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>Being<sp/>respectful<sp/>of<sp/>differing<sp/>opinions,<sp/>viewpoints,<sp/>and<sp/>experiences</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>Giving<sp/>and<sp/>gracefully<sp/>accepting<sp/>constructive<sp/>feedback</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>Accepting<sp/>responsibility<sp/>and<sp/>apologizing<sp/>to<sp/>those<sp/>affected<sp/>by<sp/>our<sp/>mistakes</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>Focusing<sp/>on<sp/>what<sp/>is<sp/>best<sp/>not<sp/>just<sp/>for<sp/>us<sp/>as<sp/>individuals,<sp/>but<sp/>for<sp/>the<sp/>overall<sp/>community</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Examples<sp/>of<sp/>unacceptable<sp/>behavior:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>The<sp/>use<sp/>of<sp/>sexualized<sp/>language<sp/>or<sp/>imagery,<sp/>and<sp/>sexual<sp/>attention<sp/>or<sp/>advances<sp/>of<sp/>any<sp/>kind</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>Trolling,<sp/>insulting<sp/>or<sp/>derogatory<sp/>comments,<sp/>and<sp/>personal<sp/>or<sp/>political<sp/>attacks</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>Public<sp/>or<sp/>private<sp/>harassment</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>Publishing<sp/>others&apos;<sp/>private<sp/>information<sp/>without<sp/>their<sp/>explicit<sp/>permission</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>Other<sp/>conduct<sp/>which<sp/>could<sp/>reasonably<sp/>be<sp/>considered<sp/>inappropriate<sp/>in<sp/>a<sp/>professional<sp/>setting</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Enforcement<sp/>Responsibilities</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Community<sp/>leaders<sp/>are<sp/>responsible<sp/>for<sp/>clarifying<sp/>and<sp/>enforcing<sp/>our<sp/>standards<sp/>of<sp/>acceptable<sp/>behavior<sp/>and<sp/>will<sp/>take<sp/>appropriate<sp/>and<sp/>fair<sp/>corrective<sp/>action<sp/>in<sp/>response<sp/>to<sp/>any<sp/>behavior<sp/>that<sp/>they<sp/>deem<sp/>inappropriate,<sp/>threatening,<sp/>offensive,<sp/>or<sp/>harmful.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Scope</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>Code<sp/>of<sp/>Conduct<sp/>applies<sp/>within<sp/>all<sp/>community<sp/>spaces,<sp/>and<sp/>also<sp/>applies<sp/>when<sp/>an<sp/>individual<sp/>is<sp/>officially<sp/>representing<sp/>the<sp/>community<sp/>in<sp/>public<sp/>spaces.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Enforcement</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Instances<sp/>of<sp/>abusive,<sp/>harassing,<sp/>or<sp/>otherwise<sp/>unacceptable<sp/>behavior<sp/>may<sp/>be<sp/>reported<sp/>to<sp/>the<sp/>community<sp/>leaders<sp/>responsible<sp/>for<sp/>enforcement<sp/>at<sp/>[conduct@opentracelab.org](mailto:conduct@opentracelab.org).<sp/>All<sp/>complaints<sp/>will<sp/>be<sp/>reviewed<sp/>and<sp/>investigated<sp/>promptly<sp/>and<sp/>fairly.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Attribution</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>Code<sp/>of<sp/>Conduct<sp/>is<sp/>adapted<sp/>from<sp/>the<sp/>[Contributor<sp/>Covenant](https://www.contributor-covenant.org/),<sp/>version<sp/>2.1.</highlight></codeline>
+    </programlisting>
+    <location file="CODE_OF_CONDUCT.md"/>
+  </compounddef>
+</doxygen>

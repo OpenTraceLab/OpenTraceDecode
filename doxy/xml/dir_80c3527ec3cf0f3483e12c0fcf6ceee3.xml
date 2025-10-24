@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_80c3527ec3cf0f3483e12c0fcf6ceee3" kind="dir">
+    <compoundname>builddir/meson-private</compoundname>
+    <innerfile refid="a00285">sanitycheckc.c</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="builddir/meson-private/"/>
+  </compounddef>
+</doxygen>

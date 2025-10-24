@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="a00165" kind="struct" language="C++" prot="public">
+    <compoundname>otd_session</compoundname>
+    <includes refid="a00062" local="no">libopentracedecode-internal.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="a00165_1aa6b9b4c4d9005db087ef5e6b7feb3ea9" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int otd_session::session_id</definition>
+        <argsstring></argsstring>
+        <name>session_id</name>
+        <qualifiedname>otd_session::session_id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libopentracedecode-internal.h" line="72" column="5" bodyfile="src/libopentracedecode-internal.h" bodystart="72" bodyend="-1"/>
+        <referencedby refid="a00088_1gaff3d623695f72762cc7120228d4bf2b3" compoundref="a00068" startline="357" endline="375">otd_session_destroy</referencedby>
+        <referencedby refid="a00088_1ga1e23480b9872bddca2b1d502be2e27e0" compoundref="a00068" startline="159" endline="202">otd_session_metadata_set</referencedby>
+        <referencedby refid="a00088_1gad004c3c733af11a5d262f9d12cd4e0fe" compoundref="a00068" startline="90" endline="110">otd_session_start</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00165_1a5e1296e48d6a16e2a5fe2a574e9d93cc" prot="public" static="no" mutable="no">
+        <type>GSList *</type>
+        <definition>GSList* otd_session::di_list</definition>
+        <argsstring></argsstring>
+        <name>di_list</name>
+        <qualifiedname>otd_session::di_list</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libopentracedecode-internal.h" line="75" column="8" bodyfile="src/libopentracedecode-internal.h" bodystart="75" bodyend="-1"/>
+        <referencedby refid="a00085_1ga85fb36f5ae3affa7f4c89f129f51f637" compoundref="a00050" startline="613" endline="630">otd_inst_find_by_id</referencedby>
+        <referencedby refid="a00085_1ga5a5ccf21d80fa12706ba83cffa3de267" compoundref="a00050" startline="1450" endline="1456">otd_inst_free_all</referencedby>
+        <referencedby refid="a00085_1ga93239c3c924c6f71393cdcf619ecf67b" compoundref="a00050" startline="336" endline="447">otd_inst_new</referencedby>
+        <referencedby refid="a00085_1ga2d145b7c48e57509dc22988ad0c36a02" compoundref="a00050" startline="521" endline="565">otd_inst_stack</referencedby>
+        <referencedby refid="a00088_1gaff3d623695f72762cc7120228d4bf2b3" compoundref="a00068" startline="357" endline="375">otd_session_destroy</referencedby>
+        <referencedby refid="a00088_1ga1e23480b9872bddca2b1d502be2e27e0" compoundref="a00068" startline="159" endline="202">otd_session_metadata_set</referencedby>
+        <referencedby refid="a00088_1ga06f225c625d4bed27430fc0bf9940bca" compoundref="a00068" startline="262" endline="279">otd_session_send</referencedby>
+        <referencedby refid="a00088_1ga8654a21446400e6045097e22c28b1869" compoundref="a00068" startline="290" endline="305">otd_session_send_eof</referencedby>
+        <referencedby refid="a00088_1gad004c3c733af11a5d262f9d12cd4e0fe" compoundref="a00068" startline="90" endline="110">otd_session_start</referencedby>
+        <referencedby refid="a00088_1ga00a506b773898e40b801edb5efbcd2e2" compoundref="a00068" startline="329" endline="344">otd_session_terminate_reset</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00165_1a808087341485199fe1513a76497fa0a6" prot="public" static="no" mutable="no">
+        <type>GSList *</type>
+        <definition>GSList* otd_session::callbacks</definition>
+        <argsstring></argsstring>
+        <name>callbacks</name>
+        <qualifiedname>otd_session::callbacks</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/libopentracedecode-internal.h" line="78" column="8" bodyfile="src/libopentracedecode-internal.h" bodystart="78" bodyend="-1"/>
+        <referencedby refid="a00088_1gac32b5d806af220243d84a95c7e655a00" compoundref="a00068" startline="393" endline="411">otd_pd_output_callback_add</referencedby>
+        <referencedby refid="a00088_1ga140539817e0ea7b3be6e63df92545d3c" compoundref="a00068" startline="414" endline="433">otd_pd_output_callback_find</referencedby>
+        <referencedby refid="a00088_1gaff3d623695f72762cc7120228d4bf2b3" compoundref="a00068" startline="357" endline="375">otd_session_destroy</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>GSList *</label>
+      </node>
+      <node id="2">
+        <label>int</label>
+      </node>
+      <node id="1">
+        <label>otd_session</label>
+        <link refid="a00165"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>session_id</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>callbacks</edgelabel>
+          <edgelabel>di_list</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/libopentracedecode-internal.h" line="71" column="1" bodyfile="src/libopentracedecode-internal.h" bodystart="71" bodyend="79"/>
+    <listofallmembers>
+      <member refid="a00165_1a808087341485199fe1513a76497fa0a6" prot="public" virt="non-virtual"><scope>otd_session</scope><name>callbacks</name></member>
+      <member refid="a00165_1a5e1296e48d6a16e2a5fe2a574e9d93cc" prot="public" virt="non-virtual"><scope>otd_session</scope><name>di_list</name></member>
+      <member refid="a00165_1aa6b9b4c4d9005db087ef5e6b7feb3ea9" prot="public" virt="non-virtual"><scope>otd_session</scope><name>session_id</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

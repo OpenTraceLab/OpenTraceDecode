@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="a00153" kind="struct" language="C++" prot="public">
+    <compoundname>IRMP_PACKED_STRUCT</compoundname>
+    <includes refid="a00029" local="no">irmpsystem.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="a00153_1a615ebaf2e093d3d53bae40dbee631689" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t IRMP_PACKED_STRUCT::protocol</definition>
+        <argsstring></argsstring>
+        <name>protocol</name>
+        <qualifiedname>IRMP_PACKED_STRUCT::protocol</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmpsystem.h" line="217" column="41" bodyfile="irmp/irmpsystem.h" bodystart="217" bodyend="-1"/>
+        <referencedby refid="a00023_1a5c852e4e82ee5f0bbe8197c342d95654" compoundref="a00023" startline="2412" endline="2660">irmp_get_data</referencedby>
+        <referencedby refid="a00032_1ac51614b600a56e7d401ddd1d0a16cb35" compoundref="a00032" startline="261" endline="276">irmp_get_result_data</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00153_1ae9656b053d430d1a6ace5758f37de68d" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t IRMP_PACKED_STRUCT::address</definition>
+        <argsstring></argsstring>
+        <name>address</name>
+        <qualifiedname>IRMP_PACKED_STRUCT::address</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmpsystem.h" line="218" column="41" bodyfile="irmp/irmpsystem.h" bodystart="218" bodyend="-1"/>
+        <referencedby refid="a00023_1a5c852e4e82ee5f0bbe8197c342d95654" compoundref="a00023" startline="2412" endline="2660">irmp_get_data</referencedby>
+        <referencedby refid="a00032_1ac51614b600a56e7d401ddd1d0a16cb35" compoundref="a00032" startline="261" endline="276">irmp_get_result_data</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00153_1a83e1167cf7fdc8ee8c8041569742ce0b" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t IRMP_PACKED_STRUCT::command</definition>
+        <argsstring></argsstring>
+        <name>command</name>
+        <qualifiedname>IRMP_PACKED_STRUCT::command</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmpsystem.h" line="219" column="41" bodyfile="irmp/irmpsystem.h" bodystart="219" bodyend="-1"/>
+        <referencedby refid="a00023_1a5c852e4e82ee5f0bbe8197c342d95654" compoundref="a00023" startline="2412" endline="2660">irmp_get_data</referencedby>
+        <referencedby refid="a00032_1ac51614b600a56e7d401ddd1d0a16cb35" compoundref="a00032" startline="261" endline="276">irmp_get_result_data</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00153_1aae1a997ffb4508485cfe5abef37b8fcd" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t IRMP_PACKED_STRUCT::flags</definition>
+        <argsstring></argsstring>
+        <name>flags</name>
+        <qualifiedname>IRMP_PACKED_STRUCT::flags</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmpsystem.h" line="220" column="41" bodyfile="irmp/irmpsystem.h" bodystart="220" bodyend="-1"/>
+        <referencedby refid="a00023_1a5c852e4e82ee5f0bbe8197c342d95654" compoundref="a00023" startline="2412" endline="2660">irmp_get_data</referencedby>
+        <referencedby refid="a00032_1ac51614b600a56e7d401ddd1d0a16cb35" compoundref="a00032" startline="261" endline="276">irmp_get_result_data</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>IRMP_PACKED_STRUCT</label>
+        <link refid="a00153"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>flags</edgelabel>
+          <edgelabel>protocol</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>address</edgelabel>
+          <edgelabel>command</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>uint16_t</label>
+      </node>
+      <node id="2">
+        <label>uint8_t</label>
+      </node>
+    </collaborationgraph>
+    <location file="irmp/irmpsystem.h" line="215" column="1" bodyfile="irmp/irmpsystem.h" bodystart="216" bodyend="221"/>
+    <listofallmembers>
+      <member refid="a00153_1ae9656b053d430d1a6ace5758f37de68d" prot="public" virt="non-virtual"><scope>IRMP_PACKED_STRUCT</scope><name>address</name></member>
+      <member refid="a00153_1a83e1167cf7fdc8ee8c8041569742ce0b" prot="public" virt="non-virtual"><scope>IRMP_PACKED_STRUCT</scope><name>command</name></member>
+      <member refid="a00153_1aae1a997ffb4508485cfe5abef37b8fcd" prot="public" virt="non-virtual"><scope>IRMP_PACKED_STRUCT</scope><name>flags</name></member>
+      <member refid="a00153_1a615ebaf2e093d3d53bae40dbee631689" prot="public" virt="non-virtual"><scope>IRMP_PACKED_STRUCT</scope><name>protocol</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

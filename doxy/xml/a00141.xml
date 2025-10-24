@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="a00141" kind="struct" language="C++" prot="public">
+    <compoundname>irmp_instance</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="a00141_1a676a5479b2a1f4aff8df091a4a2e4487" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t irmp_instance::client_id</definition>
+        <argsstring></argsstring>
+        <name>client_id</name>
+        <qualifiedname>irmp_instance::client_id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp-main-sharedlib.c" line="110" column="8" bodyfile="irmp/irmp-main-sharedlib.c" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="a00141_1a08e4a21e6a75e20c368f55b3c688bafd" prot="public" static="no" mutable="no">
+        <type>GMutex *</type>
+        <definition>GMutex* irmp_instance::mutex</definition>
+        <argsstring></argsstring>
+        <name>mutex</name>
+        <qualifiedname>irmp_instance::mutex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="irmp/irmp-main-sharedlib.c" line="111" column="8" bodyfile="irmp/irmp-main-sharedlib.c" bodystart="111" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>GMutex *</label>
+      </node>
+      <node id="1">
+        <label>irmp_instance</label>
+        <childnode refid="2" relation="usage">
+          <edgelabel>client_id</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>mutex</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>size_t</label>
+      </node>
+    </collaborationgraph>
+    <location file="irmp/irmp-main-sharedlib.c" line="109" column="1" bodyfile="irmp/irmp-main-sharedlib.c" bodystart="109" bodyend="112"/>
+    <listofallmembers>
+      <member refid="a00141_1a676a5479b2a1f4aff8df091a4a2e4487" prot="public" virt="non-virtual"><scope>irmp_instance</scope><name>client_id</name></member>
+      <member refid="a00141_1a08e4a21e6a75e20c368f55b3c688bafd" prot="public" virt="non-virtual"><scope>irmp_instance</scope><name>mutex</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

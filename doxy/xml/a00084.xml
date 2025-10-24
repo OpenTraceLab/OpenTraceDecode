@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="a00084" kind="group">
+    <compoundname>grp_error</compoundname>
+    <title>Error handling</title>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="a00084_1ga42a47a76a7c470c86e8a5c283fb0d99f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref> const char *</type>
+        <definition>OTD_API const char * otd_strerror</definition>
+        <argsstring>(int error_code)</argsstring>
+        <name>otd_strerror</name>
+        <param>
+          <type>int</type>
+          <declname>error_code</declname>
+        </param>
+        <briefdescription>
+<para>Return a human-readable error string for the given libopentracedecode error code. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>error_code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A libopentracedecode error code number, such as OTD_ERR_MALLOC.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A const string containing a short, human-readable (English) description of the error, such as &quot;memory allocation error&quot;. The string must NOT be free&apos;d by the caller!</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="a00084_1gac90d2f44b06fbfa856f87f7c20c3e2cd" kindref="member">otd_strerror_name</ref></para>
+</simplesect>
+<simplesect kind="since"><para>0.2.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/error.c" line="55" column="20" bodyfile="src/error.c" bodystart="55" bodyend="92"/>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcad6e315777c65836ac7489ddb503aceab" compoundref="a00258" startline="68">OTD_ERR</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebca0b8a159c5ce1e9d1e1d58384820a88d2" compoundref="a00258" startline="70">OTD_ERR_ARG</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebca8d46e8ae400f743d60497fb6d99d4391" compoundref="a00258" startline="71">OTD_ERR_BUG</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebca0b29f3edc3901606d0cbefa87d49ba20" compoundref="a00258" startline="73">OTD_ERR_DECODERS_DIR</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcabe3955617912cc0e8c0bd3f5e6f62bf7" compoundref="a00258" startline="69">OTD_ERR_MALLOC</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcaaecfc1f18b22e996112bec32462cb5d5" compoundref="a00258" startline="72">OTD_ERR_PYTHON</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcafcf78f6457d3099b0fc89415a3f9eaa5" compoundref="a00258" startline="67">OTD_OK</references>
+      </memberdef>
+      <memberdef kind="function" id="a00084_1gac90d2f44b06fbfa856f87f7c20c3e2cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00258_1ab6fe8fd245a46558f9f1858611a03522" kindref="member">OTD_API</ref> const char *</type>
+        <definition>OTD_API const char * otd_strerror_name</definition>
+        <argsstring>(int error_code)</argsstring>
+        <name>otd_strerror_name</name>
+        <param>
+          <type>int</type>
+          <declname>error_code</declname>
+        </param>
+        <briefdescription>
+<para>Return the &quot;name&quot; string of the given libopentracedecode error code. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>For example, the &quot;name&quot; of the OTD_ERR_MALLOC error code is &quot;OTD_ERR_MALLOC&quot;, the name of the OTD_OK code is &quot;OTD_OK&quot;, and so on.</para>
+<para>This function can be used for various purposes where the &quot;name&quot; string of a libopentracedecode error code is useful.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>error_code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A libopentracedecode error code number, such as OTD_ERR_MALLOC.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A const string containing the &quot;name&quot; of the error code as string. The string must NOT be free&apos;d by the caller!</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="a00084_1ga42a47a76a7c470c86e8a5c283fb0d99f" kindref="member">otd_strerror</ref></para>
+</simplesect>
+<simplesect kind="since"><para>0.2.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/error.c" line="113" column="20" bodyfile="src/error.c" bodystart="113" bodyend="150"/>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcad6e315777c65836ac7489ddb503aceab" compoundref="a00258" startline="68">OTD_ERR</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebca0b8a159c5ce1e9d1e1d58384820a88d2" compoundref="a00258" startline="70">OTD_ERR_ARG</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebca8d46e8ae400f743d60497fb6d99d4391" compoundref="a00258" startline="71">OTD_ERR_BUG</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebca0b29f3edc3901606d0cbefa87d49ba20" compoundref="a00258" startline="73">OTD_ERR_DECODERS_DIR</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcabe3955617912cc0e8c0bd3f5e6f62bf7" compoundref="a00258" startline="69">OTD_ERR_MALLOC</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcaaecfc1f18b22e996112bec32462cb5d5" compoundref="a00258" startline="72">OTD_ERR_PYTHON</references>
+        <references refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcafcf78f6457d3099b0fc89415a3f9eaa5" compoundref="a00258" startline="67">OTD_OK</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Error handling in libopentracedecode. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>libopentracedecode functions usually return <ref refid="a00258_1a375ed93b6afe588cc8c67b21318e7ebcafcf78f6457d3099b0fc89415a3f9eaa5" kindref="member">OTD_OK</ref> upon success, or a negative error code on failure. </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

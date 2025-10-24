@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir">
+    <compoundname>src</compoundname>
+    <innerfile refid="a00059">decoder.c</innerfile>
+    <innerfile refid="a00077">error.c</innerfile>
+    <innerfile refid="a00065">exception.c</innerfile>
+    <innerfile refid="a00050">instance.c</innerfile>
+    <innerfile refid="a00062">libopentracedecode-internal.h</innerfile>
+    <innerfile refid="a00071">log.c</innerfile>
+    <innerfile refid="a00074">module_opentracedecode.c</innerfile>
+    <innerfile refid="a00053">otd.c</innerfile>
+    <innerfile refid="a00068">session.c</innerfile>
+    <innerfile refid="a00080">type_decoder.c</innerfile>
+    <innerfile refid="a00047">util.c</innerfile>
+    <innerfile refid="a00056">version.c</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/"/>
+  </compounddef>
+</doxygen>

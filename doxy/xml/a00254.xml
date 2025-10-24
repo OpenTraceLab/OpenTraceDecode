@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="a00254" kind="page">
+    <compoundname>md__c_o_d_e___o_f___c_o_n_d_u_c_t</compoundname>
+    <title>Code of Conduct</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><heading level="1">Our Pledge</heading>
+</para>
+<para>We as members, contributors, and leaders pledge to make participation in our community a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, caste, color, religion, or sexual identity and orientation.</para>
+<para><heading level="1">Our Standards</heading>
+</para>
+<para>Examples of behavior that contributes to a positive environment:</para>
+<para><itemizedlist>
+<listitem><para>Demonstrating empathy and kindness toward other people</para>
+</listitem><listitem><para>Being respectful of differing opinions, viewpoints, and experiences</para>
+</listitem><listitem><para>Giving and gracefully accepting constructive feedback</para>
+</listitem><listitem><para>Accepting responsibility and apologizing to those affected by our mistakes</para>
+</listitem><listitem><para>Focusing on what is best not just for us as individuals, but for the overall community</para>
+</listitem></itemizedlist>
+</para>
+<para>Examples of unacceptable behavior:</para>
+<para><itemizedlist>
+<listitem><para>The use of sexualized language or imagery, and sexual attention or advances of any kind</para>
+</listitem><listitem><para>Trolling, insulting or derogatory comments, and personal or political attacks</para>
+</listitem><listitem><para>Public or private harassment</para>
+</listitem><listitem><para>Publishing others&apos; private information without their explicit permission</para>
+</listitem><listitem><para>Other conduct which could reasonably be considered inappropriate in a professional setting</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="1">Enforcement Responsibilities</heading>
+</para>
+<para>Community leaders are responsible for clarifying and enforcing our standards of acceptable behavior and will take appropriate and fair corrective action in response to any behavior that they deem inappropriate, threatening, offensive, or harmful.</para>
+<para><heading level="1">Scope</heading>
+</para>
+<para>This Code of Conduct applies within all community spaces, and also applies when an individual is officially representing the community in public spaces.</para>
+<para><heading level="1">Enforcement</heading>
+</para>
+<para>Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the community leaders responsible for enforcement at <ulink url="mailto:conduct@opentracelab.org">conduct@opentracelab.org</ulink>. All complaints will be reviewed and investigated promptly and fairly.</para>
+<para><heading level="1">Attribution</heading>
+</para>
+<para>This Code of Conduct is adapted from the <ulink url="https://www.contributor-covenant.org/">Contributor Covenant</ulink>, version 2.1. </para>
+    </detaileddescription>
+    <location file="CODE_OF_CONDUCT.md"/>
+  </compounddef>
+</doxygen>

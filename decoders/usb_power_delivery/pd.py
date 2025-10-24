@@ -3,7 +3,7 @@
 ##
 ## Copyright (C) 2015 Google, Inc
 ## Copyright (C) 2018 davidanger <davidanger@163.com>
-## Copyright (C) 2018 Peter Hazenberg <sigrok@haas-en-berg.nl>
+## Copyright (C) 2018 Peter Hazenberg <opentrace@haas-en-berg.nl>
 ##
 ## This program is free software; you can redistribute it and/or modify
 ## it under the terms of the GNU General Public License as published by

@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="a00109" kind="struct" language="C++" prot="public">
+    <compoundname>otd_decoder_logic_output_channel</compoundname>
+    <includes refid="a00258" local="no">libopentracedecode.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="a00109_1a36ea80664eea66fb837342b32ededbd1" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char * otd_decoder_logic_output_channel::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>otd_decoder_logic_output_channel::id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="246" column="6" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="246" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="a00109_1a927462f334c8dd6ea5970602fa6c41ad" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char * otd_decoder_logic_output_channel::desc</definition>
+        <argsstring></argsstring>
+        <name>desc</name>
+        <qualifiedname>otd_decoder_logic_output_channel::desc</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="247" column="6" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="247" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>char *</label>
+      </node>
+      <node id="1">
+        <label>otd_decoder_logic_output_channel</label>
+        <link refid="a00109"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>desc</edgelabel>
+          <edgelabel>id</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" line="245" column="1" bodyfile="build-pkg/dist/usr/include/opentracedecode/libopentracedecode.h" bodystart="245" bodyend="248"/>
+    <listofallmembers>
+      <member refid="a00109_1a927462f334c8dd6ea5970602fa6c41ad" prot="public" virt="non-virtual"><scope>otd_decoder_logic_output_channel</scope><name>desc</name></member>
+      <member refid="a00109_1a36ea80664eea66fb837342b32ededbd1" prot="public" virt="non-virtual"><scope>otd_decoder_logic_output_channel</scope><name>id</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
