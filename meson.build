@@ -76,11 +76,15 @@ if dep_py.found()
 endif
 
 lib_args = []
+if host_machine.system() == 'windows'
+  lib_args += '-DDLL_EXPORT'
+endif
 libname = 'opentracedecode'
 
 lib_shared = library(libname, src_core, config_h, version_h,
   include_directories: [inc_pub, inc_src, inc_build],
   dependencies: libdeps,
+  c_args: lib_args,
   install: get_option('build_shared'),
   version: meson.project_version(),
   soversion: '0')
@@ -93,6 +97,9 @@ lib_static = static_library(libname, src_core, config_h, version_h,
 
 # Install public headers (umbrella + others)
 install_subdir('include/opentracedecode', install_dir: get_option('includedir'))
+
+# Install protocol decoders
+install_subdir('decoders', install_dir: get_option('datadir') / 'opentracedecode')
 
 # pkg-config
 pkg = import('pkgconfig')
