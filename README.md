@@ -1,6 +1,6 @@
 # OpenTraceDecode
 
-OpenTraceDecode is a fork of libsigrokdecode, providing a shared library for running protocol decoders on signal analysis data. This fork focuses on enhanced trace decoding capabilities and modern build systems.
+OpenTraceDecode is a protocol decoder library providing a shared library for running protocol decoders on signal analysis data. This project focuses on enhanced trace decoding capabilities and modern build systems.
 
 ## Versioning
 
@@ -14,7 +14,7 @@ Current version: **0.1.0**
 
 ## About
 
-OpenTraceDecode maintains the core functionality of libsigrokdecode while adding improvements for trace analysis workflows. The protocol decoders are written in Python and provide the foundation for analyzing various communication protocols.
+OpenTraceDecode provides protocol decoder functionality for trace analysis workflows. The protocol decoders are written in Python and provide the foundation for analyzing various communication protocols.
 
 ## Building
 
@@ -88,4 +88,4 @@ OpenTraceDecode is licensed under the GNU General Public License (GPL), version 
 
 ## Original Project
 
-This is a fork of libsigrokdecode from the sigrok project. The original project can be found at http://sigrok.org/wiki/Libsigrokdecode
+This project is based on libsigrokdecode from the sigrok project.

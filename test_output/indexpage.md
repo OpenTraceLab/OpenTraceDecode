@@ -10,11 +10,11 @@ title: libopentracedecode API
 
 # Introduction
 
-The [sigrok](http://sigrok.org) project aims at creating a portable, cross-platform, Free/Libre/Open-Source signal analysis software suite that supports various device types (such as logic analyzers, oscilloscopes, multimeters, and more).
+The [opentrace](http://opentrace.org) project aims at creating a portable, cross-platform, Free/Libre/Open-Source signal analysis software suite that supports various device types (such as logic analyzers, oscilloscopes, multimeters, and more).
 
-[libopentracedecode](http://sigrok.org/wiki/Libsigrokdecode) is a shared library written in C which provides the basic API for (streaming) protocol decoding functionality.
+[libopentracedecode](http://opentrace.org/wiki/Libopentracedecode) is a shared library written in C which provides the basic API for (streaming) protocol decoding functionality.
 
-The [protocol decoders](http://sigrok.org/wiki/Protocol_decoders) are written in Python (>= 3.0).
+The [protocol decoders](http://opentrace.org/wiki/Protocol_decoders) are written in Python (>= 3.0).
 
 
 # API reference
@@ -26,17 +26,17 @@ You can also browse the API documentation by file, or review all data structures
 
 # Mailing lists
 
-There is one mailing list for sigrok/libopentracedecode: [sigrok-devel](https://lists.sourceforge.net/lists/listinfo/sigrok-devel).
+There is one mailing list for opentrace/libopentracedecode: [opentrace-devel](https://lists.sourceforge.net/lists/listinfo/opentrace-devel).
 
 
 # IRC
 
-You can find the sigrok developers in the [#sigrok](ircs://irc.libera.chat/#sigrok) IRC channel on Libera.Chat.
+You can find the opentrace developers in the [#opentrace](ircs://irc.libera.chat/#opentrace) IRC channel on Libera.Chat.
 
 
 # Website
 
-[sigrok.org/wiki/Libsigrokdecode](http://sigrok.org/wiki/Libsigrokdecode)
+[opentrace.org/wiki/Libopentracedecode](http://opentrace.org/wiki/Libopentracedecode)
 
 -------------------------------
 
