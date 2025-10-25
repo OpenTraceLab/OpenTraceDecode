@@ -4,7 +4,7 @@
   <option  id='PROJECT_NAME' default='no' type='string'><value><![CDATA[OpenTraceDecode]]></value></option>
   <option  id='PROJECT_NUMBER' default='no' type='string'><value><![CDATA["unreleased development snapshot"]]></value></option>
   <option  id='PROJECT_BRIEF' default='no' type='string'><value><![CDATA["sigrok protocol decoding library"]]></value></option>
-  <option  id='PROJECT_LOGO' default='no' type='string'><value><![CDATA[contrib/sigrok-logo-notext.png]]></value></option>
+  <option  id='PROJECT_LOGO' default='no' type='string'><value><![CDATA[contrib/opentrace-logo-notext.png]]></value></option>
   <option  id='OUTPUT_DIRECTORY' default='no' type='string'><value><![CDATA[doxy]]></value></option>
   <option  id='CREATE_SUBDIRS' default='yes' type='bool'><value>NO</value></option>
   <option  id='CREATE_SUBDIRS_LEVEL' default='yes' type='int'><value>8</value></option>
