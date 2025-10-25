@@ -122,7 +122,6 @@ pkg.generate(
   description: 'OpenTraceDecode protocol decoding core (Python-embedded)',
   version: meson.project_version(),
   libraries: lib_shared,       # ok even if static also exists
-  subdirs: 'opentracedecode',
   requires: ['glib-2.0']
 )
 
