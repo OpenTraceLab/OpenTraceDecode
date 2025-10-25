@@ -86,6 +86,10 @@ meson setup builddir -Dbuild_static=true -Dbuild_shared=false
 
 OpenTraceDecode is licensed under the GNU General Public License (GPL), version 3 or later.
 
+## Community
+
+Join our community discussions on Discord: https://discord.gg/DsYwx59MPh
+
 ## Original Project
 
 This project is based on libsigrokdecode from the sigrok project.
