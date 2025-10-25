@@ -1,350 +1,636 @@
-##
-## This file is part of the libopentracedecode project.
-##
-## Copyright (C) 2014 Angus Gratton <gus@projectgus.com>
-##
-## This program is free software; you can redistribute it and/or modify
-## it under the terms of the GNU General Public License as published by
-## the Free Software Foundation; either version 2 of the License, or
-## (at your option) any later version.
-##
-## This program is distributed in the hope that it will be useful,
-## but WITHOUT ANY WARRANTY; without even the implied warranty of
-## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-## GNU General Public License for more details.
-##
-## You should have received a copy of the GNU General Public License
-## along with this program; if not, see <http://www.gnu.org/licenses/>.
-##
+#
+# This file is part of the libopentracedecode project.
+#
+# Copyright (C) 2014 Angus Gratton <gus@projectgus.com>
+# Copyright (C) 2024 Rachel Mant <git@dragonmux.network>
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, see <http://www.gnu.org/licenses/>.
+#
 
 import opentracedecode as otd
-import re
+from enum import Enum, unique, auto
+from typing import Literal
 
 '''
 OUTPUT_PYTHON format:
 
 Packet:
-[<ptype>, <pdata>]
+(<op>, <dp>, <addr>, <reg>, <ack>, <data>)
 
-<ptype>:
- - 'AP_READ' (AP read)
- - 'DP_READ' (DP read)
- - 'AP_WRITE' (AP write)
- - 'DP_WRITE' (DP write)
- - 'LINE_RESET' (line reset sequence)
+<op>:
+	- 'DP_READ'
+	- 'DP_WRITE'
+	- 'AP_READ'
+	- 'AP_WRITE'
+	- 'LINE_RESET' (line reset sequence)
 
-<pdata>:
-  - tuple of address, ack state, data for the given sequence
+<dp>:
+integer index of the DP to which the operation was requested
+
+<addr>:
+8-bit address of the operation
+
+<reg>:
+The decoded register name for the operation
+
+<ack>
+	- 'OK'
+	- 'WAIT'
+	- 'FAULT'
+
+<data>
+32-bit data value associated with the operation
 '''
 
-swd_states = [
-    'IDLE', # Idle/unknown
-    'REQUEST', # Request phase (first 8 bits)
-    'ACK', # Ack phase (next 3 bits)
-    'READ', # Reading phase (next 32 bits for reads)
-    'WRITE', # Writing phase (next 32 bits for write)
-    'DPARITY', # Data parity phase
-]
+__all__ = ['Decoder']
 
-# Regexes for matching SWD data out of bitstring ('1' / '0' characters) format
-RE_SWDSWITCH = re.compile(bin(0xE79E)[:1:-1] + '$')
-RE_SWDREQ = re.compile(r'1(?P<apdp>.)(?P<rw>.)(?P<addr>..)(?P<parity>.)01$')
-RE_IDLE = re.compile('0' * 50 + '$')
+Bit = Literal[0, 1]
 
-# Sample edges
-RISING = 1
-FALLING = 0
+class Annotations:
+	'''Annotation and binary output classes.'''
+	(
+		IDLE,
+		RESET,
+		ENABLE,
+		READ,
+		WRITE,
+		ACK,
+		DATA,
+		PARITY,
+		ERROR,
+		SWD_COMMAND,
+		ADIV5_ACK_OK,
+		ADIV5_ACK_WAIT,
+		ADIV5_ACK_FAULT,
+		ADIV5_ACK_NO_RESPONSE,
+		ADIV5_REGISTER,
+		ADIV5_DATA,
+	) = range(16)
+A = Annotations
 
-ADDR_DP_SELECT = 0x8
-ADDR_DP_CTRLSTAT = 0x4
+ADIv5Op = Literal['DP_READ', 'DP_WRITE', 'AP_READ', 'AP_WRITE', 'LINE_RESET']
+ADIv5Ack = Literal['OK', 'WAIT', 'FAULT', 'NO-RESPONSE']
 
-BIT_SELECT_CTRLSEL = 1
-BIT_CTRLSTAT_ORUNDETECT = 1
+@unique
+class DecoderState(Enum):
+	unknown = auto()
+	idle = auto()
+	reset = auto()
+	request = auto()
+	ackTurnaround = auto()
+	ack = auto()
+	dataTurnaround = auto()
+	dataRead = auto()
+	dataWrite = auto()
+	parity = auto()
+	sync = auto()
+	idleTurnaround = auto()
+	waitIdle = auto()
+	deactivation = auto()
+	selectionAlert = auto()
+	activation = auto()
+	dormantState = auto()
+	jtagToSWD = auto()
 
-ANNOTATIONS = ['reset', 'enable', 'read', 'write', 'ack', 'data', 'parity']
+@unique
+class SelectionState(Enum):
+	unknown = auto()
+	reset = auto()
+	selecting = auto()
+	made = auto()
 
 class Decoder(otd.Decoder):
-    api_version = 3
-    id = 'swd'
-    name = 'SWD'
-    longname = 'Serial Wire Debug'
-    desc = 'Two-wire protocol for debug access to ARM CPUs.'
-    license = 'gplv2+'
-    inputs = ['logic']
-    outputs = ['swd']
-    tags = ['Debug/trace']
-    channels = (
-        {'id': 'swclk', 'name': 'SWCLK', 'desc': 'Master clock'},
-        {'id': 'swdio', 'name': 'SWDIO', 'desc': 'Data input/output'},
-    )
-    options = (
-        {'id': 'strict_start',
-         'desc': 'Wait for a line reset before starting to decode',
-         'default': 'no', 'values': ('yes', 'no')},
-    )
-    annotations = (
-        ('reset', 'RESET'),
-        ('enable', 'ENABLE'),
-        ('read', 'READ'),
-        ('write', 'WRITE'),
-        ('ack', 'ACK'),
-        ('data', 'DATA'),
-        ('parity', 'PARITY'),
-    )
+	api_version = 3
+	id = 'swd'
+	name = 'SWD'
+	longname = 'Serial Wire Debug'
+	desc = 'Two-wire protocol for debug access to ARM CPUs.'
+	license = 'gplv2+'
+	inputs = ['logic']
+	outputs = ['adi']
+	tags = ['Debug/trace']
+	channels = (
+		{'id': 'swclk', 'name': 'SWCLK', 'desc': 'Master clock'},
+		{'id': 'swdio', 'name': 'SWDIO', 'desc': 'Data input/output'},
+	)
+	options = (
+		{
+			'id': 'strict_start',
+			'desc': 'Wait for a line reset before starting to decode',
+			'default': 'no',
+			'values': ('yes', 'no')
+		},
+	)
+	annotations = (
+		# SWD state annotations
+		('idle', 'Idle'),
+		('reset', 'Reset'),
+		('enable', 'Enable'),
+		('read', 'Read'),
+		('write', 'Write'),
+		('ack', 'Acknowledgement'),
+		('data', 'Data'),
+		('parity', 'Parity'),
+		('error', 'Error'),
+		# Command stream annotations
+		('command', 'Command'),
+		# ADIv5 acknowledgement annotations
+		('adiv5-ack-ok', 'ACK (OK)'),
+		('adiv5-ack-wait', 'ACK (WAIT)'),
+		('adiv5-ack-fault', 'ACK (FAULT)'),
+		('adiv5-ack-no-response', 'ACK (NO-RESPONSE)'),
+		# ADIv5 transaction annotations
+		('adiv5-register', 'Register'),
+		('adiv5-data', 'Data'),
+	)
+	annotation_rows = (
+		('states', 'States', (A.IDLE, A.RESET, A.ENABLE, A.READ, A.WRITE, A.ACK, A.DATA, A.PARITY, A.ERROR)),
+		('commands', 'Commands', (A.SWD_COMMAND,)),
+		(
+			'transactions', 'Transaction',
+			(
+				A.ADIV5_ACK_OK,
+				A.ADIV5_ACK_WAIT,
+				A.ADIV5_ACK_FAULT,
+				A.ADIV5_ACK_NO_RESPONSE,
+				A.ADIV5_REGISTER,
+				A.ADIV5_DATA
+			)
+		),
+	)
 
-    def __init__(self):
-        self.reset()
+	samplenum: int
 
-    def reset(self):
-        # SWD data/clock state
-        self.state = 'UNKNOWN'
-        self.sample_edge = RISING
-        self.ack = None # Ack state of the current phase
-        self.ss_req = 0 # Start sample of current req
-        self.turnaround = 0 # Number of turnaround edges to ignore before continuing
-        self.bits = '' # Bits from SWDIO are accumulated here, matched against expected sequences
-        self.samplenums = [] # Sample numbers that correspond to the samples in self.bits
-        self.linereset_count = 0
+	def __init__(self):
+		from .adiv5 import SWDDevices
+		self.devices = SWDDevices(decoder = self)
 
-        # SWD debug port state
-        self.data = None
-        self.addr = None
-        self.rw = None # Are we inside an SWD read or a write?
-        self.ctrlsel = 0 # 'ctrlsel' is bit 0 in the SELECT register.
-        self.orundetect = 0 # 'orundetect' is bit 0 in the CTRLSTAT register.
+	def reset(self):
+		# initial SWD data/clock state (presume the bus is idle)
+		self.state = DecoderState.unknown
+		self.startSample = 0
+		self.samplePosition = 0
+		self.samplePositions = list[tuple[int, int]]()
+		self.request = 0
+		self.ack = 0
+		self.data = 0
+		self.computedParity = 0
+		self.actualParity = 0
+		self.bits = 0
+		self.selectionState = SelectionState.unknown
+		self.selectedDP = 0
+		self.devices.reset()
 
-    def start(self):
-        self.out_ann = self.register(otd.OUTPUT_ANN)
-        self.out_python = self.register(otd.OUTPUT_PYTHON)
-        if self.options['strict_start'] == 'no':
-            self.state = 'REQ' # No need to wait for a LINE RESET.
+	def start(self):
+		self.reset()
+		self.outputAnnotation = self.register(otd.OUTPUT_ANN)
+		self.outputPython = self.register(otd.OUTPUT_PYTHON)
+		if self.options['strict_start'] == 'no':
+			self.state = DecoderState.idle # No need to wait for a LINE RESET.
 
-    def putx(self, ann, length, data):
-        '''Output annotated data.'''
-        ann = ANNOTATIONS.index(ann)
-        try:
-            ss = self.samplenums[-length]
-        except IndexError:
-            ss = self.samplenums[0]
-        if self.state == 'REQ':
-            self.ss_req = ss
-        es = self.samplenum
-        self.put(ss, es, self.out_ann, [ann, [data]])
+	def emit(self, begin: int, end: int, op: ADIv5Op, dp: int, regAddr: int, regName: str, ack: ADIv5Ack, data: int):
+		self.put(begin, end, self.outputPython, (op, dp, regAddr, regName, ack, data))
 
-    def putp(self, ptype, pdata):
-        self.put(self.ss_req, self.samplenum, self.out_python, [ptype, pdata])
+	def annotateBits(self, begin: int, end: int, data: list[int | list[str]]):
+		self.put(begin, end, self.outputAnnotation, data)
 
-    def put_python_data(self):
-        '''Emit Python data item based on current SWD packet contents.'''
-        ptype = {
-            ('AP', 'R'): 'AP_READ',
-            ('AP', 'W'): 'AP_WRITE',
-            ('DP', 'R'): 'DP_READ',
-            ('DP', 'W'): 'DP_WRITE',
-        }[(self.apdp, self.rw)]
-        self.putp(ptype, (self.addr, self.data, self.ack))
+	def annotateBit(self, bit: int, data: list[int | list[str]]):
+		self.annotateBits(bit, bit, data)
 
-    def decode(self):
-        while True:
-            # Wait for any clock edge.
-            clk, dio = self.wait({0: 'e'})
+	def annotateSampleBits(self, begin: int, end: int, data: list[int | list[str]]):
+		self.annotateBits(self.samplePositions[begin][0], self.samplePositions[end][1], data)
 
-            # Count rising edges with DIO held high,
-            # as a line reset (50+ high edges) can happen from any state.
-            if clk == RISING:
-                if dio == 1:
-                    self.linereset_count += 1
-                else:
-                    if self.linereset_count >= 50:
-                        self.putx('reset', self.linereset_count, 'LINERESET')
-                        self.putp('LINE_RESET', None)
-                        self.reset_state()
-                    self.linereset_count = 0
+	def annotateSampleBit(self, bit: int, data: list[int | list[str]]):
+		self.annotateSampleBits(bit, bit, data)
 
-            # Otherwise, we only care about either rising or falling edges
-            # (depending on sample_edge, set according to current state).
-            if clk != self.sample_edge:
-                continue
+	def processRequest(self):
+		# Was this the start of one of the special sequences?
+		if self.request == 0xc9:
+			self.state = DecoderState.selectionAlert
+			self.request <<= 120
+			self.bits += 1
+			return
+		elif self.request == 0xdd:
+			self.state = DecoderState.deactivation
+			self.request <<= 23
+			self.bits += 1
+			return
+		elif self.request == 0xcf and self.selectionState == SelectionState.reset:
+			self.state = DecoderState.jtagToSWD
+			self.request <<= 8
+			self.bits += 1
+			return
 
-            # Turnaround bits get skipped.
-            if self.turnaround > 0:
-                self.turnaround -= 1
-                continue
+		# If the stop bit is high, then this was actually a part of a line reset (probably?)
+		if (self.request & (1 << 6)) != 0:
+			self.state = DecoderState.reset
+			return
 
-            self.bits += str(dio)
-            self.samplenums.append(self.samplenum)
-            {
-                'UNKNOWN': self.handle_unknown_edge,
-                'REQ': self.handle_req_edge,
-                'ACK': self.handle_ack_edge,
-                'DATA': self.handle_data_edge,
-                'DPARITY': self.handle_dparity_edge,
-            }[self.state]()
+		# Figure out if this is an AP or a DP access
+		target = 'DP' if (self.request & (1 << 1)) == 0 else 'AP'
 
-    def next_state(self):
-        '''Step to the next SWD state, reset internal counters accordingly.'''
-        self.bits = ''
-        self.samplenums = []
-        self.linereset_count = 0
-        if self.state == 'UNKNOWN':
-            self.state = 'REQ'
-            self.sample_edge = RISING
-            self.turnaround = 0
-        elif self.state == 'REQ':
-            self.state = 'ACK'
-            self.sample_edge = FALLING
-            self.turnaround = 1
-        elif self.state == 'ACK':
-            self.state = 'DATA'
-            self.sample_edge = RISING if self.rw == 'W' else FALLING
-            self.turnaround = 0 if self.rw == 'R' else 2
-        elif self.state == 'DATA':
-            self.state = 'DPARITY'
-        elif self.state == 'DPARITY':
-            self.put_python_data()
-            self.state = 'REQ'
-            self.sample_edge = RISING
-            self.turnaround = 1 if self.rw == 'R' else 0
+		if self.selectionState == SelectionState.reset:
+			if self.request == 0x99:
+				self.selectionState = SelectionState.selecting
+			else:
+				self.selectionState = SelectionState.unknown
 
-    def reset_state(self):
-        '''Line reset (or equivalent), wait for a new pending SWD request.'''
-        if self.state != 'REQ': # Emit a Python data item.
-            self.put_python_data()
-        # Clear state.
-        self.bits = ''
-        self.samplenums = []
-        self.linereset_count = 0
-        self.turnaround = 0
-        self.sample_edge = RISING
-        self.data = ''
-        self.ack = None
-        self.state = 'REQ'
+		# Determine if this is a read or a write
+		if (self.request & (1 << 2)) != 0:
+			self.annotateBits(self.startSample, self.samplenum, [A.READ, [f'{target} READ', f'{target} RD', f'{target[0]}R']])
+		else:
+			self.annotateBits(self.startSample, self.samplenum, [A.WRITE, [f'{target} WRITE', f'{target} WR', f'{target[0]}W']])
+		self.state = DecoderState.ackTurnaround
 
-    def handle_unknown_edge(self):
-        '''
-        Clock edge in the UNKNOWN state.
-        In the unknown state, clock edges get ignored until we see a line
-        reset (which is detected in the decode method, not here.)
-        '''
-        pass
+	def processAck(self):
+		match self.ack:
+			# OK Ack
+			case 1:
+				# If this is a write, we have one more turnaround to do - otherwise it's into
+				# the data phase for a read.
+				if (self.request & (1 << 2)) != 0:
+					self.state = DecoderState.dataRead
+					self.data = 0
+					self.computedParity = 0
+				else:
+					self.state = DecoderState.dataTurnaround
+				self.bits = 0
+			# WAIT Ack
+			case 2:
+				# Nothing more to do, just wait for the final turnaround for bus idle, and idle
+				self.state = DecoderState.sync
+			# FAULT Ack
+			case 4:
+				# Similarly to WAIT, we're done.. wait for idle
+				self.state = DecoderState.sync
+			# NO-RESPONSE Ack
+			case 7:
+				# If the request is to TARGETSEL, we actually now have a write that occurs, selecting
+				# a target on the bus. This must be after a fresh line reset.
+				if self.selectionState == SelectionState.selecting:
+					self.state = DecoderState.dataTurnaround
+				else:
+					self.state = DecoderState.waitIdle
+				self.bits = 0
+			# Anything else is a protocol error
+			case _:
+				self.state = DecoderState.unknown
 
-    def handle_req_edge(self):
-        '''Clock edge in the REQ state (waiting for SWD r/w request).'''
-        # Check for a JTAG->SWD enable sequence.
-        m = re.search(RE_SWDSWITCH, self.bits)
-        if m is not None:
-            self.putx('enable', 16, 'JTAG->SWD')
-            self.reset_state()
-            return
+	def handleUnknown(self, swclk: Bit, swdio: Bit):
+		# If we're waiting on a line reset, then look only for a rising edge with swdio high
+		if swclk == 1 and swdio == 1:
+			self.startSample = self.samplenum
+			self.bits = 1
+			self.state = Decoder.reset
 
-        # Or a valid SWD Request packet.
-        m = re.search(RE_SWDREQ, self.bits)
-        if m is not None:
-            calc_parity = sum([int(x) for x in m.group('rw') + m.group('apdp') + m.group('addr')]) % 2
-            parity = '' if str(calc_parity) == m.group('parity') else 'E'
-            self.rw = 'R' if m.group('rw') == '1' else 'W'
-            self.apdp = 'AP' if m.group('apdp') == '1' else 'DP'
-            self.addr = int(m.group('addr')[::-1], 2) << 2
-            self.putx('read' if self.rw == 'R' else 'write', 8, self.get_address_description())
-            self.next_state()
-            return
+	def handleIdle(self, swclk: Bit, swdio: Bit):
+		# If this is the rising edge of the clock, check to see if we are leaving idle
+		if swclk == 1 and swdio == 1:
+			self.state = DecoderState.request
+			self.request = 0x80
+			self.bits = 1
+			self.annotateBits(self.startSample, self.samplenum, [A.IDLE, ['IDLE', 'I']])
+			self.startSample = self.samplenum
+			self.samplePositions.clear()
+			self.samplePosition = self.samplenum
 
-    def handle_ack_edge(self):
-        '''Clock edge in the ACK state (waiting for complete ACK sequence).'''
-        if len(self.bits) < 3:
-            return
-        if self.bits == '100':
-            self.putx('ack', 3, 'OK')
-            self.ack = 'OK'
-            self.next_state()
-        elif self.bits == '001':
-            self.putx('ack', 3, 'FAULT')
-            self.ack = 'FAULT'
-            if self.orundetect == 1:
-                self.next_state()
-            else:
-                self.reset_state()
-            self.turnaround = 1
-        elif self.bits == '010':
-            self.putx('ack', 3, 'WAIT')
-            self.ack = 'WAIT'
-            if self.orundetect == 1:
-                self.next_state()
-            else:
-                self.reset_state()
-            self.turnaround = 1
-        elif self.bits == '111':
-            self.putx('ack', 3, 'NOREPLY')
-            self.ack = 'NOREPLY'
-            self.reset_state()
-        else:
-            self.putx('ack', 3, 'ERROR')
-            self.ack = 'ERROR'
-            self.reset_state()
+	def handleReset(self, swclk: Bit, swdio: Bit):
+		# line reset only cares about the line being kept high on rising edges
+		if swclk == 1:
+			if swdio == 1:
+				self.bits += 1
+			else:
+				# Check if we've got enough bits to consider this line reset
+				if self.bits >= 50:
+					self.state = DecoderState.idle
+					self.selectionState = SelectionState.reset
+					self.annotateBits(self.startSample, self.samplenum, [A.RESET, ['LINE RESET', 'LN RST', 'LR']])
+					self.startSample = self.samplenum
+				# If we do not, then we're now back in an unknown state
+				else:
+					self.state = DecoderState.unknown
 
-    def handle_data_edge(self):
-        '''Clock edge in the DATA state (waiting for 32 bits to clock past).'''
-        if len(self.bits) < 32:
-            return
-        self.data = 0
-        self.dparity = 0
-        for x in range(32):
-            if self.bits[x] == '1':
-                self.data += (1 << x)
-                self.dparity += 1
-        self.dparity = self.dparity % 2
+	def handleRequest(self, swclk: Bit, swdio: Bit):
+		# Consume the next bit on the rising edge of the clock
+		if swclk == 1:
+			self.request >>= 1
+			self.request |= (swdio << 7)
+			self.bits += 1
+			# Add this sample position [begin, end) to the list
+			self.samplePositions.append((self.samplePosition, self.samplenum))
+			self.samplePosition = self.samplenum
+		elif self.bits == 8:
+			# Add this sample position [begin, end) to the list
+			self.samplePositions.append((self.samplePosition, self.samplenum))
+			# If we've now consumed a full request's worth of bits, figure out what it is we got
+			self.processRequest()
 
-        self.putx('data', 32, '0x%08x' % self.data)
-        self.next_state()
+	def handleAckTurnaround(self, swclk: Bit, swdio: Bit):
+		# If we saw the falling edge of the turnaround clock cycle, start pulling in the ACK bits
+		if swclk == 0:
+			self.bits = 1
+			self.ack = (swdio << 2)
+			self.state = DecoderState.ack
+			self.startSample = self.samplenum
+			self.samplePosition = self.samplenum
 
-    def handle_dparity_edge(self):
-        '''Clock edge in the DPARITY state (clocking in parity bit).'''
-        if str(self.dparity) != self.bits:
-            self.putx('parity', 1, str(self.dparity) + self.bits) # PARITY ERROR
-        elif self.rw == 'W':
-            self.handle_completed_write()
-        self.next_state()
+	def handleAck(self, swclk: Bit, swdio: Bit):
+		# Sample the ACK bits on the falling edges
+		if swclk == 0:
+			self.ack >>= 1
+			self.ack |= (swdio << 2)
+			self.bits += 1
+			# Add this sample position [begin, end) to the list
+			self.samplePositions.append((self.samplePosition, self.samplenum))
+		elif self.bits == 3:
+			# Add this sample position [begin, end) to the list
+			self.samplePositions.append((self.samplePosition, self.samplenum))
+			# Figure out what kind of ACK this was and annotate it
+			self.annotateBits(
+				self.startSample, self.samplenum,
+				[
+					A.ACK,
+					[
+						{
+							1: 'OK',
+							2: 'WAIT',
+							4: 'FAULT',
+							7: 'NO-RESPONSE'
+						}.get(self.ack, 'UNKNOWN')
+					]
+				]
+			)
+			self.startSample = self.samplenum
+			self.samplePosition = self.samplenum
+			# Now turn the ack into an appropriate state change
+			self.processAck()
 
-    def handle_completed_write(self):
-        '''
-        Update internal state of the debug port based on a completed
-        write operation.
-        '''
-        if self.apdp != 'DP':
-            return
-        elif self.addr == ADDR_DP_SELECT:
-            self.ctrlsel = self.data & BIT_SELECT_CTRLSEL
-        elif self.addr == ADDR_DP_CTRLSTAT and self.ctrlsel == 0:
-            self.orundetect = self.data & BIT_CTRLSTAT_ORUNDETECT
+	def handleDataTurnaround(self, swclk: Bit):
+		# If we saw the falling edge of the turnaround cycle, start pulling in data bits
+		if swclk == 0:
+			if self.bits == 1:
+				self.bits = 0
+				self.data = 0
+				self.computedParity = 0
+				self.state = DecoderState.dataWrite
+				self.startSample = self.samplenum
+				self.samplePosition = self.samplenum
+			else:
+				self.bits += 1
 
-    def get_address_description(self):
-        '''
-        Return a human-readable description of the currently selected address,
-        for annotated results.
-        '''
-        if self.apdp == 'DP':
-            if self.rw == 'R':
-                # Tables 2-4 & 2-5 in ADIv5.2 spec ARM document IHI 0031C
-                return {
-                    0: 'IDCODE',
-                    0x4: 'R CTRL/STAT' if self.ctrlsel == 0 else 'R DLCR',
-                    0x8: 'RESEND',
-                    0xC: 'RDBUFF'
-                }[self.addr]
-            elif self.rw == 'W':
-                # Tables 2-4 & 2-5 in ADIv5.2 spec ARM document IHI 0031C
-                return {
-                    0: 'W ABORT',
-                    0x4: 'W CTRL/STAT' if self.ctrlsel == 0 else 'W DLCR',
-                    0x8: 'W SELECT',
-                    0xC: 'W RESERVED'
-                }[self.addr]
-        elif self.apdp == 'AP':
-            if self.rw == 'R':
-                return 'R AP%x' % self.addr
-            elif self.rw == 'W':
-                return 'W AP%x' % self.addr
+	def handleDataRead(self, swclk: Bit, swdio: Bit):
+		# Sample the data on the falling edges
+		if swclk == 0:
+			# If this is a data bit, shuffle it into the data collection
+			if self.bits < 32:
+				self.data >>= 1
+				self.data |= (swdio << 31)
+				self.computedParity ^= swdio
+			# Otherwise grab the pairty bit
+			else:
+				self.actualParity = swdio
+				self.state = DecoderState.parity
+			self.bits += 1
+			# Add this sample position [begin, end) to the list
+			self.samplePositions.append((self.samplePosition, self.samplenum))
+		else:
+			# If we have all the data bits, annotate
+			if self.bits == 32:
+				self.annotateBits(self.startSample, self.samplenum, [A.DATA, [f'{self.data:08x}']])
+				self.startSample = self.samplenum
 
-        # Any legitimate operations shouldn't fall through to here, probably
-        # a decoder bug.
-        return '? %s%s%x' % (self.rw, self.apdp, self.addr)
+	def handleDataWrite(self, swclk: Bit, swdio: Bit):
+		# Sample the data on the rising edges
+		if swclk == 1:
+			# If this is a data bit, shuffle it into the data collection
+			if self.bits < 32:
+				self.data >>= 1
+				self.data |= (swdio << 31)
+				self.computedParity ^= swdio
+			# Otherwise grab the pairty bit
+			else:
+				self.actualParity = swdio
+				self.state = DecoderState.parity
+			self.bits += 1
+			# Add this sample position [begin, end) to the list
+			self.samplePositions.append((self.samplePosition, self.samplenum))
+		else:
+			# If we have all the data bits, annotate
+			if self.bits == 32:
+				self.annotateBits(self.startSample, self.samplenum, [A.DATA, [f'{self.data:08x}']])
+				self.startSample = self.samplenum
+				if self.selectionState == SelectionState.selecting:
+					self.selectionState = SelectionState.made
+
+	def handleParity(self, swclk: Bit):
+		# Make sure this is a falling clock edge
+		if swclk == 0:
+			# We now have the parity bit, check what state the parity result is, annotate,
+			# and wait for the last turnaround
+			parity = 'OK' if self.computedParity == self.actualParity else 'ERROR'
+			self.annotateBits(
+				self.startSample, self.samplenum,
+				[A.PARITY, [f'PARITY {parity}', parity, parity[0]]]
+			)
+			self.state = DecoderState.idleTurnaround
+			# Add this sample position [begin, end) to the list
+			self.samplePositions.append((self.samplePosition, self.samplenum))
+			# Hand the packet up to the logical decoder
+			self.devices.transaction(self.samplePositions[0][0], self.samplePositions[-1][1],
+				self.request, self.ack, self.data, self.computedParity == self.actualParity)
+
+	def handleSync(self, swclk: Bit):
+		# If we just saw a falling edge, we're finally properly done with the ACK bits and can now do the
+		# bus idle turnaround cycle handling
+		if swclk == 0:
+			self.state = DecoderState.idleTurnaround
+
+	def handleIdleTurnaround(self, swclk: Bit):
+		# Once we see the falling edge, we can relax and go to idle
+		if swclk == 0:
+			self.state = DecoderState.idle
+			self.startSample = self.samplenum
+
+	def handleWaitIdle(self, swclk: Bit, swdio: Bit):
+		# Wait until we see SWDIO go back low, indicating the debugger idled the bus at last
+		if swclk == 1:
+			if swdio == 0:
+				self.state = DecoderState.idle
+				self.startSample = self.samplenum
+			else:
+				self.bits += 1
+		# If we got more than 34 bits high, the debugger's blown past the 33 bits for the request and the
+		# idle turnaround, so we're now in reset
+		elif self.bits > 34:
+			self.state = DecoderState.reset
+
+	def handleDeactivation(self, swclk: Bit, swdio: Bit):
+		# Consume the next bit on the rising edge of the clock
+		if swclk == 1:
+			# Check we've got a complete sequence
+			if self.bits == 31:
+				# Is it a valid JTAG-to-dormant sequence
+				if self.request == 0x33bbbbba:
+					self.state = DecoderState.dormantState
+					self.request = swdio
+					self.bits = 0
+					self.annotateBits(self.startSample, self.samplenum, [A.ENABLE, ['DORMANT SEQUENCE', 'DORMANT', 'DS']])
+					self.startSample = self.samplenum
+				else:
+					# We got an invalid sequence, mark the error and go to the unknown state
+					self.state = DecoderState.unknown
+					self.annotateBits(self.startSample, self.samplenum,
+						[A.ERROR, [f'INVALID SEQUENCE {self.request:x}', 'INV SEQ', 'IS']])
+			else:
+				self.request >>= 1
+				self.request |= (swdio << 30)
+				self.bits += 1
+
+	def handleSelectionAlert(self, swclk: Bit, swdio: Bit):
+		# Consume the next bit on the rising edge of the clock
+		if swclk == 1:
+			# Check we've got a complete sequence
+			if self.bits == 128:
+				# Is it a valid Alert Sequence?
+				if self.request == 0x19bc0ea2e3ddafe986852d956209f392:
+					# Mark it, wait for the activation sequence
+					self.state = DecoderState.activation
+					self.request = swdio
+					self.bits = 1
+					self.annotateBits(self.startSample, self.samplenum, [A.ENABLE, ['ALERT SEQUENCE', 'ALERT', 'AS']])
+					self.startSample = self.samplenum
+				else:
+					# We got an invalid sequence, mark the error and go to the unknown state
+					self.state = DecoderState.unknown
+					self.annotateBits(self.startSample, self.samplenum,
+						[A.ERROR, [f'INVALID SEQUENCE {self.request:x}', 'INV SEQ', 'IS']])
+			else:
+				self.request >>= 1
+				self.request |= (swdio << 127)
+				self.bits += 1
+
+	def handleActivation(self, swclk: Bit, swdio: Bit):
+		if swclk == 1:
+			# Consume the first 4 bits and ensure they're all 0
+			if self.bits < 4:
+				# If we got a bad sequence, abort and go to unknown state
+				if swdio == 1:
+					self.state = DecoderState.unknown
+					self.annotateBits(self.startSample, self.samplenum, [A.ERROR, ['INVALID IDLE', 'INV IDLE', 'II']])
+				else:
+					self.bits += 1
+			else:
+				# Check if the sequence finally matched one of the activation sequences
+				if self.request == 0x58:
+					# SWD selected -> go to happy place idle
+					self.state = DecoderState.reset
+					self.bits = 0
+					self.annotateBits(self.startSample, self.samplenum, [A.ENABLE, ['ACTIVATE SWD', 'ACTIVATE', 'AS']])
+					self.startSample = self.samplenum
+				elif self.request == 0x50:
+					# JTAG selected -> go to unknown till we see a line reset
+					self.state = DecoderState.unknown
+					self.annotateBits(self.startSample, self.samplenum, [A.ENABLE, ['ACTIVATE JTAG', 'ACTIVATE', 'AJ']])
+				else:
+					# Pull the next bit (NB, this means the result value is in big bit endian!!)
+					self.request <<= 1
+					self.request |= swdio
+					self.request &= 0xff
+
+	def handleDormantState(self, swclk: Bit, swdio: Bit):
+		# Consume the next bit on the rising edge of the clock
+		if swclk == 1:
+			# Consume bits until we've seen 8 highs in a row
+			if self.bits == 0 and self.request != 0xff:
+				self.request <<= 1
+				self.request |= swdio
+				self.request &= 0xff
+			# If we matched reset, start pulling in bits for the selection alert sequence
+			elif self.bits == 0 and self.request == 0xff:
+				self.request = (swdio << 7)
+				self.bits += 1
+				self.annotateBits(self.startSample, self.samplenum, [A.IDLE, ['DORMANT', 'D']])
+				self.startSample = self.samplenum
+			else:
+				self.request >>= 1
+				self.request |= (swdio << 7)
+				self.bits += 1
+		# If we've got a full suite of bits, figure out if it was the first part of selection sequence, or not
+		elif self.bits == 9:
+			# If it is a selection alert start, great!
+			if self.request == 0xc9:
+				self.state = DecoderState.selectionAlert
+				self.request <<= 120
+			# Otherwise, reset self.bits and go back around the loop
+			else:
+				self.bits = 0
+
+	def handleJTAGtoSWD(self, swclk: Bit, swdio: Bit):
+		# Consume the next bit on the rising edge of the clock
+		if swclk == 1:
+			self.request >>= 1
+			self.request |= (swdio << 15)
+			self.bits += 1
+		# If we've got all the bits for the sequence
+		elif self.bits == 16:
+			# Validate we got the right one
+			if self.request == 0xe79e:
+				self.state = DecoderState.reset
+				self.bits = 0
+				self.annotateBits(self.startSample, self.samplenum, [A.ENABLE, ['JTAG to SWD', 'J->S', 'JS']])
+				self.startSample = self.samplenum
+
+	def handleClkEdge(self, swclk: Bit, swdio: Bit):
+		match self.state:
+			case DecoderState.unknown:
+				self.handleUnknown(swclk, swdio)
+			case DecoderState.idle:
+				self.handleIdle(swclk, swdio)
+			case DecoderState.reset:
+				self.handleReset(swclk, swdio)
+			case DecoderState.request:
+				self.handleRequest(swclk, swdio)
+			case DecoderState.ackTurnaround:
+				self.handleAckTurnaround(swclk, swdio)
+			case DecoderState.ack:
+				self.handleAck(swclk, swdio)
+			case DecoderState.dataTurnaround:
+				self.handleDataTurnaround(swclk)
+			case DecoderState.dataRead:
+				self.handleDataRead(swclk, swdio)
+			case DecoderState.dataWrite:
+				self.handleDataWrite(swclk, swdio)
+			case DecoderState.parity:
+				self.handleParity(swclk)
+			case DecoderState.sync:
+				self.handleSync(swclk)
+			case DecoderState.idleTurnaround:
+				self.handleIdleTurnaround(swclk)
+			case DecoderState.waitIdle:
+				self.handleWaitIdle(swclk, swdio)
+			case DecoderState.deactivation:
+				self.handleDeactivation(swclk, swdio)
+			case DecoderState.selectionAlert:
+				self.handleSelectionAlert(swclk, swdio)
+			case DecoderState.activation:
+				self.handleActivation(swclk, swdio)
+			case DecoderState.dormantState:
+				self.handleDormantState(swclk, swdio)
+			case DecoderState.jtagToSWD:
+				self.handleJTAGtoSWD(swclk, swdio)
+
+	def decode(self):
+		while True:
+			# Wait for any clock edge.
+			self.handleClkEdge(*self.wait({0: 'e'}))
