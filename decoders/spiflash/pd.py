@@ -90,8 +90,8 @@ class Decoder(otd.Decoder):
         ('warnings', 'Warnings', (L + 2,)),
     )
     options = (
-        {'id': 'chip', 'desc': 'Chip', 'default': tuple(chips.keys())[0],
-            'values': tuple(chips.keys())},
+        {'id': 'chip', 'desc': 'Chip', 'default': tuple(sorted(chips.keys()))[0],
+            'values': tuple(sorted(chips.keys()))},
         {'id': 'format', 'desc': 'Data format', 'default': 'hex',
             'values': ('hex', 'ascii')},
     )
@@ -125,7 +125,19 @@ class Decoder(otd.Decoder):
     def start(self):
         self.out_ann = self.register(otd.OUTPUT_ANN)
         self.chip = chips[self.options['chip']]
-        self.vendor = self.options['chip'].split('_')[0]
+        # Support both new FlashChip class and legacy dict format
+        if hasattr(self.chip, 'vendor'):
+            self.vendor = self.chip.vendor.lower()
+            # Get address size from chip definition (default to 3 bytes)
+            self.addr_bytes = getattr(self.chip.opts, 'addr_size', 3)
+            # Get vendor-specific commands
+            self.vendor_cmds = getattr(self.chip.opts, 'extra_cmds', {})
+        else:
+            self.vendor = self.options['chip'].split('_')[0]
+            # Legacy format - check for addr_size in dict
+            self.addr_bytes = self.chip.get('addr_size', 3)
+            # Legacy format - check for extra_cmds
+            self.vendor_cmds = self.chip.get('extra_cmds', {})
 
     def putx(self, data):
         # Simplification, most annotations span exactly one SPI byte/packet.
@@ -141,10 +153,17 @@ class Decoder(otd.Decoder):
         return device_name[self.vendor].get(self.device_id, 'Unknown')
 
     def vendor_device(self):
-        return '%s %s' % (self.chip['vendor'], self.device())
+        if hasattr(self.chip, 'vendor'):
+            return '%s %s' % (self.chip.vendor, self.chip.model)
+        else:
+            return '%s %s' % (self.chip['vendor'], self.device())
 
     def cmd_ann_list(self):
-        x, s = cmds[self.state][0], cmds[self.state][1]
+        # Check vendor commands first, then fall back to standard commands
+        if self.state in self.vendor_cmds:
+            x, s = self.vendor_cmds[self.state][0], self.vendor_cmds[self.state][1]
+        else:
+            x, s = cmds[self.state][0], cmds[self.state][1]
         return ['Command: %s (%s)' % (s, x), 'Command: %s' % s,
                 'Cmd: %s' % s, 'Cmd: %s' % x, x]
 
@@ -159,14 +178,18 @@ class Decoder(otd.Decoder):
         self.addr = 0
 
     def emit_addr_bytes(self, mosi):
-        self.addr |= (mosi << ((4 - self.cmdstate) * 8))
-        b = ((3 - (self.cmdstate - 2)) * 8) - 1
-        self.putx([Ann.BIT,
-            ['Address bits %d..%d: 0x%02x' % (b, b - 7, mosi),
-             'Addr bits %d..%d: 0x%02x' % (b, b - 7, mosi),
-             'Addr bits %d..%d' % (b, b - 7), 'A%d..A%d' % (b, b - 7)]])
-        if self.cmdstate == 2:
-            self.ss_field = self.ss
+        # Calculate address byte position based on configurable address size
+        addr_byte_pos = self.cmdstate - 2  # 0-based position in address
+        if addr_byte_pos < self.addr_bytes:
+            shift = (self.addr_bytes - 1 - addr_byte_pos) * 8
+            self.addr |= (mosi << shift)
+            b = ((self.addr_bytes - 1 - addr_byte_pos) * 8) - 1
+            self.putx([Ann.BIT,
+                ['Address bits %d..%d: 0x%02x' % (b, b - 7, mosi),
+                 'Addr bits %d..%d: 0x%02x' % (b, b - 7, mosi),
+                 'Addr bits %d..%d' % (b, b - 7), 'A%d..A%d' % (b, b - 7)]])
+            if self.cmdstate == 2:
+                self.ss_field = self.ss
         if self.cmdstate == 4:
             self.es_field = self.es
             self.putf([Ann.FIELD, ['Address: 0x%06x' % self.addr,
