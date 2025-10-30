@@ -44,6 +44,9 @@ This is the list of <ptype>s and their respective <pdata> values:
    value of the UART data, and a boolean which reflects the validity of the
    UART frame.
  - 'IDLE': The data is always 0.
+ - 'PACKET': The data is a list of (integer) values representing the packet
+   data bytes. This is only output when packet delimiters or lengths are
+   configured and allows higher-level decoders to work with pre-framed data.
 
 The <rxtx> field is 0 for RX packets, 1 for TX packets.
 '''
@@ -178,6 +181,10 @@ class Decoder(otd.Decoder):
         s, halfbit = self.ss_packet[rxtx], self.bit_width / 2.0
         self.put(s - floor(halfbit), self.samplenum + ceil(halfbit), self.out_ann, data)
 
+    def putp_packet(self, rxtx, data):
+        s, halfbit = self.ss_packet[rxtx], self.bit_width / 2.0
+        self.put(s - floor(halfbit), self.samplenum + ceil(halfbit), self.out_python, data)
+
     def putpx(self, rxtx, data):
         s, halfbit = self.startsample[rxtx], self.bit_width / 2.0
         self.put(s - floor(halfbit), self.samplenum + ceil(halfbit), self.out_python, data)
@@ -307,6 +314,8 @@ class Decoder(otd.Decoder):
             if self.options['format'] != 'ascii' and s[-1] == ' ':
                 s = s[:-1] # Drop trailing space.
             self.putx_packet(rxtx, [Ann.RX_PACKET + rxtx, [s]])
+            # Also publish packet data as Python data for higher-level decoders
+            self.putp_packet(rxtx, ['PACKET', rxtx, self.packet_cache[rxtx]])
             self.packet_cache[rxtx] = []
 
     def get_data_bits(self, rxtx, signal):
