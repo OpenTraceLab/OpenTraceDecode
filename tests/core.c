@@ -37,9 +37,9 @@ START_TEST(test_init_exit)
 	int ret;
 
 	ret = otd_init(NULL);
-	fail_unless(ret == OTD_OK, "otd_init() failed: %d.", ret);
+	ck_assert_int_eq(ret, OTD_OK);
 	ret = otd_exit();
-	fail_unless(ret == OTD_OK, "otd_exit() failed: %d.", ret);
+	ck_assert_int_eq(ret, OTD_OK);
 }
 END_TEST
 
@@ -54,13 +54,13 @@ START_TEST(test_init_exit_2)
 	int ret;
 
 	ret = otd_init(NULL);
-	fail_unless(ret == OTD_OK, "otd_init() 1 failed: %d.", ret);
+	ck_assert(ret == OTD_OK);
 	ret = otd_init(NULL);
-	fail_unless(ret != OTD_OK, "otd_init() 2 didn't fail: %d.", ret);
+	ck_assert(ret != OTD_OK);
 	ret = otd_exit();
-	fail_unless(ret == OTD_OK, "otd_exit() 2 failed: %d.", ret);
+	ck_assert(ret == OTD_OK);
 	ret = otd_exit();
-	fail_unless(ret == OTD_OK, "otd_exit() 1 failed: %d.", ret);
+	ck_assert(ret == OTD_OK);
 }
 END_TEST
 
@@ -72,17 +72,17 @@ START_TEST(test_init_exit_3)
 	int ret;
 
 	ret = otd_init(NULL);
-	fail_unless(ret == OTD_OK, "otd_init() 1 failed: %d.", ret);
+	ck_assert(ret == OTD_OK);
 	ret = otd_init(NULL);
-	fail_unless(ret != OTD_OK, "otd_init() 2 didn't fail: %d.", ret);
+	ck_assert(ret != OTD_OK);
 	ret = otd_init(NULL);
-	fail_unless(ret != OTD_OK, "otd_init() 3 didn't fail: %d.", ret);
+	ck_assert(ret != OTD_OK);
 	ret = otd_exit();
-	fail_unless(ret == OTD_OK, "otd_exit() 3 failed: %d.", ret);
+	ck_assert(ret == OTD_OK);
 	ret = otd_exit();
-	fail_unless(ret == OTD_OK, "otd_exit() 2 failed: %d.", ret);
+	ck_assert(ret == OTD_OK);
 	ret = otd_exit();
-	fail_unless(ret == OTD_OK, "otd_exit() 1 failed: %d.", ret);
+	ck_assert(ret == OTD_OK);
 }
 END_TEST
 

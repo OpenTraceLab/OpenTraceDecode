@@ -36,7 +36,7 @@ START_TEST(test_inst_new)
 	otd_decoder_load("uart");
 	otd_session_new(&sess);
 	inst = otd_inst_new(sess, "uart", NULL);
-	fail_unless(inst != NULL, "otd_inst_new() failed.");
+	ck_assert(inst != NULL);
 	otd_exit();
 }
 END_TEST
@@ -58,21 +58,21 @@ START_TEST(test_inst_new_multiple)
 
 	/* Multiple otd_inst_new() calls must work. */
 	inst1 = otd_inst_new(sess, "uart", NULL);
-	fail_unless(inst1 != NULL, "otd_inst_new() 1 failed.");
+	ck_assert(inst1 != NULL);
 	inst2 = otd_inst_new(sess, "spi", NULL);
-	fail_unless(inst2 != NULL, "otd_inst_new() 2 failed.");
+	ck_assert(inst2 != NULL);
 	inst3 = otd_inst_new(sess, "can", NULL);
-	fail_unless(inst3 != NULL, "otd_inst_new() 3 failed.");
+	ck_assert(inst3 != NULL);
 
 	/* The returned instance pointers must not be the same. */
-	fail_unless(inst1 != inst2);
-	fail_unless(inst1 != inst3);
-	fail_unless(inst2 != inst3);
+	ck_assert(inst1 != inst2);
+	ck_assert(inst1 != inst3);
+	ck_assert(inst2 != inst3);
 
 	/* Each instance must have another py_inst than any of the others. */
-	fail_unless(inst1->py_inst != inst2->py_inst);
-	fail_unless(inst1->py_inst != inst3->py_inst);
-	fail_unless(inst2->py_inst != inst3->py_inst);
+	ck_assert(inst1->py_inst != inst2->py_inst);
+	ck_assert(inst1->py_inst != inst3->py_inst);
+	ck_assert(inst2->py_inst != inst3->py_inst);
 
 	otd_exit();
 }
@@ -96,7 +96,7 @@ START_TEST(test_inst_option_set_empty)
 	options = g_hash_table_new_full(g_str_hash, g_str_equal, g_free,
 			(GDestroyNotify)g_variant_unref);
 	ret = otd_inst_option_set(inst, options);
-	fail_unless(ret == OTD_OK, "otd_inst_option_set() with empty options "
+	ck_assert(ret == OTD_OK, "otd_inst_option_set() with empty options "
 			"hash failed: %d.", ret);
 	otd_exit();
 }
@@ -123,17 +123,17 @@ START_TEST(test_inst_option_set_bogus)
 
 	/* NULL instance. */
 	ret = otd_inst_option_set(NULL, options);
-	fail_unless(ret != OTD_OK, "otd_inst_option_set() with NULL "
+	ck_assert(ret != OTD_OK, "otd_inst_option_set() with NULL "
 			"instance failed: %d.", ret);
 
 	/* NULL 'options' GHashTable. */
 	ret = otd_inst_option_set(inst, NULL);
-	fail_unless(ret != OTD_OK, "otd_inst_option_set() with NULL "
+	ck_assert(ret != OTD_OK, "otd_inst_option_set() with NULL "
 			"options hash failed: %d.", ret);
 
 	/* NULL instance and NULL 'options' GHashTable. */
 	ret = otd_inst_option_set(NULL, NULL);
-	fail_unless(ret != OTD_OK, "otd_inst_option_set() with NULL "
+	ck_assert(ret != OTD_OK, "otd_inst_option_set() with NULL "
 			"instance and NULL options hash failed: %d.", ret);
 
 	otd_exit();

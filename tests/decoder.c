@@ -33,7 +33,7 @@ START_TEST(test_load_all)
 
 	otd_init(DECODERS_TESTDIR);
 	ret = otd_decoder_load_all();
-	fail_unless(ret == OTD_OK, "otd_decoder_load_all() failed: %d.", ret);
+	ck_assert(ret == OTD_OK);
 	otd_exit();
 }
 END_TEST
@@ -48,7 +48,7 @@ START_TEST(test_load_all_no_init)
 	int ret;
 
 	ret = otd_decoder_load_all();
-	fail_unless(ret != OTD_OK, "otd_decoder_load_all() didn't fail properly.");
+	ck_assert(ret != OTD_OK);
 }
 END_TEST
 
@@ -62,11 +62,11 @@ START_TEST(test_load)
 
 	otd_init(DECODERS_TESTDIR);
 	ret = otd_decoder_load("uart");
-	fail_unless(ret == OTD_OK, "otd_decoder_load(uart) failed: %d.", ret);
+	ck_assert(ret == OTD_OK);
 	ret = otd_decoder_load("spi");
-	fail_unless(ret == OTD_OK, "otd_decoder_load(spi) failed: %d.", ret);
+	ck_assert(ret == OTD_OK);
 	ret = otd_decoder_load("usb_signalling");
-	fail_unless(ret == OTD_OK, "otd_decoder_load(usb_signalling) failed: %d.", ret);
+	ck_assert(ret == OTD_OK);
 	otd_exit();
 }
 END_TEST
@@ -79,17 +79,17 @@ START_TEST(test_load_bogus)
 {
 	otd_init(DECODERS_TESTDIR);
 	/* http://sigrok.org/bugzilla/show_bug.cgi?id=176 */
-	fail_unless(otd_decoder_load(NULL) != OTD_OK);
-	fail_unless(otd_decoder_load("") != OTD_OK);
-	fail_unless(otd_decoder_load(" ") != OTD_OK);
-	fail_unless(otd_decoder_load("nonexisting") != OTD_OK);
-	fail_unless(otd_decoder_load("UART") != OTD_OK);
-	fail_unless(otd_decoder_load("UaRt") != OTD_OK);
-	fail_unless(otd_decoder_load("u a r t") != OTD_OK);
-	fail_unless(otd_decoder_load("uart ") != OTD_OK);
-	fail_unless(otd_decoder_load(" uart") != OTD_OK);
-	fail_unless(otd_decoder_load(" uart ") != OTD_OK);
-	fail_unless(otd_decoder_load("uart spi") != OTD_OK);
+	ck_assert(otd_decoder_load(NULL) != OTD_OK);
+	ck_assert(otd_decoder_load("") != OTD_OK);
+	ck_assert(otd_decoder_load(" ") != OTD_OK);
+	ck_assert(otd_decoder_load("nonexisting") != OTD_OK);
+	ck_assert(otd_decoder_load("UART") != OTD_OK);
+	ck_assert(otd_decoder_load("UaRt") != OTD_OK);
+	ck_assert(otd_decoder_load("u a r t") != OTD_OK);
+	ck_assert(otd_decoder_load("uart ") != OTD_OK);
+	ck_assert(otd_decoder_load(" uart") != OTD_OK);
+	ck_assert(otd_decoder_load(" uart ") != OTD_OK);
+	ck_assert(otd_decoder_load("uart spi") != OTD_OK);
 	otd_exit();
 }
 END_TEST
@@ -101,13 +101,13 @@ END_TEST
 START_TEST(test_load_valid_and_bogus)
 {
 	otd_init(DECODERS_TESTDIR);
-	fail_unless(otd_decoder_load("") != OTD_OK);
-	fail_unless(otd_decoder_load("uart") == OTD_OK);
-	fail_unless(otd_decoder_load("") != OTD_OK);
-	fail_unless(otd_decoder_load("spi") == OTD_OK);
-	fail_unless(otd_decoder_load("") != OTD_OK);
-	fail_unless(otd_decoder_load("can") == OTD_OK);
-	fail_unless(otd_decoder_load("") != OTD_OK);
+	ck_assert(otd_decoder_load("") != OTD_OK);
+	ck_assert(otd_decoder_load("uart") == OTD_OK);
+	ck_assert(otd_decoder_load("") != OTD_OK);
+	ck_assert(otd_decoder_load("spi") == OTD_OK);
+	ck_assert(otd_decoder_load("") != OTD_OK);
+	ck_assert(otd_decoder_load("can") == OTD_OK);
+	ck_assert(otd_decoder_load("") != OTD_OK);
 	otd_exit();
 }
 END_TEST
@@ -123,11 +123,11 @@ START_TEST(test_load_multiple)
 
 	otd_init(DECODERS_TESTDIR);
 	ret = otd_decoder_load("uart");
-	fail_unless(ret == OTD_OK, "Loading uart PD 1x failed: %d", ret);
+	ck_assert(ret == OTD_OK);
 	ret = otd_decoder_load("uart");
-	fail_unless(ret == OTD_OK, "Loading uart PD 2x failed: %d", ret);
+	ck_assert(ret == OTD_OK);
 	ret = otd_decoder_load("uart");
-	fail_unless(ret == OTD_OK, "Loading uart PD 3x failed: %d", ret);
+	ck_assert(ret == OTD_OK);
 	otd_exit();
 }
 END_TEST
@@ -141,8 +141,8 @@ START_TEST(test_load_nonexisting_pd_dir)
 #if 0
 	/* TODO: Build libopentracedecode with no default PD dir. */
 	otd_init("/nonexisting_dir");
-	fail_unless(otd_decoder_load("spi") != OTD_OK);
-	fail_unless(g_slist_length((GSList *)otd_decoder_list()) == 0);
+	ck_assert(otd_decoder_load("spi") != OTD_OK);
+	ck_assert(g_slist_length((GSList *)otd_decoder_list()) == 0);
 	otd_exit();
 #endif
 }
@@ -158,9 +158,9 @@ START_TEST(test_unload_all)
 
 	otd_init(DECODERS_TESTDIR);
 	ret = otd_decoder_load_all();
-	fail_unless(ret == OTD_OK, "otd_decoder_load_all() failed: %d.", ret);
+	ck_assert(ret == OTD_OK);
 	ret = otd_decoder_unload_all();
-	fail_unless(ret == OTD_OK, "otd_decoder_unload_all() failed: %d.", ret);
+	ck_assert(ret == OTD_OK);
 	otd_exit();
 }
 END_TEST
@@ -174,7 +174,7 @@ START_TEST(test_unload_all_no_init)
 	int ret;
 
 	ret = otd_decoder_unload_all();
-	fail_unless(ret == OTD_OK, "otd_decoder_unload_all() failed: %d.", ret);
+	ck_assert(ret == OTD_OK);
 }
 END_TEST
 
@@ -189,9 +189,9 @@ START_TEST(test_unload_all_multiple)
 	otd_init(DECODERS_TESTDIR);
 	for (i = 0; i < 10; i++) {
 		ret = otd_decoder_load_all();
-		fail_unless(ret == OTD_OK, "otd_decoder_load_all() failed: %d.", ret);
+		ck_assert(ret == OTD_OK);
 		ret = otd_decoder_unload_all();
-		fail_unless(ret == OTD_OK, "otd_decoder_unload_all() failed: %d.", ret);
+		ck_assert(ret == OTD_OK);
 	}
 	otd_exit();
 }
@@ -208,7 +208,7 @@ START_TEST(test_unload_all_multiple_noload)
 	otd_init(DECODERS_TESTDIR);
 	for (i = 0; i < 10; i++) {
 		ret = otd_decoder_unload_all();
-		fail_unless(ret == OTD_OK, "otd_decoder_unload_all() failed: %d.", ret);
+		ck_assert(ret == OTD_OK);
 	}
 	otd_exit();
 }
@@ -225,11 +225,11 @@ START_TEST(test_unload)
 
 	otd_init(DECODERS_TESTDIR);
 	ret = otd_decoder_load("uart");
-	fail_unless(ret == OTD_OK, "otd_decoder_load(uart) failed: %d.", ret);
+	ck_assert(ret == OTD_OK);
 	dec = otd_decoder_get_by_id("uart");
-	fail_unless(dec != NULL);
+	ck_assert(dec != NULL);
 	ret = otd_decoder_unload(dec);
-	fail_unless(ret == OTD_OK, "otd_decoder_unload() failed: %d.", ret);
+	ck_assert(ret == OTD_OK);
 	otd_exit();
 }
 END_TEST
@@ -241,7 +241,7 @@ END_TEST
 START_TEST(test_unload_null)
 {
 	otd_init(DECODERS_TESTDIR);
-	fail_unless(otd_decoder_unload(NULL) != OTD_OK);
+	ck_assert(otd_decoder_unload(NULL) != OTD_OK);
 	otd_exit();
 }
 END_TEST
@@ -252,7 +252,7 @@ END_TEST
  */
 START_TEST(test_unload_null_no_init)
 {
-	fail_unless(otd_decoder_unload(NULL) != OTD_OK);
+	ck_assert(otd_decoder_unload(NULL) != OTD_OK);
 }
 END_TEST
 
@@ -264,7 +264,7 @@ START_TEST(test_decoder_list)
 {
 	otd_init(DECODERS_TESTDIR);
 	otd_decoder_load_all();
-	fail_unless(otd_decoder_list() != NULL);
+	ck_assert(otd_decoder_list() != NULL);
 	otd_exit();
 }
 END_TEST
@@ -277,7 +277,7 @@ END_TEST
 START_TEST(test_decoder_list_no_load)
 {
 	otd_init(DECODERS_TESTDIR);
-	fail_unless(otd_decoder_list() == NULL);
+	ck_assert(otd_decoder_list() == NULL);
 	otd_exit();
 }
 END_TEST
@@ -291,7 +291,7 @@ END_TEST
 START_TEST(test_decoder_list_no_init)
 {
 	otd_decoder_load_all();
-	fail_unless(otd_decoder_list() == NULL);
+	ck_assert(otd_decoder_list() == NULL);
 }
 END_TEST
 
@@ -302,7 +302,7 @@ END_TEST
  */
 START_TEST(test_decoder_list_no_init_no_load)
 {
-	fail_unless(otd_decoder_list() == NULL);
+	ck_assert(otd_decoder_list() == NULL);
 }
 END_TEST
 
@@ -313,15 +313,15 @@ END_TEST
 START_TEST(test_decoder_list_correct_numbers)
 {
 	otd_init(DECODERS_TESTDIR);
-	fail_unless(g_slist_length((GSList *)otd_decoder_list()) == 0);
+	ck_assert(g_slist_length((GSList *)otd_decoder_list()) == 0);
 	otd_decoder_load("spi");
-	fail_unless(g_slist_length((GSList *)otd_decoder_list()) == 1);
+	ck_assert(g_slist_length((GSList *)otd_decoder_list()) == 1);
 	otd_decoder_load("uart");
-	fail_unless(g_slist_length((GSList *)otd_decoder_list()) == 2);
+	ck_assert(g_slist_length((GSList *)otd_decoder_list()) == 2);
 	otd_decoder_load("can");
-	fail_unless(g_slist_length((GSList *)otd_decoder_list()) == 3);
+	ck_assert(g_slist_length((GSList *)otd_decoder_list()) == 3);
 	otd_decoder_load("can"); /* Load same PD twice. */
-	fail_unless(g_slist_length((GSList *)otd_decoder_list()) == 3);
+	ck_assert(g_slist_length((GSList *)otd_decoder_list()) == 3);
 	otd_exit();
 }
 END_TEST
@@ -334,11 +334,11 @@ START_TEST(test_get_by_id)
 {
 	otd_init(DECODERS_TESTDIR);
 	otd_decoder_load("uart");
-	fail_unless(otd_decoder_get_by_id("uart") != NULL);
-	fail_unless(otd_decoder_get_by_id("can") == NULL);
+	ck_assert(otd_decoder_get_by_id("uart") != NULL);
+	ck_assert(otd_decoder_get_by_id("can") == NULL);
 	otd_decoder_load("can");
-	fail_unless(otd_decoder_get_by_id("uart") != NULL);
-	fail_unless(otd_decoder_get_by_id("can") != NULL);
+	ck_assert(otd_decoder_get_by_id("uart") != NULL);
+	ck_assert(otd_decoder_get_by_id("can") != NULL);
 	otd_exit();
 }
 END_TEST
@@ -351,10 +351,10 @@ START_TEST(test_get_by_id_multiple)
 {
 	otd_init(DECODERS_TESTDIR);
 	otd_decoder_load("uart");
-	fail_unless(otd_decoder_get_by_id("uart") != NULL);
-	fail_unless(otd_decoder_get_by_id("uart") != NULL);
-	fail_unless(otd_decoder_get_by_id("uart") != NULL);
-	fail_unless(otd_decoder_get_by_id("uart") != NULL);
+	ck_assert(otd_decoder_get_by_id("uart") != NULL);
+	ck_assert(otd_decoder_get_by_id("uart") != NULL);
+	ck_assert(otd_decoder_get_by_id("uart") != NULL);
+	ck_assert(otd_decoder_get_by_id("uart") != NULL);
 	otd_exit();
 }
 END_TEST
@@ -366,17 +366,17 @@ END_TEST
 START_TEST(test_get_by_id_bogus)
 {
 	otd_init(DECODERS_TESTDIR);
-	fail_unless(otd_decoder_get_by_id(NULL) == NULL);
-	fail_unless(otd_decoder_get_by_id("") == NULL);
-	fail_unless(otd_decoder_get_by_id(" ") == NULL);
-	fail_unless(otd_decoder_get_by_id("nonexisting") == NULL);
-	fail_unless(otd_decoder_get_by_id("sPi") == NULL);
-	fail_unless(otd_decoder_get_by_id("SPI") == NULL);
-	fail_unless(otd_decoder_get_by_id("s p i") == NULL);
-	fail_unless(otd_decoder_get_by_id(" spi") == NULL);
-	fail_unless(otd_decoder_get_by_id("spi ") == NULL);
-	fail_unless(otd_decoder_get_by_id(" spi ") == NULL);
-	fail_unless(otd_decoder_get_by_id("spi uart") == NULL);
+	ck_assert(otd_decoder_get_by_id(NULL) == NULL);
+	ck_assert(otd_decoder_get_by_id("") == NULL);
+	ck_assert(otd_decoder_get_by_id(" ") == NULL);
+	ck_assert(otd_decoder_get_by_id("nonexisting") == NULL);
+	ck_assert(otd_decoder_get_by_id("sPi") == NULL);
+	ck_assert(otd_decoder_get_by_id("SPI") == NULL);
+	ck_assert(otd_decoder_get_by_id("s p i") == NULL);
+	ck_assert(otd_decoder_get_by_id(" spi") == NULL);
+	ck_assert(otd_decoder_get_by_id("spi ") == NULL);
+	ck_assert(otd_decoder_get_by_id(" spi ") == NULL);
+	ck_assert(otd_decoder_get_by_id("spi uart") == NULL);
 	otd_exit();
 }
 END_TEST
@@ -394,7 +394,7 @@ START_TEST(test_doc_get)
 	otd_decoder_load("uart");
 	dec = otd_decoder_get_by_id("uart");
 	doc = otd_decoder_doc_get(dec);
-	fail_unless(doc != NULL);
+	ck_assert(doc != NULL);
 	g_free(doc);
 	otd_exit();
 }
@@ -415,8 +415,8 @@ START_TEST(test_doc_get_null)
 	dec.py_mod = NULL;
 
 	otd_init(DECODERS_TESTDIR);
-	fail_unless(otd_decoder_doc_get(NULL) == NULL);
-	fail_unless(otd_decoder_doc_get(&dec) == NULL);
+	ck_assert(otd_decoder_doc_get(NULL) == NULL);
+	ck_assert(otd_decoder_doc_get(&dec) == NULL);
 	otd_exit();
 }
 END_TEST
