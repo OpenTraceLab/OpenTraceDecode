@@ -6,6 +6,7 @@ on:
     paths:
       - "src/**"
       - "include/**"
+      - "decoders/**"
       - "meson.build"
       - "meson_options.txt"
       - ".github/workflows/**"
@@ -15,6 +16,7 @@ on:
     paths:
       - "src/**"
       - "include/**"
+      - "decoders/**"
       - "meson.build"
       - "meson_options.txt"
       - ".github/workflows/**"
