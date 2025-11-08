@@ -38,6 +38,10 @@ class Decoder(otd.Decoder):
         ("times", "Times", (5, 6, 7, 10)),
         ("data", "Data", (8, 9)),
     )
+    
+    binary = (
+        ('rx', 'RX Dump'),
+    )
 
     def __init__(self, **kwargs):
         self.state = "IDLE"
@@ -51,6 +55,7 @@ class Decoder(otd.Decoder):
         self.out_clockrate = self.register(
             otd.OUTPUT_META, meta=(int, "Clockrate", "Master clock rate")
         )
+        self.out_binary = self.register(otd.OUTPUT_BINARY)
 
     def reset(self):
         self.samplerate = None
@@ -111,7 +116,6 @@ class Decoder(otd.Decoder):
                 if self.matched[0]: #New clock edge
                     clock_edges.append(self.samplenum + ld)
                 if self.matched[2]:  # Clock in timeout, end of data
-                    clock_edges.append(self.samplenum)
                     break
             i = 1
             bits = len(clock_edges) * [0]
@@ -139,7 +143,8 @@ class Decoder(otd.Decoder):
             for i in range(2, bitcount+2):
                 self.put(clock_edges[i], clock_edges[i+1], self.out_ann, [0, [f'{bits[i]}']])
                 data_word = (data_word << 1) | bits[i] 
-                
+            self.put(clock_edges[2], clock_edges[-1], self.out_ann, [8, [f'{data_word:0{(bitcount+3)//4}X}']])
+            self.put(clock_edges[2], clock_edges[-1], self.out_binary, [0, data_word.to_bytes(-(-bitcount//8), byteorder='big')])
             timeout = clock_edges[-1]
             self.put(
                 clock_edges[2],
